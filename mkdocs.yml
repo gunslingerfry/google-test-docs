@@ -1,0 +1,29 @@
+site_name: Google Docs Mirror
+nav:
+    - Home: index.md
+    - Google Test:
+        - Index: gtest/googletest/docs/Documentation.md
+        - Primer: gtest/googletest/docs/primer.md
+        - FAQ: gtest/googletest/docs/faq.md
+        - Advanced: gtest/googletest/docs/advanced.md
+        - Xcode: gtest/googletest/docs/XcodeGuide.md
+        - Pump: gtest/googletest/docs/PumpManual.md
+        - pkg-config: gtest/googletest/docs/Pkgconfig.md
+        - Samples: gtest/googletest/docs/samples.md
+    - Google Mock:
+        - Index: gtest/googlemock/docs/Documentation.md
+        - For Dummies: gtest/googlemock/docs/ForDummies.md
+        - Cheat Sheet: gtest/googlemock/docs/CheatSheet.md
+        - Cookbook: gtest/googlemock/docs/CookBook.md
+        - FAQ: gtest/googlemock/docs/FrequentlyAskedQuestions.md
+        - Known Issues: gtest/googlemock/docs/KnownIssues.md
+        - Design Doc: gtest/googlemock/docs/DesignDoc.md
+repo_url: https://github.com/google/googletest
+repo_name: Google Test
+# edit_uri: "blob/master/googletest/docs/"
+edit_uri: ""
+theme:
+    name: 'material'
+markdown_extensions:
+    - toc:
+        permalink: True
