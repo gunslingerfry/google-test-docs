@@ -1,0 +1,658 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>Xcode - Google Docs Mirror</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
+      
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#quick-start" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Google Docs Mirror" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Google Docs Mirror
+              </span>
+              <span class="md-header-nav__topic">
+                Xcode
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/google/googletest" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Google Test
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Google Docs Mirror" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Google Docs Mirror
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/google/googletest" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Google Test
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Google Test
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Google Test
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Documentation/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../primer/" title="Primer" class="md-nav__link">
+      Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../advanced/" title="Advanced" class="md-nav__link">
+      Advanced
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Xcode" class="md-nav__link md-nav__link--active">
+      Xcode
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PumpManual/" title="Pump" class="md-nav__link">
+      Pump
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pkgconfig/" title="pkg-config" class="md-nav__link">
+      pkg-config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../samples/" title="Samples" class="md-nav__link">
+      Samples
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Google Mock
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Google Mock
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googlemock/docs/Documentation/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googlemock/docs/ForDummies/" title="For Dummies" class="md-nav__link">
+      For Dummies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googlemock/docs/CheatSheet/" title="Cheat Sheet" class="md-nav__link">
+      Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googlemock/docs/CookBook/" title="Cookbook" class="md-nav__link">
+      Cookbook
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googlemock/docs/FrequentlyAskedQuestions/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googlemock/docs/KnownIssues/" title="Known Issues" class="md-nav__link">
+      Known Issues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googlemock/docs/DesignDoc/" title="Design Doc" class="md-nav__link">
+      Design Doc
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>This guide will explain how to use the Google Testing Framework in your Xcode projects on Mac OS X. This tutorial begins by quickly explaining what to do for experienced users. After the quick start, the guide goes provides additional explanation about each step.</p>
+<h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
+<p>Here is the quick guide for using Google Test in your Xcode project.</p>
+<ol>
+<li>Download the source from the <a href="https://github.com/google/googletest">website</a> using this command: <code>svn checkout http://googletest.googlecode.com/svn/trunk/ googletest-read-only</code>.</li>
+<li>Open up the <code>gtest.xcodeproj</code> in the <code>googletest-read-only/xcode/</code> directory and build the gtest.framework.</li>
+<li>Create a new "Shell Tool" target in your Xcode project called something like "UnitTests".</li>
+<li>Add the gtest.framework to your project and add it to the "Link Binary with Libraries" build phase of "UnitTests".</li>
+<li>Add your unit test source code to the "Compile Sources" build phase of "UnitTests".</li>
+<li>Edit the "UnitTests" executable and add an environment variable named "DYLD_FRAMEWORK_PATH" with a value equal to the path to the framework containing the gtest.framework relative to the compiled executable.</li>
+<li>Build and Go.</li>
+</ol>
+<p>The following sections further explain each of the steps listed above in depth, describing in more detail how to complete it including some variations.</p>
+<h1 id="get-the-source">Get the Source<a class="headerlink" href="#get-the-source" title="Permanent link">&para;</a></h1>
+<p>Currently, the gtest.framework discussed here isn't available in a tagged release of Google Test, it is only available in the trunk. As explained at the Google Test <a href="https://github.com/google/googletest">site</a>, you can get the code from anonymous SVN with this command:</p>
+<pre><code>svn checkout http://googletest.googlecode.com/svn/trunk/ googletest-read-only
+</code></pre>
+
+<p>Alternatively, if you are working with Subversion in your own code base, you can add Google Test as an external dependency to your own Subversion repository. By following this approach, everyone that checks out your svn repository will also receive a copy of Google Test (a specific version, if you wish) without having to check it out explicitly. This makes the set up of your project simpler and reduces the copied code in the repository.</p>
+<p>To use <code>svn:externals</code>, decide where you would like to have the external source reside. You might choose to put the external source inside the trunk, because you want it to be part of the branch when you make a release. However, keeping it outside the trunk in a version-tagged directory called something like <code>third-party/googletest/1.0.1</code>, is another option. Once the location is established, use <code>svn propedit svn:externals _directory_</code> to set the svn:externals property on a directory in your repository. This directory won't contain the code, but be its versioned parent directory.</p>
+<p>The command <code>svn propedit</code> will bring up your Subversion editor, making editing the long, (potentially multi-line) property simpler. This same method can be used to check out a tagged branch, by using the appropriate URL (e.g. <code>https://github.com/google/googletest/releases/tag/release-1.0.1</code>). Additionally, the svn:externals property allows the specification of a particular revision of the trunk with the <code>-r_##_</code> option (e.g. <code>externals/src/googletest -r60 http://googletest.googlecode.com/svn/trunk</code>).</p>
+<p>Here is an example of using the svn:externals properties on a trunk (read via <code>svn propget</code>) of a project. This value checks out a copy of Google Test into the <code>trunk/externals/src/googletest/</code> directory.</p>
+<pre><code>[Computer:svn] user$ svn propget svn:externals trunk
+externals/src/googletest http://googletest.googlecode.com/svn/trunk
+</code></pre>
+
+<h1 id="add-the-framework-to-your-project">Add the Framework to Your Project<a class="headerlink" href="#add-the-framework-to-your-project" title="Permanent link">&para;</a></h1>
+<p>The next step is to build and add the gtest.framework to your own project. This guide describes two common ways below.</p>
+<ul>
+<li><strong>Option 1</strong> --- The simplest way to add Google Test to your own project, is to open gtest.xcodeproj (found in the xcode/ directory of the Google Test trunk) and build the framework manually. Then, add the built framework into your project using the "Add-&gt;Existing Framework..." from the context menu or "Project-&gt;Add..." from the main menu. The gtest.framework is relocatable and contains the headers and object code that you'll need to make tests. This method requires rebuilding every time you upgrade Google Test in your project.</li>
+<li><strong>Option 2</strong> --- If you are going to be living off the trunk of Google Test, incorporating its latest features into your unit tests (or are a Google Test developer yourself). You'll want to rebuild the framework every time the source updates. to do this, you'll need to add the gtest.xcodeproj file, not the framework itself, to your own Xcode project. Then, from the build products that are revealed by the project's disclosure triangle, you can find the gtest.framework, which can be added to your targets (discussed below).</li>
+</ul>
+<h1 id="make-a-test-target">Make a Test Target<a class="headerlink" href="#make-a-test-target" title="Permanent link">&para;</a></h1>
+<p>To start writing tests, make a new "Shell Tool" target. This target template is available under BSD, Cocoa, or Carbon. Add your unit test source code to the "Compile Sources" build phase of the target.</p>
+<p>Next, you'll want to add gtest.framework in two different ways, depending upon which option you chose above.</p>
+<ul>
+<li><strong>Option 1</strong> --- During compilation, Xcode will need to know that you are linking against the gtest.framework. Add the gtest.framework to the "Link Binary with Libraries" build phase of your test target. This will include the Google Test headers in your header search path, and will tell the linker where to find the library.</li>
+<li><strong>Option 2</strong> --- If your working out of the trunk, you'll also want to add gtest.framework to your "Link Binary with Libraries" build phase of your test target. In addition, you'll  want to add the gtest.framework as a dependency to your unit test target. This way, Xcode will make sure that gtest.framework is up to date, every time your build your target. Finally, if you don't share build directories with Google Test, you'll have to copy the gtest.framework into your own build products directory using a "Run Script" build phase.</li>
+</ul>
+<h1 id="set-up-the-executable-run-environment">Set Up the Executable Run Environment<a class="headerlink" href="#set-up-the-executable-run-environment" title="Permanent link">&para;</a></h1>
+<p>Since the unit test executable is a shell tool, it doesn't have a bundle with a <code>Contents/Frameworks</code> directory, in which to place gtest.framework. Instead, the dynamic linker must be told at runtime to search for the framework in another location. This can be accomplished by setting the "DYLD_FRAMEWORK_PATH" environment variable in the "Edit Active Executable ..." Arguments tab, under "Variables to be set in the environment:". The path for this value is the path (relative or absolute) of the directory containing the gtest.framework.</p>
+<p>If you haven't set up the DYLD_FRAMEWORK_PATH, correctly, you might get a message like this:</p>
+<pre><code>[Session started at 2008-08-15 06:23:57 -0600.]
+  dyld: Library not loaded: @loader_path/../Frameworks/gtest.framework/Versions/A/gtest
+    Referenced from: /Users/username/Documents/Sandbox/gtestSample/build/Debug/WidgetFrameworkTest
+    Reason: image not found
+</code></pre>
+
+<p>To correct this problem, go to to the directory containing the executable named in "Referenced from:" value in the error message above. Then, with the terminal in this location, find the relative path to the directory containing the gtest.framework. That is the value you'll need to set as the DYLD_FRAMEWORK_PATH.</p>
+<h1 id="build-and-go">Build and Go<a class="headerlink" href="#build-and-go" title="Permanent link">&para;</a></h1>
+<p>Now, when you click "Build and Go", the test will be executed. Dumping out something like this:</p>
+<pre><code>[Session started at 2008-08-06 06:36:13 -0600.]
+[==========] Running 2 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 2 tests from WidgetInitializerTest
+[ RUN      ] WidgetInitializerTest.TestConstructor
+[       OK ] WidgetInitializerTest.TestConstructor
+[ RUN      ] WidgetInitializerTest.TestConversion
+[       OK ] WidgetInitializerTest.TestConversion
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test case ran.
+[  PASSED  ] 2 tests.
+
+The Debugger has exited with status 0.  
+</code></pre>
+
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>Unit testing is a valuable way to ensure your data model stays valid even during rapid development or refactoring. The Google Testing Framework is a great unit testing framework for C and C++ which integrates well with an Xcode development environment.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../advanced/" title="Advanced" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Advanced
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../PumpManual/" title="Pump" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Pump
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.a353778b.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
