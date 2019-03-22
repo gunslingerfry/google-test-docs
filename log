@@ -91,3 +91,26 @@ Merge made by the 'recursive' strategy.
  googletest/test/gtest_unittest.cc                  | 70 ++++++++++++++++------
  10 files changed, 74 insertions(+), 104 deletions(-)
 Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googlemock/include/gmock/gmock-actions.h                |   8 +++-----
+ googlemock/include/gmock/gmock-generated-actions.h      | 140 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------------------------------------------
+ googlemock/include/gmock/gmock-generated-actions.h.pump |   6 +++---
+ googlemock/test/gmock-internal-utils_test.cc            |   2 --
+ googletest/docs/advanced.md                             |   2 ++
+ googletest/include/gtest/internal/gtest-internal.h      |   5 +----
+ googletest/src/gtest-port.cc                            |  10 ++++++----
+ googletest/test/gtest_unittest.cc                       |   5 ++---
+ 8 files changed, 99 insertions(+), 79 deletions(-)
+Already up-to-date.

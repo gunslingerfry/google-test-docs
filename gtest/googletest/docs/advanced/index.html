@@ -2589,6 +2589,7 @@ namespace:</p>
 </tbody>
 </table>
 <p>For more details, see the comments at the definitions of these functions.</p>
+<p>NOTE: The <code>INSTANTIATE_TEST_SUITE_P</code> keyword is recommended (addressing http://go/gh/google/googletest/issues/1085)  For 1.8.1 and previous releases the keyword is <code>INSTANTIATE_TEST_CASE_P</code>. which has been deprecated in favor of INSTANTIATE_TEST_SUITE_P.</p>
 <p>The following statement will instantiate tests from the <code>FooTest</code> test suite each
 with parameter values <code>"meeny"</code>, <code>"miny"</code>, and <code>"moe"</code>.</p>
 <pre><code class="c++">INSTANTIATE_TEST_SUITE_P(InstantiationName,
