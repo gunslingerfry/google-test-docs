@@ -14,4 +14,4 @@ Sidebar on your left <=
 Not important.
 
 ## Yeah, but like, what if you're mining my data or something?
-Ok, fine. This is hosted on GitHub and is entirely open source. See it [here](https://github.com/gunslingerfry/googletest). It [_should_](https://squidfunk.github.io/mkdocs-material/compliance/) comply with [GPDPDR](https://www.google.com/search?q=GPDR) or whatever.
+Ok, fine. This is hosted on GitHub and is entirely open source. See it [here](https://github.com/gunslingerfry/googletest) and [here](https://github.com/gunslingerfry/google-test-docs). It [_should_](https://squidfunk.github.io/mkdocs-material/compliance/) comply with [GPDPDR](https://www.google.com/search?q=GPDR) or whatever.
