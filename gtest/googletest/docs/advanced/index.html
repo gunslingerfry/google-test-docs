@@ -2475,8 +2475,10 @@ calling the <code>::testing::AddGlobalTestEnvironment()</code> function:</p>
 </code></pre>
 
 <p>Now, when <code>RUN_ALL_TESTS()</code> is called, it first calls the <code>SetUp()</code> method of
-the environment object, then runs the tests if there was no fatal failures, and
-finally calls <code>TearDown()</code> of the environment object.</p>
+each environment object, then runs the tests if none of the environments
+reported fatal failures and <code>GTEST_SKIP()</code> was not called. <code>RUN_ALL_TESTS()</code>
+always calls <code>TearDown()</code> with each environment object, regardless of whether
+or not the tests were run.</p>
 <p>It's OK to register multiple environment objects. In this case, their <code>SetUp()</code>
 will be called in the order they are registered, and their <code>TearDown()</code> will be
 called in the reverse order.</p>

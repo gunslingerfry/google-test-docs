@@ -73,21 +73,6 @@
 GTEST_DISABLE_MSC_WARNINGS_PUSH_(4251 \
 /* class A needs to have dll-interface to be used by clients of class B */)
 
-// Depending on the platform, different string classes are available.
-// On Linux, in addition to ::std::string, Google also makes use of
-// class ::string, which has the same interface as ::std::string, but
-// has a different implementation.
-//
-// You can define GTEST_HAS_GLOBAL_STRING to 1 to indicate that
-// ::string is available AND is a distinct type to ::std::string, or
-// define it to 0 to indicate otherwise.
-//
-// If ::std::string and ::string are the same class on your platform
-// due to aliasing, you should define GTEST_HAS_GLOBAL_STRING to 0.
-//
-// If you do not define GTEST_HAS_GLOBAL_STRING, it is defined
-// heuristically.
-
 namespace testing {
 
 // Silence C4100 (unreferenced formal parameter) and 4805
@@ -1915,6 +1900,11 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 // Generates a fatal failure with a generic message.
 #define GTEST_FAIL() GTEST_FATAL_FAILURE_("Failed")
 
+// Like GTEST_FAIL(), but at the given source file location.
+#define GTEST_FAIL_AT(file, line)         \
+  GTEST_MESSAGE_AT_(file, line, "Failed", \
+                    ::testing::TestPartResult::kFatalFailure)
+
 // Define this macro to 1 to omit the definition of FAIL(), which is a
 // generic name and clashes with some other libraries.
 #if !GTEST_DONT_DEFINE_FAIL
@@ -2219,12 +2209,6 @@ class GTEST_API_ ScopedTrace {
     PushTrace(file, line, message ? message : "(null)");
   }
 
-#if GTEST_HAS_GLOBAL_STRING
-  ScopedTrace(const char* file, int line, const ::string& message) {
-    PushTrace(file, line, message);
-  }
-#endif
-
   ScopedTrace(const char* file, int line, const std::string& message) {
     PushTrace(file, line, message);
   }
@@ -2448,8 +2432,8 @@ TestInfo* RegisterTest(const char* test_suite_name, const char* test_name,
   return internal::MakeAndRegisterTestInfo(
       test_suite_name, test_name, type_param, value_param,
       internal::CodeLocation(file, line), internal::GetTypeId<TestT>(),
-      internal::SuiteApiResolver<TestT>::GetSetUpCaseOrSuite(),
-      internal::SuiteApiResolver<TestT>::GetTearDownCaseOrSuite(),
+      internal::SuiteApiResolver<TestT>::GetSetUpCaseOrSuite(file, line),
+      internal::SuiteApiResolver<TestT>::GetTearDownCaseOrSuite(file, line),
       new FactoryImpl{std::move(factory)});
 }
 

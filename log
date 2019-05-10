@@ -1,2 +1,140 @@
 Already up-to-date.
 Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/src/gtest.cc                            |  52 +-
+ googletest/test/googletest-json-outfiles-test.py   |  80 ++-
+ googletest/test/googletest-json-output-unittest.py | 658 ++++++++++++---------
+ googletest/test/gtest_xml_outfiles_test.py         |   4 +-
+ googletest/test/gtest_xml_output_unittest.py       |  60 +-
+ 5 files changed, 518 insertions(+), 336 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googlemock/CMakeLists.txt                          |   2 +-
+ googlemock/include/gmock/gmock-actions.h           |   3 -
+ googlemock/include/gmock/gmock-matchers.h          |  12 +-
+ googlemock/test/gmock-actions_test.cc              |   8 -
+ googlemock/test/gmock-matchers_test.cc             | 278 +--------------------
+ googletest/include/gtest/gtest-matchers.h          |  75 +-----
+ googletest/include/gtest/gtest-message.h           |   6 -
+ googletest/include/gtest/gtest-printers.h          |  28 +--
+ googletest/include/gtest/gtest.h                   |  21 --
+ .../gtest/internal/gtest-death-test-internal.h     |   6 -
+ googletest/include/gtest/internal/gtest-port.h     |  63 +----
+ googletest/src/gtest-death-test.cc                 |   4 +
+ googletest/src/gtest-matchers.cc                   |  55 ----
+ googletest/src/gtest-port.cc                       |   7 -
+ googletest/src/gtest-printers.cc                   |  21 +-
+ googletest/src/gtest.cc                            |  13 +-
+ googletest/test/googletest-death-test-test.cc      |  11 -
+ googletest/test/googletest-port-test.cc            |   7 +-
+ googletest/test/googletest-printers-test.cc        |  73 +-----
+ googletest/test/gtest_unittest.cc                  |  79 ------
+ 20 files changed, 40 insertions(+), 732 deletions(-)
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/CMakeLists.txt                          |  3 ++
+ googletest/Makefile.am                             |  6 +++
+ googletest/docs/advanced.md                        |  6 ++-
+ googletest/include/gtest/gtest-param-test.h        |  2 +-
+ .../include/gtest/internal/gtest-param-util.h      |  6 +--
+ googletest/src/gtest.cc                            | 20 ++++++--
+ googletest/test/BUILD.bazel                        | 17 +++++++
+ .../gtest_skip_environment_check_output_test.py    | 54 ++++++++++++++++++++++
+ .../test/gtest_skip_in_environment_setup_test.cc   | 49 ++++++++++++++++++++
+ 9 files changed, 154 insertions(+), 9 deletions(-)
+ create mode 100755 googletest/test/gtest_skip_environment_check_output_test.py
+ create mode 100644 googletest/test/gtest_skip_in_environment_setup_test.cc
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/cmake/internal_utils.cmake |  1 +
+ googletest/src/gtest-death-test.cc    | 10 +++++-----
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ README.md                     | 4 ----
+ googlemock/docs/ForDummies.md | 2 +-
+ 2 files changed, 1 insertion(+), 5 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googlemock/include/gmock/gmock-matchers.h          | 11 +++++++--
+ googletest/include/gtest/gtest-matchers.h          | 11 +++++++--
+ .../include/gtest/internal/gtest-port-arch.h       |  2 ++
+ googletest/include/gtest/internal/gtest-port.h     | 26 ++++++++++++----------
+ 4 files changed, 34 insertions(+), 16 deletions(-)
+Merge made by the 'recursive' strategy.
+ googletest/include/gtest/internal/gtest-port.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/src/gtest-death-test.cc | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googlemock/Makefile.am                             |  4 --
+ googlemock/docs/ForDummies.md                      |  2 +-
+ googlemock/test/gmock-matchers_test.cc             | 23 ++++---
+ googletest/cmake/internal_utils.cmake              |  2 +-
+ googletest/include/gtest/gtest.h                   |  4 +-
+ googletest/include/gtest/internal/gtest-internal.h | 24 ++++---
+ .../include/gtest/internal/gtest-param-util.h      |  4 +-
+ googletest/include/gtest/internal/gtest-string.h   |  3 +
+ googletest/src/gtest-death-test.cc                 |  7 ++-
+ googletest/src/gtest-filepath.cc                   |  2 +-
+ googletest/src/gtest-internal-inl.h                | 18 +++---
+ googletest/src/gtest-port.cc                       |  4 +-
+ googletest/src/gtest-test-part.cc                  |  2 +-
+ googletest/src/gtest.cc                            | 73 ++++++++++++----------
+ googletest/test/googletest-death-test-test.cc      |  6 +-
+ googletest/test/googletest-port-test.cc            |  4 +-
+ googletest/test/gtest_unittest.cc                  | 39 ++++++------
+ 17 files changed, 124 insertions(+), 97 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/include/gtest/gtest.h                      |  5 +++++
+ googletest/test/googletest-output-test-golden-lin.txt | 19 ++++++++++++++-----
+ googletest/test/googletest-output-test_.cc            |  6 +++++-
+ googletest/test/gtest_unittest.cc                     | 13 +++++++++++++
+ 4 files changed, 37 insertions(+), 6 deletions(-)
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/src/gtest-port.cc     | 2 +-
+ googletest/src/gtest-printers.cc | 5 +++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+Merge made by the 'recursive' strategy.
+ BUILD.bazel               |  2 --
+ googletest/CMakeLists.txt |  2 +-
+ googletest/configure.ac   | 10 ----------
+ 3 files changed, 1 insertion(+), 13 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ CMakeLists.txt                           |  3 ++
+ Makefile.am                              |  4 ++
+ configure.ac                             |  3 ++
+ googlemock/CMakeLists.txt                |  3 ++
+ googlemock/Makefile.am                   |  3 ++
+ googlemock/configure.ac                  |  3 ++
+ googlemock/include/gmock/gmock-actions.h | 78 +++++---------------------------
+ googletest/CMakeLists.txt                |  3 ++
+ googletest/Makefile.am                   |  3 ++
+ googletest/configure.ac                  |  3 ++
+ googletest/src/gtest-printers.cc         |  2 +-
+ 11 files changed, 40 insertions(+), 68 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.

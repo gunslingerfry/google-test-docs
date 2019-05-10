@@ -461,7 +461,7 @@ class ParameterizedTestSuiteInfoBase {
   virtual TypeId GetTestSuiteTypeId() const = 0;
   // UnitTest class invokes this method to register tests in this
   // test suite right before running them in RUN_ALL_TESTS macro.
-  // This method should not be called more then once on any single
+  // This method should not be called more than once on any single
   // instance of a ParameterizedTestSuiteInfoBase derived class.
   virtual void RegisterTests() = 0;
 
@@ -523,9 +523,9 @@ class ParameterizedTestSuiteInfo : public ParameterizedTestSuiteInfoBase {
   }
   // UnitTest class invokes this method to register tests in this test suite
   // test suites right before running tests in RUN_ALL_TESTS macro.
-  // This method should not be called more then once on any single
+  // This method should not be called more than once on any single
   // instance of a ParameterizedTestSuiteInfoBase derived class.
-  // UnitTest has a guard to prevent from calling this method more then once.
+  // UnitTest has a guard to prevent from calling this method more than once.
   void RegisterTests() override {
     for (typename TestInfoContainer::iterator test_it = tests_.begin();
          test_it != tests_.end(); ++test_it) {
@@ -571,8 +571,8 @@ class ParameterizedTestSuiteInfo : public ParameterizedTestSuiteInfoBase {
               nullptr,  // No type parameter.
               PrintToString(*param_it).c_str(), code_location_,
               GetTestSuiteTypeId(),
-              SuiteApiResolver<TestSuite>::GetSetUpCaseOrSuite(),
-              SuiteApiResolver<TestSuite>::GetTearDownCaseOrSuite(),
+              SuiteApiResolver<TestSuite>::GetSetUpCaseOrSuite(file, line),
+              SuiteApiResolver<TestSuite>::GetTearDownCaseOrSuite(file, line),
               test_info->test_meta_factory->CreateTestFactory(*param_it));
         }  // for param_it
       }  // for gen_it
