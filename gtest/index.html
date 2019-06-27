@@ -120,7 +120,7 @@
                 Google Docs Mirror
               </span>
               <span class="md-header-nav__topic">
-                Google Test #
+                Google Test
               </span>
             
           
@@ -316,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="googletest/docs/XcodeGuide/" title="Xcode" class="md-nav__link">
+    <a href="googletest/docs/XcodeGuide.md" title="Xcode" class="md-nav__link">
       Xcode
     </a>
   </li>
@@ -328,7 +328,7 @@
 
 
   <li class="md-nav__item">
-    <a href="googletest/docs/PumpManual/" title="Pump" class="md-nav__link">
+    <a href="googletest/docs/PumpManual.md" title="Pump" class="md-nav__link">
       Pump
     </a>
   </li>
@@ -340,7 +340,7 @@
 
 
   <li class="md-nav__item">
-    <a href="googletest/docs/Pkgconfig/" title="pkg-config" class="md-nav__link">
+    <a href="googletest/docs/Pkgconfig.md" title="pkg-config" class="md-nav__link">
       pkg-config
     </a>
   </li>
@@ -424,7 +424,7 @@
 
 
   <li class="md-nav__item">
-    <a href="googlemock/docs/CookBook/" title="Cookbook" class="md-nav__link">
+    <a href="googlemock/docs/CookBook.md" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -492,6 +492,74 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#oss-builds-status" title="OSS Builds Status:" class="md-nav__link">
+    OSS Builds Status:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summer-vacation" title="Summer Vacation" class="md-nav__link">
+    Summer Vacation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-plans" title="Future Plans" class="md-nav__link">
+    Future Plans
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#18x-release" title="1.8.x Release:" class="md-nav__link">
+    1.8.x Release:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-18x" title="Post 1.8.x:" class="md-nav__link">
+    Post 1.8.x:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-19x" title="Post 1.9.x" class="md-nav__link">
+    Post 1.9.x
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome-to-google-test-googles-c-test-framework" title="Welcome to Google Test, Google's C++ test framework!" class="md-nav__link">
+    Welcome to Google Test, Google's C++ test framework!
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" title="Getting started:" class="md-nav__link">
+    Getting started:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#features" title="Features" class="md-nav__link">
     Features
   </a>
@@ -528,29 +596,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linux-requirements" title="Linux Requirements" class="md-nav__link">
-    Linux Requirements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows-requirements" title="Windows Requirements" class="md-nav__link">
-    Windows Requirements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cygwin-requirements" title="Cygwin Requirements" class="md-nav__link">
-    Cygwin Requirements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mac-os-x-requirements" title="Mac OS X Requirements" class="md-nav__link">
-    Mac OS X Requirements
+  <a href="#build-requirements" title="Build Requirements" class="md-nav__link">
+    Build Requirements
   </a>
   
 </li>
@@ -585,24 +632,36 @@
                 
                 
                 <h1 id="google-test">Google Test<a class="headerlink" href="#google-test" title="Permanent link">&para;</a></h1>
+<h4 id="oss-builds-status">OSS Builds Status:<a class="headerlink" href="#oss-builds-status" title="Permanent link">&para;</a></h4>
 <p><a href="https://travis-ci.org/google/googletest"><img alt="Build Status" src="https://api.travis-ci.org/google/googletest.svg?branch=master" /></a>
 <a href="https://ci.appveyor.com/project/GoogleTestAppVeyor/googletest/branch/master"><img alt="Build status" src="https://ci.appveyor.com/api/projects/status/4o38plt0xbo1ubc8/branch/master?svg=true" /></a></p>
-<p><strong>Future Plans</strong>:
-<em> 1.8.x Release - <a href="https://github.com/google/googletest/releases/tag/release-1.8.1">the 1.8.x</a> is the last release that works with pre-C++11 compilers. The 1.8.x will not accept any requests for any new features and any bugfix requests will only be accepted if proven "critical"
-</em> Post 1.8.x - work to improve/cleanup/pay technical debt. When this work is completed there will be a 1.9.x tagged release
-* Post 1.9.x googletest will follow <a href="https://abseil.io/about/philosophy">Abseil Live at Head philosophy</a></p>
-<p>Welcome to <strong>Google Test</strong>, Google's C++ test framework!</p>
-<p>This repository is a merger of the formerly separate GoogleTest and
-GoogleMock projects. These were so closely related that it makes sense to
-maintain and release them together.</p>
-<p>Please subscribe to the mailing list at googletestframework@googlegroups.com for questions, discussions, and development.<br />
-There is also an IRC channel on <a href="https://webchat.oftc.net/">OFTC</a> (irc.oftc.net) #gtest available.  </p>
-<p>Getting started information for <strong>Google Test</strong> is available in the
+<h3 id="summer-vacation">Summer Vacation<a class="headerlink" href="#summer-vacation" title="Permanent link">&para;</a></h3>
+<p>June 26, 2019 - July 20 2019 due to summer vacations there will be much reduced activity on Pull Requests and issues from the maintainers. </p>
+<h3 id="future-plans">Future Plans<a class="headerlink" href="#future-plans" title="Permanent link">&para;</a></h3>
+<h4 id="18x-release">1.8.x Release:<a class="headerlink" href="#18x-release" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/google/googletest/releases/tag/release-1.8.1">the 1.8.x</a> is
+the last release that works with pre-C++11 compilers. The 1.8.x will not accept
+any requests for any new features and any bugfix requests will only be accepted
+if proven "critical"</p>
+<h4 id="post-18x">Post 1.8.x:<a class="headerlink" href="#post-18x" title="Permanent link">&para;</a></h4>
+<p>On-going work to improve/cleanup/pay technical debt. When this work is completed
+there will be a 1.9.x tagged release</p>
+<h4 id="post-19x">Post 1.9.x<a class="headerlink" href="#post-19x" title="Permanent link">&para;</a></h4>
+<p>Post 1.9.x googletest will follow
+<a href="https://abseil.io/about/philosophy">Abseil Live at Head philosophy</a></p>
+<h2 id="welcome-to-google-test-googles-c-test-framework">Welcome to <strong>Google Test</strong>, Google's C++ test framework!<a class="headerlink" href="#welcome-to-google-test-googles-c-test-framework" title="Permanent link">&para;</a></h2>
+<p>This repository is a merger of the formerly separate GoogleTest and GoogleMock
+projects. These were so closely related that it makes sense to maintain and
+release them together.</p>
+<p>Please subscribe to the mailing list at googletestframework@googlegroups.com for
+questions, discussions, and development.</p>
+<h3 id="getting-started">Getting started:<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h3>
+<p>The information for <strong>Google Test</strong> is available in the
 <a href="googletest/docs/primer/">Google Test Primer</a> documentation.</p>
 <p><strong>Google Mock</strong> is an extension to Google Test for writing and using C++ mock
-classes.  See the separate <a href="googlemock/">Google Mock documentation</a>.</p>
-<p>More detailed documentation for googletest (including build instructions) are
-in its interior <a href="googletest/">googletest/README.md</a> file.</p>
+classes. See the separate <a href="googlemock/">Google Mock documentation</a>.</p>
+<p>More detailed documentation for googletest is in its interior
+<a href="googletest/">googletest/README.md</a> file.</p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <ul>
 <li>An <a href="https://en.wikipedia.org/wiki/XUnit">xUnit</a> test framework.</li>
@@ -629,21 +688,24 @@ in its interior <a href="googletest/">googletest/README.md</a> file.</p>
 <li>PlatformIO</li>
 </ul>
 <h2 id="who-is-using-google-test">Who Is Using Google Test?<a class="headerlink" href="#who-is-using-google-test" title="Permanent link">&para;</a></h2>
-<p>In addition to many internal projects at Google, Google Test is also used by
-the following notable projects:</p>
+<p>In addition to many internal projects at Google, Google Test is also used by the
+following notable projects:</p>
 <ul>
-<li>The <a href="http://www.chromium.org/">Chromium projects</a> (behind the Chrome
-    browser and Chrome OS).</li>
+<li>The <a href="http://www.chromium.org/">Chromium projects</a> (behind the Chrome browser
+    and Chrome OS).</li>
 <li>The <a href="http://llvm.org/">LLVM</a> compiler.</li>
 <li><a href="https://github.com/google/protobuf">Protocol Buffers</a>, Google's data
     interchange format.</li>
 <li>The <a href="http://opencv.org/">OpenCV</a> computer vision library.</li>
-<li><a href="https://github.com/tiny-dnn/tiny-dnn">tiny-dnn</a>: header only, dependency-free deep learning framework in C++11.</li>
+<li><a href="https://github.com/tiny-dnn/tiny-dnn">tiny-dnn</a>: header only,
+    dependency-free deep learning framework in C++11.</li>
 </ul>
 <h2 id="related-open-source-projects">Related Open Source Projects<a class="headerlink" href="#related-open-source-projects" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/nholthaus/gtest-runner">GTest Runner</a> is a Qt5 based automated test-runner and Graphical User Interface with powerful features for Windows and Linux platforms.</p>
-<p><a href="https://github.com/ospector/gtest-gbar">Google Test UI</a> is test runner that runs
-your test binary, allows you to track its progress via a progress bar, and
+<p><a href="https://github.com/nholthaus/gtest-runner">GTest Runner</a> is a Qt5 based
+automated test-runner and Graphical User Interface with powerful features for
+Windows and Linux platforms.</p>
+<p><a href="https://github.com/ospector/gtest-gbar">Google Test UI</a> is test runner that
+runs your test binary, allows you to track its progress via a progress bar, and
 displays a list of test failures. Clicking on one shows failure text. Google
 Test UI is written in C#.</p>
 <p><a href="https://github.com/kinow/gtest-tap-listener">GTest TAP Listener</a> is an event
@@ -652,42 +714,31 @@ listener for Google Test that implements the
 result output. If your test runner understands TAP, you may find it useful.</p>
 <p><a href="https://github.com/google/gtest-parallel">gtest-parallel</a> is a test runner that
 runs tests from your binary in parallel to provide significant speed-up.</p>
-<p><a href="https://marketplace.visualstudio.com/items?itemName=DavidSchuldenfrei.gtest-adapter">GoogleTest Adapter</a> is a VS Code extension allowing to view Google Tests in a tree view, and run/debug your tests.</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=DavidSchuldenfrei.gtest-adapter">GoogleTest Adapter</a>
+is a VS Code extension allowing to view Google Tests in a tree view, and
+run/debug your tests.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<p>Google Test is designed to have fairly minimal requirements to build
-and use with your projects, but there are some.  Currently, we support
-Linux, Windows, Mac OS X, and Cygwin.  We will also make our best
-effort to support other platforms (e.g. Solaris, AIX, and z/OS).
-However, since core members of the Google Test project have no access
-to these platforms, Google Test may have outstanding issues there.  If
-you notice any problems on your platform, please notify
-<a href="https://groups.google.com/forum/#!forum/googletestframework">googletestframework@googlegroups.com</a>. Patches for fixing them are
-even more welcome!</p>
-<h3 id="linux-requirements">Linux Requirements<a class="headerlink" href="#linux-requirements" title="Permanent link">&para;</a></h3>
+<p>Google Test is designed to have fairly minimal requirements to build and use
+with your projects, but there are some. If you notice any problems on your
+platform, please notify
+<a href="https://groups.google.com/forum/#!forum/googletestframework">googletestframework@googlegroups.com</a>.
+Patches for fixing them are welcome!</p>
+<h3 id="build-requirements">Build Requirements<a class="headerlink" href="#build-requirements" title="Permanent link">&para;</a></h3>
 <p>These are the base requirements to build and use Google Test from a source
-package (as described below):</p>
+package:</p>
 <ul>
-<li>GNU-compatible Make or gmake</li>
-<li>POSIX-standard shell</li>
-<li>POSIX(-2) Regular Expressions (regex.h)</li>
-<li>A C++11-standard-compliant compiler</li>
-</ul>
-<h3 id="windows-requirements">Windows Requirements<a class="headerlink" href="#windows-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Microsoft Visual C++ 2015 or newer</li>
-</ul>
-<h3 id="cygwin-requirements">Cygwin Requirements<a class="headerlink" href="#cygwin-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Cygwin v1.5.25-14 or newer</li>
-</ul>
-<h3 id="mac-os-x-requirements">Mac OS X Requirements<a class="headerlink" href="#mac-os-x-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Mac OS X v10.4 Tiger or newer</li>
-<li>Xcode Developer Tools</li>
+<li>
+<p><a href="https://bazel.build/">Bazel</a> or <a href="https://cmake.org/">CMake</a>. NOTE: Bazel is
+    the build system that googletest is using internally and tests against.
+    CMake is community-supported.</p>
+</li>
+<li>
+<p>a C++11-standard-compliant compiler</p>
+</li>
 </ul>
 <h2 id="contributing-change">Contributing change<a class="headerlink" href="#contributing-change" title="Permanent link">&para;</a></h2>
-<p>Please read the <a href="CONTRIBUTING/"><code>CONTRIBUTING.md</code></a> for details on
-how to contribute to this project.</p>
+<p>Please read the <a href="CONTRIBUTING/"><code>CONTRIBUTING.md</code></a> for details on how to
+contribute to this project.</p>
 <p>Happy testing!</p>
                 
                   

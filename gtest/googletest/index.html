@@ -316,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docs/XcodeGuide/" title="Xcode" class="md-nav__link">
+    <a href="docs/XcodeGuide.md" title="Xcode" class="md-nav__link">
       Xcode
     </a>
   </li>
@@ -328,7 +328,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docs/PumpManual/" title="Pump" class="md-nav__link">
+    <a href="docs/PumpManual.md" title="Pump" class="md-nav__link">
       Pump
     </a>
   </li>
@@ -340,7 +340,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docs/Pkgconfig/" title="pkg-config" class="md-nav__link">
+    <a href="docs/Pkgconfig.md" title="pkg-config" class="md-nav__link">
       pkg-config
     </a>
   </li>
@@ -424,7 +424,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../googlemock/docs/CookBook/" title="Cookbook" class="md-nav__link">
+    <a href="../googlemock/docs/CookBook.md" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -504,21 +504,14 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#build" title="Build" class="md-nav__link">
-    Build
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-cmake" title="Using CMake" class="md-nav__link">
-    Using CMake
+  <a href="#build-with-cmake" title="Build with CMake" class="md-nav__link">
+    Build with CMake
   </a>
   
     <nav class="md-nav">
@@ -560,13 +553,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#legacy-build-scripts" title="Legacy Build Scripts" class="md-nav__link">
-    Legacy Build Scripts
-  </a>
   
 </li>
       
@@ -622,40 +608,7 @@
 <p>To build Google Test and your tests that use it, you need to tell your build
 system where to find its headers and source files. The exact way to do it
 depends on which build system you use, and is usually straightforward.</p>
-<h4 id="build">Build<a class="headerlink" href="#build" title="Permanent link">&para;</a></h4>
-<p>Suppose you put Google Test in directory <code>${GTEST_DIR}</code>. To build it, create a
-library build target (or a project as called by Visual Studio and Xcode) to
-compile</p>
-<pre><code>${GTEST_DIR}/src/gtest-all.cc
-</code></pre>
-<p>with <code>${GTEST_DIR}/include</code> in the system header search path and <code>${GTEST_DIR}</code>
-in the normal header search path. Assuming a Linux-like system and gcc,
-something like the following will do:</p>
-<pre><code>g++ -std=c++11 -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
-    -pthread -c ${GTEST_DIR}/src/gtest-all.cc
-ar -rv libgtest.a gtest-all.o
-</code></pre>
-<p>(We need <code>-pthread</code> as Google Test uses threads.)</p>
-<p>Next, you should compile your test source file with <code>${GTEST_DIR}/include</code> in
-the system header search path, and link it with gtest and any other necessary
-libraries:</p>
-<pre><code>g++ -std=c++11 -isystem ${GTEST_DIR}/include -pthread path/to/your_test.cc libgtest.a \
-    -o your_test
-</code></pre>
-<p>As an example, the make/ directory contains a Makefile that you can use to build
-Google Test on systems where GNU make is available (e.g. Linux, Mac OS X, and
-Cygwin). It doesn't try to build Google Test's own tests. Instead, it just
-builds the Google Test library and a sample test. You can use it as a starting
-point for your own build script.</p>
-<p>If the default settings are correct for your environment, the following commands
-should succeed:</p>
-<pre><code>cd ${GTEST_DIR}/make
-make
-./sample1_unittest
-</code></pre>
-<p>If you see errors, try to tweak the contents of <code>make/Makefile</code> to make them go
-away. There are instructions in <code>make/Makefile</code> on how to do it.</p>
-<h3 id="using-cmake">Using CMake<a class="headerlink" href="#using-cmake" title="Permanent link">&para;</a></h3>
+<h3 id="build-with-cmake">Build with CMake<a class="headerlink" href="#build-with-cmake" title="Permanent link">&para;</a></h3>
 <p>Google Test comes with a CMake build script (
 <a href="https://github.com/google/googletest/blob/master/CMakeLists.txt">CMakeLists.txt</a>)
 that can be used on a wide range of platforms ("C" stands for cross-platform.).
@@ -787,42 +740,6 @@ project, for example by using the <code>set(CMAKE_CXX_STANDARD 11)</code> comman
 is not feasible, for example in a C project using Google Test for validation,
 then it can be specified by adding it to the options for cmake via the
 <code>DCMAKE_CXX_FLAGS</code> option.</p>
-<h3 id="legacy-build-scripts">Legacy Build Scripts<a class="headerlink" href="#legacy-build-scripts" title="Permanent link">&para;</a></h3>
-<p>Before settling on CMake, we have been providing hand-maintained build
-projects/scripts for Visual Studio, Xcode, and Autotools. While we continue to
-provide them for convenience, they are not actively maintained any more. We
-highly recommend that you follow the instructions in the above sections to
-integrate Google Test with your existing build system.</p>
-<p>If you still need to use the legacy build scripts, here's how:</p>
-<p>The msvc\ folder contains two solutions with Visual C++ projects. Open the
-<code>gtest.sln</code> or <code>gtest-md.sln</code> file using Visual Studio, and you are ready to
-build Google Test the same way you build any Visual Studio project. Files that
-have names ending with -md use DLL versions of Microsoft runtime libraries (the
-/MD or the /MDd compiler option). Files without that suffix use static versions
-of the runtime libraries (the /MT or the /MTd option). Please note that one must
-use the same option to compile both gtest and the test code. If you use Visual
-Studio 2005 or above, we recommend the -md version as /MD is the default for new
-projects in these versions of Visual Studio.</p>
-<p>On Mac OS X, open the <code>gtest.xcodeproj</code> in the <code>xcode/</code> folder using Xcode.
-Build the "gtest" target. The universal binary framework will end up in your
-selected build directory (selected in the Xcode "Preferences..." -&gt; "Building"
-pane and defaults to xcode/build). Alternatively, at the command line, enter:</p>
-<pre><code>xcodebuild
-</code></pre>
-<p>This will build the "Release" configuration of gtest.framework in your default
-build location. See the "xcodebuild" man page for more information about
-building different configurations and building in different locations.</p>
-<p>If you wish to use the Google Test Xcode project with Xcode 4.x and above, you
-need to either:</p>
-<ul>
-<li>update the SDK configuration options in xcode/Config/General.xconfig.
-    Comment options <code>SDKROOT</code>, <code>MACOS_DEPLOYMENT_TARGET</code>, and <code>GCC_VERSION</code>. If
-    you choose this route you lose the ability to target earlier versions of
-    MacOS X.</li>
-<li>Install an SDK for an earlier version. This doesn't appear to be supported
-    by Apple, but has been reported to work
-    (http://stackoverflow.com/questions/5378518).</li>
-</ul>
 <h3 id="tweaking-google-test">Tweaking Google Test<a class="headerlink" href="#tweaking-google-test" title="Permanent link">&para;</a></h3>
 <p>Google Test can be used in diverse environments. The default configuration may
 not work (or may not work well) out of the box in some environments. However,

@@ -138,3 +138,350 @@ Already up-to-date.
 Already up-to-date.
 Already up-to-date.
 Already up-to-date.
+Merge made by the 'recursive' strategy.
+ .../test/googletest-catch-exceptions-test.py       | 141 +++++++++++----------
+ 1 file changed, 73 insertions(+), 68 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/docs/advanced.md | 72 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 72 insertions(+)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/docs/advanced.md                 | 131 +++++++++++++---------------
+ googletest/include/gtest/gtest-printers.h   |   7 +-
+ googletest/test/googletest-printers-test.cc |  59 +++++++++++++
+ 3 files changed, 123 insertions(+), 74 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ CMakeLists.txt            | 2 +-
+ Makefile.am               | 2 +-
+ configure.ac              | 2 +-
+ googlemock/CMakeLists.txt | 2 +-
+ googlemock/Makefile.am    | 2 +-
+ googlemock/configure.ac   | 2 +-
+ googletest/CMakeLists.txt | 2 +-
+ googletest/Makefile.am    | 2 +-
+ googletest/configure.ac   | 2 +-
+ 9 files changed, 9 insertions(+), 9 deletions(-)
+Merge made by the 'recursive' strategy.
+ googletest/src/gtest.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ CONTRIBUTING.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ CMakeLists.txt               | 8 ++++----
+ CONTRIBUTING.md              | 5 +++--
+ googletest/src/gtest-port.cc | 9 +++++++++
+ 3 files changed, 16 insertions(+), 6 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googletest/include/gtest/gtest.h   | 2 +-
+ googletest/src/gtest-death-test.cc | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ googlemock/docs/CookBook.md                        |  2 +-
+ .../include/gmock/internal/gmock-internal-utils.h  |  5 ++++-
+ googletest/scripts/fuse_gtest_files.py             | 24 +++++++++-------------
+ 3 files changed, 15 insertions(+), 16 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Removing googletest/xcode/gtest.xcodeproj/project.pbxproj
+Removing googletest/xcode/Scripts/versiongenerate.py
+Removing googletest/xcode/Scripts/runtests.sh
+Removing googletest/xcode/Samples/FrameworkSample/widget_test.cc
+Removing googletest/xcode/Samples/FrameworkSample/widget.h
+Removing googletest/xcode/Samples/FrameworkSample/widget.cc
+Removing googletest/xcode/Samples/FrameworkSample/runtests.sh
+Removing googletest/xcode/Samples/FrameworkSample/WidgetFramework.xcodeproj/project.pbxproj
+Removing googletest/xcode/Samples/FrameworkSample/Info.plist
+Removing googletest/xcode/Resources/Info.plist
+Removing googletest/xcode/Config/TestTarget.xcconfig
+Removing googletest/xcode/Config/StaticLibraryTarget.xcconfig
+Removing googletest/xcode/Config/ReleaseProject.xcconfig
+Removing googletest/xcode/Config/General.xcconfig
+Removing googletest/xcode/Config/FrameworkTarget.xcconfig
+Removing googletest/xcode/Config/DebugProject.xcconfig
+Removing googletest/msvc/2010/gtest_unittest.vcxproj.filters
+Removing googletest/msvc/2010/gtest_unittest.vcxproj
+Removing googletest/msvc/2010/gtest_unittest-md.vcxproj.filters
+Removing googletest/msvc/2010/gtest_unittest-md.vcxproj
+Removing googletest/msvc/2010/gtest_prod_test.vcxproj.filters
+Removing googletest/msvc/2010/gtest_prod_test.vcxproj
+Removing googletest/msvc/2010/gtest_prod_test-md.vcxproj.filters
+Removing googletest/msvc/2010/gtest_prod_test-md.vcxproj
+Removing googletest/msvc/2010/gtest_main.vcxproj.filters
+Removing googletest/msvc/2010/gtest_main.vcxproj
+Removing googletest/msvc/2010/gtest_main-md.vcxproj.filters
+Removing googletest/msvc/2010/gtest_main-md.vcxproj
+Removing googletest/msvc/2010/gtest.vcxproj.filters
+Removing googletest/msvc/2010/gtest.vcxproj
+Removing googletest/msvc/2010/gtest.sln
+Removing googletest/msvc/2010/gtest-md.vcxproj.filters
+Removing googletest/msvc/2010/gtest-md.vcxproj
+Removing googletest/msvc/2010/gtest-md.sln
+Removing googletest/docs/XcodeGuide.md
+Removing googletest/codegear/gtest_unittest.cbproj
+Removing googletest/codegear/gtest_main.cbproj
+Removing googletest/codegear/gtest_link.cc
+Removing googletest/codegear/gtest_all.cc
+Removing googletest/codegear/gtest.groupproj
+Removing googletest/codegear/gtest.cbproj
+Removing googlemock/msvc/2015/gmock_test.vcxproj
+Removing googlemock/msvc/2015/gmock_main.vcxproj
+Removing googlemock/msvc/2015/gmock_config.props
+Removing googlemock/msvc/2015/gmock.vcxproj
+Removing googlemock/msvc/2015/gmock.sln
+Removing googlemock/msvc/2010/gmock_test.vcxproj
+Removing googlemock/msvc/2010/gmock_main.vcxproj
+Removing googlemock/msvc/2010/gmock_config.props
+Removing googlemock/msvc/2010/gmock.vcxproj
+Removing googlemock/msvc/2010/gmock.sln
+Removing googlemock/msvc/2005/gmock_test.vcproj
+Removing googlemock/msvc/2005/gmock_main.vcproj
+Removing googlemock/msvc/2005/gmock_config.vsprops
+Removing googlemock/msvc/2005/gmock.vcproj
+Removing googlemock/msvc/2005/gmock.sln
+Removing googlemock/build-aux/.keep
+Merge made by the 'recursive' strategy.
+ README.md                                          |   42 +-
+ googlemock/build-aux/.keep                         |    0
+ googlemock/docs/FrequentlyAskedQuestions.md        |   71 --
+ googlemock/msvc/2005/gmock.sln                     |   32 -
+ googlemock/msvc/2005/gmock.vcproj                  |  191 ----
+ googlemock/msvc/2005/gmock_config.vsprops          |   15 -
+ googlemock/msvc/2005/gmock_main.vcproj             |  187 ----
+ googlemock/msvc/2005/gmock_test.vcproj             |  201 ----
+ googlemock/msvc/2010/gmock.sln                     |   46 -
+ googlemock/msvc/2010/gmock.vcxproj                 |  145 ---
+ googlemock/msvc/2010/gmock_config.props            |   19 -
+ googlemock/msvc/2010/gmock_main.vcxproj            |  151 ---
+ googlemock/msvc/2010/gmock_test.vcxproj            |  176 ---
+ googlemock/msvc/2015/gmock.sln                     |   46 -
+ googlemock/msvc/2015/gmock.vcxproj                 |  145 ---
+ googlemock/msvc/2015/gmock_config.props            |   19 -
+ googlemock/msvc/2015/gmock_main.vcxproj            |  151 ---
+ googlemock/msvc/2015/gmock_test.vcxproj            |  176 ---
+ googletest/codegear/gtest.cbproj                   |  138 ---
+ googletest/codegear/gtest.groupproj                |   54 -
+ googletest/codegear/gtest_all.cc                   |   38 -
+ googletest/codegear/gtest_link.cc                  |   40 -
+ googletest/codegear/gtest_main.cbproj              |   82 --
+ googletest/codegear/gtest_unittest.cbproj          |   88 --
+ googletest/docs/XcodeGuide.md                      |   93 --
+ googletest/docs/advanced.md                        |  128 +--
+ googletest/docs/primer.md                          |    4 +-
+ googletest/msvc/2010/gtest-md.sln                  |   55 -
+ googletest/msvc/2010/gtest-md.vcxproj              |  149 ---
+ googletest/msvc/2010/gtest-md.vcxproj.filters      |   18 -
+ googletest/msvc/2010/gtest.sln                     |   55 -
+ googletest/msvc/2010/gtest.vcxproj                 |  149 ---
+ googletest/msvc/2010/gtest.vcxproj.filters         |   18 -
+ googletest/msvc/2010/gtest_main-md.vcxproj         |  154 ---
+ googletest/msvc/2010/gtest_main-md.vcxproj.filters |   18 -
+ googletest/msvc/2010/gtest_main.vcxproj            |  162 ---
+ googletest/msvc/2010/gtest_main.vcxproj.filters    |   18 -
+ googletest/msvc/2010/gtest_prod_test-md.vcxproj    |  199 ----
+ .../msvc/2010/gtest_prod_test-md.vcxproj.filters   |   26 -
+ googletest/msvc/2010/gtest_prod_test.vcxproj       |  191 ----
+ .../msvc/2010/gtest_prod_test.vcxproj.filters      |   26 -
+ googletest/msvc/2010/gtest_unittest-md.vcxproj     |  188 ----
+ .../msvc/2010/gtest_unittest-md.vcxproj.filters    |   18 -
+ googletest/msvc/2010/gtest_unittest.vcxproj        |  180 ---
+ .../msvc/2010/gtest_unittest.vcxproj.filters       |   18 -
+ googletest/xcode/Config/DebugProject.xcconfig      |   30 -
+ googletest/xcode/Config/FrameworkTarget.xcconfig   |   17 -
+ googletest/xcode/Config/General.xcconfig           |   41 -
+ googletest/xcode/Config/ReleaseProject.xcconfig    |   32 -
+ .../xcode/Config/StaticLibraryTarget.xcconfig      |   18 -
+ googletest/xcode/Config/TestTarget.xcconfig        |    8 -
+ googletest/xcode/Resources/Info.plist              |   30 -
+ .../xcode/Samples/FrameworkSample/Info.plist       |   28 -
+ .../WidgetFramework.xcodeproj/project.pbxproj      |  457 --------
+ .../xcode/Samples/FrameworkSample/runtests.sh      |   62 --
+ googletest/xcode/Samples/FrameworkSample/widget.cc |   63 --
+ googletest/xcode/Samples/FrameworkSample/widget.h  |   59 -
+ .../xcode/Samples/FrameworkSample/widget_test.cc   |   68 --
+ googletest/xcode/Scripts/runtests.sh               |   65 --
+ googletest/xcode/Scripts/versiongenerate.py        |  100 --
+ googletest/xcode/gtest.xcodeproj/project.pbxproj   | 1170 --------------------
+ 61 files changed, 79 insertions(+), 6289 deletions(-)
+ delete mode 100644 googlemock/build-aux/.keep
+ delete mode 100644 googlemock/msvc/2005/gmock.sln
+ delete mode 100644 googlemock/msvc/2005/gmock.vcproj
+ delete mode 100644 googlemock/msvc/2005/gmock_config.vsprops
+ delete mode 100644 googlemock/msvc/2005/gmock_main.vcproj
+ delete mode 100644 googlemock/msvc/2005/gmock_test.vcproj
+ delete mode 100644 googlemock/msvc/2010/gmock.sln
+ delete mode 100644 googlemock/msvc/2010/gmock.vcxproj
+ delete mode 100644 googlemock/msvc/2010/gmock_config.props
+ delete mode 100644 googlemock/msvc/2010/gmock_main.vcxproj
+ delete mode 100644 googlemock/msvc/2010/gmock_test.vcxproj
+ delete mode 100644 googlemock/msvc/2015/gmock.sln
+ delete mode 100644 googlemock/msvc/2015/gmock.vcxproj
+ delete mode 100644 googlemock/msvc/2015/gmock_config.props
+ delete mode 100644 googlemock/msvc/2015/gmock_main.vcxproj
+ delete mode 100644 googlemock/msvc/2015/gmock_test.vcxproj
+ delete mode 100644 googletest/codegear/gtest.cbproj
+ delete mode 100644 googletest/codegear/gtest.groupproj
+ delete mode 100644 googletest/codegear/gtest_all.cc
+ delete mode 100644 googletest/codegear/gtest_link.cc
+ delete mode 100644 googletest/codegear/gtest_main.cbproj
+ delete mode 100644 googletest/codegear/gtest_unittest.cbproj
+ delete mode 100644 googletest/docs/XcodeGuide.md
+ delete mode 100644 googletest/msvc/2010/gtest-md.sln
+ delete mode 100644 googletest/msvc/2010/gtest-md.vcxproj
+ delete mode 100644 googletest/msvc/2010/gtest-md.vcxproj.filters
+ delete mode 100644 googletest/msvc/2010/gtest.sln
+ delete mode 100644 googletest/msvc/2010/gtest.vcxproj
+ delete mode 100644 googletest/msvc/2010/gtest.vcxproj.filters
+ delete mode 100644 googletest/msvc/2010/gtest_main-md.vcxproj
+ delete mode 100644 googletest/msvc/2010/gtest_main-md.vcxproj.filters
+ delete mode 100644 googletest/msvc/2010/gtest_main.vcxproj
+ delete mode 100644 googletest/msvc/2010/gtest_main.vcxproj.filters
+ delete mode 100644 googletest/msvc/2010/gtest_prod_test-md.vcxproj
+ delete mode 100644 googletest/msvc/2010/gtest_prod_test-md.vcxproj.filters
+ delete mode 100644 googletest/msvc/2010/gtest_prod_test.vcxproj
+ delete mode 100644 googletest/msvc/2010/gtest_prod_test.vcxproj.filters
+ delete mode 100644 googletest/msvc/2010/gtest_unittest-md.vcxproj
+ delete mode 100644 googletest/msvc/2010/gtest_unittest-md.vcxproj.filters
+ delete mode 100644 googletest/msvc/2010/gtest_unittest.vcxproj
+ delete mode 100644 googletest/msvc/2010/gtest_unittest.vcxproj.filters
+ delete mode 100644 googletest/xcode/Config/DebugProject.xcconfig
+ delete mode 100644 googletest/xcode/Config/FrameworkTarget.xcconfig
+ delete mode 100644 googletest/xcode/Config/General.xcconfig
+ delete mode 100644 googletest/xcode/Config/ReleaseProject.xcconfig
+ delete mode 100644 googletest/xcode/Config/StaticLibraryTarget.xcconfig
+ delete mode 100644 googletest/xcode/Config/TestTarget.xcconfig
+ delete mode 100644 googletest/xcode/Resources/Info.plist
+ delete mode 100644 googletest/xcode/Samples/FrameworkSample/Info.plist
+ delete mode 100644 googletest/xcode/Samples/FrameworkSample/WidgetFramework.xcodeproj/project.pbxproj
+ delete mode 100644 googletest/xcode/Samples/FrameworkSample/runtests.sh
+ delete mode 100644 googletest/xcode/Samples/FrameworkSample/widget.cc
+ delete mode 100644 googletest/xcode/Samples/FrameworkSample/widget.h
+ delete mode 100644 googletest/xcode/Samples/FrameworkSample/widget_test.cc
+ delete mode 100644 googletest/xcode/Scripts/runtests.sh
+ delete mode 100755 googletest/xcode/Scripts/versiongenerate.py
+ delete mode 100644 googletest/xcode/gtest.xcodeproj/project.pbxproj
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ README.md            | 125 ++++++++++++++++++++++++++++++---------------------
+ googletest/README.md |   4 +-
+ 2 files changed, 75 insertions(+), 54 deletions(-)
+Merge made by the 'recursive' strategy.
+ googlemock/make/Makefile               | 11 ++++++++++-
+ googlemock/test/gmock-matchers_test.cc |  4 ++--
+ googletest/cmake/internal_utils.cmake  |  4 ++++
+ googletest/make/Makefile               | 11 ++++++++++-
+ 4 files changed, 26 insertions(+), 4 deletions(-)
+Merge made by the 'recursive' strategy.
+ googlemock/docs/CookBook.md |  2 ++
+ googletest/README.md        | 42 ------------------------------------------
+ googletest/docs/primer.md   | 33 +++++++++++++++------------------
+ 3 files changed, 17 insertions(+), 60 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Removing googletest/make/Makefile
+Removing googletest/m4/gtest.m4
+Removing googletest/m4/acx_pthread.m4
+Removing googletest/configure.ac
+Removing googletest/Makefile.am
+Removing googlemock/scripts/gmock-config.in
+Removing googlemock/make/Makefile
+Removing googlemock/configure.ac
+Removing googlemock/Makefile.am
+Removing configure.ac
+Removing ci/build-linux-autotools.sh
+Removing Makefile.am
+Merge made by the 'recursive' strategy.
+ .travis.yml                        |   6 -
+ Makefile.am                        |  16 --
+ ci/build-linux-autotools.sh        |  44 -----
+ configure.ac                       |  19 --
+ googlemock/Makefile.am             | 221 ----------------------
+ googlemock/README.md               |  87 ---------
+ googlemock/configure.ac            | 137 --------------
+ googlemock/docs/CookBook.md        |   4 +-
+ googlemock/make/Makefile           | 126 -------------
+ googlemock/scripts/gmock-config.in | 303 -------------------------------
+ googletest/Makefile.am             | 341 ----------------------------------
+ googletest/README.md               |  43 +----
+ googletest/configure.ac            |  61 -------
+ googletest/docs/Pkgconfig.md       |   6 +-
+ googletest/docs/primer.md          |  22 +--
+ googletest/m4/acx_pthread.m4       | 363 -------------------------------------
+ googletest/m4/gtest.m4             |  74 --------
+ googletest/make/Makefile           |  97 ----------
+ 18 files changed, 16 insertions(+), 1954 deletions(-)
+ delete mode 100644 Makefile.am
+ delete mode 100755 ci/build-linux-autotools.sh
+ delete mode 100644 configure.ac
+ delete mode 100644 googlemock/Makefile.am
+ delete mode 100644 googlemock/configure.ac
+ delete mode 100644 googlemock/make/Makefile
+ delete mode 100755 googlemock/scripts/gmock-config.in
+ delete mode 100644 googletest/Makefile.am
+ delete mode 100644 googletest/configure.ac
+ delete mode 100644 googletest/m4/acx_pthread.m4
+ delete mode 100644 googletest/m4/gtest.m4
+ delete mode 100644 googletest/make/Makefile
+Merge made by the 'recursive' strategy.
+ .travis.yml                 | 6 ++----
+ googlemock/test/BUILD.bazel | 1 +
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+Removing googletest/scripts/release_docs.py
+Merge made by the 'recursive' strategy.
+ CONTRIBUTING.md                                    |   4 +-
+ googlemock/README.md                               |   6 +-
+ googlemock/docs/CheatSheet.md                      |   4 +-
+ googlemock/docs/Documentation.md                   |   4 +-
+ googlemock/docs/ForDummies.md                      |   8 +-
+ googlemock/docs/FrequentlyAskedQuestions.md        |  14 +-
+ googlemock/docs/{CookBook.md => cook_book.md}      |   0
+ googlemock/include/gmock/gmock-generated-actions.h |   2 +-
+ .../include/gmock/gmock-generated-actions.h.pump   |   2 +-
+ .../include/gmock/gmock-generated-matchers.h       |   2 +-
+ .../include/gmock/gmock-generated-matchers.h.pump  |   2 +-
+ googlemock/scripts/fuse_gmock_files.py             |   2 +-
+ googlemock/src/gmock-spec-builders.cc              |   2 +-
+ googlemock/test/gmock-spec-builders_test.cc        |   2 +-
+ googlemock/test/gmock_output_test_golden.txt       |   8 +-
+ googletest/docs/advanced.md                        |   6 +-
+ googletest/docs/{Pkgconfig.md => pkgconfig.md}     |   0
+ googletest/docs/primer.md                          |  36 +++--
+ googletest/docs/{PumpManual.md => pump_manual.md}  |   0
+ googletest/scripts/release_docs.py                 | 158 ---------------------
+ 20 files changed, 55 insertions(+), 207 deletions(-)
+ rename googlemock/docs/{CookBook.md => cook_book.md} (100%)
+ rename googletest/docs/{Pkgconfig.md => pkgconfig.md} (100%)
+ rename googletest/docs/{PumpManual.md => pump_manual.md} (100%)
+ delete mode 100755 googletest/scripts/release_docs.py
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Merge made by the 'recursive' strategy.
+ README.md                   |   3 ++
+ googletest/docs/advanced.md |  48 +++++++++--------
+ googletest/docs/faq.md      | 129 +++++++++++++++++++-------------------------
+ googletest/docs/primer.md   |  26 +++++----
+ 4 files changed, 97 insertions(+), 109 deletions(-)
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.

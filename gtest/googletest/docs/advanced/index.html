@@ -678,7 +678,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../XcodeGuide/" title="Xcode" class="md-nav__link">
+    <a href="../XcodeGuide.md" title="Xcode" class="md-nav__link">
       Xcode
     </a>
   </li>
@@ -690,7 +690,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../PumpManual/" title="Pump" class="md-nav__link">
+    <a href="../PumpManual.md" title="Pump" class="md-nav__link">
       Pump
     </a>
   </li>
@@ -702,7 +702,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Pkgconfig/" title="pkg-config" class="md-nav__link">
+    <a href="../Pkgconfig.md" title="pkg-config" class="md-nav__link">
       pkg-config
     </a>
   </li>
@@ -786,7 +786,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googlemock/docs/CookBook/" title="Cookbook" class="md-nav__link">
+    <a href="../../../googlemock/docs/CookBook.md" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -1200,12 +1200,14 @@
                 
                 
                 <h1 id="advanced-googletest-topics">Advanced googletest Topics<a class="headerlink" href="#advanced-googletest-topics" title="Permanent link">&para;</a></h1>
+<!-- GOOGLETEST_CM0015 DO NOT DELETE -->
+
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Now that you have read the <a href="../primer/">googletest Primer</a> and learned how to write
-tests using googletest, it's time to learn some new tricks. This document will
-show you more assertions as well as how to construct complex failure messages,
-propagate fatal failures, reuse and speed up your test fixtures, and use various
-flags with your tests.</p>
+<p>Now that you have read the <a href="../primer/">googletest Primer</a> and learned how to
+write tests using googletest, it's time to learn some new tricks. This document
+will show you more assertions as well as how to construct complex failure
+messages, propagate fatal failures, reuse and speed up your test fixtures, and
+use various flags with your tests.</p>
 <h2 id="more-assertions">More Assertions<a class="headerlink" href="#more-assertions" title="Permanent link">&para;</a></h2>
 <p>This section covers some less frequently used, but still significant,
 assertions.</p>
@@ -1308,14 +1310,24 @@ assertion</em> to get the function arguments printed for free:</p>
 </thead>
 <tbody>
 <tr>
-<td><code>ASSERT_PRED1(pred1, val1);</code></td>
-<td><code>EXPECT_PRED1(pred1, val1);</code></td>
+<td><code>ASSERT_PRED1(pred1, |</code>EXPECT_PRED1(pred1,</td>
 <td><code>pred1(val1)</code> is true</td>
+<td></td>
 </tr>
 <tr>
-<td><code>ASSERT_PRED2(pred2, val1, val2);</code></td>
-<td><code>EXPECT_PRED2(pred2, val1, val2);</code></td>
+<td>: val1);<code>: val1);</code>              :                             :</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ASSERT_PRED2(pred2, |</code>EXPECT_PRED2(pred2,</td>
 <td><code>pred2(val1, val2)</code> is true</td>
+<td></td>
+</tr>
+<tr>
+<td>: val1, val2);<code>: val1, val2);</code>        :                             :</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>...</code></td>
@@ -1539,21 +1551,28 @@ want to learn more, see
 </thead>
 <tbody>
 <tr>
-<td><code>ASSERT_FLOAT_EQ(val1, val2);</code></td>
-<td><code>EXPECT_FLOAT_EQ(val1,val2);</code></td>
-<td>the two <code>float</code> values are almost equal</td>
+<td><code>ASSERT_FLOAT_EQ(val1,  |</code>EXPECT_FLOAT_EQ(val1,</td>
+<td>the two <code>float</code> values</td>
+<td></td>
 </tr>
 <tr>
-<td><code>ASSERT_DOUBLE_EQ(val1, val2);</code></td>
-<td><code>EXPECT_DOUBLE_EQ(val1, val2);</code></td>
-<td>the two <code>double</code> values are almost equal</td>
+<td>: val2);<code>: val2);</code>                 : are almost equal        :</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ASSERT_DOUBLE_EQ(val1, |</code>EXPECT_DOUBLE_EQ(val1,</td>
+<td>the two <code>double</code> values</td>
+<td></td>
+</tr>
+<tr>
+<td>: val2);<code>: val2);</code>                 : are almost equal        :</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <p>By "almost equal" we mean the values are within 4 ULP's from each other.</p>
-<p>NOTE: <code>CHECK_DOUBLE_EQ()</code> in <code>base/logging.h</code> uses a fixed absolute error bound,
-so its result may differ from that of the googletest macros. That macro is
-unsafe and has been deprecated. Please don't use it any more.</p>
 <p>The following assertions allow you to choose the acceptable error bound:</p>
 <table>
 <thead>
@@ -1565,9 +1584,24 @@ unsafe and has been deprecated. Please don't use it any more.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>ASSERT_NEAR(val1, val2, abs_error);</code></td>
-<td><code>EXPECT_NEAR(val1, val2, abs_error);</code></td>
-<td>the difference between <code>val1</code> and <code>val2</code> doesn't exceed the given absolute error</td>
+<td><code>ASSERT_NEAR(val1, |</code>EXPECT_NEAR(val1, val2,</td>
+<td>the difference between</td>
+<td></td>
+</tr>
+<tr>
+<td>: val2, abs_error);<code>: abs_error);</code>             : <code>val1</code> and <code>val2</code> doesn't :</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:                    :                          : exceed the given absolute :</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:                    :                          : error                     :</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1613,13 +1647,13 @@ with <code>prefix</code>, and you can write:</p>
     EXPECT_THAT(Foo(), StartsWith(&quot;Hello&quot;));
 </code></pre>
 
-<p>Read this <a href="../../../googlemock/docs/CookBook/#using-matchers-in-google-test-assertions">recipe</a> in
+<p>Read this <a href="../../../googlemock/docs/cook_book/#using-matchers-in-google-test-assertions">recipe</a> in
 the gMock Cookbook for more details.</p>
 <p>gMock has a rich set of matchers. You can do many things googletest cannot do
 alone with them. For a list of matchers gMock provides, read
-<a href="../../../googlemock/docs/CookBook/#using-matchers">this</a>. Especially useful among them are
+<a href="../../../googlemock/docs/cook_book/#using-matchers">this</a>. Especially useful among them are
 some <a href="https://github.com/google/nucleus/blob/master/nucleus/testing/protocol-buffer-matchers.h">protocol buffer matchers</a>. It's easy to write
-your <a href="../../../googlemock/docs/CookBook/#writing-new-matchers-quickly">own matchers</a> too.</p>
+your <a href="../../../googlemock/docs/cook_book/#writing-new-matchers-quickly">own matchers</a> too.</p>
 <p>For example, you can use gMock's
 <a href="https://github.com/google/nucleus/blob/master/nucleus/testing/protocol-buffer-matchers.h">EqualsProto</a>
 to compare protos in your tests:</p>
@@ -1956,7 +1990,7 @@ TEST_F(FooDeathTest, DoesThat) {
 }
 </code></pre>
 
-<p><strong>Availability</strong>: Linux, Windows (requires MSVC 8.0 or above), Cygwin, and Mac</p>
+<p><strong>Availability</strong>: Linux, Windows, Cygwin, and Mac</p>
 <h3 id="regular-expression-syntax">Regular Expression Syntax<a class="headerlink" href="#regular-expression-syntax" title="Permanent link">&para;</a></h3>
 <p>On POSIX systems (e.g. Linux, Cygwin, and Mac), googletest uses the
 <a href="http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html#tag_09_04">POSIX extended regular expression</a>
@@ -2591,7 +2625,7 @@ namespace:</p>
 </tbody>
 </table>
 <p>For more details, see the comments at the definitions of these functions.</p>
-<p>NOTE: The <code>INSTANTIATE_TEST_SUITE_P</code> keyword is recommended (addressing http://go/gh/google/googletest/issues/1085)  For 1.8.1 and previous releases the keyword is <code>INSTANTIATE_TEST_CASE_P</code>. which has been deprecated in favor of INSTANTIATE_TEST_SUITE_P.</p>
+<p>NOTE: The <code>INSTANTIATE_TEST_SUITE_P</code> keyword is recommended (addressing https://github.com/google/googletest/issues/1085)  For 1.8.1 and previous releases the keyword is <code>INSTANTIATE_TEST_CASE_P</code>. which has been deprecated in favor of INSTANTIATE_TEST_SUITE_P.</p>
 <p>The following statement will instantiate tests from the <code>FooTest</code> test suite each
 with parameter values <code>"meeny"</code>, <code>"miny"</code>, and <code>"moe"</code>.</p>
 <pre><code class="c++">INSTANTIATE_TEST_SUITE_P(InstantiationName,
@@ -2635,7 +2669,7 @@ INSTANTIATE_TEST_SUITE_P(AnotherInstantiationName, FooTest,
 given test suite, whether their definitions come before or <em>after</em> the
 <code>INSTANTIATE_TEST_SUITE_P</code> statement.</p>
 <p>You can see sample7_unittest.cc and sample8_unittest.cc for more examples.</p>
-<p><strong>Availability</strong>: Linux, Windows (requires MSVC 8.0 or above), Mac</p>
+<p><strong>Availability</strong>: Linux, Windows, Mac</p>
 <h3 id="creating-value-parameterized-abstract-tests">Creating Value-Parameterized Abstract Tests<a class="headerlink" href="#creating-value-parameterized-abstract-tests" title="Permanent link">&para;</a></h3>
 <p>In the above, we define and instantiate <code>FooTest</code> in the <em>same</em> source file.
 Sometimes you may want to define value-parameterized tests in a library and let
@@ -2737,7 +2771,7 @@ TYPED_TEST(FooTest, HasPropertyA) { ... }
 </code></pre>
 
 <p>You can see sample6_unittest.cc</p>
-<p><strong>Availability</strong>: Linux, Windows (requires MSVC 8.0 or above), Mac</p>
+<p><strong>Availability</strong>: Linux, Windows, Mac</p>
 <h2 id="type-parameterized-tests">Type-Parameterized Tests<a class="headerlink" href="#type-parameterized-tests" title="Permanent link">&para;</a></h2>
 <p><em>Type-parameterized tests</em> are like typed tests, except that they don't require
 you to know the list of types ahead of time. Instead, you can define the test
@@ -2795,7 +2829,7 @@ that type directly without <code>::testing::Types&lt;...&gt;</code>, like this:<
 </code></pre>
 
 <p>You can see <code>sample6_unittest.cc</code> for a complete example.</p>
-<p><strong>Availability</strong>: Linux, Windows (requires MSVC 8.0 or above), Mac</p>
+<p><strong>Availability</strong>: Linux, Windows, Mac</p>
 <h2 id="testing-private-code">Testing Private Code<a class="headerlink" href="#testing-private-code" title="Permanent link">&para;</a></h2>
 <p>If you change your software's internal implementation, your tests should not
 break as long as the change is not observable by users. Therefore, <strong>per the
@@ -2932,6 +2966,66 @@ well, use one of the following macros instead:</p>
     value.</p>
 </li>
 </ol>
+<h2 id="registering-tests-programmatically">Registering tests programmatically<a class="headerlink" href="#registering-tests-programmatically" title="Permanent link">&para;</a></h2>
+<p>The <code>TEST</code> macros handle the vast majority of all use cases, but there are few
+were runtime registration logic is required. For those cases, the framework
+provides the <code>::testing::RegisterTest</code> that allows callers to register arbitrary
+tests dynamically.
+ This is an advanced API only to be used when the <code>TEST</code> macros are insufficient.
+The macros should be preferred when possible, as they avoid most of the
+complexity of calling this function.
+ It provides the following signature:
+ ```c++
+template <typename Factory>
+TestInfo<em> RegisterTest(const char</em> test_case_name, const char<em> test_name,
+                       const char</em> type_param, const char<em> value_param,
+                       const char</em> file, int line, Factory factory);</p>
+<pre><code> The `factory` argument is a factory callable (move-constructible) object or
+function pointer that creates a new instance of the Test object. It handles
+ownership to the caller. The signature of the callable is `Fixture*()`, where
+`Fixture` is the test fixture class for the test. All tests registered with the
+same `test_case_name` must return the same fixture type. This is checked at
+runtime.
+ The framework will infer the fixture class from the factory and will call the
+`SetUpTestCase` and `TearDownTestCase` for it.
+ Must be called before `RUN_ALL_TESTS()` is invoked, otherwise behavior is
+undefined.
+ Use case example:
+ ```c++
+class MyFixture : public ::testing::Test {
+ public:
+  // All of these optional, just like in regular macro usage.
+  static void SetUpTestCase() { ... }
+  static void TearDownTestCase() { ... }
+  void SetUp() override { ... }
+  void TearDown() override { ... }
+};
+ class MyTest : public MyFixture {
+ public:
+  explicit MyTest(int data) : data_(data) {}
+  void TestBody() override { ... }
+  private:
+  int data_;
+};
+ void RegisterMyTests(const std::vector&lt;int&gt;&amp; values) {
+  for (int v : values) {
+    ::testing::RegisterTest(
+        &quot;MyFixture&quot;, (&quot;Test&quot; + std::to_string(v)).c_str(), nullptr,
+        std::to_string(v).c_str(),
+        __FILE__, __LINE__,
+        // Important to use the fixture type as the return type here.
+        [=]() -&gt; MyFixture* { return new MyTest(v); });
+  }
+}
+...
+int main(int argc, char** argv) {
+  std::vector&lt;int&gt; values_to_test = LoadValuesFromConfig();
+  RegisterMyTests(values_to_test);
+  ...
+  return RUN_ALL_TESTS();
+}
+</code></pre>
+
 <h2 id="getting-the-current-tests-name">Getting the Current Test's Name<a class="headerlink" href="#getting-the-current-tests-name" title="Permanent link">&para;</a></h2>
 <p>Sometimes a function may need to know the name of the currently running test.
 For example, you may be using the <code>SetUp()</code> method of your test fixture to set
@@ -3569,13 +3663,13 @@ running the tests.</p>
           </a>
         
         
-          <a href="../XcodeGuide/" title="Xcode" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../samples/" title="Samples" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Xcode
+                Samples
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

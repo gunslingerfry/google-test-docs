@@ -316,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googletest/docs/XcodeGuide/" title="Xcode" class="md-nav__link">
+    <a href="../../../googletest/docs/XcodeGuide.md" title="Xcode" class="md-nav__link">
       Xcode
     </a>
   </li>
@@ -328,7 +328,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googletest/docs/PumpManual/" title="Pump" class="md-nav__link">
+    <a href="../../../googletest/docs/PumpManual.md" title="Pump" class="md-nav__link">
       Pump
     </a>
   </li>
@@ -340,7 +340,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googletest/docs/Pkgconfig/" title="pkg-config" class="md-nav__link">
+    <a href="../../../googletest/docs/Pkgconfig.md" title="pkg-config" class="md-nav__link">
       pkg-config
     </a>
   </li>
@@ -435,7 +435,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../CookBook/" title="Cookbook" class="md-nav__link">
+    <a href="../CookBook.md" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -574,7 +574,7 @@
 <p>Using the <code>Turtle</code> interface as example, here are the simple steps you need to follow:</p>
 <ol>
 <li>Derive a class <code>MockTurtle</code> from <code>Turtle</code>.</li>
-<li>Take a <em>virtual</em> function of <code>Turtle</code> (while it's possible to <a href="../CookBook/#mocking-nonvirtual-methods">mock non-virtual methods using templates</a>, it's much more involved). Count how many arguments it has.</li>
+<li>Take a <em>virtual</em> function of <code>Turtle</code> (while it's possible to <a href="../cook_book/#mocking-nonvirtual-methods">mock non-virtual methods using templates</a>, it's much more involved). Count how many arguments it has.</li>
 <li>In the <code>public:</code> section of the child class, write <code>MOCK_METHODn();</code> (or <code>MOCK_CONST_METHODn();</code> if you are mocking a <code>const</code> method), where <code>n</code> is the number of the arguments; if you counted wrong, shame on you, and a compiler error will tell you so.</li>
 <li>Now comes the fun part: you take the function signature, cut-and-paste the <em>function name</em> as the <em>first</em> argument to the macro, and leave what's left as the <em>second</em> argument (in case you're curious, this is the <em>type of the function</em>).</li>
 <li>Repeat until all virtual functions you want to mock are done.</li>
@@ -762,7 +762,7 @@ EXPECT_CALL(turtle, GetX())
 .WillRepeatedly(Return(n++));
 </code></pre>
 
-<p>Instead of returning 100, 101, 102, ..., consecutively, this mock function will always return 100 as <code>n++</code> is only evaluated once. Similarly, <code>Return(new Foo)</code> will create a new <code>Foo</code> object when the <code>EXPECT_CALL()</code> is executed, and will return the same pointer every time. If you want the side effect to happen every time, you need to define a custom action, which we'll teach in the <a href="../CookBook/">CookBook</a>.</p>
+<p>Instead of returning 100, 101, 102, ..., consecutively, this mock function will always return 100 as <code>n++</code> is only evaluated once. Similarly, <code>Return(new Foo)</code> will create a new <code>Foo</code> object when the <code>EXPECT_CALL()</code> is executed, and will return the same pointer every time. If you want the side effect to happen every time, you need to define a custom action, which we'll teach in the <a href="../cook_book/">CookBook</a>.</p>
 <p>Time for another quiz! What do you think the following means?</p>
 <pre><code class="cpp">using ::testing::Return;
 ...
@@ -804,7 +804,7 @@ TEST(FooTest, DrawsLineSegment) {
 
 <p>By creating an object of type <code>InSequence</code>, all expectations in its scope are put into a <em>sequence</em> and have to occur <em>sequentially</em>. Since we are just relying on the constructor and destructor of this object to do the actual work, its name is really irrelevant.</p>
 <p>In this example, we test that <code>Foo()</code> calls the three expected functions in the order as written. If a call is made out-of-order, it will be an error.</p>
-<p>(What if you care about the relative order of some of the calls, but not all of them? Can you specify an arbitrary partial order? The answer is ... yes! If you are impatient, the details can be found in the <a href="../CookBook/#expecting-partially-ordered-calls">CookBook</a>.)</p>
+<p>(What if you care about the relative order of some of the calls, but not all of them? Can you specify an arbitrary partial order? The answer is ... yes! If you are impatient, the details can be found in the <a href="../cook_book/#expecting-partially-ordered-calls">CookBook</a>.)</p>
 <h2 id="all-expectations-are-sticky-unless-said-otherwise">All Expectations Are Sticky (Unless Said Otherwise)<a class="headerlink" href="#all-expectations-are-sticky-unless-said-otherwise" title="Permanent link">&para;</a></h2>
 <p>Now let's do a quick quiz to see how well you can use this mock stuff already. How would you test that the turtle is asked to go to the origin <em>exactly twice</em> (you want to ignore any other instructions it receives)?</p>
 <p>After you've come up with your answer, take a look at ours and compare notes (solve it yourself first - don't cheat!):</p>
@@ -859,7 +859,7 @@ using ::testing::Return;
 <p>In Google Mock, if you are not interested in a method, just don't say anything about it. If a call to this method occurs, you'll see a warning in the test output, but it won't be a failure.</p>
 <h1 id="what-now">What Now?<a class="headerlink" href="#what-now" title="Permanent link">&para;</a></h1>
 <p>Congratulations! You've learned enough about Google Mock to start using it. Now, you might want to join the <a href="http://groups.google.com/group/googlemock">googlemock</a> discussion group and actually write some tests using Google Mock - it will be fun. Hey, it may even be addictive - you've been warned.</p>
-<p>Then, if you feel like increasing your mock quotient, you should move on to the <a href="../CookBook/">CookBook</a>. You can learn many advanced features of Google Mock there -- and advance your level of enjoyment and testing bliss.</p>
+<p>Then, if you feel like increasing your mock quotient, you should move on to the <a href="../cook_book/">CookBook</a>. You can learn many advanced features of Google Mock there -- and advance your level of enjoyment and testing bliss.</p>
                 
                   
                 

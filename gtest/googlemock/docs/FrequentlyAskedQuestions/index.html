@@ -316,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googletest/docs/XcodeGuide/" title="Xcode" class="md-nav__link">
+    <a href="../../../googletest/docs/XcodeGuide.md" title="Xcode" class="md-nav__link">
       Xcode
     </a>
   </li>
@@ -328,7 +328,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googletest/docs/PumpManual/" title="Pump" class="md-nav__link">
+    <a href="../../../googletest/docs/PumpManual.md" title="Pump" class="md-nav__link">
       Pump
     </a>
   </li>
@@ -340,7 +340,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googletest/docs/Pkgconfig/" title="pkg-config" class="md-nav__link">
+    <a href="../../../googletest/docs/Pkgconfig.md" title="pkg-config" class="md-nav__link">
       pkg-config
     </a>
   </li>
@@ -426,7 +426,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../CookBook/" title="Cookbook" class="md-nav__link">
+    <a href="../CookBook.md" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -491,34 +491,6 @@
         <li class="md-nav__item">
   <a href="#can-i-mock-a-variadic-function" title="Can I mock a variadic function?" class="md-nav__link">
     Can I mock a variadic function?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#msvc-gives-me-warning-c4301-or-c4373-when-i-define-a-mock-method-with-a-const-parameter-why" title="MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter.  Why?" class="md-nav__link">
-    MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter.  Why?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i-have-a-huge-mock-class-and-microsoft-visual-c-runs-out-of-memory-when-compiling-it-what-can-i-do" title="I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it.  What can I do?" class="md-nav__link">
-    I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it.  What can I do?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i-cant-figure-out-why-google-mock-thinks-my-expectations-are-not-satisfied-what-should-i-do" title="I can't figure out why Google Mock thinks my expectations are not satisfied.  What should I do?" class="md-nav__link">
-    I can't figure out why Google Mock thinks my expectations are not satisfied.  What should I do?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-can-i-assert-that-a-function-is-never-called" title="How can I assert that a function is NEVER called?" class="md-nav__link">
-    How can I assert that a function is NEVER called?
   </a>
   
 </li>
@@ -701,34 +673,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#msvc-gives-me-warning-c4301-or-c4373-when-i-define-a-mock-method-with-a-const-parameter-why" title="MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter.  Why?" class="md-nav__link">
-    MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter.  Why?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i-have-a-huge-mock-class-and-microsoft-visual-c-runs-out-of-memory-when-compiling-it-what-can-i-do" title="I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it.  What can I do?" class="md-nav__link">
-    I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it.  What can I do?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i-cant-figure-out-why-google-mock-thinks-my-expectations-are-not-satisfied-what-should-i-do" title="I can't figure out why Google Mock thinks my expectations are not satisfied.  What should I do?" class="md-nav__link">
-    I can't figure out why Google Mock thinks my expectations are not satisfied.  What should I do?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-can-i-assert-that-a-function-is-never-called" title="How can I assert that a function is NEVER called?" class="md-nav__link">
-    How can I assert that a function is NEVER called?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#i-have-a-failed-test-where-google-mock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant" title="I have a failed test where Google Mock tells me TWICE that a particular expectation is not satisfied.  Isn't this redundant?" class="md-nav__link">
     I have a failed test where Google Mock tells me TWICE that a particular expectation is not satisfied.  Isn't this redundant?
   </a>
@@ -836,7 +780,7 @@
 group. If you need help with compiler errors, make sure you have
 tried <a href="#how-am-i-supposed-to-make-sense-of-these-horrible-template-errors">Google Mock Doctor</a> first.</p>
 <h2 id="when-i-call-a-method-on-my-mock-object-the-method-for-the-real-object-is-invoked-instead-whats-the-problem">When I call a method on my mock object, the method for the real object is invoked instead.  What's the problem?<a class="headerlink" href="#when-i-call-a-method-on-my-mock-object-the-method-for-the-real-object-is-invoked-instead-whats-the-problem" title="Permanent link">&para;</a></h2>
-<p>In order for a method to be mocked, it must be <em>virtual</em>, unless you use the <a href="../CookBook/#mocking-nonvirtual-methods">high-perf dependency injection technique</a>.</p>
+<p>In order for a method to be mocked, it must be <em>virtual</em>, unless you use the <a href="../cook_book/#mocking-nonvirtual-methods">high-perf dependency injection technique</a>.</p>
 <h2 id="i-wrote-some-matchers-after-i-upgraded-to-a-new-version-of-google-mock-they-no-longer-compile-whats-going-on">I wrote some matchers.  After I upgraded to a new version of Google Mock, they no longer compile.  What's going on?<a class="headerlink" href="#i-wrote-some-matchers-after-i-upgraded-to-a-new-version-of-google-mock-they-no-longer-compile-whats-going-on" title="Permanent link">&para;</a></h2>
 <p>After version 1.4.0 of Google Mock was released, we had an idea on how
 to make it easier to write matchers that can generate informative
@@ -1012,8 +956,8 @@ class MyGreatMatcher {
 </code></pre>
 
 <p>For more information, you can read these
-<a href="../CookBook/#writing-new-monomorphic-matchers">two</a>
-<a href="../CookBook/#writing-new-polymorphic-matchers">recipes</a>
+<a href="../cook_book/#writing-new-monomorphic-matchers">two</a>
+<a href="../cook_book/#writing-new-polymorphic-matchers">recipes</a>
 from the cookbook.  As always, you
 are welcome to post questions on <code>googlemock@googlegroups.com</code> if you
 need any help.</p>
@@ -1053,65 +997,6 @@ way to do it is to provide overloaded versions of the function.</p>
 They are unsafe to use and don't work with arguments that have
 constructors or destructors.  Therefore we recommend to avoid them in
 C++ as much as possible.</p>
-<h2 id="msvc-gives-me-warning-c4301-or-c4373-when-i-define-a-mock-method-with-a-const-parameter-why">MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter.  Why?<a class="headerlink" href="#msvc-gives-me-warning-c4301-or-c4373-when-i-define-a-mock-method-with-a-const-parameter-why" title="Permanent link">&para;</a></h2>
-<p>If you compile this using Microsoft Visual C++ 2005 SP1:</p>
-<pre><code class="cpp">class Foo {
-  ...
-  virtual void Bar(const int i) = 0;
-};
-
-class MockFoo : public Foo {
-  ...
-  MOCK_METHOD1(Bar, void(const int i));
-};
-</code></pre>
-
-<p>You may get the following warning:</p>
-<pre><code>warning C4301: 'MockFoo::Bar': overriding virtual function only differs from 'Foo::Bar' by const/volatile qualifier
-</code></pre>
-
-<p>This is a MSVC bug.  The same code compiles fine with gcc ,for
-example.  If you use Visual C++ 2008 SP1, you would get the warning:</p>
-<pre><code>warning C4373: 'MockFoo::Bar': virtual function overrides 'Foo::Bar', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-</code></pre>
-
-<p>In C++, if you <em>declare</em> a function with a <code>const</code> parameter, the
-<code>const</code> modifier is <em>ignored</em>.  Therefore, the <code>Foo</code> base class above
-is equivalent to:</p>
-<pre><code class="cpp">class Foo {
-  ...
-  virtual void Bar(int i) = 0;  // int or const int?  Makes no difference.
-};
-</code></pre>
-
-<p>In fact, you can <em>declare</em> Bar() with an <code>int</code> parameter, and <em>define</em>
-it with a <code>const int</code> parameter.  The compiler will still match them
-up.</p>
-<p>Since making a parameter <code>const</code> is meaningless in the method
-<em>declaration</em>, we recommend to remove it in both <code>Foo</code> and <code>MockFoo</code>.
-That should workaround the VC bug.</p>
-<p>Note that we are talking about the <em>top-level</em> <code>const</code> modifier here.
-If the function parameter is passed by pointer or reference, declaring
-the <em>pointee</em> or <em>referee</em> as <code>const</code> is still meaningful.  For
-example, the following two declarations are <em>not</em> equivalent:</p>
-<pre><code class="cpp">void Bar(int* p);        // Neither p nor *p is const.
-void Bar(const int* p);  // p is not const, but *p is.
-</code></pre>
-
-<h2 id="i-have-a-huge-mock-class-and-microsoft-visual-c-runs-out-of-memory-when-compiling-it-what-can-i-do">I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it.  What can I do?<a class="headerlink" href="#i-have-a-huge-mock-class-and-microsoft-visual-c-runs-out-of-memory-when-compiling-it-what-can-i-do" title="Permanent link">&para;</a></h2>
-<p>We've noticed that when the <code>/clr</code> compiler flag is used, Visual C++
-uses 5~6 times as much memory when compiling a mock class.  We suggest
-to avoid <code>/clr</code> when compiling native C++ mocks.</p>
-<h2 id="i-cant-figure-out-why-google-mock-thinks-my-expectations-are-not-satisfied-what-should-i-do">I can't figure out why Google Mock thinks my expectations are not satisfied.  What should I do?<a class="headerlink" href="#i-cant-figure-out-why-google-mock-thinks-my-expectations-are-not-satisfied-what-should-i-do" title="Permanent link">&para;</a></h2>
-<p>You might want to run your test with
-<code>--gmock_verbose=info</code>.  This flag lets Google Mock print a trace
-of every mock function call it receives.  By studying the trace,
-you'll gain insights on why the expectations you set are not met.</p>
-<h2 id="how-can-i-assert-that-a-function-is-never-called">How can I assert that a function is NEVER called?<a class="headerlink" href="#how-can-i-assert-that-a-function-is-never-called" title="Permanent link">&para;</a></h2>
-<pre><code class="cpp">EXPECT_CALL(foo, Bar(_))
-    .Times(0);
-</code></pre>
-
 <h2 id="i-have-a-failed-test-where-google-mock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant">I have a failed test where Google Mock tells me TWICE that a particular expectation is not satisfied.  Isn't this redundant?<a class="headerlink" href="#i-have-a-failed-test-where-google-mock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant" title="Permanent link">&para;</a></h2>
 <p>When Google Mock detects a failure, it prints relevant information
 (the mock function arguments, the state of relevant expectations, and
@@ -1235,10 +1120,10 @@ verbose level.</p>
 <p>If you find yourself needing to perform some action that's not
 supported by Google Mock directly, remember that you can define your own
 actions using
-<a href="../CookBook/#writing-new-actions-quickly">MakeAction()</a> or
-<a href="../CookBook/#writing-new-polymorphic-actions">MakePolymorphicAction()</a>,
+<a href="../cook_book/#writing-new-actions-quickly">MakeAction()</a> or
+<a href="../cook_book/#writing-new-polymorphic-actions">MakePolymorphicAction()</a>,
 or you can write a stub function and invoke it using
-<a href="../CookBook/#using-functionsmethodsfunctors-as-actions">Invoke()</a>.</p>
+<a href="../cook_book/#using-functionsmethodsfunctors-as-actions">Invoke()</a>.</p>
 <h2 id="mock95methodns-second-argument-looks-funny-why-dont-you-use-the-mock95methodnmethod-return95type-arg951-arg95n-syntax">MOCK_METHODn()'s second argument looks funny.  Why don't you use the MOCK_METHODn(Method, return_type, arg_1, ..., arg_n) syntax?<a class="headerlink" href="#mock95methodns-second-argument-looks-funny-why-dont-you-use-the-mock95methodnmethod-return95type-arg951-arg95n-syntax" title="Permanent link">&para;</a></h2>
 <p>What?!  I think it's beautiful. :-)</p>
 <p>While which syntax looks more natural is a subjective matter to some
@@ -1331,7 +1216,7 @@ functions the action can be used in, and implementing
 when the mock method is called.  <code>SetArgPointee()</code> says what the
 side effect is, but doesn't say what the return value should be.  You
 need <code>DoAll()</code> to chain a <code>SetArgPointee()</code> with a <code>Return()</code>.</p>
-<p>See this <a href="../CookBook/#mocking-side-effects">recipe</a> for more details and an example.</p>
+<p>See this <a href="../cook_book/#mocking-side-effects">recipe</a> for more details and an example.</p>
 <h2 id="my-question-is-not-in-your-faq">My question is not in your FAQ!<a class="headerlink" href="#my-question-is-not-in-your-faq" title="Permanent link">&para;</a></h2>
 <p>If you cannot find the answer to your question in this FAQ, there are
 some other resources you can use:</p>
@@ -1374,7 +1259,7 @@ not enough information in your question):</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../CookBook/" title="Cookbook" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../CheatSheet/" title="Cheat Sheet" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1383,7 +1268,7 @@ not enough information in your question):</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Cookbook
+                Cheat Sheet
               </span>
             </div>
           </a>

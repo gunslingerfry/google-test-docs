@@ -316,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../googletest/docs/XcodeGuide/" title="Xcode" class="md-nav__link">
+    <a href="../googletest/docs/XcodeGuide.md" title="Xcode" class="md-nav__link">
       Xcode
     </a>
   </li>
@@ -328,7 +328,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../googletest/docs/PumpManual/" title="Pump" class="md-nav__link">
+    <a href="../googletest/docs/PumpManual.md" title="Pump" class="md-nav__link">
       Pump
     </a>
   </li>
@@ -340,7 +340,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../googletest/docs/Pkgconfig/" title="pkg-config" class="md-nav__link">
+    <a href="../googletest/docs/Pkgconfig.md" title="pkg-config" class="md-nav__link">
       pkg-config
     </a>
   </li>
@@ -424,7 +424,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docs/CookBook/" title="Cookbook" class="md-nav__link">
+    <a href="docs/CookBook.md" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -587,22 +587,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#preparing-to-build-unix-only" title="Preparing to Build (Unix only)" class="md-nav__link">
-    Preparing to Build (Unix only)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows" title="Windows" class="md-nav__link">
-    Windows
-  </a>
   
 </li>
         
@@ -734,7 +720,7 @@ documentation in the following order:</p>
 <ul>
 <li><a href="docs/CheatSheet/">CheatSheet</a> - all the commonly used stuff
     at a glance.</li>
-<li><a href="docs/CookBook/">CookBook</a> - recipes for getting things done,
+<li><a href="docs/cook_book/">CookBook</a> - recipes for getting things done,
     including advanced techniques.</li>
 </ul>
 <p>If you need help, please check the
@@ -798,78 +784,6 @@ To make it work for Google Mock you will need to change</p>
 <pre><code>target_link_libraries(example gmock_main)
 </code></pre>
 <p>This works because <code>gmock_main</code> library is compiled with Google Test.</p>
-<h4 id="preparing-to-build-unix-only">Preparing to Build (Unix only)<a class="headerlink" href="#preparing-to-build-unix-only" title="Permanent link">&para;</a></h4>
-<p>If you are using a Unix system and plan to use the GNU Autotools build
-system to build Google Mock (described below), you'll need to
-configure it now.</p>
-<p>To prepare the Autotools build system:</p>
-<pre><code>cd googlemock
-autoreconf -fvi
-</code></pre>
-<p>To build Google Mock and your tests that use it, you need to tell your
-build system where to find its headers and source files.  The exact
-way to do it depends on which build system you use, and is usually
-straightforward.</p>
-<p>This section shows how you can integrate Google Mock into your
-existing build system.</p>
-<p>Suppose you put Google Mock in directory <code>${GMOCK_DIR}</code> and Google Test
-in <code>${GTEST_DIR}</code> (the latter is <code>${GMOCK_DIR}/gtest</code> by default).  To
-build Google Mock, create a library build target (or a project as
-called by Visual Studio and Xcode) to compile</p>
-<pre><code>${GTEST_DIR}/src/gtest-all.cc and ${GMOCK_DIR}/src/gmock-all.cc
-</code></pre>
-<p>with</p>
-<pre><code>${GTEST_DIR}/include and ${GMOCK_DIR}/include
-</code></pre>
-<p>in the system header search path, and</p>
-<pre><code>${GTEST_DIR} and ${GMOCK_DIR}
-</code></pre>
-<p>in the normal header search path.  Assuming a Linux-like system and gcc,
-something like the following will do:</p>
-<pre><code>g++ -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
-    -isystem ${GMOCK_DIR}/include -I${GMOCK_DIR} \
-    -pthread -c ${GTEST_DIR}/src/gtest-all.cc
-g++ -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
-    -isystem ${GMOCK_DIR}/include -I${GMOCK_DIR} \
-    -pthread -c ${GMOCK_DIR}/src/gmock-all.cc
-ar -rv libgmock.a gtest-all.o gmock-all.o
-</code></pre>
-<p>(We need -pthread as Google Test and Google Mock use threads.)</p>
-<p>Next, you should compile your test source file with
-${GTEST_DIR}/include and ${GMOCK_DIR}/include in the header search
-path, and link it with gmock and any other necessary libraries:</p>
-<pre><code>g++ -isystem ${GTEST_DIR}/include -isystem ${GMOCK_DIR}/include \
-    -pthread path/to/your_test.cc libgmock.a -o your_test
-</code></pre>
-<p>As an example, the make/ directory contains a Makefile that you can
-use to build Google Mock on systems where GNU make is available
-(e.g. Linux, Mac OS X, and Cygwin).  It doesn't try to build Google
-Mock's own tests.  Instead, it just builds the Google Mock library and
-a sample test.  You can use it as a starting point for your own build
-script.</p>
-<p>If the default settings are correct for your environment, the
-following commands should succeed:</p>
-<pre><code>cd ${GMOCK_DIR}/make
-make
-./gmock_test
-</code></pre>
-<p>If you see errors, try to tweak the contents of
-<a href="make/Makefile">make/Makefile</a> to make them go away.</p>
-<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
-<p>The msvc/2005 directory contains VC++ 2005 projects and the msvc/2010
-directory contains VC++ 2010 projects for building Google Mock and
-selected tests.</p>
-<p>Change to the appropriate directory and run "msbuild gmock.sln" to
-build the library and tests (or open the gmock.sln in the MSVC IDE).
-If you want to create your own project to use with Google Mock, you'll
-have to configure it to use the <code>gmock_config</code> propety sheet.  For that:</p>
-<ul>
-<li>Open the Property Manager window (View | Other Windows | Property Manager)</li>
-<li>Right-click on your project and select "Add Existing Property Sheet..."</li>
-<li>Navigate to <code>gmock_config.vsprops</code> or <code>gmock_config.props</code> and select it.</li>
-<li>In Project Properties | Configuration Properties | General | Additional
-   Include Directories, type <path to Google Mock>/include.</li>
-</ul>
 <h3 id="tweaking-google-mock">Tweaking Google Mock<a class="headerlink" href="#tweaking-google-mock" title="Permanent link">&para;</a></h3>
 <p>Google Mock can be used in diverse environments.  The default
 configuration may not work (or may not work well) out of the box in
@@ -905,8 +819,8 @@ may need to tweak your compiler and/or linker flags.  Please see the
 <p>If you have custom matchers defined using <code>MatcherInterface</code> or
 <code>MakePolymorphicMatcher()</code>, you'll need to update their definitions to
 use the new matcher API (
-<a href="docs/CookBook/#writing-new-monomorphic-matchers">monomorphic</a>,
-<a href="docs/CookBook/#writing-new-polymorphic-matchers">polymorphic</a>).
+<a href="docs/cook_book/#writing-new-monomorphic-matchers">monomorphic</a>,
+<a href="docs/cook_book/#writing-new-polymorphic-matchers">polymorphic</a>).
 Matchers defined using <code>MATCHER()</code> or <code>MATCHER_P*()</code> aren't affected.</p>
 <p>Happy testing!</p>
                 
