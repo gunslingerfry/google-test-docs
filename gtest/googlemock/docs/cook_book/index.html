@@ -697,7 +697,7 @@ combine this with the recipe for <a href="#mocking-nonvirtual-methods">mocking n
 will print a warning about the "uninteresting call". The rationale is:</p>
 <ul>
 <li>New methods may be added to an interface after a test is written. We shouldn't fail a test just because a method it doesn't know about is called.</li>
-<li>However, this may also mean there's a bug in the test, so Google Mock shouldn't be silent either. If the user believes these calls are harmless, they can add an <code>EXPECT_CALL()</code> to suppress the warning.</li>
+<li>However, this may also mean there's a bug in the test, so Google Mock shouldn't be silent either. (Note that the user should <a href="https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect"><em>not</em> add an <code>EXPECT_CALL()</code></a> to suppress the warning, even if they think the call is harmless).</li>
 </ul>
 <p>However, sometimes you may want to suppress all "uninteresting call"
 warnings, while sometimes you may want the opposite, i.e. to treat all
