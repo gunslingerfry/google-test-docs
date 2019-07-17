@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#google-mock" tabindex="1" class="md-skip">
+      <a href="#googletest-mocking-gmock-framework" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -120,7 +120,7 @@
                 Google Docs Mirror
               </span>
               <span class="md-header-nav__topic">
-                Home
+                Googletest Mocking (gMock) Framework
               </span>
             
           
@@ -485,163 +485,16 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#google-mock" title="Google Mock" class="md-nav__link">
-    Google Mock
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#overview" title="Overview" class="md-nav__link">
     Overview
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#features" title="Features" class="md-nav__link">
-    Features
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" title="Getting Started" class="md-nav__link">
-    Getting Started
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-google-mock-without-google-test" title="Using Google Mock Without Google Test" class="md-nav__link">
-    Using Google Mock Without Google Test
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirements-for-end-users" title="Requirements for End Users" class="md-nav__link">
-    Requirements for End Users
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linux-requirements" title="Linux Requirements" class="md-nav__link">
-    Linux Requirements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows-requirements" title="Windows Requirements" class="md-nav__link">
-    Windows Requirements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mac-os-x-requirements" title="Mac OS X Requirements" class="md-nav__link">
-    Mac OS X Requirements
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirements-for-contributors" title="Requirements for Contributors" class="md-nav__link">
-    Requirements for Contributors
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#building-google-mock" title="Building Google Mock" class="md-nav__link">
-    Building Google Mock
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-cmake" title="Using CMake" class="md-nav__link">
-    Using CMake
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tweaking-google-mock" title="Tweaking Google Mock" class="md-nav__link">
-    Tweaking Google Mock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#as-a-shared-library-dll" title="As a Shared Library (DLL)" class="md-nav__link">
-    As a Shared Library (DLL)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tweaking-google-mock_1" title="Tweaking Google Mock" class="md-nav__link">
-    Tweaking Google Mock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upgrading-from-an-earlier-version" title="Upgrading from an Earlier Version" class="md-nav__link">
-    Upgrading from an Earlier Version
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#upgrading-from-110-or-earlier" title="Upgrading from 1.1.0 or Earlier" class="md-nav__link">
-    Upgrading from 1.1.0 or Earlier
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upgrading-from-140-or-earlier" title="Upgrading from 1.4.0 or Earlier" class="md-nav__link">
-    Upgrading from 1.4.0 or Earlier
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -662,13 +515,10 @@
               
                 
                 
-                  <h1>Home</h1>
-                
-                <h2 id="google-mock">Google Mock<a class="headerlink" href="#google-mock" title="Permanent link">&para;</a></h2>
-<p>The Google C++ mocking framework.</p>
+                <h1 id="googletest-mocking-gmock-framework">Googletest Mocking (gMock) Framework<a class="headerlink" href="#googletest-mocking-gmock-framework" title="Permanent link">&para;</a></h1>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
-<p>Google's framework for writing and using C++ mock classes.
-It can help you derive better designs of your system and write better tests.</p>
+<p>Google's framework for writing and using C++ mock classes. It can help you
+derive better designs of your system and write better tests.</p>
 <p>It is inspired by:</p>
 <ul>
 <li><a href="http://www.jmock.org/">jMock</a>,</li>
@@ -676,153 +526,27 @@ It can help you derive better designs of your system and write better tests.</p>
 <li><a href="http://code.google.com/p/hamcrest/">Hamcrest</a>,</li>
 </ul>
 <p>and designed with C++'s specifics in mind.</p>
-<p>Google mock:</p>
+<p>gMock:</p>
 <ul>
-<li>lets you create mock classes trivially using simple macros.</li>
-<li>supports a rich set of matchers and actions.</li>
-<li>handles unordered, partially ordered, or completely ordered expectations.</li>
-<li>is extensible by users.</li>
+<li>provides a declarative syntax for defining mocks,</li>
+<li>can define partial (hybrid) mocks, which are a cross of real and mock
+    objects,</li>
+<li>handles functions of arbitrary types and overloaded functions,</li>
+<li>comes with a rich set of matchers for validating function arguments,</li>
+<li>uses an intuitive syntax for controlling the behavior of a mock,</li>
+<li>does automatic verification of expectations (no record-and-replay needed),</li>
+<li>allows arbitrary (partial) ordering constraints on function calls to be
+    expressed,</li>
+<li>lets a user extend it by defining new matchers and actions.</li>
+<li>does not use exceptions, and</li>
+<li>is easy to learn and use.</li>
 </ul>
-<p>We hope you find it useful!</p>
-<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Provides a declarative syntax for defining mocks.</li>
-<li>Can easily define partial (hybrid) mocks, which are a cross of real
-    and mock objects.</li>
-<li>Handles functions of arbitrary types and overloaded functions.</li>
-<li>Comes with a rich set of matchers for validating function arguments.</li>
-<li>Uses an intuitive syntax for controlling the behavior of a mock.</li>
-<li>Does automatic verification of expectations (no record-and-replay needed).</li>
-<li>Allows arbitrary (partial) ordering constraints on
-    function calls to be expressed,.</li>
-<li>Lets a user extend it by defining new matchers and actions.</li>
-<li>Does not use exceptions.</li>
-<li>Is easy to learn and use.</li>
-</ul>
-<p>Please see the project page above for more information as well as the
-mailing list for questions, discussions, and development.  There is
-also an IRC channel on OFTC (irc.oftc.net) #gtest available.  Please
-join us!</p>
-<p>Please note that code under <a href="scripts/generator/">scripts/generator</a> is
-from <a href="http://code.google.com/p/cppclean/">cppclean</a> and released under
-the Apache License, which is different from Google Mock's license.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>If you are new to the project, we suggest that you read the user
-documentation in the following order:</p>
-<ul>
-<li>Learn the <a href="../googletest/docs/primer/">basics</a> of
-    Google Test, if you choose to use Google Mock with it (recommended).</li>
-<li>Read <a href="docs/for_dummies/">Google Mock for Dummies</a>.</li>
-<li>Read the instructions below on how to build Google Mock.</li>
-</ul>
-<p>You can also watch Zhanyong's <a href="http://www.youtube.com/watch?v=sYpCyLI47rM">talk</a> on Google Mock's usage and implementation.</p>
-<p>Once you understand the basics, check out the rest of the docs:</p>
-<ul>
-<li><a href="docs/cheat_sheet/">CheatSheet</a> - all the commonly used stuff
-    at a glance.</li>
-<li><a href="docs/cook_book/">CookBook</a> - recipes for getting things done,
-    including advanced techniques.</li>
-</ul>
-<p>If you need help, please check the
-<a href="docs/known_issues/">KnownIssues</a> and
-<a href="docs/frequently_asked_questions/">FrequentlyAskedQuestions</a> before
-posting a question on the
-<a href="http://groups.google.com/group/googlemock">discussion group</a>.</p>
-<h3 id="using-google-mock-without-google-test">Using Google Mock Without Google Test<a class="headerlink" href="#using-google-mock-without-google-test" title="Permanent link">&para;</a></h3>
-<p>Google Mock is not a testing framework itself.  Instead, it needs a
-testing framework for writing tests.  Google Mock works seamlessly
-with <a href="https://github.com/google/googletest">Google Test</a>, but
-you can also use it with <a href="docs/for_dummies/#using-google-mock-with-any-testing-framework">any C++ testing framework</a>.</p>
-<h3 id="requirements-for-end-users">Requirements for End Users<a class="headerlink" href="#requirements-for-end-users" title="Permanent link">&para;</a></h3>
-<p>Google Mock is implemented on top of <a href="http://github.com/google/googletest/">Google Test</a>, and depends on it.
-You must use the bundled version of Google Test when using Google Mock.</p>
-<p>You can also easily configure Google Mock to work with another testing
-framework, although it will still need Google Test.  Please read
-<a href="docs/for_dummies/#using-google-mock-with-any-testing-framework">"Using_Google_Mock_with_Any_Testing_Framework"</a>
-for instructions.</p>
-<p>Google Mock depends on advanced C++ features and thus requires a more
-modern compiler. The following are needed to use Google Mock:</p>
-<h4 id="linux-requirements">Linux Requirements<a class="headerlink" href="#linux-requirements" title="Permanent link">&para;</a></h4>
-<ul>
-<li>GNU-compatible Make or "gmake"</li>
-<li>POSIX-standard shell</li>
-<li>POSIX(-2) Regular Expressions (regex.h)</li>
-<li>C++98-standard-compliant compiler (e.g. GCC 3.4 or newer)</li>
-</ul>
-<h4 id="windows-requirements">Windows Requirements<a class="headerlink" href="#windows-requirements" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Microsoft Visual C++ 8.0 SP1 or newer</li>
-</ul>
-<h4 id="mac-os-x-requirements">Mac OS X Requirements<a class="headerlink" href="#mac-os-x-requirements" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Mac OS X 10.4 Tiger or newer</li>
-<li>Developer Tools Installed</li>
-</ul>
-<h3 id="requirements-for-contributors">Requirements for Contributors<a class="headerlink" href="#requirements-for-contributors" title="Permanent link">&para;</a></h3>
-<p>We welcome patches. If you plan to contribute a patch, you need to
-build Google Mock and its tests, which has further requirements:</p>
-<ul>
-<li>Automake version 1.9 or newer</li>
-<li>Autoconf version 2.59 or newer</li>
-<li>Libtool / Libtoolize</li>
-<li>Python version 2.3 or newer (for running some of the tests and
-    re-generating certain source files from templates)</li>
-</ul>
-<h3 id="building-google-mock">Building Google Mock<a class="headerlink" href="#building-google-mock" title="Permanent link">&para;</a></h3>
-<h4 id="using-cmake">Using CMake<a class="headerlink" href="#using-cmake" title="Permanent link">&para;</a></h4>
-<p>If you have CMake available, it is recommended that you follow the
-<a href="../googletest/#using-cmake" title="Using CMake">build instructions</a>
-as described for Google Test.</p>
-<p>If are using Google Mock with an
-existing CMake project, the section
-<a href="../googletest/#incorporating-into-an-existing-cmake-project" title="Incorporating Into An Existing CMake Project">Incorporating Into An Existing CMake Project</a>
-may be of particular interest.
-To make it work for Google Mock you will need to change</p>
-<pre><code>target_link_libraries(example gtest_main)
-</code></pre>
-<p>to</p>
-<pre><code>target_link_libraries(example gmock_main)
-</code></pre>
-<p>This works because <code>gmock_main</code> library is compiled with Google Test.</p>
-<h3 id="tweaking-google-mock">Tweaking Google Mock<a class="headerlink" href="#tweaking-google-mock" title="Permanent link">&para;</a></h3>
-<p>Google Mock can be used in diverse environments.  The default
-configuration may not work (or may not work well) out of the box in
-some environments.  However, you can easily tweak Google Mock by
-defining control macros on the compiler command line.  Generally,
-these macros are named like <code>GTEST_XYZ</code> and you define them to either 1
-or 0 to enable or disable a certain feature.</p>
-<p>We list the most frequently used macros below.  For a complete list,
-see file <a href="../googletest/include/gtest/internal/gtest-port.h">${GTEST_DIR}/include/gtest/internal/gtest-port.h</a>.</p>
-<h3 id="as-a-shared-library-dll">As a Shared Library (DLL)<a class="headerlink" href="#as-a-shared-library-dll" title="Permanent link">&para;</a></h3>
-<p>Google Mock is compact, so most users can build and link it as a static
-library for the simplicity.  Google Mock can be used as a DLL, but the
-same DLL must contain Google Test as well.  See
-<a href="../googletest/" title="googletest">Google Test's README</a>
-for instructions on how to set up necessary compiler settings.</p>
-<h3 id="tweaking-google-mock_1">Tweaking Google Mock<a class="headerlink" href="#tweaking-google-mock_1" title="Permanent link">&para;</a></h3>
-<p>Most of Google Test's control macros apply to Google Mock as well.
-Please see <a href="../googletest/" title="googletest">Google Test's README</a> for how to tweak them.</p>
-<h3 id="upgrading-from-an-earlier-version">Upgrading from an Earlier Version<a class="headerlink" href="#upgrading-from-an-earlier-version" title="Permanent link">&para;</a></h3>
-<p>We strive to keep Google Mock releases backward compatible.
-Sometimes, though, we have to make some breaking changes for the
-users' long-term benefits.  This section describes what you'll need to
-do if you are upgrading from an earlier version of Google Mock.</p>
-<h4 id="upgrading-from-110-or-earlier">Upgrading from 1.1.0 or Earlier<a class="headerlink" href="#upgrading-from-110-or-earlier" title="Permanent link">&para;</a></h4>
-<p>You may need to explicitly enable or disable Google Test's own TR1
-tuple library.  See the instructions in section "<a href="#choosing-a-tr1-tuple-library">Choosing a TR1 Tuple
-Library</a>".</p>
-<h4 id="upgrading-from-140-or-earlier">Upgrading from 1.4.0 or Earlier<a class="headerlink" href="#upgrading-from-140-or-earlier" title="Permanent link">&para;</a></h4>
-<p>On platforms where the pthread library is available, Google Test and
-Google Mock use it in order to be thread-safe.  For this to work, you
-may need to tweak your compiler and/or linker flags.  Please see the
-"<a href="../googletest/#multi-threaded-tests">Multi-threaded Tests</a>" section in file Google Test's README for what you may need to do.</p>
-<p>If you have custom matchers defined using <code>MatcherInterface</code> or
-<code>MakePolymorphicMatcher()</code>, you'll need to update their definitions to
-use the new matcher API (
-<a href="docs/cook_book/#writing-new-monomorphic-matchers">monomorphic</a>,
-<a href="docs/cook_book/#writing-new-polymorphic-matchers">polymorphic</a>).
-Matchers defined using <code>MATCHER()</code> or <code>MATCHER_P*()</code> aren't affected.</p>
-<p>Happy testing!</p>
+<p>Please note that code under scripts/generator/ is from the <a href="http://code.google.com/p/cppclean/">cppclean
+project</a> and under the Apache
+License, which is different from Google Mock's license.</p>
+<p>Google Mock is a part of
+<a href="http://github.com/google/googletest/">Google Test C++ testing framework</a> and a
+subject to the same requirements.</p>
                 
                   
                 
