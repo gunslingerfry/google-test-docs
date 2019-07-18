@@ -1,0 +1,998 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>Gmock faq - Google Docs Mirror</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
+      
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#legacy-gmock-faq-gmockfaq" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Google Docs Mirror" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Google Docs Mirror
+              </span>
+              <span class="md-header-nav__topic">
+                Gmock faq
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/google/googletest" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Google Test
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Google Docs Mirror" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Google Docs Mirror
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/google/googletest" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Google Test
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Google Test
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Google Test
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googletest/docs/Documentation/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googletest/docs/primer/" title="Primer" class="md-nav__link">
+      Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googletest/docs/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googletest/docs/advanced/" title="Advanced" class="md-nav__link">
+      Advanced
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googletest/docs/XcodeGuide.md" title="Xcode" class="md-nav__link">
+      Xcode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googletest/docs/PumpManual.md" title="Pump" class="md-nav__link">
+      Pump
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googletest/docs/Pkgconfig.md" title="pkg-config" class="md-nav__link">
+      pkg-config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../googletest/docs/samples/" title="Samples" class="md-nav__link">
+      Samples
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Google Mock
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Google Mock
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Documentation.md" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ForDummies.md" title="For Dummies" class="md-nav__link">
+      For Dummies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CheatSheet.md" title="Cheat Sheet" class="md-nav__link">
+      Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CookBook.md" title="Cookbook" class="md-nav__link">
+      Cookbook
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FrequentlyAskedQuestions.md" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../KnownIssues.md" title="Known Issues" class="md-nav__link">
+      Known Issues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DesignDoc.md" title="Design Doc" class="md-nav__link">
+      Design Doc
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-gmock-faq-gmockfaq" title="Legacy gMock FAQ {#GMockFaq}" class="md-nav__link">
+    Legacy gMock FAQ {#GMockFaq}
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-i-call-a-method-on-my-mock-object-the-method-for-the-real-object-is-invoked-instead-whats-the-problem" title="When I call a method on my mock object, the method for the real object is invoked instead. What's the problem?" class="md-nav__link">
+    When I call a method on my mock object, the method for the real object is invoked instead. What's the problem?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-mock-a-variadic-function" title="Can I mock a variadic function?" class="md-nav__link">
+    Can I mock a variadic function?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msvc-gives-me-warning-c4301-or-c4373-when-i-define-a-mock-method-with-a-const-parameter-why" title="MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter. Why?" class="md-nav__link">
+    MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter. Why?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-cant-figure-out-why-gmock-thinks-my-expectations-are-not-satisfied-what-should-i-do" title="I can't figure out why gMock thinks my expectations are not satisfied. What should I do?" class="md-nav__link">
+    I can't figure out why gMock thinks my expectations are not satisfied. What should I do?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-program-crashed-and-scopedmocklog-spit-out-tons-of-messages-is-it-a-gmock-bug" title="My program crashed and ScopedMockLog spit out tons of messages. Is it a gMock bug?" class="md-nav__link">
+    My program crashed and ScopedMockLog spit out tons of messages. Is it a gMock bug?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-assert-that-a-function-is-never-called" title="How can I assert that a function is NEVER called?" class="md-nav__link">
+    How can I assert that a function is NEVER called?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-have-a-failed-test-where-gmock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant" title="I have a failed test where gMock tells me TWICE that a particular expectation is not satisfied. Isn't this redundant?" class="md-nav__link">
+    I have a failed test where gMock tells me TWICE that a particular expectation is not satisfied. Isn't this redundant?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-get-a-heapcheck-failure-when-using-a-mock-object-but-using-a-real-object-is-fine-what-can-be-wrong" title="I get a heapcheck failure when using a mock object, but using a real object is fine. What can be wrong?" class="md-nav__link">
+    I get a heapcheck failure when using a mock object, but using a real object is fine. What can be wrong?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-newer-expectations-override-older-ones-rule-makes-writing-expectations-awkward-why-does-gmock-do-that" title="The "newer expectations override older ones" rule makes writing expectations awkward. Why does gMock do that?" class="md-nav__link">
+    The "newer expectations override older ones" rule makes writing expectations awkward. Why does gMock do that?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmock-prints-a-warning-when-a-function-without-expect_call-is-called-even-if-i-have-set-its-behavior-using-on_call-would-it-be-reasonable-not-to-show-the-warning-in-this-case" title="gMock prints a warning when a function without EXPECT_CALL is called, even if I have set its behavior using ON_CALL. Would it be reasonable not to show the warning in this case?" class="md-nav__link">
+    gMock prints a warning when a function without EXPECT_CALL is called, even if I have set its behavior using ON_CALL. Would it be reasonable not to show the warning in this case?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-delete-the-mock-functions-argument-in-an-action" title="How can I delete the mock function's argument in an action?" class="md-nav__link">
+    How can I delete the mock function's argument in an action?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-perform-an-arbitrary-action-on-a-mock-functions-argument" title="How can I perform an arbitrary action on a mock function's argument?" class="md-nav__link">
+    How can I perform an arbitrary action on a mock function's argument?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-code-calls-a-staticglobal-function-can-i-mock-it" title="My code calls a static/global function. Can I mock it?" class="md-nav__link">
+    My code calls a static/global function. Can I mock it?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-mock-object-needs-to-do-complex-stuff-its-a-lot-of-pain-to-specify-the-actions-gmock-sucks" title="My mock object needs to do complex stuff. It's a lot of pain to specify the actions. gMock sucks!" class="md-nav__link">
+    My mock object needs to do complex stuff. It's a lot of pain to specify the actions. gMock sucks!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-got-a-warning-uninteresting-function-call-encountered-default-action-taken-should-i-panic" title="I got a warning "Uninteresting function call encountered - default action taken.." Should I panic?" class="md-nav__link">
+    I got a warning "Uninteresting function call encountered - default action taken.." Should I panic?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-define-a-custom-action-should-i-use-invoke-or-implement-the-actioninterface-interface" title="I want to define a custom action. Should I use Invoke() or implement the ActionInterface interface?" class="md-nav__link">
+    I want to define a custom action. Should I use Invoke() or implement the ActionInterface interface?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-use-setargpointee-in-willonce-but-gcc-complains-about-conflicting-return-type-specified-what-does-it-mean" title="I use SetArgPointee() in WillOnce(), but gcc complains about "conflicting return type specified". What does it mean?" class="md-nav__link">
+    I use SetArgPointee() in WillOnce(), but gcc complains about "conflicting return type specified". What does it mean?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-have-a-huge-mock-class-and-microsoft-visual-c-runs-out-of-memory-when-compiling-it-what-can-i-do" title="I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it. What can I do?" class="md-nav__link">
+    I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it. What can I do?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Gmock faq</h1>
+                
+                <h2 id="legacy-gmock-faq-gmockfaq">Legacy gMock FAQ {#GMockFaq}<a class="headerlink" href="#legacy-gmock-faq-gmockfaq" title="Permanent link">&para;</a></h2>
+<!-- GOOGLETEST_CM0020 DO NOT DELETE -->
+
+<h3 id="when-i-call-a-method-on-my-mock-object-the-method-for-the-real-object-is-invoked-instead-whats-the-problem">When I call a method on my mock object, the method for the real object is invoked instead. What's the problem?<a class="headerlink" href="#when-i-call-a-method-on-my-mock-object-the-method-for-the-real-object-is-invoked-instead-whats-the-problem" title="Permanent link">&para;</a></h3>
+<p>In order for a method to be mocked, it must be <em>virtual</em>, unless you use the
+<a href="#MockingNonVirtualMethods">high-perf dependency injection technique</a>.</p>
+<h3 id="can-i-mock-a-variadic-function">Can I mock a variadic function?<a class="headerlink" href="#can-i-mock-a-variadic-function" title="Permanent link">&para;</a></h3>
+<p>You cannot mock a variadic function (i.e. a function taking ellipsis (<code>...</code>)
+arguments) directly in gMock.</p>
+<p>The problem is that in general, there is <em>no way</em> for a mock object to know how
+many arguments are passed to the variadic method, and what the arguments' types
+are. Only the <em>author of the base class</em> knows the protocol, and we cannot look
+into his or her head.</p>
+<p>Therefore, to mock such a function, the <em>user</em> must teach the mock object how to
+figure out the number of arguments and their types. One way to do it is to
+provide overloaded versions of the function.</p>
+<p>Ellipsis arguments are inherited from C and not really a C++ feature. They are
+unsafe to use and don't work with arguments that have constructors or
+destructors. Therefore we recommend to avoid them in C++ as much as possible.</p>
+<h3 id="msvc-gives-me-warning-c4301-or-c4373-when-i-define-a-mock-method-with-a-const-parameter-why">MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter. Why?<a class="headerlink" href="#msvc-gives-me-warning-c4301-or-c4373-when-i-define-a-mock-method-with-a-const-parameter-why" title="Permanent link">&para;</a></h3>
+<p>If you compile this using Microsoft Visual C++ 2005 SP1:</p>
+<pre><code class="cpp">class Foo {
+  ...
+  virtual void Bar(const int i) = 0;
+};
+
+class MockFoo : public Foo {
+  ...
+  MOCK_METHOD(void, Bar, (const int i), (override));
+};
+</code></pre>
+
+<p>You may get the following warning:</p>
+<pre><code class="shell">warning C4301: 'MockFoo::Bar': overriding virtual function only differs from 'Foo::Bar' by const/volatile qualifier
+</code></pre>
+
+<p>This is a MSVC bug. The same code compiles fine with gcc, for example. If you
+use Visual C++ 2008 SP1, you would get the warning:</p>
+<pre><code class="shell">warning C4373: 'MockFoo::Bar': virtual function overrides 'Foo::Bar', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+</code></pre>
+
+<p>In C++, if you <em>declare</em> a function with a <code>const</code> parameter, the <code>const</code>
+modifier is ignored. Therefore, the <code>Foo</code> base class above is equivalent to:</p>
+<pre><code class="cpp">class Foo {
+  ...
+  virtual void Bar(int i) = 0;  // int or const int?  Makes no difference.
+};
+</code></pre>
+
+<p>In fact, you can <em>declare</em> <code>Bar()</code> with an <code>int</code> parameter, and define it with a
+<code>const int</code> parameter. The compiler will still match them up.</p>
+<p>Since making a parameter <code>const</code> is meaningless in the method declaration, we
+recommend to remove it in both <code>Foo</code> and <code>MockFoo</code>. That should workaround the
+VC bug.</p>
+<p>Note that we are talking about the <em>top-level</em> <code>const</code> modifier here. If the
+function parameter is passed by pointer or reference, declaring the pointee or
+referee as <code>const</code> is still meaningful. For example, the following two
+declarations are <em>not</em> equivalent:</p>
+<pre><code class="cpp">void Bar(int* p);         // Neither p nor *p is const.
+void Bar(const int* p);  // p is not const, but *p is.
+</code></pre>
+
+<h3 id="i-cant-figure-out-why-gmock-thinks-my-expectations-are-not-satisfied-what-should-i-do">I can't figure out why gMock thinks my expectations are not satisfied. What should I do?<a class="headerlink" href="#i-cant-figure-out-why-gmock-thinks-my-expectations-are-not-satisfied-what-should-i-do" title="Permanent link">&para;</a></h3>
+<p>You might want to run your test with <code>--gmock_verbose=info</code>. This flag lets
+gMock print a trace of every mock function call it receives. By studying the
+trace, you'll gain insights on why the expectations you set are not met.</p>
+<p>If you see the message "The mock function has no default action set, and its
+return type has no default value set.", then try
+<a href="http://go/gmockguide#DefaultValue">adding a default action</a>. Due to a known
+issue, unexpected calls on mocks without default actions don't print out a
+detailed comparison between the actual arguments and the expected arguments.</p>
+<h3 id="my-program-crashed-and-scopedmocklog-spit-out-tons-of-messages-is-it-a-gmock-bug">My program crashed and <code>ScopedMockLog</code> spit out tons of messages. Is it a gMock bug?<a class="headerlink" href="#my-program-crashed-and-scopedmocklog-spit-out-tons-of-messages-is-it-a-gmock-bug" title="Permanent link">&para;</a></h3>
+<p>gMock and <code>ScopedMockLog</code> are likely doing the right thing here.</p>
+<p>When a test crashes, the failure signal handler will try to log a lot of
+information (the stack trace, and the address map, for example). The messages
+are compounded if you have many threads with depth stacks. When <code>ScopedMockLog</code>
+intercepts these messages and finds that they don't match any expectations, it
+prints an error for each of them.</p>
+<p>You can learn to ignore the errors, or you can rewrite your expectations to make
+your test more robust, for example, by adding something like:</p>
+<pre><code class="cpp">using ::testing::AnyNumber;
+using ::testing::Not;
+...
+  // Ignores any log not done by us.
+  EXPECT_CALL(log, Log(_, Not(EndsWith(&quot;/my_file.cc&quot;)), _))
+      .Times(AnyNumber());
+</code></pre>
+
+<h3 id="how-can-i-assert-that-a-function-is-never-called">How can I assert that a function is NEVER called?<a class="headerlink" href="#how-can-i-assert-that-a-function-is-never-called" title="Permanent link">&para;</a></h3>
+<pre><code class="cpp">using ::testing::_;
+...
+  EXPECT_CALL(foo, Bar(_))
+      .Times(0);
+</code></pre>
+
+<h3 id="i-have-a-failed-test-where-gmock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant">I have a failed test where gMock tells me TWICE that a particular expectation is not satisfied. Isn't this redundant?<a class="headerlink" href="#i-have-a-failed-test-where-gmock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant" title="Permanent link">&para;</a></h3>
+<p>When gMock detects a failure, it prints relevant information (the mock function
+arguments, the state of relevant expectations, and etc) to help the user debug.
+If another failure is detected, gMock will do the same, including printing the
+state of relevant expectations.</p>
+<p>Sometimes an expectation's state didn't change between two failures, and you'll
+see the same description of the state twice. They are however <em>not</em> redundant,
+as they refer to <em>different points in time</em>. The fact they are the same <em>is</em>
+interesting information.</p>
+<h3 id="i-get-a-heapcheck-failure-when-using-a-mock-object-but-using-a-real-object-is-fine-what-can-be-wrong">I get a heapcheck failure when using a mock object, but using a real object is fine. What can be wrong?<a class="headerlink" href="#i-get-a-heapcheck-failure-when-using-a-mock-object-but-using-a-real-object-is-fine-what-can-be-wrong" title="Permanent link">&para;</a></h3>
+<p>Does the class (hopefully a pure interface) you are mocking have a virtual
+destructor?</p>
+<p>Whenever you derive from a base class, make sure its destructor is virtual.
+Otherwise Bad Things will happen. Consider the following code:</p>
+<pre><code class="cpp">class Base {
+ public:
+  // Not virtual, but should be.
+  ~Base() { ... }
+  ...
+};
+
+class Derived : public Base {
+ public:
+  ...
+ private:
+  std::string value_;
+};
+
+...
+  Base* p = new Derived;
+  ...
+  delete p;  // Surprise! ~Base() will be called, but ~Derived() will not
+                 // - value_ is leaked.
+</code></pre>
+
+<p>By changing <code>~Base()</code> to virtual, <code>~Derived()</code> will be correctly called when
+<code>delete p</code> is executed, and the heap checker will be happy.</p>
+<h3 id="the-newer-expectations-override-older-ones-rule-makes-writing-expectations-awkward-why-does-gmock-do-that">The "newer expectations override older ones" rule makes writing expectations awkward. Why does gMock do that?<a class="headerlink" href="#the-newer-expectations-override-older-ones-rule-makes-writing-expectations-awkward-why-does-gmock-do-that" title="Permanent link">&para;</a></h3>
+<p>When people complain about this, often they are referring to code like:</p>
+<pre><code class="cpp">using ::testing::Return;
+...
+  // foo.Bar() should be called twice, return 1 the first time, and return
+  // 2 the second time.  However, I have to write the expectations in the
+  // reverse order.  This sucks big time!!!
+  EXPECT_CALL(foo, Bar())
+      .WillOnce(Return(2))
+      .RetiresOnSaturation();
+  EXPECT_CALL(foo, Bar())
+      .WillOnce(Return(1))
+      .RetiresOnSaturation();
+</code></pre>
+
+<p>The problem, is that they didn't pick the <strong>best</strong> way to express the test's
+intent.</p>
+<p>By default, expectations don't have to be matched in <em>any</em> particular order. If
+you want them to match in a certain order, you need to be explicit. This is
+gMock's (and jMock's) fundamental philosophy: it's easy to accidentally
+over-specify your tests, and we want to make it harder to do so.</p>
+<p>There are two better ways to write the test spec. You could either put the
+expectations in sequence:</p>
+<pre><code class="cpp">using ::testing::Return;
+...
+  // foo.Bar() should be called twice, return 1 the first time, and return
+  // 2 the second time.  Using a sequence, we can write the expectations
+  // in their natural order.
+  {
+    InSequence s;
+    EXPECT_CALL(foo, Bar())
+        .WillOnce(Return(1))
+        .RetiresOnSaturation();
+    EXPECT_CALL(foo, Bar())
+        .WillOnce(Return(2))
+        .RetiresOnSaturation();
+  }
+</code></pre>
+
+<p>or you can put the sequence of actions in the same expectation:</p>
+<pre><code class="cpp">using ::testing::Return;
+...
+  // foo.Bar() should be called twice, return 1 the first time, and return
+  // 2 the second time.
+  EXPECT_CALL(foo, Bar())
+      .WillOnce(Return(1))
+      .WillOnce(Return(2))
+      .RetiresOnSaturation();
+</code></pre>
+
+<p>Back to the original questions: why does gMock search the expectations (and
+<code>ON_CALL</code>s) from back to front? Because this allows a user to set up a mock's
+behavior for the common case early (e.g. in the mock's constructor or the test
+fixture's set-up phase) and customize it with more specific rules later. If
+gMock searches from front to back, this very useful pattern won't be possible.</p>
+<h3 id="gmock-prints-a-warning-when-a-function-without-expect_call-is-called-even-if-i-have-set-its-behavior-using-on_call-would-it-be-reasonable-not-to-show-the-warning-in-this-case">gMock prints a warning when a function without EXPECT_CALL is called, even if I have set its behavior using ON_CALL. Would it be reasonable not to show the warning in this case?<a class="headerlink" href="#gmock-prints-a-warning-when-a-function-without-expect_call-is-called-even-if-i-have-set-its-behavior-using-on_call-would-it-be-reasonable-not-to-show-the-warning-in-this-case" title="Permanent link">&para;</a></h3>
+<p>When choosing between being neat and being safe, we lean toward the latter. So
+the answer is that we think it's better to show the warning.</p>
+<p>Often people write <code>ON_CALL</code>s in the mock object's constructor or <code>SetUp()</code>, as
+the default behavior rarely changes from test to test. Then in the test body
+they set the expectations, which are often different for each test. Having an
+<code>ON_CALL</code> in the set-up part of a test doesn't mean that the calls are expected.
+If there's no <code>EXPECT_CALL</code> and the method is called, it's possibly an error. If
+we quietly let the call go through without notifying the user, bugs may creep in
+unnoticed.</p>
+<p>If, however, you are sure that the calls are OK, you can write</p>
+<pre><code class="cpp">using ::testing::_;
+...
+  EXPECT_CALL(foo, Bar(_))
+      .WillRepeatedly(...);
+</code></pre>
+
+<p>instead of</p>
+<pre><code class="cpp">using ::testing::_;
+...
+  ON_CALL(foo, Bar(_))
+      .WillByDefault(...);
+</code></pre>
+
+<p>This tells gMock that you do expect the calls and no warning should be printed.</p>
+<p>Also, you can control the verbosity by specifying <code>--gmock_verbose=error</code>. Other
+values are <code>info</code> and <code>warning</code>. If you find the output too noisy when
+debugging, just choose a less verbose level.</p>
+<h3 id="how-can-i-delete-the-mock-functions-argument-in-an-action">How can I delete the mock function's argument in an action?<a class="headerlink" href="#how-can-i-delete-the-mock-functions-argument-in-an-action" title="Permanent link">&para;</a></h3>
+<p>If your mock function takes a pointer argument and you want to delete that
+argument, you can use testing::DeleteArg<N>() to delete the N'th (zero-indexed)
+argument:</p>
+<pre><code class="cpp">using ::testing::_;
+  ...
+  MOCK_METHOD(void, Bar, (X* x, const Y&amp; y));
+  ...
+  EXPECT_CALL(mock_foo_, Bar(_, _))
+      .WillOnce(testing::DeleteArg&lt;0&gt;()));
+</code></pre>
+
+<h3 id="how-can-i-perform-an-arbitrary-action-on-a-mock-functions-argument">How can I perform an arbitrary action on a mock function's argument?<a class="headerlink" href="#how-can-i-perform-an-arbitrary-action-on-a-mock-functions-argument" title="Permanent link">&para;</a></h3>
+<p>If you find yourself needing to perform some action that's not supported by
+gMock directly, remember that you can define your own actions using
+<a href="#NewMonoActions"><code>MakeAction()</code></a> or
+<a href="#NewPolyActions"><code>MakePolymorphicAction()</code></a>, or you can write a stub function
+and invoke it using <a href="#FunctionsAsActions"><code>Invoke()</code></a>.</p>
+<pre><code class="cpp">using ::testing::_;
+using ::testing::Invoke;
+  ...
+  MOCK_METHOD(void, Bar, (X* p));
+  ...
+  EXPECT_CALL(mock_foo_, Bar(_))
+      .WillOnce(Invoke(MyAction(...)));
+</code></pre>
+
+<h3 id="my-code-calls-a-staticglobal-function-can-i-mock-it">My code calls a static/global function. Can I mock it?<a class="headerlink" href="#my-code-calls-a-staticglobal-function-can-i-mock-it" title="Permanent link">&para;</a></h3>
+<p>You can, but you need to make some changes.</p>
+<p>In general, if you find yourself needing to mock a static function, it's a sign
+that your modules are too tightly coupled (and less flexible, less reusable,
+less testable, etc). You are probably better off defining a small interface and
+call the function through that interface, which then can be easily mocked. It's
+a bit of work initially, but usually pays for itself quickly.</p>
+<p>This Google Testing Blog
+<a href="https://testing.googleblog.com/2008/06/defeat-static-cling.html">post</a> says it
+excellently. Check it out.</p>
+<h3 id="my-mock-object-needs-to-do-complex-stuff-its-a-lot-of-pain-to-specify-the-actions-gmock-sucks">My mock object needs to do complex stuff. It's a lot of pain to specify the actions. gMock sucks!<a class="headerlink" href="#my-mock-object-needs-to-do-complex-stuff-its-a-lot-of-pain-to-specify-the-actions-gmock-sucks" title="Permanent link">&para;</a></h3>
+<p>I know it's not a question, but you get an answer for free any way. :-)</p>
+<p>With gMock, you can create mocks in C++ easily. And people might be tempted to
+use them everywhere. Sometimes they work great, and sometimes you may find them,
+well, a pain to use. So, what's wrong in the latter case?</p>
+<p>When you write a test without using mocks, you exercise the code and assert that
+it returns the correct value or that the system is in an expected state. This is
+sometimes called "state-based testing".</p>
+<p>Mocks are great for what some call "interaction-based" testing: instead of
+checking the system state at the very end, mock objects verify that they are
+invoked the right way and report an error as soon as it arises, giving you a
+handle on the precise context in which the error was triggered. This is often
+more effective and economical to do than state-based testing.</p>
+<p>If you are doing state-based testing and using a test double just to simulate
+the real object, you are probably better off using a fake. Using a mock in this
+case causes pain, as it's not a strong point for mocks to perform complex
+actions. If you experience this and think that mocks suck, you are just not
+using the right tool for your problem. Or, you might be trying to solve the
+wrong problem. :-)</p>
+<h3 id="i-got-a-warning-uninteresting-function-call-encountered-default-action-taken-should-i-panic">I got a warning "Uninteresting function call encountered - default action taken.." Should I panic?<a class="headerlink" href="#i-got-a-warning-uninteresting-function-call-encountered-default-action-taken-should-i-panic" title="Permanent link">&para;</a></h3>
+<p>By all means, NO! It's just an FYI. :-)</p>
+<p>What it means is that you have a mock function, you haven't set any expectations
+on it (by gMock's rule this means that you are not interested in calls to this
+function and therefore it can be called any number of times), and it is called.
+That's OK - you didn't say it's not OK to call the function!</p>
+<p>What if you actually meant to disallow this function to be called, but forgot to
+write <code>EXPECT_CALL(foo, Bar()).Times(0)</code>? While one can argue that it's the
+user's fault, gMock tries to be nice and prints you a note.</p>
+<p>So, when you see the message and believe that there shouldn't be any
+uninteresting calls, you should investigate what's going on. To make your life
+easier, gMock dumps the stack trace when an uninteresting call is encountered.
+From that you can figure out which mock function it is, and how it is called.</p>
+<h3 id="i-want-to-define-a-custom-action-should-i-use-invoke-or-implement-the-actioninterface-interface">I want to define a custom action. Should I use Invoke() or implement the ActionInterface interface?<a class="headerlink" href="#i-want-to-define-a-custom-action-should-i-use-invoke-or-implement-the-actioninterface-interface" title="Permanent link">&para;</a></h3>
+<p>Either way is fine - you want to choose the one that's more convenient for your
+circumstance.</p>
+<p>Usually, if your action is for a particular function type, defining it using
+<code>Invoke()</code> should be easier; if your action can be used in functions of
+different types (e.g. if you are defining <code>Return(*value*)</code>),
+<code>MakePolymorphicAction()</code> is easiest. Sometimes you want precise control on what
+types of functions the action can be used in, and implementing <code>ActionInterface</code>
+is the way to go here. See the implementation of <code>Return()</code> in
+<code>testing/base/public/gmock-actions.h</code> for an example.</p>
+<h3 id="i-use-setargpointee-in-willonce-but-gcc-complains-about-conflicting-return-type-specified-what-does-it-mean">I use SetArgPointee() in WillOnce(), but gcc complains about "conflicting return type specified". What does it mean?<a class="headerlink" href="#i-use-setargpointee-in-willonce-but-gcc-complains-about-conflicting-return-type-specified-what-does-it-mean" title="Permanent link">&para;</a></h3>
+<p>You got this error as gMock has no idea what value it should return when the
+mock method is called. <code>SetArgPointee()</code> says what the side effect is, but
+doesn't say what the return value should be. You need <code>DoAll()</code> to chain a
+<code>SetArgPointee()</code> with a <code>Return()</code> that provides a value appropriate to the API
+being mocked.</p>
+<p>See this <a href="../cook_book/#mocking-side-effects">recipe</a> for more details and an
+example.</p>
+<h3 id="i-have-a-huge-mock-class-and-microsoft-visual-c-runs-out-of-memory-when-compiling-it-what-can-i-do">I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it. What can I do?<a class="headerlink" href="#i-have-a-huge-mock-class-and-microsoft-visual-c-runs-out-of-memory-when-compiling-it-what-can-i-do" title="Permanent link">&para;</a></h3>
+<p>We've noticed that when the <code>/clr</code> compiler flag is used, Visual C++ uses 5~6
+times as much memory when compiling a mock class. We suggest to avoid <code>/clr</code>
+when compiling native C++ mocks.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.a353778b.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
