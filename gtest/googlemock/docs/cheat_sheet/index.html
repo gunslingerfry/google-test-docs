@@ -810,7 +810,7 @@
                   <h1>Cheat sheet</h1>
                 
                 <h2 id="gmock-cheat-sheet">gMock Cheat Sheet<a class="headerlink" href="#gmock-cheat-sheet" title="Permanent link">&para;</a></h2>
-<!-- GOOGLETEST_CM0018 DO NOT DELETE -->
+<!-- GOOGLETEST_CM0019 DO NOT DELETE -->
 
 <h3 id="defining-a-mock-class">Defining a Mock Class<a class="headerlink" href="#defining-a-mock-class" title="Permanent link">&para;</a></h3>
 <h4 id="mocking-a-normal-class-mockclass">Mocking a Normal Class {#MockClass}<a class="headerlink" href="#mocking-a-normal-class-mockclass" title="Permanent link">&para;</a></h4>
@@ -989,7 +989,7 @@ set to anything matchers (for example, <code>(_, _, _, _)</code> for a four-arg 
 <p>A method with no <code>EXPECT_CALL()</code> is free to be invoked <em>any number of times</em>,
 and the default action will be taken each time.</p>
 <h3 id="matchers-matcherlist">Matchers {#MatcherList}<a class="headerlink" href="#matchers-matcherlist" title="Permanent link">&para;</a></h3>
-<!-- GOOGLETEST_CM0019 DO NOT DELETE -->
+<!-- GOOGLETEST_CM0020 DO NOT DELETE -->
 
 <p>A <strong>matcher</strong> matches a <em>single</em> argument. You can use it inside <code>ON_CALL()</code> or
 <code>EXPECT_CALL()</code>, or use it to validate a value directly:</p>
@@ -1345,31 +1345,71 @@ messages, you can use:</p>
 </thead>
 <tbody>
 <tr>
+<td align="left"><code>BeginEndDistanceIs(m)</code></td>
+<td align="left"><code>argument</code> is a container whose</td>
+</tr>
+<tr>
+<td align="left">:                                           : <code>begin()</code> and <code>end()</code> iterators  :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : are separated by a number of     :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : increments matching <code>m</code>. E.g.    :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : <code>BeginEndDistanceIs(2)</code> or       :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : <code>BeginEndDistanceIs(Lt(2))</code>. For :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : containers that define a         :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : <code>size()</code> method, <code>SizeIs(m)</code> may :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : be more efficient.               :</td>
+<td align="left"></td>
+</tr>
+<tr>
 <td align="left"><code>ContainerEq(container)</code></td>
-<td align="left">The same as <code>Eq(container)</code> except</td>
+<td align="left">The same as <code>Eq(container)</code></td>
 </tr>
 <tr>
-<td align="left">:                                      : that the failure message also        :</td>
+<td align="left">:                                           : except that the failure message  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : includes which elements are in one   :</td>
+<td align="left">:                                           : also includes which elements are :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : container but not the other.         :</td>
+<td align="left">:                                           : in one container but not the     :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : other.                           :</td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><code>Contains(e)</code></td>
-<td align="left"><code>argument</code> contains an element that</td>
+<td align="left"><code>argument</code> contains an element</td>
 </tr>
 <tr>
-<td align="left">:                                      : matches <code>e</code>, which can be either a   :</td>
+<td align="left">:                                           : that matches <code>e</code>, which can be   :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : value or a matcher.                  :</td>
+<td align="left">:                                           : either a value or a matcher.     :</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1377,11 +1417,15 @@ messages, you can use:</p>
 <td align="left"><code>argument</code> is a container where</td>
 </tr>
 <tr>
-<td align="left">:                                      : <em>every</em> element matches <code>e</code>, which   :</td>
+<td align="left">:                                           : <em>every</em> element matches <code>e</code>,     :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : can be either a value or a matcher.  :</td>
+<td align="left">:                                           : which can be either a value or a :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : matcher.                         :</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1389,35 +1433,39 @@ messages, you can use:</p>
 <td align="left"><code>argument</code> has <code>n + 1</code> elements,</td>
 </tr>
 <tr>
-<td align="left">:                                      : where the i-th element matches <code>ei</code>, :</td>
+<td align="left">:                                           : where the <em>i</em>-th element matches :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : which can be a value or a matcher. 0 :</td>
+<td align="left">:                                           : <code>ei</code>, which can be a value or a  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : to 10 arguments are allowed.         :</td>
+<td align="left">:                                           : matcher.                         :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left"><code>ElementsAreArray({ e0, e1, ..., en  | The same as</code>ElementsAre()` except</td>
+<td align="left"><code>ElementsAreArray({e0, e1, ..., en})</code>,</td>
+<td align="left">The same as <code>ElementsAre()</code></td>
+</tr>
+<tr>
+<td align="left">: <code>ElementsAreArray(a_container)</code>,          : except that the expected element :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">: })<code>,</code>ElementsAreArray(array)`, or   : that the expected element            :</td>
+<td align="left">: <code>ElementsAreArray(begin, end)</code>,           : values/matchers come from an     :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">: <code>ElementsAreArray(array, count)</code>     : values/matchers come from an         :</td>
+<td align="left">: <code>ElementsAreArray(array)</code>, or             : initializer list, STL-style      :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : initializer list, STL-style          :</td>
+<td align="left">: <code>ElementsAreArray(array, count)</code>          : container, iterator range, or    :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : container, or C-style array.         :</td>
+<td align="left">:                                           : C-style array.                   :</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1425,159 +1473,239 @@ messages, you can use:</p>
 <td align="left"><code>argument</code> is an empty container</td>
 </tr>
 <tr>
-<td align="left">:                                      : (<code>container.empty()</code>).               :</td>
+<td align="left">:                                           : (<code>container.empty()</code>).           :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left"><code>Pointwise(m, container)</code></td>
-<td align="left"><code>argument</code> contains the same number</td>
+<td align="left"><code>IsFalse()</code></td>
+<td align="left"><code>argument</code> evaluates to <code>false</code></td>
 </tr>
 <tr>
-<td align="left">:                                      : of elements as in <code>container</code>, and   :</td>
+<td align="left">:                                           : in a Boolean context.            :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : for all i, (the i-th element in      :</td>
+<td align="left"><code>IsSubsetOf({e0, e1, ..., en})</code>,</td>
+<td align="left"><code>argument</code> matches</td>
+</tr>
+<tr>
+<td align="left">: <code>IsSubsetOf(a_container)</code>,                : `UnorderedElementsAre(x0, x1,    :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>argument</code>, the i-th element in      :</td>
+<td align="left">: <code>IsSubsetOf(begin, end)</code>,                 : ..., xk)<code>for some subset</code>{x0,  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>container</code>) match <code>m</code>, which is a   :</td>
+<td align="left">: <code>IsSubsetOf(array)</code>, or                   : x1, ..., xk}` of the expected    :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : matcher on 2-tuples. E.g.            :</td>
+<td align="left">: <code>IsSubsetOf(array, count)</code>                : matchers.                        :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>Pointwise(Le(), upper_bounds)</code>      :</td>
+<td align="left"><code>IsSupersetOf({e0, e1, ..., en})</code>,</td>
+<td align="left">Some subset of <code>argument</code></td>
+</tr>
+<tr>
+<td align="left">: <code>IsSupersetOf(a_container)</code>,              : matches                          :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : verifies that each element in        :</td>
+<td align="left">: <code>IsSupersetOf(begin, end)</code>,               : <code>UnorderedElementsAre(</code>expected  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>argument</code> doesn't exceed the        :</td>
+<td align="left">: <code>IsSupersetOf(array)</code>, or                 : matchers<code>)</code>.                     :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : corresponding element in             :</td>
+<td align="left">: <code>IsSupersetOf(array, count)</code>              :                                  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>upper_bounds</code>. See more detail      :</td>
+<td align="left"><code>IsTrue()</code></td>
+<td align="left"><code>argument</code> evaluates to <code>true</code></td>
+</tr>
+<tr>
+<td align="left">:                                           : in a Boolean context.            :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : below.                               :</td>
+<td align="left"><code>Pointwise(m, container)</code>, <code>Pointwise(m,  |</code>argument` contains the same</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">: {e0, e1, ..., en})`                       : number of elements as in         :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : <code>container</code>, and for all i, (the :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : i-th element in <code>argument</code>, the  :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : i-th element in <code>container</code>)     :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : match <code>m</code>, which is a matcher on :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : 2-tuples. E.g. `Pointwise(Le(),  :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : upper_bounds)` verifies that     :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : each element in <code>argument</code>       :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : doesn't exceed the corresponding :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : element in <code>upper_bounds</code>. See   :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : more detail below.               :</td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><code>SizeIs(m)</code></td>
-<td align="left"><code>argument</code> is a container whose size</td>
+<td align="left"><code>argument</code> is a container whose</td>
 </tr>
 <tr>
-<td align="left">:                                      : matches <code>m</code>. E.g. <code>SizeIs(2)</code> or     :</td>
+<td align="left">:                                           : size matches <code>m</code>. E.g.           :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>SizeIs(Lt(2))</code>.                     :</td>
+<td align="left">:                                           : <code>SizeIs(2)</code> or <code>SizeIs(Lt(2))</code>.  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left"><code>UnorderedElementsAre(e0, e1, ...,   |</code>argument<code>has</code>n + 1` elements, and</td>
+<td align="left"><code>UnorderedElementsAre(e0, e1, ..., en)</code></td>
+<td align="left"><code>argument</code> has <code>n + 1</code> elements,</td>
+</tr>
+<tr>
+<td align="left">:                                           : and under <em>some</em> permutation of  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">: en)`                                 : under some permutation each element  :</td>
+<td align="left">:                                           : the elements, each element       :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : matches an <code>ei</code> (for a different     :</td>
+<td align="left">:                                           : matches an <code>ei</code> (for a different :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>i</code>), which can be a value or a      :</td>
+<td align="left">:                                           : <code>i</code>), which can be a value or a  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : matcher. 0 to 10 arguments are       :</td>
+<td align="left">:                                           : matcher.                         :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : allowed.                             :</td>
+<td align="left">`UnorderedElementsAreArray({e0, e1, ...,</td>
+<td align="left">The same as</td>
+</tr>
+<tr>
+<td align="left">: en})<code>,                                    :</code>UnorderedElementsAre()` except  :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left"><code>UnorderedElementsAreArray({ e0, e1, | The same as</code>UnorderedElementsAre()`</td>
+<td align="left">: <code>UnorderedElementsAreArray(a_container)</code>, : that the expected element        :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">: ..., en })`,                         : except that the expected element     :</td>
+<td align="left">: <code>UnorderedElementsAreArray(begin, end)</code>,  : values/matchers come from an     :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">: <code>UnorderedElementsAreArray(array)</code>,  : values/matchers come from an         :</td>
+<td align="left">: <code>UnorderedElementsAreArray(array)</code>, or    : initializer list, STL-style      :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">: or `UnorderedElementsAreArray(array, : initializer list, STL-style          :</td>
+<td align="left">: <code>UnorderedElementsAreArray(array, count)</code> : container, iterator range, or    :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">: count)`                              : container, or C-style array.         :</td>
+<td align="left">:                                           : C-style array.                   :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>UnorderedPointwise(m, container)</code>,</td>
+<td align="left">Like <code>Pointwise(m, container)</code>,</td>
+</tr>
+<tr>
+<td align="left">: `UnorderedPointwise(m, {e0, e1, ...,      : but ignores the order of         :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">: en})`                                     : elements.                        :</td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><code>WhenSorted(m)</code></td>
-<td align="left">When <code>argument</code> is sorted using the</td>
+<td align="left">When <code>argument</code> is sorted using</td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>&lt;</code> operator, it matches container   :</td>
+<td align="left">:                                           : the <code>&lt;</code> operator, it matches     :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : matcher <code>m</code>. E.g.                    :</td>
+<td align="left">:                                           : container matcher <code>m</code>. E.g.      :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>WhenSorted(ElementsAre(1, 2, 3))</code>   :</td>
+<td align="left">:                                           : `WhenSorted(ElementsAre(1, 2,    :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : verifies that <code>argument</code> contains    :</td>
+<td align="left">:                                           : 3))<code>verifies that</code>argument`    :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : elements <code>1</code>, <code>2</code>, and <code>3</code>, ignoring :</td>
+<td align="left">:                                           : contains elements 1, 2, and 3,   :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : order.                               :</td>
+<td align="left">:                                           : ignoring order.                  :</td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><code>WhenSortedBy(comparator, m)</code></td>
-<td align="left">The same as <code>WhenSorted(m)</code>, except</td>
+<td align="left">The same as <code>WhenSorted(m)</code>,</td>
 </tr>
 <tr>
-<td align="left">:                                      : that the given comparator instead of :</td>
+<td align="left">:                                           : except that the given comparator :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : <code>&lt;</code> is used to sort <code>argument</code>. E.g. :</td>
+<td align="left">:                                           : instead of <code>&lt;</code> is used to sort   :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : `WhenSortedBy(std\:\:greater<int>(), :</td>
+<td align="left">:                                           : <code>argument</code>. E.g.                 :</td>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                      : ElementsAre(3, 2, 1))`.              :</td>
+<td align="left">:                                           : `WhenSortedBy(std\:\:greater(),  :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                           : ElementsAre(3, 2, 1))`.          :</td>
 <td align="left"></td>
 </tr>
 </tbody>

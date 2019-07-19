@@ -567,8 +567,8 @@ Pkg-config is a standardised plain-text format containing</p>
 <li>the library (-L) path</li>
 <li>the library (-l) to link to</li>
 </ul>
-<p>All current build systems support pkg-config in one way or another. For
-all examples here we assume you want to compile the sample
+<p>All current build systems support pkg-config in one way or another. For all
+examples here we assume you want to compile the sample
 <code>samples/sample3_unittest.cc</code>.</p>
 <h3 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
 <p>Using <code>pkg-config</code> in CMake is fairly easy:</p>
@@ -595,8 +595,8 @@ that all libraries have been compiled with threading enabled. In addition,
 GoogleTest might also require <code>-pthread</code> in the compiling step, and as such
 splitting the pkg-config <code>Cflags</code> variable into include dirs and macros for
 <code>target_compile_definitions()</code> might still miss this). The same recommendation
-goes for using <code>_LDFLAGS</code> over the more commonplace <code>_LIBRARIES</code>, which
-happens to discard <code>-L</code> flags and <code>-pthread</code>.</p>
+goes for using <code>_LDFLAGS</code> over the more commonplace <code>_LIBRARIES</code>, which happens
+to discard <code>-L</code> flags and <code>-pthread</code>.</p>
 <h3 id="autotools">Autotools<a class="headerlink" href="#autotools" title="Permanent link">&para;</a></h3>
 <p>Finding GoogleTest in Autoconf and using it from Automake is also fairly easy:</p>
 <p>In your <code>configure.ac</code>:</p>
@@ -637,8 +637,8 @@ test('first_and_only_test', testapp)
 </code></pre>
 
 <h3 id="plain-makefiles">Plain Makefiles<a class="headerlink" href="#plain-makefiles" title="Permanent link">&para;</a></h3>
-<p>Since <code>pkg-config</code> is a small Unix command-line utility, it can be used
-in handwritten <code>Makefile</code>s too:</p>
+<p>Since <code>pkg-config</code> is a small Unix command-line utility, it can be used in
+handwritten <code>Makefile</code>s too:</p>
 <pre><code class="Makefile">GTEST_CFLAGS = `pkg-config --cflags gtest_main`
 GTEST_LIBS = `pkg-config --libs gtest_main`
 
@@ -658,8 +658,8 @@ testapp.o: samples/sample3_unittest.cc
 
 <h3 id="help-pkg-config-cant-find-googletest">Help! pkg-config can't find GoogleTest!<a class="headerlink" href="#help-pkg-config-cant-find-googletest" title="Permanent link">&para;</a></h3>
 <p>Let's say you have a <code>CMakeLists.txt</code> along the lines of the one in this
-tutorial and you try to run <code>cmake</code>. It is very possible that you get a
-failure along the lines of:</p>
+tutorial and you try to run <code>cmake</code>. It is very possible that you get a failure
+along the lines of:</p>
 <pre><code>-- Checking for one of the modules 'gtest_main'
 CMake Error at /usr/share/cmake/Modules/FindPkgConfig.cmake:640 (message):
   None of the required 'gtest_main' found
@@ -667,9 +667,9 @@ CMake Error at /usr/share/cmake/Modules/FindPkgConfig.cmake:640 (message):
 
 <p>These failures are common if you installed GoogleTest yourself and have not
 sourced it from a distro or other package manager. If so, you need to tell
-pkg-config where it can find the <code>.pc</code> files containing the information.
-Say you installed GoogleTest to <code>/usr/local</code>, then it might be that the
-<code>.pc</code> files are installed under <code>/usr/local/lib64/pkgconfig</code>. If you set</p>
+pkg-config where it can find the <code>.pc</code> files containing the information. Say you
+installed GoogleTest to <code>/usr/local</code>, then it might be that the <code>.pc</code> files are
+installed under <code>/usr/local/lib64/pkgconfig</code>. If you set</p>
 <pre><code>export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
 </code></pre>
 

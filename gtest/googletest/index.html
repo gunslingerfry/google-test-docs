@@ -750,9 +750,9 @@ them to either 1 or 0 to enable or disable a certain feature.</p>
 <a href="https://github.com/google/googletest/blob/master/googletest/include/gtest/internal/gtest-port.h">include/gtest/internal/gtest-port.h</a>.</p>
 <h3 id="multi-threaded-tests">Multi-threaded Tests<a class="headerlink" href="#multi-threaded-tests" title="Permanent link">&para;</a></h3>
 <p>Google Test is thread-safe where the pthread library is available. After
-<code>#include "gtest/gtest.h"</code>, you can check the <code>GTEST_IS_THREADSAFE</code> macro to see
-whether this is the case (yes if the macro is <code>#defined</code> to 1, no if it's
-undefined.).</p>
+<code>#include "gtest/gtest.h"</code>, you can check the
+<code>GTEST_IS_THREADSAFE</code> macro to see whether this is the case (yes if the macro is
+<code>#defined</code> to 1, no if it's undefined.).</p>
 <p>If Google Test doesn't correctly detect whether pthread is available in your
 environment, you can force it with</p>
 <pre><code>-DGTEST_HAS_PTHREAD=1

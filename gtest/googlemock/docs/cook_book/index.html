@@ -1007,7 +1007,7 @@
                 
                 
                 <h2 id="googletest-mocking-gmock-cookbook">Googletest Mocking (gMock) Cookbook<a class="headerlink" href="#googletest-mocking-gmock-cookbook" title="Permanent link">&para;</a></h2>
-<!-- GOOGLETEST_CM0011 DO NOT DELETE -->
+<!-- GOOGLETEST_CM0012 DO NOT DELETE -->
 
 <p>You can find recipes for using gMock here. If you haven't yet, please read
 <a href="../for_dummies/">this</a> first to make sure you understand the basics.</p>
@@ -1138,7 +1138,7 @@ class MockStack : public StackInterface&lt;Elem&gt; {
 
 <h4 id="mocking-non-virtual-methods-mockingnonvirtualmethods">Mocking Non-virtual Methods {#MockingNonVirtualMethods}<a class="headerlink" href="#mocking-non-virtual-methods-mockingnonvirtualmethods" title="Permanent link">&para;</a></h4>
 <p>gMock can mock non-virtual functions to be used in Hi-perf dependency
-injection.<!-- GOOGLETEST_CM0016 DO NOT DELETE -->.</p>
+injection.<!-- GOOGLETEST_CM0017 DO NOT DELETE -->.</p>
 <p>In this case, instead of sharing a common base class with the real class, your
 mock class will be <em>unrelated</em> to the real class, but contain methods with the
 same signatures. The syntax for mocking non-virtual methods is the <em>same</em> as
@@ -2272,7 +2272,7 @@ matcher can never call a mock function, as that will affect the state of the
 mock object and gMock.</p>
 <h3 id="setting-expectations">Setting Expectations<a class="headerlink" href="#setting-expectations" title="Permanent link">&para;</a></h3>
 <h4 id="knowing-when-to-expect-useoncall">Knowing When to Expect {#UseOnCall}<a class="headerlink" href="#knowing-when-to-expect-useoncall" title="Permanent link">&para;</a></h4>
-<!-- GOOGLETEST_CM0017 DO NOT DELETE -->
+<!-- GOOGLETEST_CM0018 DO NOT DELETE -->
 
 <p><strong><code>ON_CALL</code></strong> is likely the <em>single most under-utilized construct</em> in gMock.</p>
 <p>There are basically two constructs for defining the behavior of a mock object:

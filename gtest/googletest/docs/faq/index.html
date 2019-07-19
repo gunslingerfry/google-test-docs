@@ -948,7 +948,7 @@
                 
                 
                 <h1 id="googletest-faq">Googletest FAQ<a class="headerlink" href="#googletest-faq" title="Permanent link">&para;</a></h1>
-<!-- GOOGLETEST_CM0013 DO NOT DELETE -->
+<!-- GOOGLETEST_CM0014 DO NOT DELETE -->
 
 <h2 id="why-should-test-suite-names-and-test-names-not-contain-underscore">Why should test suite names and test names not contain underscore?<a class="headerlink" href="#why-should-test-suite-names-and-test-names-not-contain-underscore" title="Permanent link">&para;</a></h2>
 <p>Underscore (<code>_</code>) is special, as C++ reserves the following to be used by the
@@ -1222,7 +1222,7 @@ The former is usually preferred, as it has the following benefits:</p>
 <li>In the body of a constructor (or destructor), it's not possible to use the
     <code>ASSERT_xx</code> macros. Therefore, if the set-up operation could cause a fatal
     test failure that should prevent the test from running, it's necessary to
-    use <code>abort</code> <!-- GOOGLETEST_CM0014 DO NOT DELETE --> and abort the whole test executable,
+    use <code>abort</code> <!-- GOOGLETEST_CM0015 DO NOT DELETE --> and abort the whole test executable,
     or to use <code>SetUp()</code> instead of a constructor.</li>
 <li>If the tear-down operation could throw an exception, you must use
     <code>TearDown()</code> as opposed to the destructor, as throwing in a destructor leads
