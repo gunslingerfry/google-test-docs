@@ -557,20 +557,15 @@
     Matchers {#MatcherList}
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#wildcard" title="Wildcard" class="md-nav__link">
     Wildcard
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#generic-comparison" title="Generic Comparison" class="md-nav__link">
@@ -643,8 +638,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#matchers-as-predicates-matchersaspredicatescheat" title="Matchers as Predicates {#MatchersAsPredicatesCheat}" class="md-nav__link">
-    Matchers as Predicates {#MatchersAsPredicatesCheat}
+  <a href="#using-matchers-as-predicates-matchersaspredicatescheat" title="Using Matchers as Predicates {#MatchersAsPredicatesCheat}" class="md-nav__link">
+    Using Matchers as Predicates {#MatchersAsPredicatesCheat}
   </a>
   
 </li>
@@ -660,14 +655,6 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#matchers-as-test-assertions" title="Matchers as Test Assertions" class="md-nav__link">
-    Matchers as Test Assertions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#actions-actionlist" title="Actions {#ActionList}" class="md-nav__link">
@@ -698,8 +685,24 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#default-action" title="Default Action" class="md-nav__link">
+    Default Action
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composite-actions" title="Composite Actions" class="md-nav__link">
+    Composite Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defining-actions" title="Defining Actions" class="md-nav__link">
+    Defining Actions
+  </a>
   
 </li>
         
@@ -707,28 +710,6 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#default-action" title="Default Action" class="md-nav__link">
-    Default Action
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#composite-actions" title="Composite Actions" class="md-nav__link">
-    Composite Actions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defining-actions" title="Defining Actions" class="md-nav__link">
-    Defining Actions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#cardinalities-cardinalitylist" title="Cardinalities {#CardinalityList}" class="md-nav__link">
@@ -811,6 +792,8 @@
                 
                 <h2 id="gmock-cheat-sheet">gMock Cheat Sheet<a class="headerlink" href="#gmock-cheat-sheet" title="Permanent link">&para;</a></h2>
 <!-- GOOGLETEST_CM0019 DO NOT DELETE -->
+
+<!-- GOOGLETEST_CM0033 DO NOT DELETE -->
 
 <h3 id="defining-a-mock-class">Defining a Mock Class<a class="headerlink" href="#defining-a-mock-class" title="Permanent link">&para;</a></h3>
 <h4 id="mocking-a-normal-class-mockclass">Mocking a Normal Class {#MockClass}<a class="headerlink" href="#mocking-a-normal-class-mockclass" title="Permanent link">&para;</a></h4>
@@ -1029,7 +1012,7 @@ and the default action will be taken each time.</p>
 </table>
 <p>Built-in matchers (where <code>argument</code> is the function argument) are divided into
 several categories:</p>
-<h2 id="wildcard">Wildcard<a class="headerlink" href="#wildcard" title="Permanent link">&para;</a></h2>
+<h4 id="wildcard">Wildcard<a class="headerlink" href="#wildcard" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1860,6 +1843,10 @@ EXPECT_THAT(actual_foos, Pointwise(FooEq(), expected_foos));</code></p>
 </tr>
 </tbody>
 </table>
+<!-- GOOGLETEST_CM0026 DO NOT DELETE -->
+
+<!-- GOOGLETEST_CM0027 DO NOT DELETE -->
+
 <h4 id="multi-argument-matchers-multiargmatchers">Multi-argument Matchers {#MultiArgMatchers}<a class="headerlink" href="#multi-argument-matchers-multiargmatchers" title="Permanent link">&para;</a></h4>
 <p>Technically, all matchers match a <em>single</em> value. A "multi-argument" matcher is
 just one that matches a <em>tuple</em>. The following matchers can be used to match a
@@ -1942,18 +1929,58 @@ reorder them) to participate in the matching:</p>
 <tbody>
 <tr>
 <td align="left"><code>AllOf(m1, m2, ..., mn)</code></td>
-<td align="left"><code>argument</code> matches all of the matchers <code>m1</code> to</td>
+<td align="left"><code>argument</code> matches all of the matchers</td>
 </tr>
 <tr>
-<td align="left">:                          : <code>mn</code>.                                           :</td>
+<td align="left">:                                  : <code>m1</code> to <code>mn</code>.                           :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>AllOfArray({m0, m1, ..., mn})</code>,</td>
+<td align="left">The same as <code>AllOf()</code> except that the</td>
+</tr>
+<tr>
+<td align="left">: <code>AllOfArray(a_container)</code>,       : matchers come from an initializer list, :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">: <code>AllOfArray(begin, end)</code>,        : STL-style container, iterator range, or :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">: <code>AllOfArray(array)</code>, or          : C-style array.                          :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">: <code>AllOfArray(array, count)</code>       :                                         :</td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><code>AnyOf(m1, m2, ..., mn)</code></td>
-<td align="left"><code>argument</code> matches at least one of the matchers</td>
+<td align="left"><code>argument</code> matches at least one of the</td>
 </tr>
 <tr>
-<td align="left">:                          : <code>m1</code> to <code>mn</code>.                                   :</td>
+<td align="left">:                                  : matchers <code>m1</code> to <code>mn</code>.                  :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>AnyOfArray({m0, m1, ..., mn})</code>,</td>
+<td align="left">The same as <code>AnyOf()</code> except that the</td>
+</tr>
+<tr>
+<td align="left">: <code>AnyOfArray(a_container)</code>,       : matchers come from an initializer list, :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">: <code>AnyOfArray(begin, end)</code>,        : STL-style container, iterator range, or :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">: <code>AnyOfArray(array)</code>, or          : C-style array.                          :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">: <code>AnyOfArray(array, count)</code>       :                                         :</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1962,6 +1989,8 @@ reorder them) to participate in the matching:</p>
 </tr>
 </tbody>
 </table>
+<!-- GOOGLETEST_CM0028 DO NOT DELETE -->
+
 <h4 id="adapters-for-matchers">Adapters for Matchers<a class="headerlink" href="#adapters-for-matchers" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
@@ -2011,7 +2040,7 @@ reorder them) to participate in the matching:</p>
 </table>
 <p><code>AddressSatisfies(callback)</code> and <code>Truly(callback)</code> take ownership of <code>callback</code>,
 which must be a permanent callback.</p>
-<h4 id="matchers-as-predicates-matchersaspredicatescheat">Matchers as Predicates {#MatchersAsPredicatesCheat}<a class="headerlink" href="#matchers-as-predicates-matchersaspredicatescheat" title="Permanent link">&para;</a></h4>
+<h4 id="using-matchers-as-predicates-matchersaspredicatescheat">Using Matchers as Predicates {#MatchersAsPredicatesCheat}<a class="headerlink" href="#using-matchers-as-predicates-matchersaspredicatescheat" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -2114,33 +2143,14 @@ which must be a permanent callback.</p>
 <li>You can use <code>PrintToString(x)</code> to convert a value <code>x</code> of any type to a
     string.</li>
 </ol>
-<h2 id="matchers-as-test-assertions">Matchers as Test Assertions<a class="headerlink" href="#matchers-as-test-assertions" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th align="left">Matcher</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>ASSERT_THAT(expression, m)</code></td>
-<td align="left">Generates a <a href="../../../googletest/docs/primer/#assertions">fatal failure</a> if the value of <code>expression</code> doesn't match matcher <code>m</code>.</td>
-</tr>
-<tr>
-<td align="left"><code>EXPECT_THAT(expression, m)</code></td>
-<td align="left">Generates a non-fatal failure if the value of <code>expression</code> doesn't match matcher <code>m</code>.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="actions-actionlist">Actions {#ActionList}<a class="headerlink" href="#actions-actionlist" title="Permanent link">&para;</a></h3>
 <p><strong>Actions</strong> specify what a mock function should do when invoked.</p>
 <h4 id="returning-a-value">Returning a Value<a class="headerlink" href="#returning-a-value" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Matcher</th>
-<th align="left">Description</th>
+<th align="left"></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody>
@@ -2206,8 +2216,8 @@ which must be a permanent callback.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Matcher</th>
-<th align="left">Description</th>
+<th align="left"></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody>
@@ -2319,11 +2329,23 @@ functor, lambda, or <code>google3</code>-style permanent callback.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Matcher</th>
-<th align="left">Description</th>
+<th align="left"></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td align="left"><code>f</code></td>
+<td align="left">Invoke f with the arguments passed to</td>
+</tr>
+<tr>
+<td align="left">:                                     : the mock function, where f is a        :</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">:                                     : callable (except of google3 callback). :</td>
+<td align="left"></td>
+</tr>
 <tr>
 <td align="left"><code>Invoke(f)</code></td>
 <td align="left">Invoke <code>f</code> with the arguments passed</td>
@@ -2416,7 +2438,7 @@ InvokeArgument&lt;2&gt;(5, string(&quot;Hi&quot;), ByRef(foo))
 
 <p>calls the mock function's #2 argument, passing to it <code>5</code> and <code>string("Hi")</code> by
 value, and <code>foo</code> by reference.</p>
-<h2 id="default-action">Default Action<a class="headerlink" href="#default-action" title="Permanent link">&para;</a></h2>
+<h4 id="default-action">Default Action<a class="headerlink" href="#default-action" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -2437,12 +2459,14 @@ value, and <code>foo</code> by reference.</p>
 </table>
 <p><strong>Note:</strong> due to technical reasons, <code>DoDefault()</code> cannot be used inside a
 composite action - trying to do so will result in a run-time error.</p>
-<h2 id="composite-actions">Composite Actions<a class="headerlink" href="#composite-actions" title="Permanent link">&para;</a></h2>
+<!-- GOOGLETEST_CM0032 DO NOT DELETE -->
+
+<h4 id="composite-actions">Composite Actions<a class="headerlink" href="#composite-actions" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Matcher</th>
-<th align="left">Description</th>
+<th align="left"></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody>
@@ -2492,12 +2516,25 @@ composite action - trying to do so will result in a run-time error.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="defining-actions">Defining Actions<a class="headerlink" href="#defining-actions" title="Permanent link">&para;</a></h2>
+<h4 id="defining-actions">Defining Actions<a class="headerlink" href="#defining-actions" title="Permanent link">&para;</a></h4>
+<table border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>`struct SumAction {` <br>
+        &emsp;`template <typename T>` <br>
+        &emsp;`T operator()(T x, Ty) { return x + y; }` <br>
+        `};`
+    </td>
+    <td> Defines a generic functor that can be used as an action summing its
+    arguments. </td> </tr>
+  <tr>
+  </tr>
+</table>
+
 <table>
 <thead>
 <tr>
-<th align="left">Matcher</th>
-<th align="left">Description</th>
+<th align="left"></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody>
@@ -2546,8 +2583,8 @@ called:</p>
 <table>
 <thead>
 <tr>
-<th align="left">Matcher</th>
-<th align="left">Description</th>
+<th align="left"></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody>

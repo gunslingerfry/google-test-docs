@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#googletest-mocking-gmock-for-dummies-gmockfordummies" tabindex="1" class="md-skip">
+      <a href="#gmock-for-dummies-gmockfordummies" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -490,8 +490,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#googletest-mocking-gmock-for-dummies-gmockfordummies" title="Googletest Mocking (gMock) for Dummies {#GMockForDummies}" class="md-nav__link">
-    Googletest Mocking (gMock) for Dummies {#GMockForDummies}
+  <a href="#gmock-for-dummies-gmockfordummies" title="gMock for Dummies {#GMockForDummies}" class="md-nav__link">
+    gMock for Dummies {#GMockForDummies}
   </a>
   
     <nav class="md-nav">
@@ -652,7 +652,7 @@
                 
                   <h1>For dummies</h1>
                 
-                <h2 id="googletest-mocking-gmock-for-dummies-gmockfordummies">Googletest Mocking (gMock) for Dummies {#GMockForDummies}<a class="headerlink" href="#googletest-mocking-gmock-for-dummies-gmockfordummies" title="Permanent link">&para;</a></h2>
+                <h2 id="gmock-for-dummies-gmockfordummies">gMock for Dummies {#GMockForDummies}<a class="headerlink" href="#gmock-for-dummies-gmockfordummies" title="Permanent link">&para;</a></h2>
 <!-- GOOGLETEST_CM0013 DO NOT DELETE -->
 
 <h3 id="what-is-gmock">What Is gMock?<a class="headerlink" href="#what-is-gmock" title="Permanent link">&para;</a></h3>
@@ -835,6 +835,8 @@ changes in <code>Foo</code> much more easily. While this is more work initially,
 choosing the adaptor interface can make your code easier to write and more
 readable (a net win in the long run), as you can choose <code>FooAdaptor</code> to fit your
 specific domain much better than <code>Foo</code> does.</p>
+<!-- GOOGLETEST_CM0029 DO NOT DELETE -->
+
 <h3 id="using-mocks-in-tests">Using Mocks in Tests<a class="headerlink" href="#using-mocks-in-tests" title="Permanent link">&para;</a></h3>
 <p>Once you have a mock class, using it is easy. The typical work flow is:</p>
 <ol>
@@ -1154,8 +1156,8 @@ its name is really irrelevant.</p>
 <p>In this example, we test that <code>Foo()</code> calls the three expected functions in the
 order as written. If a call is made out-of-order, it will be an error.</p>
 <p>(What if you care about the relative order of some of the calls, but not all of
-them? Can you specify an arbitrary partial order? The answer is ... yes! If you
-are impatient, the details can be found <a href="#PartialOrder">here</a>.)</p>
+them? Can you specify an arbitrary partial order? The answer is ... yes! The
+details can be found <a href="../cook_book/#OrderedCalls">here</a>.)</p>
 <h4 id="all-expectations-are-sticky-unless-said-otherwise-stickyexpectations">All Expectations Are Sticky (Unless Said Otherwise) {#StickyExpectations}<a class="headerlink" href="#all-expectations-are-sticky-unless-said-otherwise-stickyexpectations" title="Permanent link">&para;</a></h4>
 <p>Now let's do a quick quiz to see how well you can use this mock stuff already.
 How would you test that the turtle is asked to go to the origin <em>exactly twice</em>

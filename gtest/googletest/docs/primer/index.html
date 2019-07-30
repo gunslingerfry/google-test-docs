@@ -940,7 +940,7 @@ that a C string is <code>NULL</code>, use <code>ASSERT_STREQ(c_string, NULL)</co
 objects, you should use <code>ASSERT_EQ</code>.</p>
 <p>When doing pointer comparisons use <code>*_EQ(ptr, nullptr)</code> and <code>*_NE(ptr, nullptr)</code>
 instead of <code>*_EQ(ptr, NULL)</code> and <code>*_NE(ptr, NULL)</code>. This is because <code>nullptr</code> is
-typed while <code>NULL</code> is not. See <a href="../faq/">FAQ</a>for more details.</p>
+typed while <code>NULL</code> is not. See <a href="../faq/">FAQ</a> for more details.</p>
 <p>If you're working with floating point numbers, you may want to use the floating
 point variations of some of these macros in order to avoid problems caused by
 rounding. See <a href="../advanced/">Advanced googletest Topics</a> for details.</p>
@@ -1217,7 +1217,7 @@ different test suites, or even different source files.</p>
 <p>Deletes the fixture.</p>
 </li>
 <li>
-<p>Restores the state of all all googletest flags</p>
+<p>Restores the state of all googletest flags</p>
 </li>
 <li>
 <p>Repeats the above steps for the next test, until all tests have run.</p>

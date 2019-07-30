@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#googletest-mocking-gmock-cookbook" tabindex="1" class="md-skip">
+      <a href="#gmock-cookbook" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -868,6 +868,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#using-functions-with-extra-info-as-actions" title="Using Functions with Extra Info as Actions" class="md-nav__link">
+    Using Functions with Extra Info as Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#invoking-a-functionmethodfunctorlambdacallback-without-arguments" title="Invoking a Function/Method/Functor/Lambda/Callback Without Arguments" class="md-nav__link">
     Invoking a Function/Method/Functor/Lambda/Callback Without Arguments
   </a>
@@ -1006,7 +1013,7 @@
               
                 
                 
-                <h2 id="googletest-mocking-gmock-cookbook">Googletest Mocking (gMock) Cookbook<a class="headerlink" href="#googletest-mocking-gmock-cookbook" title="Permanent link">&para;</a></h2>
+                <h2 id="gmock-cookbook">gMock Cookbook<a class="headerlink" href="#gmock-cookbook" title="Permanent link">&para;</a></h2>
 <!-- GOOGLETEST_CM0012 DO NOT DELETE -->
 
 <p>You can find recipes for using gMock here. If you haven't yet, please read
@@ -1734,6 +1741,8 @@ using ::testing::Return;
 <pre><code class="cpp">  EXPECT_CALL(foo, DoThat(_, NotNull()));
 </code></pre>
 
+<!-- GOOGLETEST_CM0022 DO NOT DELETE -->
+
 <h4 id="combining-matchers-combiningmatchers">Combining Matchers {#CombiningMatchers}<a class="headerlink" href="#combining-matchers-combiningmatchers" title="Permanent link">&para;</a></h4>
 <p>You can build complex matchers from existing ones using <code>AllOf()</code>,
 <code>AllOfArray()</code>, <code>AnyOf()</code>, <code>AnyOfArray()</code> and <code>Not()</code>:</p>
@@ -1996,6 +2005,8 @@ int IsEven(int n) { return (n % 2) == 0 ? 1 : 0; }
 <p>Note that the predicate function / functor doesn't have to return <code>bool</code>. It
 works as long as the return value can be used as the condition in in statement
 <code>if (condition) ...</code>.</p>
+<!-- GOOGLETEST_CM0023 DO NOT DELETE -->
+
 <h4 id="matching-arguments-that-are-not-copyable">Matching Arguments that Are Not Copyable<a class="headerlink" href="#matching-arguments-that-are-not-copyable" title="Permanent link">&para;</a></h4>
 <p>When you do an <code>EXPECT_CALL(mock_obj, Foo(bar))</code>, gMock saves away a copy of
 <code>bar</code>. When <code>Foo()</code> is called later, gMock compares the argument to <code>Foo()</code> with
@@ -2846,67 +2857,71 @@ precedence" rule, but they don't interact. That is, <code>EXPECT_CALL</code>s ha
 own precedence order distinct from the <code>ON_CALL</code> precedence order.</p>
 <h4 id="using-functionsmethodsfunctorslambdas-as-actions-functionsasactions">Using Functions/Methods/Functors/Lambdas as Actions {#FunctionsAsActions}<a class="headerlink" href="#using-functionsmethodsfunctorslambdas-as-actions-functionsasactions" title="Permanent link">&para;</a></h4>
 <p>If the built-in actions don't suit you, you can use an existing callable
-(function, <code>std::function</code>, method, functor, lambda as an action. ```cpp
-using ::testing::_; using ::testing::Invoke;</p>
-<p>class MockFoo : public Foo {
+(function, <code>std::function</code>, method, functor, lambda as an action.</p>
+<!-- GOOGLETEST_CM0024 DO NOT DELETE -->
+
+<pre><code class="cpp">using ::testing::_; using ::testing::Invoke;
+
+class MockFoo : public Foo {
  public:
   MOCK_METHOD(int, Sum, (int x, int y), (override));
   MOCK_METHOD(bool, ComplexJob, (int x), (override));
-};</p>
-<p>int CalculateSum(int x, int y) { return x + y; }
-int Sum3(int x, int y, int z) { return x + y + z; }</p>
-<p>class Helper {
+};
+
+int CalculateSum(int x, int y) { return x + y; }
+int Sum3(int x, int y, int z) { return x + y + z; }
+
+class Helper {
  public:
   bool ComplexJob(int x);
-};</p>
-<p>...
+};
+
+...
   MockFoo foo;
   Helper helper;
-  EXPECT_CALL(foo, Sum(<em>, </em>))
+  EXPECT_CALL(foo, Sum(_, _))
       .WillOnce(&amp;CalculateSum)
       .WillRepeatedly(Invoke(NewPermanentCallback(Sum3, 1)));
   EXPECT_CALL(foo, ComplexJob(_))
       .WillOnce(Invoke(&amp;helper, &amp;Helper::ComplexJob));
-      .WillRepeatedly(<a href="int x"></a> { return x &gt; 0; });</p>
-<p>foo.Sum(5, 6);         // Invokes CalculateSum(5, 6).
+      .WillRepeatedly([](int x) { return x &gt; 0; });
+
+  foo.Sum(5, 6);         // Invokes CalculateSum(5, 6).
   foo.Sum(2, 3);         // Invokes Sum3(1, 2, 3).
   foo.ComplexJob(10);    // Invokes helper.ComplexJob(10).
-  foo.ComplexJob(-1);    // Invokes the inline lambda.</p>
-<pre><code>
-The only requirement is that the type of the function, etc must be *compatible*
+  foo.ComplexJob(-1);    // Invokes the inline lambda.
+</code></pre>
+
+<p>The only requirement is that the type of the function, etc must be <em>compatible</em>
 with the signature of the mock function, meaning that the latter's arguments can
 be implicitly converted to the corresponding arguments of the former, and the
 former's return type can be implicitly converted to that of the latter. So, you
-can invoke something whose type is *not* exactly the same as the mock function,
-as long as it's safe to do so - nice, huh?
-
-**`Note:`{.escaped}**
-
-*   The action takes ownership of the callback and will delete it when the
-    action itself is destructed.
-*   If the type of a callback is derived from a base callback type `C`, you need
-    to implicitly cast it to `C` to resolve the overloading, e.g.
-
-    ```cpp
-    using ::testing::Invoke;
-    ...
-      ResultCallback&lt;bool&gt;* is_ok = ...;
-      ... Invoke(is_ok) ...;  // This works.
-
-      BlockingClosure* done = new BlockingClosure;
-      ... Invoke(implicit_cast&lt;Closure*&gt;(done)) ...;  // The cast is necessary.
-    ```
-
-#### Using Functions with Extra Info as Actions
-
-The function or functor you call using `Invoke()` must have the same number of
+can invoke something whose type is <em>not</em> exactly the same as the mock function,
+as long as it's safe to do so - nice, huh?</p>
+<p><strong><code>Note:</code>{.escaped}</strong></p>
+<ul>
+<li>The action takes ownership of the callback and will delete it when the
+    action itself is destructed.</li>
+<li>
+<p>If the type of a callback is derived from a base callback type <code>C</code>, you need
+    to implicitly cast it to <code>C</code> to resolve the overloading, e.g.</p>
+<p>```cpp
+using ::testing::Invoke;
+...
+  ResultCallback<bool>* is_ok = ...;
+  ... Invoke(is_ok) ...;  // This works.</p>
+<p>BlockingClosure* done = new BlockingClosure;
+  ... Invoke(implicit_cast<Closure*>(done)) ...;  // The cast is necessary.
+```</p>
+</li>
+</ul>
+<h4 id="using-functions-with-extra-info-as-actions">Using Functions with Extra Info as Actions<a class="headerlink" href="#using-functions-with-extra-info-as-actions" title="Permanent link">&para;</a></h4>
+<p>The function or functor you call using <code>Invoke()</code> must have the same number of
 arguments as the mock function you use it for. Sometimes you may have a function
 that takes more arguments, and you are willing to pass in the extra arguments
 yourself to fill the gap. You can do this in gMock using callbacks with
-pre-bound arguments. Here's an example:
-
-```cpp
-using ::testing::Invoke;
+pre-bound arguments. Here's an example:</p>
+<pre><code class="cpp">using ::testing::Invoke;
 
 class MockFoo : public Foo {
  public:
@@ -3788,6 +3803,8 @@ written wrong. Case solved.</p>
 <p>If you are interested in the mock call trace but not the stack traces, you can
 combine <code>--gmock_verbose=info</code> with <code>--gtest_stack_trace_depth=0</code> on the test
 command line.</p>
+<!-- GOOGLETEST_CM0025 DO NOT DELETE -->
+
 <h4 id="running-tests-in-emacs">Running Tests in Emacs<a class="headerlink" href="#running-tests-in-emacs" title="Permanent link">&para;</a></h4>
 <p>If you build and run your tests in Emacs using the <code>M-x google-compile</code> command
 (as many googletest users do), the source file locations of gMock and googletest
@@ -4672,6 +4689,53 @@ prints the raw bytes in the value and hopes that you the user can figure it out.
 <a href="../../../googletest/docs/advanced/#teaching-googletest-how-to-print-your-values">googletest's advanced guide</a>
 explains how to extend the printer to do a better job at printing your
 particular type than to dump the bytes.</p>
+<h3 id="useful-mocks-created-using-gmock">Useful Mocks Created Using gMock<a class="headerlink" href="#useful-mocks-created-using-gmock" title="Permanent link">&para;</a></h3>
+<!--#include file="includes/g3_testing_LOGs.md"-->
+
+<!--#include file="includes/g3_mock_callbacks.md"-->
+
+<h4 id="mock-stdfunction-mockfunction">Mock std::function {#MockFunction}<a class="headerlink" href="#mock-stdfunction-mockfunction" title="Permanent link">&para;</a></h4>
+<p><code>std::function</code> is a general function type introduced in C++11. It is a
+preferred way of passing callbacks to new interfaces. Functions are copiable,
+and are not usually passed around by pointer, which makes them tricky to mock.
+But fear not - <code>MockFunction</code> can help you with that.</p>
+<p><code>MockFunction&lt;R(T1, ..., Tn)&gt;</code> has a mock method <code>Call()</code> with the signature:</p>
+<pre><code class="cpp">  R Call(T1, ..., Tn);
+</code></pre>
+
+<p>It also has a <code>AsStdFunction()</code> method, which creates a <code>std::function</code> proxy
+forwarding to Call:</p>
+<pre><code class="cpp">  std::function&lt;R(T1, ..., Tn)&gt; AsStdFunction();
+</code></pre>
+
+<p>To use <code>MockFunction</code>, first create <code>MockFunction</code> object and set up
+expectations on its <code>Call</code> method. Then pass proxy obtained from
+<code>AsStdFunction()</code> to the code you are testing. For example:</p>
+<pre><code class="cpp">TEST(FooTest, RunsCallbackWithBarArgument) {
+  // 1. Create a mock object.
+  MockFunction&lt;int(string)&gt; mock_function;
+
+  // 2. Set expectations on Call() method.
+  EXPECT_CALL(mock_function, Call(&quot;bar&quot;)).WillOnce(Return(1));
+
+  // 3. Exercise code that uses std::function.
+  Foo(mock_function.AsStdFunction());
+  // Foo's signature can be either of:
+  // void Foo(const std::function&lt;int(string)&gt;&amp; fun);
+  // void Foo(std::function&lt;int(string)&gt; fun);
+
+  // 4. All expectations will be verified when mock_function
+  //     goes out of scope and is destroyed.
+}
+</code></pre>
+
+<p>Remember that function objects created with <code>AsStdFunction()</code> are just
+forwarders. If you create multiple of them, they will share the same set of
+expectations.</p>
+<p>Although <code>std::function</code> supports unlimited number of arguments, <code>MockFunction</code>
+implementation is limited to ten. If you ever hit that limit... well, your
+callback has bigger problems than being mockable. :-)</p>
+<!-- GOOGLETEST_CM0034 DO NOT DELETE -->
                 
                   
                 

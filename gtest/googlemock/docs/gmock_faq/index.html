@@ -709,6 +709,7 @@ declarations are <em>not</em> equivalent:</p>
 void Bar(const int* p);  // p is not const, but *p is.
 </code></pre>
 
+<p>&lt;<!-- GOOGLETEST_CM0030 DO NOT DELETE --></p>
 <h3 id="i-cant-figure-out-why-gmock-thinks-my-expectations-are-not-satisfied-what-should-i-do">I can't figure out why gMock thinks my expectations are not satisfied. What should I do?<a class="headerlink" href="#i-cant-figure-out-why-gmock-thinks-my-expectations-are-not-satisfied-what-should-i-do" title="Permanent link">&para;</a></h3>
 <p>You might want to run your test with <code>--gmock_verbose=info</code>. This flag lets
 gMock print a trace of every mock function call it receives. By studying the
@@ -741,6 +742,8 @@ using ::testing::Not;
   EXPECT_CALL(foo, Bar(_))
       .Times(0);
 </code></pre>
+
+<!-- GOOGLETEST_CM0031 DO NOT DELETE -->
 
 <h3 id="i-have-a-failed-test-where-gmock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant">I have a failed test where gMock tells me TWICE that a particular expectation is not satisfied. Isn't this redundant?<a class="headerlink" href="#i-have-a-failed-test-where-gmock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant" title="Permanent link">&para;</a></h3>
 <p>When gMock detects a failure, it prints relevant information (the mock function

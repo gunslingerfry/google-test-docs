@@ -2863,15 +2863,15 @@ sometimes be necessary to declare it public, such as when using it with
 level, you can also do it at the test program level. Here's how.</p>
 <p>First, you subclass the <code>::testing::Environment</code> class to define a test
 environment, which knows how to set-up and tear-down:</p>
-<pre><code class="c++">class Environment {
+<pre><code class="c++">class Environment : public ::testing::Environment {
  public:
   virtual ~Environment() {}
 
   // Override this to define how to set up the environment.
-  virtual void SetUp() {}
+  void SetUp() override {}
 
   // Override this to define how to tear down the environment.
-  virtual void TearDown() {}
+  void TearDown() override {}
 };
 </code></pre>
 
