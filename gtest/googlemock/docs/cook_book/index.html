@@ -1921,7 +1921,7 @@ arguments as <em>one</em> single tuple to the predicate.</p>
 <p>Have you noticed that a matcher is just a fancy predicate that also knows how to
 describe itself? Many existing algorithms take predicates as arguments (e.g.
 those defined in STL's <code>&lt;algorithm&gt;</code> header), and it would be a shame if gMock
-matchers are not allowed to participate.</p>
+matchers were not allowed to participate.</p>
 <p>Luckily, you can use a matcher where a unary predicate functor is expected by
 wrapping it inside the <code>Matches()</code> function. For example,</p>
 <pre><code class="cpp">#include &lt;algorithm&gt;
@@ -2106,7 +2106,7 @@ Matcher&lt;Foo&gt; IsFoo(const Foo&amp; foo) {
 what if you want to make sure the value <em>pointed to</em> by the pointer, instead of
 the pointer itself, has a certain property? Well, you can use the <code>Pointee(m)</code>
 matcher.</p>
-<p><code>Pointee(m)</code> matches a pointer iff <code>m</code> matches the value the pointer points to.
+<p><code>Pointee(m)</code> matches a pointer if <code>m</code> matches the value the pointer points to.
 For example:</p>
 <pre><code class="cpp">using ::testing::Ge;
 using ::testing::Pointee;
@@ -3256,7 +3256,7 @@ using ::testing::SetArgPointee;
 action object. Suppose you have an action factory <code>IncrementCounter(init)</code> which
 creates an action that increments and returns a counter whose initial value is
 <code>init</code>, using two actions created from the same expression and using a shared
-action will exihibit different behaviors. Example:</p>
+action will exhibit different behaviors. Example:</p>
 <pre><code class="cpp">  EXPECT_CALL(foo, DoThis())
       .WillRepeatedly(IncrementCounter(0));
   EXPECT_CALL(foo, DoThat())
@@ -4038,7 +4038,7 @@ class MatcherInterface {
  public:
   virtual ~MatcherInterface();
 
-  // Returns true iff the matcher matches x; also explains the match
+  // Returns true if the matcher matches x; also explains the match
   // result to 'listener'.
   virtual bool MatchAndExplain(T x, MatchResultListener* listener) const = 0;
 
@@ -4175,10 +4175,10 @@ namespace <code>testing</code>):</p>
  public:
   virtual ~CardinalityInterface();
 
-  // Returns true iff call_count calls will satisfy this cardinality.
+  // Returns true if call_count calls will satisfy this cardinality.
   virtual bool IsSatisfiedByCallCount(int call_count) const = 0;
 
-  // Returns true iff call_count calls will saturate this cardinality.
+  // Returns true if call_count calls will saturate this cardinality.
   virtual bool IsSaturatedByCallCount(int call_count) const = 0;
 
   // Describes self to an ostream.
