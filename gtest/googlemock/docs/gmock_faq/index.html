@@ -709,16 +709,17 @@ declarations are <em>not</em> equivalent:</p>
 void Bar(const int* p);  // p is not const, but *p is.
 </code></pre>
 
-<p>&lt;<!-- GOOGLETEST_CM0030 DO NOT DELETE --></p>
+<!-- GOOGLETEST_CM0030 DO NOT DELETE -->
+
 <h3 id="i-cant-figure-out-why-gmock-thinks-my-expectations-are-not-satisfied-what-should-i-do">I can't figure out why gMock thinks my expectations are not satisfied. What should I do?<a class="headerlink" href="#i-cant-figure-out-why-gmock-thinks-my-expectations-are-not-satisfied-what-should-i-do" title="Permanent link">&para;</a></h3>
 <p>You might want to run your test with <code>--gmock_verbose=info</code>. This flag lets
 gMock print a trace of every mock function call it receives. By studying the
 trace, you'll gain insights on why the expectations you set are not met.</p>
 <p>If you see the message "The mock function has no default action set, and its
 return type has no default value set.", then try
-<a href="http://go/gmockguide#DefaultValue">adding a default action</a>. Due to a known
-issue, unexpected calls on mocks without default actions don't print out a
-detailed comparison between the actual arguments and the expected arguments.</p>
+<a href="../for_dummies/#DefaultValue">adding a default action</a>. Due to a known issue,
+unexpected calls on mocks without default actions don't print out a detailed
+comparison between the actual arguments and the expected arguments.</p>
 <h3 id="my-program-crashed-and-scopedmocklog-spit-out-tons-of-messages-is-it-a-gmock-bug">My program crashed and <code>ScopedMockLog</code> spit out tons of messages. Is it a gMock bug?<a class="headerlink" href="#my-program-crashed-and-scopedmocklog-spit-out-tons-of-messages-is-it-a-gmock-bug" title="Permanent link">&para;</a></h3>
 <p>gMock and <code>ScopedMockLog</code> are likely doing the right thing here.</p>
 <p>When a test crashes, the failure signal handler will try to log a lot of

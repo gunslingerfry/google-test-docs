@@ -679,8 +679,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-a-function-functor-lambda-or-callback-as-an-action" title="Using a Function, Functor, Lambda, or Callback as an Action" class="md-nav__link">
-    Using a Function, Functor, Lambda, or Callback as an Action
+  <a href="#using-a-function-functor-or-lambda-as-an-action" title="Using a Function, Functor, or Lambda as an Action" class="md-nav__link">
+    Using a Function, Functor, or Lambda as an Action
   </a>
   
 </li>
@@ -940,7 +940,8 @@ DefaultValue&lt;T&gt;::Clear();
 <p>To customize the default action for a particular method of a specific mock
 object, use <code>ON_CALL()</code>. <code>ON_CALL()</code> has a similar syntax to <code>EXPECT_CALL()</code>,
 but it is used for setting default behaviors (when you do not require that the
-mock method is called). See go/prefer-on-call for a more detailed discussion.</p>
+mock method is called). See <a href="../cook_book/#UseOnCall">here</a> for a more detailed
+discussion.</p>
 <pre><code class="cpp">ON_CALL(mock-object, method(matchers))
     .With(multi-argument-matcher)   ?
     .WillByDefault(action);
@@ -1312,8 +1313,8 @@ user wants.</p>
 </table>
 <p><code>ContainsRegex()</code> and <code>MatchesRegex()</code> take ownership of the <code>RE</code> object. They
 use the regular expression syntax defined
-<a href="http://go/gunit-advanced-regex">here</a>. <code>StrCaseEq()</code>, <code>StrCaseNe()</code>, <code>StrEq()</code>,
-and <code>StrNe()</code> work for wide strings as well.</p>
+<a href="advanced.md#regular-expression-syntax">here</a>. <code>StrCaseEq()</code>, <code>StrCaseNe()</code>,
+<code>StrEq()</code>, and <code>StrNe()</code> work for wide strings as well.</p>
 <h4 id="container-matchers">Container Matchers<a class="headerlink" href="#container-matchers" title="Permanent link">&para;</a></h4>
 <p>Most STL-style containers support <code>==</code>, so you can use <code>Eq(expected_container)</code>
 or simply <code>expected_container</code> to match a container exactly. If you want to
@@ -2323,9 +2324,9 @@ which must be a permanent callback.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="using-a-function-functor-lambda-or-callback-as-an-action">Using a Function, Functor, Lambda, or Callback as an Action<a class="headerlink" href="#using-a-function-functor-lambda-or-callback-as-an-action" title="Permanent link">&para;</a></h4>
+<h4 id="using-a-function-functor-or-lambda-as-an-action">Using a Function, Functor, or Lambda as an Action<a class="headerlink" href="#using-a-function-functor-or-lambda-as-an-action" title="Permanent link">&para;</a></h4>
 <p>In the following, by "callable" we mean a free function, <code>std::function</code>,
-functor, lambda, or <code>google3</code>-style permanent callback.</p>
+functor, or lambda.</p>
 <table>
 <thead>
 <tr>
@@ -2343,7 +2344,7 @@ functor, lambda, or <code>google3</code>-style permanent callback.</p>
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">:                                     : callable (except of google3 callback). :</td>
+<td align="left">:                                     : callable.                              :</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -2360,7 +2361,7 @@ functor, lambda, or <code>google3</code>-style permanent callback.</p>
 </tr>
 <tr>
 <td align="left">`Invoke(object_pointer,</td>
-<td align="left">Invoke the {method on the object with</td>
+<td align="left">Invoke the method on the object with</td>
 </tr>
 <tr>
 <td align="left">: &amp;class\:\:method)`                  : the arguments passed to the mock       :</td>

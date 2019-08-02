@@ -767,34 +767,26 @@ of misunderstanding these.</p>
 <p>Historically, googletest started to use the term <em>Test Case</em> for grouping
 related tests, whereas current publications including the International Software
 Testing Qualifications Board (<a href="http://www.istqb.org/">ISTQB</a>) and various
-textbooks on Software Quality use the term <em><a href="http://glossary.istqb.org/search/test%20suite">Test
-Suite</a></em> for this.</p>
+textbooks on Software Quality use the term <em><a href="http://glossary.istqb.org/en/search/test%20suite">Test Suite</a></em> for
+this.</p>
 <p>The related term <em>Test</em>, as it is used in the googletest, is corresponding to
-the term <em><a href="http://glossary.istqb.org/search/test%20case">Test Case</a></em> of ISTQB
-and others.</p>
+the term <em><a href="http://glossary.istqb.org/en/search/test%20case">Test Case</a></em> of ISTQB and others.</p>
 <p>The term <em>Test</em> is commonly of broad enough sense, including ISTQB's definition
 of <em>Test Case</em>, so it's not much of a problem here. But the term <em>Test Case</em> as
 was used in Google Test is of contradictory sense and thus confusing.</p>
-<p>googletest recently started replacing the term <em>Test Case</em> by <em>Test Suite</em> The
-preferred API is TestSuite<em>. The older TestCase</em> API is being slowly deprecated
-and refactored away</p>
+<p>googletest recently started replacing the term <em>Test Case</em> with <em>Test Suite</em>.
+The preferred API is <em>TestSuite</em>. The older TestCase API is being slowly
+deprecated and refactored away.</p>
 <p>So please be aware of the different definitions of the terms:</p>
-<table>
-<thead>
-<tr>
-<th align="left">Meaning</th>
-<th align="left">googletest Term</th>
-<th align="left"><a href="http://www.istqb.org/">ISTQB</a> Term</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Exercise a particular program path with specific input values and verify the results</td>
-<td align="left"><a href="#simple-tests">TEST()</a></td>
-<td align="left"><a href="http://glossary.istqb.org/search/test%20case">Test Case</a></td>
-</tr>
-</tbody>
-</table>
+<p>| Meaning           | googletest Term         | <a href="http://www.istqb.org/">ISTQB</a> |
+:                   :                         : Term                           :
+| :---------------- | :---------------------- | :----------------------------- |
+| Exercise a        | <a href="#simple-tests">TEST()</a> | <a href="http://glossary.istqb.org/en/search/test%20case">Test Case</a>   |
+: particular        :                         :                                :
+: program path with :                         :                                :
+: specific input    :                         :                                :
+: values and verify :                         :                                :
+: the results       :                         :                                :</p>
 <h2 id="basic-concepts">Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permanent link">&para;</a></h2>
 <p>When using googletest, you start by writing <em>assertions</em>, which are statements
 that check whether a condition is true. An assertion's result can be <em>success</em>,
@@ -1020,9 +1012,8 @@ pointer and an empty string are considered <em>different</em>.</p>
 of two wide strings fails, their values will be printed as UTF-8 narrow strings.</p>
 <p><strong>Availability</strong>: Linux, Windows, Mac.</p>
 <p><strong>See also</strong>: For more string comparison tricks (substring, prefix, suffix, and
-regular expression matching, for example), see
-<a href="https://github.com/google/googletest/blob/master/googletest/docs/advanced.md">this</a>
-in the Advanced googletest Guide.</p>
+regular expression matching, for example), see <a href="../advanced/">this</a> in the
+Advanced googletest Guide.</p>
 <h2 id="simple-tests">Simple Tests<a class="headerlink" href="#simple-tests" title="Permanent link">&para;</a></h2>
 <p>To create a test:</p>
 <ol>
