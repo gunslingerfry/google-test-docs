@@ -2049,6 +2049,8 @@ matcher <code>m</code>.</p>
 <p>is a matcher that matches a <code>Foo</code> object whose <code>baz()</code> method returns a value
 that satisfies matcher <code>m</code>.</p>
 <p>For example:</p>
+<!-- mdformat off(github rendering does not support multiline tables) -->
+
 <table>
 <thead>
 <tr>
@@ -2062,11 +2064,11 @@ that satisfies matcher <code>m</code>.</p>
 <td align="left">Matches <code>x</code> where <code>x.number &gt;= 3</code>.</td>
 </tr>
 <tr>
-<td align="left"><code>Property(&amp;Foo::name,        | Matches</code>x<code>where</code>x.name()` starts with</td>
-<td align="left"></td>
+<td align="left"><code>Property(&amp;Foo::name,  StartsWith("John "))</code></td>
+<td align="left">Matches <code>x</code> where <code>x.name()</code> starts with  <code>"John "</code>.</td>
 </tr>
 <tr>
-<td align="left">: StartsWith("John "))<code>:</code>"John "`.                               :</td>
+<td align="left"><!-- mdformat on --></td>
 <td align="left"></td>
 </tr>
 </tbody>

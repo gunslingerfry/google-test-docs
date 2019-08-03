@@ -945,6 +945,8 @@ as <code>ASSERT_EQ(expected, actual)</code>, so lots of existing code uses this 
 <h3 id="string-comparison">String Comparison<a class="headerlink" href="#string-comparison" title="Permanent link">&para;</a></h3>
 <p>The assertions in this group compare two <strong>C strings</strong>. If you want to compare
 two <code>string</code> objects, use <code>EXPECT_EQ</code>, <code>EXPECT_NE</code>, and etc instead.</p>
+<!-- mdformat off(github rendering does not support multiline tables) -->
+
 <table>
 <thead>
 <tr>
@@ -955,57 +957,29 @@ two <code>string</code> objects, use <code>EXPECT_EQ</code>, <code>EXPECT_NE</co
 </thead>
 <tbody>
 <tr>
-<td><code>ASSERT_STREQ(str1,     |</code>EXPECT_STREQ(str1,</td>
-<td>the two C strings have</td>
-<td></td>
+<td><code>ASSERT_STREQ(str1,str2);</code></td>
+<td><code>EXPECT_STREQ(str1,str2);</code></td>
+<td>the two C strings have the same content</td>
 </tr>
 <tr>
-<td>: str2);<code>: str2);</code>                 : the same content       :</td>
-<td></td>
-<td></td>
+<td><code>ASSERT_STRNE(str1,str2);</code></td>
+<td><code>EXPECT_STRNE(str1,str2);</code></td>
+<td>the two C strings have different contents</td>
 </tr>
 <tr>
-<td><code>ASSERT_STRNE(str1,     |</code>EXPECT_STRNE(str1,</td>
-<td>the two C strings have</td>
-<td></td>
+<td><code>ASSERT_STRCASEEQ(str1,str2);</code></td>
+<td><code>EXPECT_STRCASEEQ(str1,str2);</code></td>
+<td>the two C strings have the same content, ignoring case</td>
 </tr>
 <tr>
-<td>: str2);<code>: str2);</code>                 : different contents     :</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>ASSERT_STRCASEEQ(str1, |</code>EXPECT_STRCASEEQ(str1,</td>
-<td>the two C strings have</td>
-<td></td>
-</tr>
-<tr>
-<td>: str2);<code>: str2);</code>                 : the same content,      :</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>:                         :                         : ignoring case          :</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>ASSERT_STRCASENE(str1, |</code>EXPECT_STRCASENE(str1,</td>
-<td>the two C strings have</td>
-<td></td>
-</tr>
-<tr>
-<td>: str2);<code>: str2);</code>                 : different contents,    :</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>:                         :                         : ignoring case          :</td>
-<td></td>
-<td></td>
+<td><code>ASSERT_STRCASENE(str1,str2);</code></td>
+<td><code>EXPECT_STRCASENE(str1,str2);</code></td>
+<td>the two C strings have different contents, ignoring case</td>
 </tr>
 </tbody>
 </table>
+<!-- mdformat on-->
+
 <p>Note that "CASE" in an assertion name means that case is ignored. A <code>NULL</code>
 pointer and an empty string are considered <em>different</em>.</p>
 <p><code>*STREQ*</code> and <code>*STRNE*</code> also accept wide C strings (<code>wchar_t*</code>). If a comparison

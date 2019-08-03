@@ -1694,6 +1694,8 @@ evaluate.</p>
 <p>If you already have a function or functor that returns <code>bool</code> (or a type that
 can be implicitly converted to <code>bool</code>), you can use it in a <em>predicate
 assertion</em> to get the function arguments printed for free:</p>
+<!-- mdformat off(github rendering does not support multiline tables) -->
+
 <table>
 <thead>
 <tr>
@@ -1704,32 +1706,24 @@ assertion</em> to get the function arguments printed for free:</p>
 </thead>
 <tbody>
 <tr>
-<td><code>ASSERT_PRED1(pred1, |</code>EXPECT_PRED1(pred1,</td>
+<td><code>ASSERT_PRED1(pred1, val1)</code></td>
+<td><code>EXPECT_PRED1(pred1, val1)</code></td>
 <td><code>pred1(val1)</code> is true</td>
-<td></td>
 </tr>
 <tr>
-<td>: val1);<code>: val1);</code>              :                             :</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>ASSERT_PRED2(pred2, |</code>EXPECT_PRED2(pred2,</td>
-<td><code>pred2(val1, val2)</code> is true</td>
-<td></td>
-</tr>
-<tr>
-<td>: val1, val2);<code>: val1, val2);</code>        :                             :</td>
-<td></td>
-<td></td>
+<td><code>ASSERT_PRED2(pred2, val1, val2)</code></td>
+<td><code>EXPECT_PRED2(pred2, val1, val2)</code></td>
+<td><code>pred1(val1, val2)</code> is true</td>
 </tr>
 <tr>
 <td><code>...</code></td>
 <td><code>...</code></td>
-<td>...</td>
+<td><code>...</code></td>
 </tr>
 </tbody>
 </table>
+<!-- mdformat on-->
+
 <p>In the above, <code>predn</code> is an <code>n</code>-ary predicate function or functor, where <code>val1</code>,
 <code>val2</code>, ..., and <code>valn</code> are its arguments. The assertion succeeds if the
 predicate returns <code>true</code> when applied to the given arguments, and fails
@@ -1931,6 +1925,8 @@ provides assertions to do this. Full details about ULPs are quite long; if you
 want to learn more, see
 <a href="https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/">here</a>.</p>
 <h4 id="floating-point-macros">Floating-Point Macros<a class="headerlink" href="#floating-point-macros" title="Permanent link">&para;</a></h4>
+<!-- mdformat off(github rendering does not support multiline tables) -->
+
 <table>
 <thead>
 <tr>
@@ -1941,29 +1937,23 @@ want to learn more, see
 </thead>
 <tbody>
 <tr>
-<td><code>ASSERT_FLOAT_EQ(val1,  |</code>EXPECT_FLOAT_EQ(val1,</td>
-<td>the two <code>float</code> values</td>
-<td></td>
+<td><code>ASSERT_FLOAT_EQ(val1, val2);</code></td>
+<td><code>EXPECT_FLOAT_EQ(val1, val2);</code></td>
+<td>the two <code>float</code> values are almost equal</td>
 </tr>
 <tr>
-<td>: val2);<code>: val2);</code>                 : are almost equal        :</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>ASSERT_DOUBLE_EQ(val1, |</code>EXPECT_DOUBLE_EQ(val1,</td>
-<td>the two <code>double</code> values</td>
-<td></td>
-</tr>
-<tr>
-<td>: val2);<code>: val2);</code>                 : are almost equal        :</td>
-<td></td>
-<td></td>
+<td><code>ASSERT_DOUBLE_EQ(val1, val2);</code></td>
+<td><code>EXPECT_DOUBLE_EQ(val1, val2);</code></td>
+<td>the two <code>double</code> values are almost equal</td>
 </tr>
 </tbody>
 </table>
+<!-- mdformat on-->
+
 <p>By "almost equal" we mean the values are within 4 ULP's from each other.</p>
 <p>The following assertions allow you to choose the acceptable error bound:</p>
+<!-- mdformat off(github rendering does not support multiline tables) -->
+
 <table>
 <thead>
 <tr>
@@ -1974,27 +1964,14 @@ want to learn more, see
 </thead>
 <tbody>
 <tr>
-<td><code>ASSERT_NEAR(val1, |</code>EXPECT_NEAR(val1, val2,</td>
-<td>the difference between</td>
-<td></td>
-</tr>
-<tr>
-<td>: val2, abs_error);<code>: abs_error);</code>             : <code>val1</code> and <code>val2</code> doesn't :</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>:                    :                          : exceed the given absolute :</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>:                    :                          : error                     :</td>
-<td></td>
-<td></td>
+<td><code>ASSERT_NEAR(val1, val2, abs_error);</code></td>
+<td><code>EXPECT_NEAR(val1, val2, abs_error);</code></td>
+<td>the difference between <code>val1</code> and <code>val2</code> doesn't exceed the given absolute error</td>
 </tr>
 </tbody>
 </table>
+<!-- mdformat on-->
+
 <h4 id="floating-point-predicate-format-functions">Floating-Point Predicate-Format Functions<a class="headerlink" href="#floating-point-predicate-format-functions" title="Permanent link">&para;</a></h4>
 <p>Some floating-point operations are useful, but not that often used. In order to
 avoid an explosion of new macros, we provide them as predicate-format functions
@@ -2010,6 +1987,8 @@ EXPECT_PRED_FORMAT2(::testing::DoubleLE, val1, val2);
 <p><a href="../../googlemock">gMock</a> comes with a library of matchers for validating
 arguments passed to mock objects. A gMock <em>matcher</em> is basically a predicate
 that knows how to describe itself. It can be used in these assertion macros:</p>
+<!-- mdformat off(github rendering does not support multiline tables) -->
+
 <table>
 <thead>
 <tr>
@@ -2020,17 +1999,14 @@ that knows how to describe itself. It can be used in these assertion macros:</p>
 </thead>
 <tbody>
 <tr>
-<td><code>ASSERT_THAT(value, |</code>EXPECT_THAT(value, matcher);`</td>
+<td><code>ASSERT_THAT(value, matcher);</code></td>
+<td><code>EXPECT_THAT(value, matcher);</code></td>
 <td>value matches matcher</td>
-<td></td>
-</tr>
-<tr>
-<td>: matcher);`          :                                :                       :</td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
+<!-- mdformat on-->
+
 <p>For example, <code>StartsWith(prefix)</code> is a matcher that matches a string starting
 with <code>prefix</code>, and you can write:</p>
 <pre><code class="c++">using ::testing::StartsWith;
@@ -2967,6 +2943,8 @@ with any set of parameters you want. googletest defines a number of functions
 for generating test parameters. They return what we call (surprise!) <em>parameter
 generators</em>. Here is a summary of them, which are all in the <code>testing</code>
 namespace:</p>
+<!-- mdformat off(github rendering does not support multiline tables) -->
+
 <table>
 <thead>
 <tr>
@@ -2977,31 +2955,15 @@ namespace:</p>
 <tbody>
 <tr>
 <td><code>Range(begin, end [, step])</code></td>
-<td>Yields values `{begin, begin+step,</td>
-</tr>
-<tr>
-<td>:                              : begin+step+step, ...}`. The values do not   :</td>
-<td></td>
-</tr>
-<tr>
-<td>:                              : include <code>end</code>. <code>step</code> defaults to 1.        :</td>
-<td></td>
+<td>Yields values <code>{begin, begin+step, begin+step+step, ...}</code>. The values do not include <code>end</code>. <code>step</code> defaults to 1.</td>
 </tr>
 <tr>
 <td><code>Values(v1, v2, ..., vN)</code></td>
 <td>Yields values <code>{v1, v2, ..., vN}</code>.</td>
 </tr>
 <tr>
-<td><code>ValuesIn(container)</code> and</td>
-<td>Yields values from a C-style array, an</td>
-</tr>
-<tr>
-<td>: <code>ValuesIn(begin,end)</code>        : STL-style container, or an iterator range   :</td>
-<td></td>
-</tr>
-<tr>
-<td>:                              : <code>[begin, end)</code>.                             :</td>
-<td></td>
+<td><code>ValuesIn(container)</code> and  <code>ValuesIn(begin,end)</code></td>
+<td>Yields values from a C-style array, an  STL-style container, or an iterator range <code>[begin, end)</code></td>
 </tr>
 <tr>
 <td><code>Bool()</code></td>
@@ -3009,18 +2971,12 @@ namespace:</p>
 </tr>
 <tr>
 <td><code>Combine(g1, g2, ..., gN)</code></td>
-<td>Yields all combinations (Cartesian product)</td>
-</tr>
-<tr>
-<td>:                              : as std\:\:tuples of the values generated by :</td>
-<td></td>
-</tr>
-<tr>
-<td>:                              : the <code>N</code> generators.                         :</td>
-<td></td>
+<td>Yields all combinations (Cartesian product) as std\:\:tuples of the values generated by the <code>N</code> generators.</td>
 </tr>
 </tbody>
 </table>
+<!-- mdformat on-->
+
 <p>For more details, see the comments at the definitions of these functions.</p>
 <p>The following statement will instantiate tests from the <code>FooTest</code> test suite
 each with parameter values <code>"meeny"</code>, <code>"miny"</code>, and <code>"moe"</code>.</p>
