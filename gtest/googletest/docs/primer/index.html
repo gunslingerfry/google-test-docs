@@ -778,15 +778,26 @@ was used in Google Test is of contradictory sense and thus confusing.</p>
 The preferred API is <em>TestSuite</em>. The older TestCase API is being slowly
 deprecated and refactored away.</p>
 <p>So please be aware of the different definitions of the terms:</p>
-<p>| Meaning           | googletest Term         | <a href="http://www.istqb.org/">ISTQB</a> |
-:                   :                         : Term                           :
-| :---------------- | :---------------------- | :----------------------------- |
-| Exercise a        | <a href="#simple-tests">TEST()</a> | <a href="http://glossary.istqb.org/en/search/test%20case">Test Case</a>   |
-: particular        :                         :                                :
-: program path with :                         :                                :
-: specific input    :                         :                                :
-: values and verify :                         :                                :
-: the results       :                         :                                :</p>
+<!-- mdformat off(github rendering does not support multiline tables) -->
+
+<table>
+<thead>
+<tr>
+<th align="left">Meaning</th>
+<th align="left">googletest Term</th>
+<th align="left"><a href="http://www.istqb.org/">ISTQB</a> Term</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Exercise a particular program path with specific input values and verify the results</td>
+<td align="left"><a href="#simple-tests">TEST()</a></td>
+<td align="left"><a href="http://glossary.istqb.org/en/search/test%20case">Test Case</a></td>
+</tr>
+</tbody>
+</table>
+<!-- mdformat on -->
+
 <h2 id="basic-concepts">Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permanent link">&para;</a></h2>
 <p>When using googletest, you start by writing <em>assertions</em>, which are statements
 that check whether a condition is true. An assertion's result can be <em>success</em>,

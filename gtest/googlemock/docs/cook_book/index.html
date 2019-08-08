@@ -507,13 +507,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mocking-private-or-protected-methods" title="Mocking Private or Protected Methods" class="md-nav__link">
-    Mocking Private or Protected Methods
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#mocking-overloaded-methods" title="Mocking Overloaded Methods" class="md-nav__link">
     Mocking Overloaded Methods
   </a>
@@ -1023,18 +1016,42 @@ recommended to write <code>using ::testing::Foo;</code> once in your file before
 name <code>Foo</code> defined by gMock. We omit such <code>using</code> statements in this section for
 brevity, but you should do it in your own code.</p>
 <h3 id="creating-mock-classes">Creating Mock Classes<a class="headerlink" href="#creating-mock-classes" title="Permanent link">&para;</a></h3>
-<h4 id="dealing-with-unprotected-commas">Dealing with unprotected commas<a class="headerlink" href="#dealing-with-unprotected-commas" title="Permanent link">&para;</a></h4>
-<p>Unprotected commas, i.e. commas which are not surrounded by parentheses, prevent
-<code>MOCK_METHOD</code> from parsing its arguments correctly:</p>
-<pre><code class="cpp">class MockFoo {
+<p>Mock classes are defined as normal classes, using the <code>MOCK_METHOD</code> macro to
+generate mocked methods. The macro gets 3 or 4 parameters:</p>
+<pre><code class="cpp">class MyMock {
  public:
-  MOCK_METHOD(std::pair&lt;bool, int&gt;, GetPair, ());  // Won't compile!
-  MOCK_METHOD(bool, CheckMap, (std::map&lt;int, double&gt;, bool));  // Won't compile!
+  MOCK_METHOD(ReturnType, MethodName, (Args...));
+  MOCK_METHOD(ReturnType, MethodName, (Args...), (Specs...));
 };
 </code></pre>
 
-<p>Solution 1 - wrap with parentheses:</p>
-<pre><code class="cpp">class MockFoo {
+<p>The first 3 parameters are simply the method declaration, split into 3 parts.
+The 4th parameter accepts a closed list of qualifiers, which affect the
+generated method:</p>
+<ul>
+<li><strong><code>const</code></strong> - Makes the mocked method a <code>const</code> method. Required if
+    overriding a <code>const</code> method.</li>
+<li><strong><code>override</code></strong> - Marks the method with <code>override</code>. Recommended if overriding
+    a <code>virtual</code> method.</li>
+<li><strong><code>noexcept</code></strong> - Marks the method with <code>noexcept</code>. Required if overriding a
+    <code>noexcept</code> method.</li>
+<li><strong><code>Calltype(...)</code></strong> - Sets the call type for the method (e.g. to
+    <code>STDMETHODCALLTYPE</code>), useful in Windows.</li>
+</ul>
+<h4 id="dealing-with-unprotected-commas">Dealing with unprotected commas<a class="headerlink" href="#dealing-with-unprotected-commas" title="Permanent link">&para;</a></h4>
+<p>Unprotected commas, i.e. commas which are not surrounded by parentheses, prevent
+<code>MOCK_METHOD</code> from parsing its arguments correctly:</p>
+<p>```cpp {.bad}
+class MockFoo {
+ public:
+  MOCK_METHOD(std::pair<bool, int>, GetPair, ());  // Won't compile!
+  MOCK_METHOD(bool, CheckMap, (std::map<int, double>, bool));  // Won't compile!
+};</p>
+<pre><code>
+Solution 1 - wrap with parentheses:
+
+```cpp {.good}
+class MockFoo {
  public:
   MOCK_METHOD((std::pair&lt;bool, int&gt;), GetPair, ());
   MOCK_METHOD(bool, CheckMap, ((std::map&lt;int, double&gt;), bool));
@@ -1044,23 +1061,26 @@ brevity, but you should do it in your own code.</p>
 <p>Note that wrapping a return or argument type with parentheses is, in general,
 invalid C++. <code>MOCK_METHOD</code> removes the parentheses.</p>
 <p>Solution 2 - define an alias:</p>
-<pre><code class="cpp">class MockFoo {
+<p>```cpp {.good}
+class MockFoo {
  public:
-  using BoolAndInt = std::pair&lt;bool, int&gt;;
+  using BoolAndInt = std::pair<bool, int>;
   MOCK_METHOD(BoolAndInt, GetPair, ());
-  using MapIntDouble = std::map&lt;int, double&gt;;
+  using MapIntDouble = std::map<int, double>;
   MOCK_METHOD(bool, CheckMap, (MapIntDouble, bool));
-};
-</code></pre>
+};</p>
+<pre><code>
+#### Mocking Private or Protected Methods
 
-<h4 id="mocking-private-or-protected-methods">Mocking Private or Protected Methods<a class="headerlink" href="#mocking-private-or-protected-methods" title="Permanent link">&para;</a></h4>
-<p>You must always put a mock method definition (<code>MOCK_METHOD</code>) in a <code>public:</code>
-section of the mock class, regardless of the method being mocked being <code>public</code>,
-<code>protected</code>, or <code>private</code> in the base class. This allows <code>ON_CALL</code> and
-<code>EXPECT_CALL</code> to reference the mock function from outside of the mock class.
+You must always put a mock method definition (`MOCK_METHOD`) in a `public:`
+section of the mock class, regardless of the method being mocked being `public`,
+`protected`, or `private` in the base class. This allows `ON_CALL` and
+`EXPECT_CALL` to reference the mock function from outside of the mock class.
 (Yes, C++ allows a subclass to change the access level of a virtual function in
-the base class.) Example:</p>
-<pre><code class="cpp">class Foo {
+the base class.) Example:
+
+```cpp
+class Foo {
  public:
   ...
   virtual bool Transform(Gadget* g) = 0;
@@ -4170,9 +4190,9 @@ additional information to the <code>listener</code> argument in <code>MatchAndEx
 <p>A cardinality is used in <code>Times()</code> to tell gMock how many times you expect a
 call to occur. It doesn't have to be exact. For example, you can say
 <code>AtLeast(5)</code> or <code>Between(2, 4)</code>.</p>
-<p>If the <a href="#CardinalityList">built-in set</a> of cardinalities doesn't suit you, you
-are free to define your own by implementing the following interface (in
-namespace <code>testing</code>):</p>
+<p>If the <a href="../cheat_sheet/#CardinalityList">built-in set</a> of cardinalities doesn't
+suit you, you are free to define your own by implementing the following
+interface (in namespace <code>testing</code>):</p>
 <pre><code class="cpp">class CardinalityInterface {
  public:
   virtual ~CardinalityInterface();
