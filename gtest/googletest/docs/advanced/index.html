@@ -2147,9 +2147,7 @@ prints the raw bytes in the value and hopes that you the user can figure it out.
 <p>As mentioned earlier, the printer is <em>extensible</em>. That means you can teach it
 to do a better job at printing your particular type than to dump the bytes. To
 do that, define <code>&lt;&lt;</code> for your type:</p>
-<pre><code class="c++">// Streams are allowed only for logging.  Don't include this for
-// any other purpose.
-#include &lt;ostream&gt;
+<pre><code class="c++">#include &lt;ostream&gt;
 
 namespace foo {
 
@@ -2175,9 +2173,7 @@ std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Bar&amp; bar) {
 have a <code>&lt;&lt;</code> operator for <code>Bar</code>, or <code>Bar</code> may already have a <code>&lt;&lt;</code> operator that
 doesn't do what you want (and you cannot change it). If so, you can instead
 define a <code>PrintTo()</code> function like this:</p>
-<pre><code class="c++">// Streams are allowed only for logging.  Don't include this for
-// any other purpose.
-#include &lt;ostream&gt;
+<pre><code class="c++">#include &lt;ostream&gt;
 
 namespace foo {
 
