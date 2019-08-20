@@ -992,7 +992,8 @@ EXPECT_CALL(turtle, GoTo);
 
 <p>This works for all non-overloaded methods; if a method is overloaded, you need
 to help gMock resolve which overload is expected by specifying the number of
-arguments and possibly also the <a href="#SelectOverload">types of the arguments</a>.</p>
+arguments and possibly also the
+<a href="../cook_book/#SelectOverload">types of the arguments</a>.</p>
 <h4 id="cardinalities-how-many-times-will-it-be-called">Cardinalities: How Many Times Will It Be Called?<a class="headerlink" href="#cardinalities-how-many-times-will-it-be-called" title="Permanent link">&para;</a></h4>
 <p>The first clause we can specify following an <code>EXPECT_CALL()</code> is <code>Times()</code>. We
 call its argument a <strong>cardinality</strong> as it tells <em>how many times</em> the call should
