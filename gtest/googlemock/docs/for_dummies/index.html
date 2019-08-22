@@ -1064,7 +1064,7 @@ the <em>default</em> action for the function every time (unless, of course, you 
 <code>WillRepeatedly()</code>.).</p>
 <p>What can we do inside <code>WillOnce()</code> besides <code>Return()</code>? You can return a
 reference using <code>ReturnRef(*variable*)</code>, or invoke a pre-defined function, among
-<a href="#ActionList">others</a>.</p>
+<a href="../cook_book/#using-actions">others</a>.</p>
 <p><strong>Important note:</strong> The <code>EXPECT_CALL()</code> statement evaluates the action clause
 only once, even though the action may be performed many times. Therefore you
 must be careful about side effects. The following may not do what you want:</p>
@@ -1129,7 +1129,7 @@ overloaded). This makes any calls to the method expected. This is not necessary
 for methods that are not mentioned at all (these are "uninteresting"), but is
 useful for methods that have some expectations, but for which other calls are
 ok. See
-<a href="#uninteresting-vs-unexpected">Understanding Uninteresting vs Unexpected Calls</a>.</p>
+<a href="../cook_book/#uninteresting-vs-unexpected">Understanding Uninteresting vs Unexpected Calls</a>.</p>
 <h4 id="ordered-vs-unordered-calls-orderedcalls">Ordered vs Unordered Calls {#OrderedCalls}<a class="headerlink" href="#ordered-vs-unordered-calls-orderedcalls" title="Permanent link">&para;</a></h4>
 <p>By default, an expectation can match a call even though an earlier expectation
 hasn't been satisfied. In other words, the calls don't have to occur in the
