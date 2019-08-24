@@ -132,19 +132,16 @@ class MatcherCastImpl {
     // polymorphic_matcher_or_value to Matcher<T> because it won't trigger
     // a user-defined conversion from M to T if one exists (assuming M is
     // a value).
-    return CastImpl(
-        polymorphic_matcher_or_value,
-        BooleanConstant<
-            std::is_convertible<M, Matcher<T> >::value>(),
-        BooleanConstant<
-            std::is_convertible<M, T>::value>());
+    return CastImpl(polymorphic_matcher_or_value,
+                    bool_constant<std::is_convertible<M, Matcher<T>>::value>(),
+                    bool_constant<std::is_convertible<M, T>::value>());
   }
 
  private:
   template <bool Ignore>
   static Matcher<T> CastImpl(const M& polymorphic_matcher_or_value,
-                             BooleanConstant<true> /* convertible_to_matcher */,
-                             BooleanConstant<Ignore>) {
+                             bool_constant<true> /* convertible_to_matcher */,
+                             bool_constant<Ignore>) {
     // M is implicitly convertible to Matcher<T>, which means that either
     // M is a polymorphic matcher or Matcher<T> has an implicit constructor
     // from M.  In both cases using the implicit conversion will produce a
@@ -159,9 +156,9 @@ class MatcherCastImpl {
   // M can't be implicitly converted to Matcher<T>, so M isn't a polymorphic
   // matcher. It's a value of a type implicitly convertible to T. Use direct
   // initialization to create a matcher.
-  static Matcher<T> CastImpl(
-      const M& value, BooleanConstant<false> /* convertible_to_matcher */,
-      BooleanConstant<true> /* convertible_to_T */) {
+  static Matcher<T> CastImpl(const M& value,
+                             bool_constant<false> /* convertible_to_matcher */,
+                             bool_constant<true> /* convertible_to_T */) {
     return Matcher<T>(ImplicitCast_<T>(value));
   }
 
@@ -175,9 +172,9 @@ class MatcherCastImpl {
   // (e.g. std::pair<const int, int> vs. std::pair<int, int>).
   //
   // We don't define this method inline as we need the declaration of Eq().
-  static Matcher<T> CastImpl(
-      const M& value, BooleanConstant<false> /* convertible_to_matcher */,
-      BooleanConstant<false> /* convertible_to_T */);
+  static Matcher<T> CastImpl(const M& value,
+                             bool_constant<false> /* convertible_to_matcher */,
+                             bool_constant<false> /* convertible_to_T */);
 };
 
 // This more specialized version is used when MatcherCast()'s argument
@@ -3242,8 +3239,14 @@ class OptionalMatcher {
       : value_matcher_(value_matcher) {}
 
   template <typename Optional>
-  operator Matcher<Optional>() const {
+  operator Matcher<Optional>() const {  // NOLINT
     return Matcher<Optional>(new Impl<const Optional&>(value_matcher_));
+  }
+
+  template <typename Optional1, typename ValueType2>
+  operator Matcher<std::tuple<Optional1, ValueType2>>() const {  // NOLINT
+    return MakeMatcher(
+        new PairImpl<Optional1, ValueType2>(value_matcher_));
   }
 
   template <typename Optional>
@@ -3282,6 +3285,49 @@ class OptionalMatcher {
    private:
     const Matcher<ValueType> value_matcher_;
     GTEST_DISALLOW_ASSIGN_(Impl);
+  };
+
+  template <typename Optional1, typename ValueType2>
+  class PairImpl : public MatcherInterface<std::tuple<Optional1, ValueType2>> {
+   public:
+    typedef GTEST_REMOVE_REFERENCE_AND_CONST_(Optional1) Optional1View;
+    typedef typename Optional1View::value_type ValueType1;
+    typedef std::tuple<Optional1, ValueType2> OptionalTuple;
+    typedef std::tuple<ValueType1, ValueType2> ValuePair;
+
+    explicit PairImpl(const ValueMatcher& value_matcher)
+        : value_matcher_(MatcherCast<ValuePair>(value_matcher)) {}
+
+    void DescribeTo(::std::ostream* os) const override {
+      *os << "are optionals where the values ";
+      value_matcher_.DescribeTo(os);
+    }
+
+    void DescribeNegationTo(::std::ostream* os) const override {
+      *os << "are optionals where the values ";
+      value_matcher_.DescribeNegationTo(os);
+    }
+
+    bool MatchAndExplain(OptionalTuple optional_tuple,
+                         MatchResultListener* listener) const override {
+      const auto& optional1 = std::get<0>(optional_tuple);
+      const auto& value2 = std::get<1>(optional_tuple);
+      if (!optional1) {
+        *listener << "left is nullopt";
+        return false;
+      }
+      const ValueType1& value1 = *optional1;
+      StringMatchResultListener value_listener;
+      const bool match = value_matcher_.MatchAndExplain(
+          std::make_tuple(value1, value2), &value_listener);
+      *listener << (match ? "which match" : "whose values don't match");
+      PrintIfNotEmpty(value_listener.str(), listener->stream());
+      return match;
+    }
+
+   private:
+    const Matcher<ValuePair> value_matcher_;
+    GTEST_DISALLOW_ASSIGN_(PairImpl);
   };
 
  private:
@@ -3603,9 +3649,8 @@ inline Matcher<T> An() { return A<T>(); }
 
 template <typename T, typename M>
 Matcher<T> internal::MatcherCastImpl<T, M>::CastImpl(
-    const M& value,
-    internal::BooleanConstant<false> /* convertible_to_matcher */,
-    internal::BooleanConstant<false> /* convertible_to_T */) {
+    const M& value, internal::bool_constant<false> /* convertible_to_matcher */,
+    internal::bool_constant<false> /* convertible_to_T */) {
   return Eq(value);
 }
 

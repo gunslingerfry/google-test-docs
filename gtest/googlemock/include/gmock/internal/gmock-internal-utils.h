@@ -170,27 +170,27 @@ GMOCK_DECLARE_KIND_(long double, kFloatingPoint);
 // From, and kToKind is the kind of To; the value is
 // implementation-defined when the above pre-condition is violated.
 template <TypeKind kFromKind, typename From, TypeKind kToKind, typename To>
-struct LosslessArithmeticConvertibleImpl : public false_type {};
+struct LosslessArithmeticConvertibleImpl : public std::false_type {};
 
 // Converting bool to bool is lossless.
 template <>
 struct LosslessArithmeticConvertibleImpl<kBool, bool, kBool, bool>
-    : public true_type {};  // NOLINT
+    : public std::true_type {};
 
 // Converting bool to any integer type is lossless.
 template <typename To>
 struct LosslessArithmeticConvertibleImpl<kBool, bool, kInteger, To>
-    : public true_type {};  // NOLINT
+    : public std::true_type {};
 
 // Converting bool to any floating-point type is lossless.
 template <typename To>
 struct LosslessArithmeticConvertibleImpl<kBool, bool, kFloatingPoint, To>
-    : public true_type {};  // NOLINT
+    : public std::true_type {};
 
 // Converting an integer to bool is lossy.
 template <typename From>
 struct LosslessArithmeticConvertibleImpl<kInteger, From, kBool, bool>
-    : public false_type {};  // NOLINT
+    : public std::false_type {};
 
 // Converting an integer to another non-bool integer is lossless if
 // the target type's range encloses the source type's range.
@@ -211,17 +211,17 @@ struct LosslessArithmeticConvertibleImpl<kInteger, From, kInteger, To>
 // the format of a floating-point number is implementation-defined.
 template <typename From, typename To>
 struct LosslessArithmeticConvertibleImpl<kInteger, From, kFloatingPoint, To>
-    : public false_type {};  // NOLINT
+    : public std::false_type {};
 
 // Converting a floating-point to bool is lossy.
 template <typename From>
 struct LosslessArithmeticConvertibleImpl<kFloatingPoint, From, kBool, bool>
-    : public false_type {};  // NOLINT
+    : public std::false_type {};
 
 // Converting a floating-point to an integer is lossy.
 template <typename From, typename To>
 struct LosslessArithmeticConvertibleImpl<kFloatingPoint, From, kInteger, To>
-    : public false_type {};  // NOLINT
+    : public std::false_type {};
 
 // Converting a floating-point to another floating-point is lossless
 // if the target type is at least as big as the source type.
@@ -470,28 +470,12 @@ struct RemoveConstFromKey<std::pair<const K, V> > {
   typedef std::pair<K, V> type;
 };
 
-// Mapping from booleans to types. Similar to boost::bool_<kValue> and
-// std::integral_constant<bool, kValue>.
-template <bool kValue>
-struct BooleanConstant {};
-
 // Emit an assertion failure due to incorrect DoDefault() usage. Out-of-lined to
 // reduce code size.
 GTEST_API_ void IllegalDoDefault(const char* file, int line);
 
-// Helper types for Apply() below.
-template <size_t... Is> struct int_pack { typedef int_pack type; };
-
-template <class Pack, size_t I> struct append;
-template <size_t... Is, size_t I>
-struct append<int_pack<Is...>, I> : int_pack<Is..., I> {};
-
-template <size_t C>
-struct make_int_pack : append<typename make_int_pack<C - 1>::type, C - 1> {};
-template <> struct make_int_pack<0> : int_pack<> {};
-
 template <typename F, typename Tuple, size_t... Idx>
-auto ApplyImpl(F&& f, Tuple&& args, int_pack<Idx...>) -> decltype(
+auto ApplyImpl(F&& f, Tuple&& args, IndexSequence<Idx...>) -> decltype(
     std::forward<F>(f)(std::get<Idx>(std::forward<Tuple>(args))...)) {
   return std::forward<F>(f)(std::get<Idx>(std::forward<Tuple>(args))...);
 }
@@ -500,9 +484,9 @@ auto ApplyImpl(F&& f, Tuple&& args, int_pack<Idx...>) -> decltype(
 template <typename F, typename Tuple>
 auto Apply(F&& f, Tuple&& args)
     -> decltype(ApplyImpl(std::forward<F>(f), std::forward<Tuple>(args),
-                          make_int_pack<std::tuple_size<Tuple>::value>())) {
+                          MakeIndexSequence<std::tuple_size<Tuple>::value>())) {
   return ApplyImpl(std::forward<F>(f), std::forward<Tuple>(args),
-                   make_int_pack<std::tuple_size<Tuple>::value>());
+                   MakeIndexSequence<std::tuple_size<Tuple>::value>());
 }
 
 // Template struct Function<F>, where F must be a function type, contains

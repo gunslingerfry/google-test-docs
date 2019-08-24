@@ -946,7 +946,7 @@ template <typename C,
 struct IsRecursiveContainerImpl;
 
 template <typename C>
-struct IsRecursiveContainerImpl<C, false> : public false_type {};
+struct IsRecursiveContainerImpl<C, false> : public std::false_type {};
 
 // Since the IsRecursiveContainerImpl depends on the IsContainerTest we need to
 // obey the same inconsistencies as the IsContainerTest, namely check if
@@ -969,13 +969,6 @@ struct IsRecursiveContainerImpl<C, true> {
 // boost::filesystem::path.
 template <typename C>
 struct IsRecursiveContainer : public IsRecursiveContainerImpl<C>::type {};
-
-// EnableIf<condition>::type is void when 'Cond' is true, and
-// undefined when 'Cond' is false.  To use SFINAE to make a function
-// overload only apply when a particular expression is true, add
-// "typename EnableIf<expression>::type* = 0" as the last parameter.
-template<bool> struct EnableIf;
-template<> struct EnableIf<true> { typedef void type; };  // NOLINT
 
 // Utilities for native arrays.
 
