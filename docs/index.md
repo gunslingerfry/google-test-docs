@@ -2,10 +2,12 @@
 This is a mkdocs mirror of the Google Test and Google Mock github repos to make the documentation easier to read.
 
 ## Is this made by Google?
-Nope, This is completely unconnected with Google except in the content provided. I just threw this together because I was getting annoyed browsing locally or via GitHub to look at the docs.
+Nope, this is completely unconnected with Google except in the content provided. I just threw this together because I was getting annoyed browsing locally or via GitHub to look at the docs.
 
 ## Is this up to date?
 Yes, if by up to date you mean up to date with the master branch. The mirror pulls from the google test repo daily on the [master branch](https://github.com/google/googletest) only.
+
+*8-26-19: Google Mock changed their documentation pages and since then, the mock side has been broken. This has now been fixed. Sorry for the inconvenience.*
 
 ## So... Where are the docs exactly?
 Sidebar on your left <=
