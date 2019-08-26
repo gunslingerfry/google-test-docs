@@ -1,4 +1,4 @@
-site_name: Google Docs Mirror
+site_name: Google Test Docs Mirror
 nav:
     - Home: index.md
     - Google Test:
@@ -11,13 +11,11 @@ nav:
         - pkg-config: gtest/googletest/docs/Pkgconfig.md
         - Samples: gtest/googletest/docs/samples.md
     - Google Mock:
-        - Index: gtest/googlemock/docs/Documentation.md
-        - For Dummies: gtest/googlemock/docs/ForDummies.md
-        - Cheat Sheet: gtest/googlemock/docs/CheatSheet.md
-        - Cookbook: gtest/googlemock/docs/CookBook.md
-        - FAQ: gtest/googlemock/docs/FrequentlyAskedQuestions.md
-        - Known Issues: gtest/googlemock/docs/KnownIssues.md
-        - Design Doc: gtest/googlemock/docs/DesignDoc.md
+        - Index: gtest/googlemock/docs/index.md
+        - For Dummies: gtest/googlemock/docs/for_dummies.md
+        - Cheat Sheet: gtest/googlemock/docs/cheat_sheet.md
+        - Cookbook: gtest/googlemock/docs/cook_book.md
+        - FAQ: gtest/googlemock/docs/gmock_faq.md
 repo_url: https://github.com/google/googletest
 repo_name: Google Test
 # edit_uri: "blob/master/googletest/docs/"
