@@ -36,7 +36,7 @@
     
     
       
-        <title>Cook book - Google Docs Mirror</title>
+        <title>Cookbook - Google Docs Mirror</title>
       
     
     
@@ -120,7 +120,7 @@
                 Google Docs Mirror
               </span>
               <span class="md-header-nav__topic">
-                Cook book
+                Cookbook
               </span>
             
           
@@ -367,10 +367,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Google Mock
@@ -388,7 +390,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Documentation.md" title="Index" class="md-nav__link">
+    <a href="../" title="Index" class="md-nav__link">
       Index
     </a>
   </li>
@@ -400,7 +402,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../ForDummies.md" title="For Dummies" class="md-nav__link">
+    <a href="../for_dummies/" title="For Dummies" class="md-nav__link">
       For Dummies
     </a>
   </li>
@@ -412,7 +414,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../CheatSheet.md" title="Cheat Sheet" class="md-nav__link">
+    <a href="../cheat_sheet/" title="Cheat Sheet" class="md-nav__link">
       Cheat Sheet
     </a>
   </li>
@@ -422,11 +424,540 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../CookBook.md" title="Cookbook" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Cookbook
+      </label>
+    
+    <a href="./" title="Cookbook" class="md-nav__link md-nav__link--active">
       Cookbook
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-mock-classes" title="Creating Mock Classes" class="md-nav__link">
+    Creating Mock Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dealing-with-unprotected-commas" title="Dealing with unprotected commas" class="md-nav__link">
+    Dealing with unprotected commas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-overloaded-methods" title="Mocking Overloaded Methods" class="md-nav__link">
+    Mocking Overloaded Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-class-templates" title="Mocking Class Templates" class="md-nav__link">
+    Mocking Class Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-non-virtual-methods-mockingnonvirtualmethods" title="Mocking Non-virtual Methods {#MockingNonVirtualMethods}" class="md-nav__link">
+    Mocking Non-virtual Methods {#MockingNonVirtualMethods}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-free-functions" title="Mocking Free Functions" class="md-nav__link">
+    Mocking Free Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#old-style-mock_methodn-macros" title="Old-Style MOCK_METHODn Macros" class="md-nav__link">
+    Old-Style MOCK_METHODn Macros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-nice-the-strict-and-the-naggy-nicestrictnaggy" title="The Nice, the Strict, and the Naggy {#NiceStrictNaggy}" class="md-nav__link">
+    The Nice, the Strict, and the Naggy {#NiceStrictNaggy}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifying-the-interface-without-breaking-existing-code-simplerinterfaces" title="Simplifying the Interface without Breaking Existing Code {#SimplerInterfaces}" class="md-nav__link">
+    Simplifying the Interface without Breaking Existing Code {#SimplerInterfaces}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-to-mocking-concrete-classes" title="Alternative to Mocking Concrete Classes" class="md-nav__link">
+    Alternative to Mocking Concrete Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegating-calls-to-a-fake-delegatingtofake" title="Delegating Calls to a Fake {#DelegatingToFake}" class="md-nav__link">
+    Delegating Calls to a Fake {#DelegatingToFake}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegating-calls-to-a-real-object" title="Delegating Calls to a Real Object" class="md-nav__link">
+    Delegating Calls to a Real Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegating-calls-to-a-parent-class" title="Delegating Calls to a Parent Class" class="md-nav__link">
+    Delegating Calls to a Parent Class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-matchers" title="Using Matchers" class="md-nav__link">
+    Using Matchers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matching-argument-values-exactly" title="Matching Argument Values Exactly" class="md-nav__link">
+    Matching Argument Values Exactly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-simple-matchers" title="Using Simple Matchers" class="md-nav__link">
+    Using Simple Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-matchers-combiningmatchers" title="Combining Matchers {#CombiningMatchers}" class="md-nav__link">
+    Combining Matchers {#CombiningMatchers}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#casting-matchers-safematchercast" title="Casting Matchers {#SafeMatcherCast}" class="md-nav__link">
+    Casting Matchers {#SafeMatcherCast}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecting-between-overloaded-functions-selectoverload" title="Selecting Between Overloaded Functions {#SelectOverload}" class="md-nav__link">
+    Selecting Between Overloaded Functions {#SelectOverload}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performing-different-actions-based-on-the-arguments" title="Performing Different Actions Based on the Arguments" class="md-nav__link">
+    Performing Different Actions Based on the Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-multiple-arguments-as-a-whole" title="Matching Multiple Arguments as a Whole" class="md-nav__link">
+    Matching Multiple Arguments as a Whole
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-matchers-as-predicates" title="Using Matchers as Predicates" class="md-nav__link">
+    Using Matchers as Predicates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-matchers-in-googletest-assertions" title="Using Matchers in googletest Assertions" class="md-nav__link">
+    Using Matchers in googletest Assertions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-predicates-as-matchers" title="Using Predicates as Matchers" class="md-nav__link">
+    Using Predicates as Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-arguments-that-are-not-copyable" title="Matching Arguments that Are Not Copyable" class="md-nav__link">
+    Matching Arguments that Are Not Copyable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validating-a-member-of-an-object" title="Validating a Member of an Object" class="md-nav__link">
+    Validating a Member of an Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validating-the-value-pointed-to-by-a-pointer-argument" title="Validating the Value Pointed to by a Pointer Argument" class="md-nav__link">
+    Validating the Value Pointed to by a Pointer Argument
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-a-certain-property-of-an-object" title="Testing a Certain Property of an Object" class="md-nav__link">
+    Testing a Certain Property of an Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-containers" title="Matching Containers" class="md-nav__link">
+    Matching Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharing-matchers" title="Sharing Matchers" class="md-nav__link">
+    Sharing Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matchers-must-have-no-side-effects-purematchers" title="Matchers must have no side-effects {#PureMatchers}" class="md-nav__link">
+    Matchers must have no side-effects {#PureMatchers}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-expectations" title="Setting Expectations" class="md-nav__link">
+    Setting Expectations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#knowing-when-to-expect-useoncall" title="Knowing When to Expect {#UseOnCall}" class="md-nav__link">
+    Knowing When to Expect {#UseOnCall}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignoring-uninteresting-calls" title="Ignoring Uninteresting Calls" class="md-nav__link">
+    Ignoring Uninteresting Calls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disallowing-unexpected-calls" title="Disallowing Unexpected Calls" class="md-nav__link">
+    Disallowing Unexpected Calls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-uninteresting-vs-unexpected-calls-uninteresting-vs-unexpected" title="Understanding Uninteresting vs Unexpected Calls {#uninteresting-vs-unexpected}" class="md-nav__link">
+    Understanding Uninteresting vs Unexpected Calls {#uninteresting-vs-unexpected}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignoring-uninteresting-arguments-parameterlessexpectations" title="Ignoring Uninteresting Arguments {#ParameterlessExpectations}" class="md-nav__link">
+    Ignoring Uninteresting Arguments {#ParameterlessExpectations}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expecting-ordered-calls-orderedcalls" title="Expecting Ordered Calls {#OrderedCalls}" class="md-nav__link">
+    Expecting Ordered Calls {#OrderedCalls}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expecting-partially-ordered-calls-partialorder" title="Expecting Partially Ordered Calls {#PartialOrder}" class="md-nav__link">
+    Expecting Partially Ordered Calls {#PartialOrder}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlling-when-an-expectation-retires" title="Controlling When an Expectation Retires" class="md-nav__link">
+    Controlling When an Expectation Retires
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-actions" title="Using Actions" class="md-nav__link">
+    Using Actions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returning-references-from-mock-methods" title="Returning References from Mock Methods" class="md-nav__link">
+    Returning References from Mock Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returning-live-values-from-mock-methods" title="Returning Live Values from Mock Methods" class="md-nav__link">
+    Returning Live Values from Mock Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-actions" title="Combining Actions" class="md-nav__link">
+    Combining Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-complex-arguments-saveargverify" title="Verifying Complex Arguments {#SaveArgVerify}" class="md-nav__link">
+    Verifying Complex Arguments {#SaveArgVerify}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-side-effects-mockingsideeffects" title="Mocking Side Effects {#MockingSideEffects}" class="md-nav__link">
+    Mocking Side Effects {#MockingSideEffects}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-a-mock-objects-behavior-based-on-the-state" title="Changing a Mock Object's Behavior Based on the State" class="md-nav__link">
+    Changing a Mock Object's Behavior Based on the State
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-default-value-for-a-return-type-defaultvalue" title="Setting the Default Value for a Return Type {#DefaultValue}" class="md-nav__link">
+    Setting the Default Value for a Return Type {#DefaultValue}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-default-actions-for-a-mock-method" title="Setting the Default Actions for a Mock Method" class="md-nav__link">
+    Setting the Default Actions for a Mock Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-functionsmethodsfunctorslambdas-as-actions-functionsasactions" title="Using Functions/Methods/Functors/Lambdas as Actions {#FunctionsAsActions}" class="md-nav__link">
+    Using Functions/Methods/Functors/Lambdas as Actions {#FunctionsAsActions}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-functions-with-extra-info-as-actions" title="Using Functions with Extra Info as Actions" class="md-nav__link">
+    Using Functions with Extra Info as Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invoking-a-functionmethodfunctorlambdacallback-without-arguments" title="Invoking a Function/Method/Functor/Lambda/Callback Without Arguments" class="md-nav__link">
+    Invoking a Function/Method/Functor/Lambda/Callback Without Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invoking-an-argument-of-the-mock-function" title="Invoking an Argument of the Mock Function" class="md-nav__link">
+    Invoking an Argument of the Mock Function
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignoring-an-actions-result" title="Ignoring an Action's Result" class="md-nav__link">
+    Ignoring an Action's Result
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecting-an-actions-arguments-selectingargs" title="Selecting an Action's Arguments {#SelectingArgs}" class="md-nav__link">
+    Selecting an Action's Arguments {#SelectingArgs}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignoring-arguments-in-action-functions" title="Ignoring Arguments in Action Functions" class="md-nav__link">
+    Ignoring Arguments in Action Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharing-actions" title="Sharing Actions" class="md-nav__link">
+    Sharing Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-asynchronous-behavior" title="Testing Asynchronous Behavior" class="md-nav__link">
+    Testing Asynchronous Behavior
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#misc-recipes-on-using-gmock" title="Misc Recipes on Using gMock" class="md-nav__link">
+    Misc Recipes on Using gMock
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mocking-methods-that-use-move-only-types" title="Mocking Methods That Use Move-Only Types" class="md-nav__link">
+    Mocking Methods That Use Move-Only Types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#legacy-workarounds-for-move-only-types-legacymoveonly" title="Legacy workarounds for move-only types {#LegacyMoveOnly}" class="md-nav__link">
+    Legacy workarounds for move-only types {#LegacyMoveOnly}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-the-compilation-faster" title="Making the Compilation Faster" class="md-nav__link">
+    Making the Compilation Faster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forcing-a-verification" title="Forcing a Verification" class="md-nav__link">
+    Forcing a Verification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-check-points-usingcheckpoints" title="Using Check Points {#UsingCheckPoints}" class="md-nav__link">
+    Using Check Points {#UsingCheckPoints}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-destructors" title="Mocking Destructors" class="md-nav__link">
+    Mocking Destructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-gmock-and-threads-usingthreads" title="Using gMock and Threads {#UsingThreads}" class="md-nav__link">
+    Using gMock and Threads {#UsingThreads}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -436,32 +967,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../FrequentlyAskedQuestions.md" title="FAQ" class="md-nav__link">
+    <a href="../gmock_faq/" title="FAQ" class="md-nav__link">
       FAQ
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../KnownIssues.md" title="Known Issues" class="md-nav__link">
-      Known Issues
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DesignDoc.md" title="Design Doc" class="md-nav__link">
-      Design Doc
     </a>
   </li>
 
@@ -4774,6 +5281,41 @@ callback has bigger problems than being mockable. :-)</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../cheat_sheet/" title="Cheat Sheet" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Cheat Sheet
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../gmock_faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                FAQ
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

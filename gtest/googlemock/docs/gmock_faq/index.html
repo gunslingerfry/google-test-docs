@@ -36,7 +36,7 @@
     
     
       
-        <title>Gmock faq - Google Docs Mirror</title>
+        <title>FAQ - Google Docs Mirror</title>
       
     
     
@@ -120,7 +120,7 @@
                 Google Docs Mirror
               </span>
               <span class="md-header-nav__topic">
-                Gmock faq
+                FAQ
               </span>
             
           
@@ -367,10 +367,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Google Mock
@@ -388,7 +390,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Documentation.md" title="Index" class="md-nav__link">
+    <a href="../" title="Index" class="md-nav__link">
       Index
     </a>
   </li>
@@ -400,7 +402,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../ForDummies.md" title="For Dummies" class="md-nav__link">
+    <a href="../for_dummies/" title="For Dummies" class="md-nav__link">
       For Dummies
     </a>
   </li>
@@ -412,7 +414,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../CheatSheet.md" title="Cheat Sheet" class="md-nav__link">
+    <a href="../cheat_sheet/" title="Cheat Sheet" class="md-nav__link">
       Cheat Sheet
     </a>
   </li>
@@ -424,7 +426,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../CookBook.md" title="Cookbook" class="md-nav__link">
+    <a href="../cook_book/" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -434,35 +436,177 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../FrequentlyAskedQuestions.md" title="FAQ" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        FAQ
+      </label>
+    
+    <a href="./" title="FAQ" class="md-nav__link md-nav__link--active">
       FAQ
     </a>
-  </li>
-
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-gmock-faq-gmockfaq" title="Legacy gMock FAQ {#GMockFaq}" class="md-nav__link">
+    Legacy gMock FAQ {#GMockFaq}
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../KnownIssues.md" title="Known Issues" class="md-nav__link">
-      Known Issues
-    </a>
-  </li>
-
+          <li class="md-nav__item">
+  <a href="#when-i-call-a-method-on-my-mock-object-the-method-for-the-real-object-is-invoked-instead-whats-the-problem" title="When I call a method on my mock object, the method for the real object is invoked instead. What's the problem?" class="md-nav__link">
+    When I call a method on my mock object, the method for the real object is invoked instead. What's the problem?
+  </a>
+  
+</li>
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DesignDoc.md" title="Design Doc" class="md-nav__link">
-      Design Doc
-    </a>
+          <li class="md-nav__item">
+  <a href="#can-i-mock-a-variadic-function" title="Can I mock a variadic function?" class="md-nav__link">
+    Can I mock a variadic function?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msvc-gives-me-warning-c4301-or-c4373-when-i-define-a-mock-method-with-a-const-parameter-why" title="MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter. Why?" class="md-nav__link">
+    MSVC gives me warning C4301 or C4373 when I define a mock method with a const parameter. Why?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-cant-figure-out-why-gmock-thinks-my-expectations-are-not-satisfied-what-should-i-do" title="I can't figure out why gMock thinks my expectations are not satisfied. What should I do?" class="md-nav__link">
+    I can't figure out why gMock thinks my expectations are not satisfied. What should I do?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-program-crashed-and-scopedmocklog-spit-out-tons-of-messages-is-it-a-gmock-bug" title="My program crashed and ScopedMockLog spit out tons of messages. Is it a gMock bug?" class="md-nav__link">
+    My program crashed and ScopedMockLog spit out tons of messages. Is it a gMock bug?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-assert-that-a-function-is-never-called" title="How can I assert that a function is NEVER called?" class="md-nav__link">
+    How can I assert that a function is NEVER called?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-have-a-failed-test-where-gmock-tells-me-twice-that-a-particular-expectation-is-not-satisfied-isnt-this-redundant" title="I have a failed test where gMock tells me TWICE that a particular expectation is not satisfied. Isn't this redundant?" class="md-nav__link">
+    I have a failed test where gMock tells me TWICE that a particular expectation is not satisfied. Isn't this redundant?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-get-a-heapcheck-failure-when-using-a-mock-object-but-using-a-real-object-is-fine-what-can-be-wrong" title="I get a heapcheck failure when using a mock object, but using a real object is fine. What can be wrong?" class="md-nav__link">
+    I get a heapcheck failure when using a mock object, but using a real object is fine. What can be wrong?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-newer-expectations-override-older-ones-rule-makes-writing-expectations-awkward-why-does-gmock-do-that" title="The "newer expectations override older ones" rule makes writing expectations awkward. Why does gMock do that?" class="md-nav__link">
+    The "newer expectations override older ones" rule makes writing expectations awkward. Why does gMock do that?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmock-prints-a-warning-when-a-function-without-expect_call-is-called-even-if-i-have-set-its-behavior-using-on_call-would-it-be-reasonable-not-to-show-the-warning-in-this-case" title="gMock prints a warning when a function without EXPECT_CALL is called, even if I have set its behavior using ON_CALL. Would it be reasonable not to show the warning in this case?" class="md-nav__link">
+    gMock prints a warning when a function without EXPECT_CALL is called, even if I have set its behavior using ON_CALL. Would it be reasonable not to show the warning in this case?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-delete-the-mock-functions-argument-in-an-action" title="How can I delete the mock function's argument in an action?" class="md-nav__link">
+    How can I delete the mock function's argument in an action?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-perform-an-arbitrary-action-on-a-mock-functions-argument" title="How can I perform an arbitrary action on a mock function's argument?" class="md-nav__link">
+    How can I perform an arbitrary action on a mock function's argument?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-code-calls-a-staticglobal-function-can-i-mock-it" title="My code calls a static/global function. Can I mock it?" class="md-nav__link">
+    My code calls a static/global function. Can I mock it?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-mock-object-needs-to-do-complex-stuff-its-a-lot-of-pain-to-specify-the-actions-gmock-sucks" title="My mock object needs to do complex stuff. It's a lot of pain to specify the actions. gMock sucks!" class="md-nav__link">
+    My mock object needs to do complex stuff. It's a lot of pain to specify the actions. gMock sucks!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-got-a-warning-uninteresting-function-call-encountered-default-action-taken-should-i-panic" title="I got a warning "Uninteresting function call encountered - default action taken.." Should I panic?" class="md-nav__link">
+    I got a warning "Uninteresting function call encountered - default action taken.." Should I panic?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-define-a-custom-action-should-i-use-invoke-or-implement-the-actioninterface-interface" title="I want to define a custom action. Should I use Invoke() or implement the ActionInterface interface?" class="md-nav__link">
+    I want to define a custom action. Should I use Invoke() or implement the ActionInterface interface?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-use-setargpointee-in-willonce-but-gcc-complains-about-conflicting-return-type-specified-what-does-it-mean" title="I use SetArgPointee() in WillOnce(), but gcc complains about "conflicting return type specified". What does it mean?" class="md-nav__link">
+    I use SetArgPointee() in WillOnce(), but gcc complains about "conflicting return type specified". What does it mean?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-have-a-huge-mock-class-and-microsoft-visual-c-runs-out-of-memory-when-compiling-it-what-can-i-do" title="I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it. What can I do?" class="md-nav__link">
+    I have a huge mock class, and Microsoft Visual C++ runs out of memory when compiling it. What can I do?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -645,7 +789,7 @@
               
                 
                 
-                  <h1>Gmock faq</h1>
+                  <h1>FAQ</h1>
                 
                 <h2 id="legacy-gmock-faq-gmockfaq">Legacy gMock FAQ {#GMockFaq}<a class="headerlink" href="#legacy-gmock-faq-gmockfaq" title="Permanent link">&para;</a></h2>
 <!-- GOOGLETEST_CM0021 DO NOT DELETE -->
@@ -973,6 +1117,27 @@ when compiling native C++ mocks.</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../cook_book/" title="Cookbook" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Cookbook
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -36,7 +36,7 @@
     
     
       
-        <title>Cheat sheet - Google Docs Mirror</title>
+        <title>Cheat Sheet - Google Docs Mirror</title>
       
     
     
@@ -120,7 +120,7 @@
                 Google Docs Mirror
               </span>
               <span class="md-header-nav__topic">
-                Cheat sheet
+                Cheat Sheet
               </span>
             
           
@@ -367,10 +367,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Google Mock
@@ -388,7 +390,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Documentation.md" title="Index" class="md-nav__link">
+    <a href="../" title="Index" class="md-nav__link">
       Index
     </a>
   </li>
@@ -400,7 +402,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../ForDummies.md" title="For Dummies" class="md-nav__link">
+    <a href="../for_dummies/" title="For Dummies" class="md-nav__link">
       For Dummies
     </a>
   </li>
@@ -410,11 +412,320 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../CheatSheet.md" title="Cheat Sheet" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Cheat Sheet
+      </label>
+    
+    <a href="./" title="Cheat Sheet" class="md-nav__link md-nav__link--active">
       Cheat Sheet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gmock-cheat-sheet" title="gMock Cheat Sheet" class="md-nav__link">
+    gMock Cheat Sheet
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-a-mock-class" title="Defining a Mock Class" class="md-nav__link">
+    Defining a Mock Class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mocking-a-normal-class-mockclass" title="Mocking a Normal Class {#MockClass}" class="md-nav__link">
+    Mocking a Normal Class {#MockClass}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-a-class-template-mocktemplate" title="Mocking a Class Template {#MockTemplate}" class="md-nav__link">
+    Mocking a Class Template {#MockTemplate}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifying-calling-conventions-for-mock-functions" title="Specifying Calling Conventions for Mock Functions" class="md-nav__link">
+    Specifying Calling Conventions for Mock Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-mocks-in-tests-usingmocks" title="Using Mocks in Tests {#UsingMocks}" class="md-nav__link">
+    Using Mocks in Tests {#UsingMocks}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-default-actions-oncall" title="Setting Default Actions {#OnCall}" class="md-nav__link">
+    Setting Default Actions {#OnCall}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-expectations-expectcall" title="Setting Expectations {#ExpectCall}" class="md-nav__link">
+    Setting Expectations {#ExpectCall}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matchers-matcherlist" title="Matchers {#MatcherList}" class="md-nav__link">
+    Matchers {#MatcherList}
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wildcard" title="Wildcard" class="md-nav__link">
+    Wildcard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generic-comparison" title="Generic Comparison" class="md-nav__link">
+    Generic Comparison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floating-point-matchers-fpmatchers" title="Floating-Point Matchers {#FpMatchers}" class="md-nav__link">
+    Floating-Point Matchers {#FpMatchers}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-matchers" title="String Matchers" class="md-nav__link">
+    String Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-matchers" title="Container Matchers" class="md-nav__link">
+    Container Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#member-matchers" title="Member Matchers" class="md-nav__link">
+    Member Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-the-result-of-a-function-functor-or-callback" title="Matching the Result of a Function, Functor, or Callback" class="md-nav__link">
+    Matching the Result of a Function, Functor, or Callback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointer-matchers" title="Pointer Matchers" class="md-nav__link">
+    Pointer Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-argument-matchers-multiargmatchers" title="Multi-argument Matchers {#MultiArgMatchers}" class="md-nav__link">
+    Multi-argument Matchers {#MultiArgMatchers}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composite-matchers" title="Composite Matchers" class="md-nav__link">
+    Composite Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adapters-for-matchers" title="Adapters for Matchers" class="md-nav__link">
+    Adapters for Matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-matchers-as-predicates-matchersaspredicatescheat" title="Using Matchers as Predicates {#MatchersAsPredicatesCheat}" class="md-nav__link">
+    Using Matchers as Predicates {#MatchersAsPredicatesCheat}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defining-matchers" title="Defining Matchers" class="md-nav__link">
+    Defining Matchers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions-actionlist" title="Actions {#ActionList}" class="md-nav__link">
+    Actions {#ActionList}
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returning-a-value" title="Returning a Value" class="md-nav__link">
+    Returning a Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#side-effects" title="Side Effects" class="md-nav__link">
+    Side Effects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-function-functor-or-lambda-as-an-action" title="Using a Function, Functor, or Lambda as an Action" class="md-nav__link">
+    Using a Function, Functor, or Lambda as an Action
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-action" title="Default Action" class="md-nav__link">
+    Default Action
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composite-actions" title="Composite Actions" class="md-nav__link">
+    Composite Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defining-actions" title="Defining Actions" class="md-nav__link">
+    Defining Actions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardinalities-cardinalitylist" title="Cardinalities {#CardinalityList}" class="md-nav__link">
+    Cardinalities {#CardinalityList}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expectation-order" title="Expectation Order" class="md-nav__link">
+    Expectation Order
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-after-clause-afterclause" title="The After Clause {#AfterClause}" class="md-nav__link">
+    The After Clause {#AfterClause}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequences-usingsequences" title="Sequences {#UsingSequences}" class="md-nav__link">
+    Sequences {#UsingSequences}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-and-resetting-a-mock" title="Verifying and Resetting a Mock" class="md-nav__link">
+    Verifying and Resetting a Mock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mock-classes" title="Mock Classes" class="md-nav__link">
+    Mock Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flags" title="Flags" class="md-nav__link">
+    Flags
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -424,7 +735,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../CookBook.md" title="Cookbook" class="md-nav__link">
+    <a href="../cook_book/" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -436,32 +747,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../FrequentlyAskedQuestions.md" title="FAQ" class="md-nav__link">
+    <a href="../gmock_faq/" title="FAQ" class="md-nav__link">
       FAQ
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../KnownIssues.md" title="Known Issues" class="md-nav__link">
-      Known Issues
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DesignDoc.md" title="Design Doc" class="md-nav__link">
-      Design Doc
     </a>
   </li>
 
@@ -788,7 +1075,7 @@
               
                 
                 
-                  <h1>Cheat sheet</h1>
+                  <h1>Cheat Sheet</h1>
                 
                 <h2 id="gmock-cheat-sheet">gMock Cheat Sheet<a class="headerlink" href="#gmock-cheat-sheet" title="Permanent link">&para;</a></h2>
 <!-- GOOGLETEST_CM0019 DO NOT DELETE -->
@@ -2087,6 +2374,41 @@ verified:</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../for_dummies/" title="For Dummies" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                For Dummies
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../cook_book/" title="Cookbook" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Cookbook
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
