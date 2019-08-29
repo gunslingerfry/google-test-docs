@@ -615,7 +615,7 @@ test('first_and_only_test', testapp)
 <h3 id="plain-makefiles">Plain Makefiles<a class="headerlink" href="#plain-makefiles" title="Permanent link">&para;</a></h3>
 <p>Since <code>pkg-config</code> is a small Unix command-line utility, it can be used in
 handwritten <code>Makefile</code>s too:</p>
-<pre><code class="Makefile">GTEST_CFLAGS = `pkg-config --cflags gtest_main`
+<pre><code class="makefile">GTEST_CFLAGS = `pkg-config --cflags gtest_main`
 GTEST_LIBS = `pkg-config --libs gtest_main`
 
 .PHONY: tests all
