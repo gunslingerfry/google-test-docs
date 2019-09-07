@@ -391,8 +391,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown" title="Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()?" class="md-nav__link">
-    Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()?
+  <a href="#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup" title="Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()? {#CtorVsSetUp}" class="md-nav__link">
+    Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()? {#CtorVsSetUp}
   </a>
   
 </li>
@@ -774,8 +774,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown" title="Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()?" class="md-nav__link">
-    Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()?
+  <a href="#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup" title="Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()? {#CtorVsSetUp}" class="md-nav__link">
+    Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()? {#CtorVsSetUp}
   </a>
   
 </li>
@@ -1166,7 +1166,7 @@ program can run side-by-side with itself and is deterministic.</p>
 <p>In the end, this boils down to good concurrent programming. You have to make
 sure that there is no race conditions or dead locks in your program. No silver
 bullet - sorry!</p>
-<h2 id="should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown">Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()?<a class="headerlink" href="#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown" title="Permanent link">&para;</a></h2>
+<h2 id="should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup">Should I use the constructor/destructor of the test fixture or SetUp()/TearDown()? {#CtorVsSetUp}<a class="headerlink" href="#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup" title="Permanent link">&para;</a></h2>
 <p>The first thing to remember is that googletest does <strong>not</strong> reuse the same test
 fixture object across multiple tests. For each <code>TEST_F</code>, googletest will create
 a <strong>fresh</strong> test fixture object, immediately call <code>SetUp()</code>, run the test body,
