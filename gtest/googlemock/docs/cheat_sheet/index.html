@@ -1247,6 +1247,12 @@ What will it do?):</p>
      .RetiresOnSaturation();        ?
 </code></pre>
 
+<p>For each item above, <code>?</code> means it can be used at most once, while <code>*</code> means it
+can be used any number of times.</p>
+<p>In order to pass, <code>EXPECT_CALL</code> must be used before the calls are actually made.</p>
+<p>The <code>(matchers)</code> is a comma-separated list of matchers that correspond to each
+of the arguments of <code>method</code>, and sets the expectation only for calls of
+<code>method</code> that matches all of the matchers.</p>
 <p>If <code>(matchers)</code> is omitted, the expectation is the same as if the matchers were
 set to anything matchers (for example, <code>(_, _, _, _)</code> for a four-arg method).</p>
 <p>If <code>Times()</code> is omitted, the cardinality is assumed to be:</p>
@@ -1263,13 +1269,13 @@ and the default action will be taken each time.</p>
 <!-- GOOGLETEST_CM0020 DO NOT DELETE -->
 
 <p>A <strong>matcher</strong> matches a <em>single</em> argument. You can use it inside <code>ON_CALL()</code> or
-<code>EXPECT_CALL()</code>, or use it to validate a value directly:</p>
+<code>EXPECT_CALL()</code>, or use it to validate a value directly using two macros:</p>
 <!-- mdformat off(github rendering does not support multiline tables) -->
 
 <table>
 <thead>
 <tr>
-<th align="left">Matcher</th>
+<th align="left">Macro</th>
 <th align="left">Description</th>
 </tr>
 </thead>
@@ -1288,8 +1294,10 @@ and the default action will be taken each time.</p>
 </tr>
 </tbody>
 </table>
-<p>Built-in matchers (where <code>argument</code> is the function argument) are divided into
-several categories:</p>
+<p>Built-in matchers (where <code>argument</code> is the function argument, e.g.
+<code>actual_value</code> in the example above, or when used in the context of
+<code>EXPECT_CALL(mock_object, method(matchers))</code>, the arguments of <code>method</code>) are
+divided into several categories:</p>
 <h4 id="wildcard">Wildcard<a class="headerlink" href="#wildcard" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
@@ -1343,6 +1351,14 @@ several categories:</p>
 <tr>
 <td align="left"><code>Ne(value)</code></td>
 <td align="left"><code>argument != value</code></td>
+</tr>
+<tr>
+<td align="left"><code>IsFalse()</code></td>
+<td align="left"><code>argument</code> evaluates to <code>false</code> in a Boolean context.</td>
+</tr>
+<tr>
+<td align="left"><code>IsTrue()</code></td>
+<td align="left"><code>argument</code> evaluates to <code>true</code> in a Boolean context.</td>
 </tr>
 <tr>
 <td align="left"><code>IsNull()</code></td>
@@ -1553,20 +1569,12 @@ messages, you can use:</p>
 <td align="left"><code>argument</code> is an empty container (<code>container.empty()</code>).</td>
 </tr>
 <tr>
-<td align="left"><code>IsFalse()</code></td>
-<td align="left"><code>argument</code> evaluates to <code>false</code> in a Boolean context.</td>
-</tr>
-<tr>
 <td align="left"><code>IsSubsetOf({e0, e1, ..., en})</code>, <code>IsSubsetOf(a_container)</code>, <code>IsSubsetOf(begin, end)</code>, <code>IsSubsetOf(array)</code>, or <code>IsSubsetOf(array, count)</code></td>
 <td align="left"><code>argument</code> matches <code>UnorderedElementsAre(x0, x1, ..., xk)</code> for some subset <code>{x0, x1, ..., xk}</code> of the expected matchers.</td>
 </tr>
 <tr>
 <td align="left"><code>IsSupersetOf({e0, e1, ..., en})</code>, <code>IsSupersetOf(a_container)</code>, <code>IsSupersetOf(begin, end)</code>, <code>IsSupersetOf(array)</code>, or <code>IsSupersetOf(array, count)</code></td>
 <td align="left">Some subset of <code>argument</code> matches <code>UnorderedElementsAre(</code>expected matchers<code>)</code>.</td>
-</tr>
-<tr>
-<td align="left"><code>IsTrue()</code></td>
-<td align="left"><code>argument</code> evaluates to <code>true</code> in a Boolean context.</td>
 </tr>
 <tr>
 <td align="left"><code>Pointwise(m, container)</code>, <code>Pointwise(m, {e0, e1, ..., en})</code></td>
