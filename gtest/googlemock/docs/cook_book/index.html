@@ -2635,8 +2635,8 @@ Matcher&lt;Foo&gt; IsFoo(const Foo&amp; foo) {
 what if you want to make sure the value <em>pointed to</em> by the pointer, instead of
 the pointer itself, has a certain property? Well, you can use the <code>Pointee(m)</code>
 matcher.</p>
-<p><code>Pointee(m)</code> matches a pointer if <code>m</code> matches the value the pointer points to.
-For example:</p>
+<p><code>Pointee(m)</code> matches a pointer if and only if <code>m</code> matches the value the pointer
+points to. For example:</p>
 <pre><code class="cpp">using ::testing::Ge;
 using ::testing::Pointee;
 ...
@@ -4567,7 +4567,7 @@ class MatcherInterface {
  public:
   virtual ~MatcherInterface();
 
-  // Returns true if the matcher matches x; also explains the match
+  // Returns true if and only if the matcher matches x; also explains the match
   // result to 'listener'.
   virtual bool MatchAndExplain(T x, MatchResultListener* listener) const = 0;
 
@@ -4704,10 +4704,11 @@ interface (in namespace <code>testing</code>):</p>
  public:
   virtual ~CardinalityInterface();
 
-  // Returns true if call_count calls will satisfy this cardinality.
+  // Returns true if and only if call_count calls will satisfy this cardinality.
   virtual bool IsSatisfiedByCallCount(int call_count) const = 0;
 
-  // Returns true if call_count calls will saturate this cardinality.
+  // Returns true if and only if call_count calls will saturate this
+  // cardinality.
   virtual bool IsSaturatedByCallCount(int call_count) const = 0;
 
   // Describes self to an ostream.
