@@ -2063,9 +2063,10 @@ ASSERT_HRESULT_SUCCEEDED(shell-&gt;ShellExecute(CComBSTR(url), empty, empty, emp
 
 <p>to assert that types <code>T1</code> and <code>T2</code> are the same. The function does nothing if
 the assertion is satisfied. If the types are different, the function call will
-fail to compile, and the compiler error message will likely (depending on the
-compiler) show you the actual values of <code>T1</code> and <code>T2</code>. This is mainly useful
-inside template code.</p>
+fail to compile, the compiler error message will say that
+<code>type1 and type2 are not the same type</code> and most likely (depending on the compiler)
+show you the actual values of <code>T1</code> and <code>T2</code>. This is mainly useful inside
+template code.</p>
 <p><strong>Caveat</strong>: When used inside a member function of a class template or a function
 template, <code>StaticAssertTypeEq&lt;T1, T2&gt;()</code> is effective only if the function is
 instantiated. For example, given:</p>
