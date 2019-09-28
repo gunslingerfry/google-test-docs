@@ -1513,7 +1513,7 @@
               
                 
                 
-                <h2 id="gmock-cookbook">gMock Cookbook<a class="headerlink" href="#gmock-cookbook" title="Permanent link">&para;</a></h2>
+                <h1 id="gmock-cookbook">gMock Cookbook<a class="headerlink" href="#gmock-cookbook" title="Permanent link">&para;</a></h1>
 <!-- GOOGLETEST_CM0012 DO NOT DELETE -->
 
 <p>You can find recipes for using gMock here. If you haven't yet, please read
@@ -1522,7 +1522,7 @@
 recommended to write <code>using ::testing::Foo;</code> once in your file before using the
 name <code>Foo</code> defined by gMock. We omit such <code>using</code> statements in this section for
 brevity, but you should do it in your own code.</p>
-<h3 id="creating-mock-classes">Creating Mock Classes<a class="headerlink" href="#creating-mock-classes" title="Permanent link">&para;</a></h3>
+<h2 id="creating-mock-classes">Creating Mock Classes<a class="headerlink" href="#creating-mock-classes" title="Permanent link">&para;</a></h2>
 <p>Mock classes are defined as normal classes, using the <code>MOCK_METHOD</code> macro to
 generate mocked methods. The macro gets 3 or 4 parameters:</p>
 <pre><code class="cpp">class MyMock {
@@ -1545,7 +1545,7 @@ generated method:</p>
 <li><strong><code>Calltype(...)</code></strong> - Sets the call type for the method (e.g. to
     <code>STDMETHODCALLTYPE</code>), useful in Windows.</li>
 </ul>
-<h4 id="dealing-with-unprotected-commas">Dealing with unprotected commas<a class="headerlink" href="#dealing-with-unprotected-commas" title="Permanent link">&para;</a></h4>
+<h3 id="dealing-with-unprotected-commas">Dealing with unprotected commas<a class="headerlink" href="#dealing-with-unprotected-commas" title="Permanent link">&para;</a></h3>
 <p>Unprotected commas, i.e. commas which are not surrounded by parentheses, prevent
 <code>MOCK_METHOD</code> from parsing its arguments correctly:</p>
 <p>```cpp {.bad}
@@ -1577,7 +1577,7 @@ class MockFoo {
   MOCK_METHOD(bool, CheckMap, (MapIntDouble, bool));
 };</p>
 <pre><code>
-#### Mocking Private or Protected Methods
+### Mocking Private or Protected Methods
 
 You must always put a mock method definition (`MOCK_METHOD`) in a `public:`
 section of the mock class, regardless of the method being mocked being `public`,
@@ -1611,7 +1611,7 @@ class MockFoo : public Foo {
 };
 </code></pre>
 
-<h4 id="mocking-overloaded-methods">Mocking Overloaded Methods<a class="headerlink" href="#mocking-overloaded-methods" title="Permanent link">&para;</a></h4>
+<h3 id="mocking-overloaded-methods">Mocking Overloaded Methods<a class="headerlink" href="#mocking-overloaded-methods" title="Permanent link">&para;</a></h3>
 <p>You can mock overloaded functions as usual. No special attention is required:</p>
 <pre><code class="cpp">class Foo {
   ...
@@ -1650,7 +1650,7 @@ fix that, use <code>using</code> to bring them in scope:</p>
 };
 </code></pre>
 
-<h4 id="mocking-class-templates">Mocking Class Templates<a class="headerlink" href="#mocking-class-templates" title="Permanent link">&para;</a></h4>
+<h3 id="mocking-class-templates">Mocking Class Templates<a class="headerlink" href="#mocking-class-templates" title="Permanent link">&para;</a></h3>
 <p>You can mock class templates just like any class.</p>
 <pre><code class="cpp">template &lt;typename Elem&gt;
 class StackInterface {
@@ -1670,7 +1670,7 @@ class MockStack : public StackInterface&lt;Elem&gt; {
 };
 </code></pre>
 
-<h4 id="mocking-non-virtual-methods-mockingnonvirtualmethods">Mocking Non-virtual Methods {#MockingNonVirtualMethods}<a class="headerlink" href="#mocking-non-virtual-methods-mockingnonvirtualmethods" title="Permanent link">&para;</a></h4>
+<h3 id="mocking-non-virtual-methods-mockingnonvirtualmethods">Mocking Non-virtual Methods {#MockingNonVirtualMethods}<a class="headerlink" href="#mocking-non-virtual-methods-mockingnonvirtualmethods" title="Permanent link">&para;</a></h3>
 <p>gMock can mock non-virtual functions to be used in Hi-perf dependency
 injection.<!-- GOOGLETEST_CM0017 DO NOT DELETE --></p>
 <p>In this case, instead of sharing a common base class with the real class, your
@@ -1728,7 +1728,7 @@ tests.</p>
   ... exercise reader ...
 </code></pre>
 
-<h4 id="mocking-free-functions">Mocking Free Functions<a class="headerlink" href="#mocking-free-functions" title="Permanent link">&para;</a></h4>
+<h3 id="mocking-free-functions">Mocking Free Functions<a class="headerlink" href="#mocking-free-functions" title="Permanent link">&para;</a></h3>
 <p>It's possible to use gMock to mock a free function (i.e. a C-style function or a
 static method). You just need to rewrite your code to use an interface (abstract
 class).</p>
@@ -1757,7 +1757,7 @@ syntactic overhead will be much lower.</p>
 <p>If you are concerned about the performance overhead incurred by virtual
 functions, and profiling confirms your concern, you can combine this with the
 recipe for <a href="#MockingNonVirtualMethods">mocking non-virtual methods</a>.</p>
-<h4 id="old-style-mock_methodn-macros">Old-Style <code>MOCK_METHODn</code> Macros<a class="headerlink" href="#old-style-mock_methodn-macros" title="Permanent link">&para;</a></h4>
+<h3 id="old-style-mock_methodn-macros">Old-Style <code>MOCK_METHODn</code> Macros<a class="headerlink" href="#old-style-mock_methodn-macros" title="Permanent link">&para;</a></h3>
 <p>Before the generic <code>MOCK_METHOD</code> macro was introduced, mocks where created using
 a family of macros collectively called <code>MOCK_METHODn</code>. These macros are still
 supported, though migration to the new <code>MOCK_METHOD</code> is recommended.</p>
@@ -1819,7 +1819,7 @@ Foo, bool(int))` </td> </tr>
 (int), (const, Calltype(STDMETHODCALLTYPE)))</code> </td> </tr></p>
 </table>
 
-<h4 id="the-nice-the-strict-and-the-naggy-nicestrictnaggy">The Nice, the Strict, and the Naggy {#NiceStrictNaggy}<a class="headerlink" href="#the-nice-the-strict-and-the-naggy-nicestrictnaggy" title="Permanent link">&para;</a></h4>
+<h3 id="the-nice-the-strict-and-the-naggy-nicestrictnaggy">The Nice, the Strict, and the Naggy {#NiceStrictNaggy}<a class="headerlink" href="#the-nice-the-strict-and-the-naggy-nicestrictnaggy" title="Permanent link">&para;</a></h3>
 <p>If a mock method has no <code>EXPECT_CALL</code> spec but is called, we say that it's an
 "uninteresting call", and the default action (which can be specified using
 <code>ON_CALL()</code>) of the method will be taken. Currently, an uninteresting call will
@@ -1912,7 +1912,7 @@ to fail and you'll be forced to fix them. Our general recommendation is to use
 nice mocks (not yet the default) most of the time, use naggy mocks (the current
 default) when developing or debugging tests, and use strict mocks only as the
 last resort.</p>
-<h4 id="simplifying-the-interface-without-breaking-existing-code-simplerinterfaces">Simplifying the Interface without Breaking Existing Code {#SimplerInterfaces}<a class="headerlink" href="#simplifying-the-interface-without-breaking-existing-code-simplerinterfaces" title="Permanent link">&para;</a></h4>
+<h3 id="simplifying-the-interface-without-breaking-existing-code-simplerinterfaces">Simplifying the Interface without Breaking Existing Code {#SimplerInterfaces}<a class="headerlink" href="#simplifying-the-interface-without-breaking-existing-code-simplerinterfaces" title="Permanent link">&para;</a></h3>
 <p>Sometimes a method has a long list of arguments that is mostly uninteresting.
 For example:</p>
 <pre><code class="cpp">class LogSink {
@@ -1973,7 +1973,7 @@ argument matchers:</p>
     .WillByDefault(MakeMockTurtle());
 </code></pre>
 
-<h4 id="alternative-to-mocking-concrete-classes">Alternative to Mocking Concrete Classes<a class="headerlink" href="#alternative-to-mocking-concrete-classes" title="Permanent link">&para;</a></h4>
+<h3 id="alternative-to-mocking-concrete-classes">Alternative to Mocking Concrete Classes<a class="headerlink" href="#alternative-to-mocking-concrete-classes" title="Permanent link">&para;</a></h3>
 <p>Often you may find yourself using classes that don't implement interfaces. In
 order to test your code that uses such a class (let's call it <code>Concrete</code>), you
 may be tempted to make the methods of <code>Concrete</code> virtual and then mock it.</p>
@@ -2028,7 +2028,7 @@ However, there are two reasons why it may not be the case:</p>
 I'd like to assure you that the Java community has been practicing this for a
 long time and it's a proven effective technique applicable in a wide variety of
 situations. :-)</p>
-<h4 id="delegating-calls-to-a-fake-delegatingtofake">Delegating Calls to a Fake {#DelegatingToFake}<a class="headerlink" href="#delegating-calls-to-a-fake-delegatingtofake" title="Permanent link">&para;</a></h4>
+<h3 id="delegating-calls-to-a-fake-delegatingtofake">Delegating Calls to a Fake {#DelegatingToFake}<a class="headerlink" href="#delegating-calls-to-a-fake-delegatingtofake" title="Permanent link">&para;</a></h3>
 <p>Some times you have a non-trivial fake implementation of an interface. For
 example:</p>
 <pre><code class="cpp">class Foo {
@@ -2140,7 +2140,7 @@ suggests that <code>System</code> is taking on too many roles.</p>
 <p>Instead, you can define a <code>FileOps</code> interface and an <code>IOOps</code> interface and split
 <code>System</code>'s functionalities into the two. Then you can mock <code>IOOps</code> without
 mocking <code>FileOps</code>.</p>
-<h4 id="delegating-calls-to-a-real-object">Delegating Calls to a Real Object<a class="headerlink" href="#delegating-calls-to-a-real-object" title="Permanent link">&para;</a></h4>
+<h3 id="delegating-calls-to-a-real-object">Delegating Calls to a Real Object<a class="headerlink" href="#delegating-calls-to-a-real-object" title="Permanent link">&para;</a></h3>
 <p>When using testing doubles (mocks, fakes, stubs, and etc), sometimes their
 behaviors will differ from those of the real objects. This difference could be
 either intentional (as in simulating an error such that you can test the error
@@ -2186,7 +2186,7 @@ class MockFoo : public Foo {
 arguments, in the right order, called the right number of times, etc), and a
 real object will answer the calls (so the behavior will be the same as in
 production). This gives you the best of both worlds.</p>
-<h4 id="delegating-calls-to-a-parent-class">Delegating Calls to a Parent Class<a class="headerlink" href="#delegating-calls-to-a-parent-class" title="Permanent link">&para;</a></h4>
+<h3 id="delegating-calls-to-a-parent-class">Delegating Calls to a Parent Class<a class="headerlink" href="#delegating-calls-to-a-parent-class" title="Permanent link">&para;</a></h3>
 <p>Ideally, you should code to interfaces, whose methods are all pure virtual. In
 reality, sometimes you do need to mock a virtual method that is not pure (i.e,
 it already has an implementation). For example:</p>
@@ -2243,8 +2243,8 @@ methods in the base class:</p>
 <p>(Why don't we just write <code>{ return foo.Concrete(str); }</code>? If you do that,
 <code>MockFoo::Concrete()</code> will be called (and cause an infinite recursion) since
 <code>Foo::Concrete()</code> is virtual. That's just how C++ works.)</p>
-<h3 id="using-matchers">Using Matchers<a class="headerlink" href="#using-matchers" title="Permanent link">&para;</a></h3>
-<h4 id="matching-argument-values-exactly">Matching Argument Values Exactly<a class="headerlink" href="#matching-argument-values-exactly" title="Permanent link">&para;</a></h4>
+<h2 id="using-matchers">Using Matchers<a class="headerlink" href="#using-matchers" title="Permanent link">&para;</a></h2>
+<h3 id="matching-argument-values-exactly">Matching Argument Values Exactly<a class="headerlink" href="#matching-argument-values-exactly" title="Permanent link">&para;</a></h3>
 <p>You can specify exactly which arguments a mock method is expecting:</p>
 <pre><code class="cpp">using ::testing::Return;
 ...
@@ -2253,7 +2253,7 @@ methods in the base class:</p>
   EXPECT_CALL(foo, DoThat(&quot;Hello&quot;, bar));
 </code></pre>
 
-<h4 id="using-simple-matchers">Using Simple Matchers<a class="headerlink" href="#using-simple-matchers" title="Permanent link">&para;</a></h4>
+<h3 id="using-simple-matchers">Using Simple Matchers<a class="headerlink" href="#using-simple-matchers" title="Permanent link">&para;</a></h3>
 <p>You can use matchers to match arguments that have a certain property:</p>
 <pre><code class="cpp">using ::testing::NotNull;
 using ::testing::Return;
@@ -2270,7 +2270,7 @@ using ::testing::Return;
 
 <!-- GOOGLETEST_CM0022 DO NOT DELETE -->
 
-<h4 id="combining-matchers-combiningmatchers">Combining Matchers {#CombiningMatchers}<a class="headerlink" href="#combining-matchers-combiningmatchers" title="Permanent link">&para;</a></h4>
+<h3 id="combining-matchers-combiningmatchers">Combining Matchers {#CombiningMatchers}<a class="headerlink" href="#combining-matchers-combiningmatchers" title="Permanent link">&para;</a></h3>
 <p>You can build complex matchers from existing ones using <code>AllOf()</code>,
 <code>AllOfArray()</code>, <code>AnyOf()</code>, <code>AnyOfArray()</code> and <code>Not()</code>:</p>
 <pre><code class="cpp">using ::testing::AllOf;
@@ -2288,7 +2288,7 @@ using ::testing::Not;
                           NULL));
 </code></pre>
 
-<h4 id="casting-matchers-safematchercast">Casting Matchers {#SafeMatcherCast}<a class="headerlink" href="#casting-matchers-safematchercast" title="Permanent link">&para;</a></h4>
+<h3 id="casting-matchers-safematchercast">Casting Matchers {#SafeMatcherCast}<a class="headerlink" href="#casting-matchers-safematchercast" title="Permanent link">&para;</a></h3>
 <p>gMock matchers are statically typed, meaning that the compiler can catch your
 mistake if you use a matcher of the wrong type (for example, if you use <code>Eq(5)</code>
 to match a <code>string</code> argument). Good for you!</p>
@@ -2335,7 +2335,7 @@ can <code>static_cast</code> type <code>T</code> to type <code>U</code>.</p>
 <p><code>MatcherCast</code> essentially lets you bypass C++'s type system (<code>static_cast</code> isn't
 always safe as it could throw away information, for example), so be careful not
 to misuse/abuse it.</p>
-<h4 id="selecting-between-overloaded-functions-selectoverload">Selecting Between Overloaded Functions {#SelectOverload}<a class="headerlink" href="#selecting-between-overloaded-functions-selectoverload" title="Permanent link">&para;</a></h4>
+<h3 id="selecting-between-overloaded-functions-selectoverload">Selecting Between Overloaded Functions {#SelectOverload}<a class="headerlink" href="#selecting-between-overloaded-functions-selectoverload" title="Permanent link">&para;</a></h3>
 <p>If you expect an overloaded function to be called, the compiler may need some
 help on which overloaded version it is.</p>
 <p>To disambiguate functions overloaded on the const-ness of this object, use the
@@ -2385,7 +2385,7 @@ TEST(PrinterTest, Print) {
 }
 </code></pre>
 
-<h4 id="performing-different-actions-based-on-the-arguments">Performing Different Actions Based on the Arguments<a class="headerlink" href="#performing-different-actions-based-on-the-arguments" title="Permanent link">&para;</a></h4>
+<h3 id="performing-different-actions-based-on-the-arguments">Performing Different Actions Based on the Arguments<a class="headerlink" href="#performing-different-actions-based-on-the-arguments" title="Permanent link">&para;</a></h3>
 <p>When a mock method is called, the <em>last</em> matching expectation that's still
 active will be selected (think "newer overrides older"). So, you can make a
 method do different things depending on its argument values like this:</p>
@@ -2403,7 +2403,7 @@ using ::testing::Return;
 
 <p>Now, if <code>foo.DoThis()</code> is called with a value less than 5, <code>'a'</code> will be
 returned; otherwise <code>'b'</code> will be returned.</p>
-<h4 id="matching-multiple-arguments-as-a-whole">Matching Multiple Arguments as a Whole<a class="headerlink" href="#matching-multiple-arguments-as-a-whole" title="Permanent link">&para;</a></h4>
+<h3 id="matching-multiple-arguments-as-a-whole">Matching Multiple Arguments as a Whole<a class="headerlink" href="#matching-multiple-arguments-as-a-whole" title="Permanent link">&para;</a></h3>
 <p>Sometimes it's not enough to match the arguments individually. For example, we
 may want to say that the first argument must be less than the second argument.
 The <code>With()</code> clause allows us to match all arguments of a mock function as a
@@ -2444,7 +2444,7 @@ complete list.</p>
 <code>.With(Args&lt;0, 1&gt;(Truly(&amp;MyPredicate)))</code>), that predicate MUST be written to
 take a <code>::std::tuple</code> as its argument; gMock will pass the <code>n</code> selected
 arguments as <em>one</em> single tuple to the predicate.</p>
-<h4 id="using-matchers-as-predicates">Using Matchers as Predicates<a class="headerlink" href="#using-matchers-as-predicates" title="Permanent link">&para;</a></h4>
+<h3 id="using-matchers-as-predicates">Using Matchers as Predicates<a class="headerlink" href="#using-matchers-as-predicates" title="Permanent link">&para;</a></h3>
 <p>Have you noticed that a matcher is just a fancy predicate that also knows how to
 describe itself? Many existing algorithms take predicates as arguments (e.g.
 those defined in STL's <code>&lt;algorithm&gt;</code> header), and it would be a shame if gMock
@@ -2476,7 +2476,7 @@ using testing::Ne;
 Matches(AllOf(Ge(0), Le(100), Ne(50)))
 </code></pre>
 
-<h4 id="using-matchers-in-googletest-assertions">Using Matchers in googletest Assertions<a class="headerlink" href="#using-matchers-in-googletest-assertions" title="Permanent link">&para;</a></h4>
+<h3 id="using-matchers-in-googletest-assertions">Using Matchers in googletest Assertions<a class="headerlink" href="#using-matchers-in-googletest-assertions" title="Permanent link">&para;</a></h3>
 <p>Since matchers are basically predicates that also know how to describe
 themselves, there is a way to take advantage of them in googletest assertions.
 It's called <code>ASSERT_THAT</code> and <code>EXPECT_THAT</code>:</p>
@@ -2516,7 +2516,7 @@ Expected: starts with &quot;Hello&quot;
 
 <p><strong>Credit:</strong> The idea of <code>(ASSERT|EXPECT)_THAT</code> was borrowed from Joe Walnes'
 Hamcrest project, which adds <code>assertThat()</code> to JUnit.</p>
-<h4 id="using-predicates-as-matchers">Using Predicates as Matchers<a class="headerlink" href="#using-predicates-as-matchers" title="Permanent link">&para;</a></h4>
+<h3 id="using-predicates-as-matchers">Using Predicates as Matchers<a class="headerlink" href="#using-predicates-as-matchers" title="Permanent link">&para;</a></h3>
 <p>gMock provides a <a href="#MatcherList">built-in set</a> of matchers. In case you find them
 lacking, you can use an arbitrary unary predicate function or functor as a
 matcher - as long as the predicate accepts a value of the type you want. You do
@@ -2534,7 +2534,7 @@ works as long as the return value can be used as the condition in in statement
 <code>if (condition) ...</code>.</p>
 <!-- GOOGLETEST_CM0023 DO NOT DELETE -->
 
-<h4 id="matching-arguments-that-are-not-copyable">Matching Arguments that Are Not Copyable<a class="headerlink" href="#matching-arguments-that-are-not-copyable" title="Permanent link">&para;</a></h4>
+<h3 id="matching-arguments-that-are-not-copyable">Matching Arguments that Are Not Copyable<a class="headerlink" href="#matching-arguments-that-are-not-copyable" title="Permanent link">&para;</a></h3>
 <p>When you do an <code>EXPECT_CALL(mock_obj, Foo(bar))</code>, gMock saves away a copy of
 <code>bar</code>. When <code>Foo()</code> is called later, gMock compares the argument to <code>Foo()</code> with
 the saved copy of <code>bar</code>. This way, you don't need to worry about <code>bar</code> being
@@ -2559,7 +2559,7 @@ using ::testing::Lt;
 
 <p>Remember: if you do this, don't change <code>bar</code> after the <code>EXPECT_CALL()</code>, or the
 result is undefined.</p>
-<h4 id="validating-a-member-of-an-object">Validating a Member of an Object<a class="headerlink" href="#validating-a-member-of-an-object" title="Permanent link">&para;</a></h4>
+<h3 id="validating-a-member-of-an-object">Validating a Member of an Object<a class="headerlink" href="#validating-a-member-of-an-object" title="Permanent link">&para;</a></h3>
 <p>Often a mock function takes a reference to object as an argument. When matching
 the argument, you may not want to compare the entire object against a fixed
 object, as that may be over-specification. Instead, you may need to validate a
@@ -2629,7 +2629,7 @@ Matcher&lt;Foo&gt; IsFoo(const Foo&amp; foo) {
 }
 </code></pre>
 
-<h4 id="validating-the-value-pointed-to-by-a-pointer-argument">Validating the Value Pointed to by a Pointer Argument<a class="headerlink" href="#validating-the-value-pointed-to-by-a-pointer-argument" title="Permanent link">&para;</a></h4>
+<h3 id="validating-the-value-pointed-to-by-a-pointer-argument">Validating the Value Pointed to by a Pointer Argument<a class="headerlink" href="#validating-the-value-pointed-to-by-a-pointer-argument" title="Permanent link">&para;</a></h3>
 <p>C++ functions often take pointers as arguments. You can use matchers like
 <code>IsNull()</code>, <code>NotNull()</code>, and other comparison matchers to match a pointer, but
 what if you want to make sure the value <em>pointed to</em> by the pointer, instead of
@@ -2661,7 +2661,7 @@ smart pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>, etc)
 <code>Pointee()</code> to probe deeper inside the value. For example,
 <code>Pointee(Pointee(Lt(3)))</code> matches a pointer that points to a pointer that points
 to a number less than 3 (what a mouthful...).</p>
-<h4 id="testing-a-certain-property-of-an-object">Testing a Certain Property of an Object<a class="headerlink" href="#testing-a-certain-property-of-an-object" title="Permanent link">&para;</a></h4>
+<h3 id="testing-a-certain-property-of-an-object">Testing a Certain Property of an Object<a class="headerlink" href="#testing-a-certain-property-of-an-object" title="Permanent link">&para;</a></h3>
 <p>Sometimes you want to specify that an object argument has a certain property,
 but there is no existing matcher that does this. If you want good error
 messages, you should <a href="#NewMatchers">define a matcher</a>. If you want to do it
@@ -2703,7 +2703,7 @@ Matcher&lt;const Foo&amp;&gt; BarPlusBazEq(int expected_sum) {
   EXPECT_CALL(..., DoThis(BarPlusBazEq(5)))...;
 </code></pre>
 
-<h4 id="matching-containers">Matching Containers<a class="headerlink" href="#matching-containers" title="Permanent link">&para;</a></h4>
+<h3 id="matching-containers">Matching Containers<a class="headerlink" href="#matching-containers" title="Permanent link">&para;</a></h3>
 <p>Sometimes an STL container (e.g. list, vector, map, ...) is passed to a mock
 function and you may want to validate it. Since most STL containers support the
 <code>==</code> operator, you can write <code>Eq(expected_container)</code> or simply
@@ -2784,7 +2784,7 @@ using testing::Pair;
     with containers whose element order are undefined (e.g. <code>hash_map</code>) you
     should use <code>WhenSorted</code> around <code>ElementsAre</code>.</li>
 </ul>
-<h4 id="sharing-matchers">Sharing Matchers<a class="headerlink" href="#sharing-matchers" title="Permanent link">&para;</a></h4>
+<h3 id="sharing-matchers">Sharing Matchers<a class="headerlink" href="#sharing-matchers" title="Permanent link">&para;</a></h3>
 <p>Under the hood, a gMock matcher object consists of a pointer to a ref-counted
 implementation object. Copying matchers is allowed and very efficient, as only
 the pointer is copied. When the last matcher that references the implementation
@@ -2801,7 +2801,7 @@ using ::testing::Matcher;
   ... use in_range as a matcher in multiple EXPECT_CALLs ...
 </code></pre>
 
-<h4 id="matchers-must-have-no-side-effects-purematchers">Matchers must have no side-effects {#PureMatchers}<a class="headerlink" href="#matchers-must-have-no-side-effects-purematchers" title="Permanent link">&para;</a></h4>
+<h3 id="matchers-must-have-no-side-effects-purematchers">Matchers must have no side-effects {#PureMatchers}<a class="headerlink" href="#matchers-must-have-no-side-effects-purematchers" title="Permanent link">&para;</a></h3>
 <p>WARNING: gMock does not guarantee when or how many times a matcher will be
 invoked. Therefore, all matchers must be <em>purely functional</em>: they cannot have
 any side effects, and the match result must not depend on anything other than
@@ -2810,8 +2810,8 @@ the matcher's parameters and the value being matched.</p>
 it is one of the standard matchers, or a custom matcher). In particular, a
 matcher can never call a mock function, as that will affect the state of the
 mock object and gMock.</p>
-<h3 id="setting-expectations">Setting Expectations<a class="headerlink" href="#setting-expectations" title="Permanent link">&para;</a></h3>
-<h4 id="knowing-when-to-expect-useoncall">Knowing When to Expect {#UseOnCall}<a class="headerlink" href="#knowing-when-to-expect-useoncall" title="Permanent link">&para;</a></h4>
+<h2 id="setting-expectations">Setting Expectations<a class="headerlink" href="#setting-expectations" title="Permanent link">&para;</a></h2>
+<h3 id="knowing-when-to-expect-useoncall">Knowing When to Expect {#UseOnCall}<a class="headerlink" href="#knowing-when-to-expect-useoncall" title="Permanent link">&para;</a></h3>
 <!-- GOOGLETEST_CM0018 DO NOT DELETE -->
 
 <p><strong><code>ON_CALL</code></strong> is likely the <em>single most under-utilized construct</em> in gMock.</p>
@@ -2855,7 +2855,7 @@ instead to suppress all such messages for the mock object, or suppress the
 message for specific methods by adding <code>EXPECT_CALL(...).Times(AnyNumber())</code>. DO
 NOT suppress it by blindly adding an <code>EXPECT_CALL(...)</code>, or you'll have a test
 that's a pain to maintain.</p>
-<h4 id="ignoring-uninteresting-calls">Ignoring Uninteresting Calls<a class="headerlink" href="#ignoring-uninteresting-calls" title="Permanent link">&para;</a></h4>
+<h3 id="ignoring-uninteresting-calls">Ignoring Uninteresting Calls<a class="headerlink" href="#ignoring-uninteresting-calls" title="Permanent link">&para;</a></h3>
 <p>If you are not interested in how a mock method is called, just don't say
 anything about it. In this case, if the method is ever called, gMock will
 perform its default action to allow the test program to continue. If you are not
@@ -2865,7 +2865,7 @@ happy with the default action taken by gMock, you can override it using
 <code>EXPECT_CALL()</code>), all invocations to it must match some expectation. If this
 function is called but the arguments don't match any <code>EXPECT_CALL()</code> statement,
 it will be an error.</p>
-<h4 id="disallowing-unexpected-calls">Disallowing Unexpected Calls<a class="headerlink" href="#disallowing-unexpected-calls" title="Permanent link">&para;</a></h4>
+<h3 id="disallowing-unexpected-calls">Disallowing Unexpected Calls<a class="headerlink" href="#disallowing-unexpected-calls" title="Permanent link">&para;</a></h3>
 <p>If a mock method shouldn't be called at all, explicitly say so:</p>
 <pre><code class="cpp">using ::testing::_;
 ...
@@ -2885,7 +2885,7 @@ using ::testing::Gt;
 
 <p>A call to <code>foo.Bar()</code> that doesn't match any of the <code>EXPECT_CALL()</code> statements
 will be an error.</p>
-<h4 id="understanding-uninteresting-vs-unexpected-calls-uninteresting-vs-unexpected">Understanding Uninteresting vs Unexpected Calls {#uninteresting-vs-unexpected}<a class="headerlink" href="#understanding-uninteresting-vs-unexpected-calls-uninteresting-vs-unexpected" title="Permanent link">&para;</a></h4>
+<h3 id="understanding-uninteresting-vs-unexpected-calls-uninteresting-vs-unexpected">Understanding Uninteresting vs Unexpected Calls {#uninteresting-vs-unexpected}<a class="headerlink" href="#understanding-uninteresting-vs-unexpected-calls-uninteresting-vs-unexpected" title="Permanent link">&para;</a></h3>
 <p><em>Uninteresting</em> calls and <em>unexpected</em> calls are different concepts in gMock.
 <em>Very</em> different.</p>
 <p>A call <code>x.Y(...)</code> is <strong>uninteresting</strong> if there's <em>not even a single</em>
@@ -2943,7 +2943,7 @@ the first <code>EXPECT_CALL</code> says.</p>
 <code>EXPECT_CALL</code> takes precedence over an older one.</p>
 <p>For more on uninteresting calls, nice mocks, and strict mocks, read
 <a href="#NiceStrictNaggy">"The Nice, the Strict, and the Naggy"</a>.</p>
-<h4 id="ignoring-uninteresting-arguments-parameterlessexpectations">Ignoring Uninteresting Arguments {#ParameterlessExpectations}<a class="headerlink" href="#ignoring-uninteresting-arguments-parameterlessexpectations" title="Permanent link">&para;</a></h4>
+<h3 id="ignoring-uninteresting-arguments-parameterlessexpectations">Ignoring Uninteresting Arguments {#ParameterlessExpectations}<a class="headerlink" href="#ignoring-uninteresting-arguments-parameterlessexpectations" title="Permanent link">&para;</a></h3>
 <p>If your test doesn't care about the parameters (it only cares about the number
 or order of calls), you can often simply omit the parameter list:</p>
 <pre><code class="cpp">  // Expect foo.Bar( ... ) twice with any arguments.
@@ -2964,7 +2964,7 @@ is substantially complex. You can leave the argument list unspecified and use
 SaveArg actions to <a href="#SaveArgVerify">save the values for later verification</a>. If
 you do that, you can easily differentiate calling the method the wrong number of
 times from calling it with the wrong arguments.</p>
-<h4 id="expecting-ordered-calls-orderedcalls">Expecting Ordered Calls {#OrderedCalls}<a class="headerlink" href="#expecting-ordered-calls-orderedcalls" title="Permanent link">&para;</a></h4>
+<h3 id="expecting-ordered-calls-orderedcalls">Expecting Ordered Calls {#OrderedCalls}<a class="headerlink" href="#expecting-ordered-calls-orderedcalls" title="Permanent link">&para;</a></h3>
 <p>Although an <code>EXPECT_CALL()</code> statement defined earlier takes precedence when
 gMock tries to match a function call with an expectation, by default calls don't
 have to happen in the order <code>EXPECT_CALL()</code> statements are written. For example,
@@ -2990,7 +2990,7 @@ using ::testing::InSequence;
 <code>bar.DoThat()</code> where the argument can be anything, which are in turn followed by
 a call to <code>foo.DoThis(6)</code>. If a call occurred out-of-order, gMock will report an
 error.</p>
-<h4 id="expecting-partially-ordered-calls-partialorder">Expecting Partially Ordered Calls {#PartialOrder}<a class="headerlink" href="#expecting-partially-ordered-calls-partialorder" title="Permanent link">&para;</a></h4>
+<h3 id="expecting-partially-ordered-calls-partialorder">Expecting Partially Ordered Calls {#PartialOrder}<a class="headerlink" href="#expecting-partially-ordered-calls-partialorder" title="Permanent link">&para;</a></h3>
 <p>Sometimes requiring everything to occur in a predetermined order can lead to
 brittle tests. For example, we may care about <code>A</code> occurring before both <code>B</code> and
 <code>C</code>, but aren't interested in the relative order of <code>B</code> and <code>C</code>. In this case,
@@ -3037,7 +3037,7 @@ example,</p>
 
 <p>This means that A must occur before B and C, and C must occur before D. There's
 no restriction about the order other than these.</p>
-<h4 id="controlling-when-an-expectation-retires">Controlling When an Expectation Retires<a class="headerlink" href="#controlling-when-an-expectation-retires" title="Permanent link">&para;</a></h4>
+<h3 id="controlling-when-an-expectation-retires">Controlling When an Expectation Retires<a class="headerlink" href="#controlling-when-an-expectation-retires" title="Permanent link">&para;</a></h3>
 <p>When a mock method is called, gMock only considers expectations that are still
 active. An expectation is active when created, and becomes inactive (aka
 <em>retires</em>) when a call that has to occur later has occurred. For example, in</p>
@@ -3080,8 +3080,8 @@ becomes saturated:</p>
 <p>Here #2 can be used only once, so if you have two warnings with the message
 <code>"File too large."</code>, the first will match #2 and the second will match #1 -
 there will be no error.</p>
-<h3 id="using-actions">Using Actions<a class="headerlink" href="#using-actions" title="Permanent link">&para;</a></h3>
-<h4 id="returning-references-from-mock-methods">Returning References from Mock Methods<a class="headerlink" href="#returning-references-from-mock-methods" title="Permanent link">&para;</a></h4>
+<h2 id="using-actions">Using Actions<a class="headerlink" href="#using-actions" title="Permanent link">&para;</a></h2>
+<h3 id="returning-references-from-mock-methods">Returning References from Mock Methods<a class="headerlink" href="#returning-references-from-mock-methods" title="Permanent link">&para;</a></h3>
 <p>If a mock function's return type is a reference, you need to use <code>ReturnRef()</code>
 instead of <code>Return()</code> to return a result:</p>
 <pre><code class="cpp">using ::testing::ReturnRef;
@@ -3098,7 +3098,7 @@ class MockFoo : public Foo {
 ...
 </code></pre>
 
-<h4 id="returning-live-values-from-mock-methods">Returning Live Values from Mock Methods<a class="headerlink" href="#returning-live-values-from-mock-methods" title="Permanent link">&para;</a></h4>
+<h3 id="returning-live-values-from-mock-methods">Returning Live Values from Mock Methods<a class="headerlink" href="#returning-live-values-from-mock-methods" title="Permanent link">&para;</a></h3>
 <p>The <code>Return(x)</code> action saves a copy of <code>x</code> when the action is created, and
 always returns the same value whenever it's executed. Sometimes you may want to
 instead return the <em>live</em> value of <code>x</code> (i.e. its value at the time when the
@@ -3150,7 +3150,7 @@ returns the value pointed to by <code>pointer</code> at the time the action is <
   EXPECT_EQ(42, foo.GetValue());  // This will succeed now.
 </code></pre>
 
-<h4 id="combining-actions">Combining Actions<a class="headerlink" href="#combining-actions" title="Permanent link">&para;</a></h4>
+<h3 id="combining-actions">Combining Actions<a class="headerlink" href="#combining-actions" title="Permanent link">&para;</a></h3>
 <p>Want to do more than one thing when a function is called? That's fine. <code>DoAll()</code>
 allow you to do sequence of actions every time. Only the return value of the
 last action in the sequence will be used.</p>
@@ -3169,7 +3169,7 @@ class MockFoo : public Foo {
                       action_n));
 </code></pre>
 
-<h4 id="verifying-complex-arguments-saveargverify">Verifying Complex Arguments {#SaveArgVerify}<a class="headerlink" href="#verifying-complex-arguments-saveargverify" title="Permanent link">&para;</a></h4>
+<h3 id="verifying-complex-arguments-saveargverify">Verifying Complex Arguments {#SaveArgVerify}<a class="headerlink" href="#verifying-complex-arguments-saveargverify" title="Permanent link">&para;</a></h3>
 <p>If you want to verify that a method is called with a particular argument but the
 match criteria is complex, it can be difficult to distinguish between
 cardinality failures (calling the method the wrong number of times) and argument
@@ -3188,7 +3188,7 @@ be easy to distinguishing which argument failed to match. For example:</p>
   EXPECT_THAT(actual_proto, EqualsProto( ... ));
 </code></pre>
 
-<h4 id="mocking-side-effects-mockingsideeffects">Mocking Side Effects {#MockingSideEffects}<a class="headerlink" href="#mocking-side-effects-mockingsideeffects" title="Permanent link">&para;</a></h4>
+<h3 id="mocking-side-effects-mockingsideeffects">Mocking Side Effects {#MockingSideEffects}<a class="headerlink" href="#mocking-side-effects-mockingsideeffects" title="Permanent link">&para;</a></h3>
 <p>Sometimes a method exhibits its effect not via returning a value but via side
 effects. For example, it may change some global state or modify an output
 argument. To mock side effects, in general you can define your own action by
@@ -3274,7 +3274,7 @@ class MockRolodex : public Rolodex {
       .WillOnce(SetArrayArgument&lt;0&gt;(names.begin(), names.end()));
 </code></pre>
 
-<h4 id="changing-a-mock-objects-behavior-based-on-the-state">Changing a Mock Object's Behavior Based on the State<a class="headerlink" href="#changing-a-mock-objects-behavior-based-on-the-state" title="Permanent link">&para;</a></h4>
+<h3 id="changing-a-mock-objects-behavior-based-on-the-state">Changing a Mock Object's Behavior Based on the State<a class="headerlink" href="#changing-a-mock-objects-behavior-based-on-the-state" title="Permanent link">&para;</a></h3>
 <p>If you expect a call to change the behavior of a mock object, you can use
 <code>::testing::InSequence</code> to specify different behaviors before and after the
 call:</p>
@@ -3313,7 +3313,7 @@ ACTION_P(ReturnPointee, p) { return *p; }
 
 <p>Here <code>my_mock.GetPrevValue()</code> will always return the argument of the last
 <code>UpdateValue()</code> call.</p>
-<h4 id="setting-the-default-value-for-a-return-type-defaultvalue">Setting the Default Value for a Return Type {#DefaultValue}<a class="headerlink" href="#setting-the-default-value-for-a-return-type-defaultvalue" title="Permanent link">&para;</a></h4>
+<h3 id="setting-the-default-value-for-a-return-type-defaultvalue">Setting the Default Value for a Return Type {#DefaultValue}<a class="headerlink" href="#setting-the-default-value-for-a-return-type-defaultvalue" title="Permanent link">&para;</a></h3>
 <p>If a mock method's return type is a built-in C++ type or pointer, by default it
 will return 0 when invoked. Also, in C++ 11 and above, a mock method whose
 return type has a default constructor will return a default-constructed value by
@@ -3351,7 +3351,7 @@ class MockFoo : public Foo {
 to understand. We recommend you to use this feature judiciously. For example,
 you may want to make sure the <code>Set()</code> and <code>Clear()</code> calls are right next to the
 code that uses your mock.</p>
-<h4 id="setting-the-default-actions-for-a-mock-method">Setting the Default Actions for a Mock Method<a class="headerlink" href="#setting-the-default-actions-for-a-mock-method" title="Permanent link">&para;</a></h4>
+<h3 id="setting-the-default-actions-for-a-mock-method">Setting the Default Actions for a Mock Method<a class="headerlink" href="#setting-the-default-actions-for-a-mock-method" title="Permanent link">&para;</a></h3>
 <p>You've learned how to change the default value of a given type. However, this
 may be too coarse for your purpose: perhaps you have two mock methods with the
 same return type and you want them to have different behaviors. The <code>ON_CALL()</code>
@@ -3384,7 +3384,7 @@ the test fixture's set-up phase and specialize the mock's behavior later.</p>
 <p>Note that both <code>ON_CALL</code> and <code>EXPECT_CALL</code> have the same "later statements take
 precedence" rule, but they don't interact. That is, <code>EXPECT_CALL</code>s have their
 own precedence order distinct from the <code>ON_CALL</code> precedence order.</p>
-<h4 id="using-functionsmethodsfunctorslambdas-as-actions-functionsasactions">Using Functions/Methods/Functors/Lambdas as Actions {#FunctionsAsActions}<a class="headerlink" href="#using-functionsmethodsfunctorslambdas-as-actions-functionsasactions" title="Permanent link">&para;</a></h4>
+<h3 id="using-functionsmethodsfunctorslambdas-as-actions-functionsasactions">Using Functions/Methods/Functors/Lambdas as Actions {#FunctionsAsActions}<a class="headerlink" href="#using-functionsmethodsfunctorslambdas-as-actions-functionsasactions" title="Permanent link">&para;</a></h3>
 <p>If the built-in actions don't suit you, you can use an existing callable
 (function, <code>std::function</code>, method, functor, lambda as an action.</p>
 <!-- GOOGLETEST_CM0024 DO NOT DELETE -->
@@ -3444,7 +3444,7 @@ using ::testing::Invoke;
 ```</p>
 </li>
 </ul>
-<h4 id="using-functions-with-extra-info-as-actions">Using Functions with Extra Info as Actions<a class="headerlink" href="#using-functions-with-extra-info-as-actions" title="Permanent link">&para;</a></h4>
+<h3 id="using-functions-with-extra-info-as-actions">Using Functions with Extra Info as Actions<a class="headerlink" href="#using-functions-with-extra-info-as-actions" title="Permanent link">&para;</a></h3>
 <p>The function or functor you call using <code>Invoke()</code> must have the same number of
 arguments as the mock function you use it for. Sometimes you may have a function
 that takes more arguments, and you are willing to pass in the extra arguments
@@ -3471,7 +3471,7 @@ TEST_F(FooTest, Test) {
 }
 </code></pre>
 
-<h4 id="invoking-a-functionmethodfunctorlambdacallback-without-arguments">Invoking a Function/Method/Functor/Lambda/Callback Without Arguments<a class="headerlink" href="#invoking-a-functionmethodfunctorlambdacallback-without-arguments" title="Permanent link">&para;</a></h4>
+<h3 id="invoking-a-functionmethodfunctorlambdacallback-without-arguments">Invoking a Function/Method/Functor/Lambda/Callback Without Arguments<a class="headerlink" href="#invoking-a-functionmethodfunctorlambdacallback-without-arguments" title="Permanent link">&para;</a></h3>
 <p><code>Invoke()</code> is very useful for doing actions that are more complex. It passes the
 mock function's arguments to the function, etc being invoked such that the
 callee has the full context of the call to work with. If the invoked function is
@@ -3522,7 +3522,7 @@ using ::testing::InvokeWithoutArgs;
 ```</p>
 </li>
 </ul>
-<h4 id="invoking-an-argument-of-the-mock-function">Invoking an Argument of the Mock Function<a class="headerlink" href="#invoking-an-argument-of-the-mock-function" title="Permanent link">&para;</a></h4>
+<h3 id="invoking-an-argument-of-the-mock-function">Invoking an Argument of the Mock Function<a class="headerlink" href="#invoking-an-argument-of-the-mock-function" title="Permanent link">&para;</a></h3>
 <p>Sometimes a mock function will receive a function pointer, a functor (in other
 words, a "callable") as an argument, e.g.</p>
 <pre><code class="cpp">class MockFoo : public Foo {
@@ -3605,7 +3605,7 @@ temporary value:</p>
       // are kept inside the InvokeArgument action.
 </code></pre>
 
-<h4 id="ignoring-an-actions-result">Ignoring an Action's Result<a class="headerlink" href="#ignoring-an-actions-result" title="Permanent link">&para;</a></h4>
+<h3 id="ignoring-an-actions-result">Ignoring an Action's Result<a class="headerlink" href="#ignoring-an-actions-result" title="Permanent link">&para;</a></h3>
 <p>Sometimes you have an action that returns <em>something</em>, but you need an action
 that returns <code>void</code> (perhaps you want to use it in a mock function that returns
 <code>void</code>, or perhaps it needs to be used in <code>DoAll()</code> and it's not the last in the
@@ -3639,7 +3639,7 @@ class MockFoo : public Foo {
 
 <p>Note that you <strong>cannot</strong> use <code>IgnoreResult()</code> on an action that already returns
 <code>void</code>. Doing so will lead to ugly compiler errors.</p>
-<h4 id="selecting-an-actions-arguments-selectingargs">Selecting an Action's Arguments {#SelectingArgs}<a class="headerlink" href="#selecting-an-actions-arguments-selectingargs" title="Permanent link">&para;</a></h4>
+<h3 id="selecting-an-actions-arguments-selectingargs">Selecting an Action's Arguments {#SelectingArgs}<a class="headerlink" href="#selecting-an-actions-arguments-selectingargs" title="Permanent link">&para;</a></h3>
 <p>Say you have a mock function <code>Foo()</code> that takes seven arguments, and you have a
 custom action that you want to invoke when <code>Foo()</code> is called. Trouble is, the
 custom action only wants three arguments:</p>
@@ -3712,7 +3712,7 @@ using ::testing::WithArgs;
     if the 4-th argument of the mock function is an <code>int</code> and <code>my_action</code> takes
     a <code>double</code>, <code>WithArg&lt;4&gt;(my_action)</code> will work.</li>
 </ul>
-<h4 id="ignoring-arguments-in-action-functions">Ignoring Arguments in Action Functions<a class="headerlink" href="#ignoring-arguments-in-action-functions" title="Permanent link">&para;</a></h4>
+<h3 id="ignoring-arguments-in-action-functions">Ignoring Arguments in Action Functions<a class="headerlink" href="#ignoring-arguments-in-action-functions" title="Permanent link">&para;</a></h3>
 <p>The <a href="#SelectingArgs">selecting-an-action's-arguments</a> recipe showed us one way
 to make a mock function and an action with incompatible argument lists fit
 together. The downside is that wrapping the action in <code>WithArgs&lt;...&gt;()</code> can get
@@ -3761,7 +3761,7 @@ double DistanceToOrigin(Unused, double x, double y) {
       .WillOnce(Invoke(DistanceToOrigin));
 </code></pre>
 
-<h4 id="sharing-actions">Sharing Actions<a class="headerlink" href="#sharing-actions" title="Permanent link">&para;</a></h4>
+<h3 id="sharing-actions">Sharing Actions<a class="headerlink" href="#sharing-actions" title="Permanent link">&para;</a></h3>
 <p>Just like matchers, a gMock action object consists of a pointer to a ref-counted
 implementation object. Therefore copying actions is also allowed and very
 efficient. When the last action that references the implementation object dies,
@@ -3809,7 +3809,7 @@ action will exhibit different behaviors. Example:</p>
   foo.DoThat();  // Returns 3 - the counter is shared.
 </code></pre>
 
-<h4 id="testing-asynchronous-behavior">Testing Asynchronous Behavior<a class="headerlink" href="#testing-asynchronous-behavior" title="Permanent link">&para;</a></h4>
+<h3 id="testing-asynchronous-behavior">Testing Asynchronous Behavior<a class="headerlink" href="#testing-asynchronous-behavior" title="Permanent link">&para;</a></h3>
 <p>One oft-encountered problem with gMock is that it can be hard to test
 asynchronous behavior. Suppose you had a <code>EventQueue</code> class that you wanted to
 test, and you created a separate <code>EventDispatcher</code> interface so that you could
@@ -3853,8 +3853,8 @@ safely exit.</p>
 our test will run forever. It will eventually time-out and fail, but it will
 take longer and be slightly harder to debug. To alleviate this problem, you can
 use <code>WaitForNotificationWithTimeout(ms)</code> instead of <code>WaitForNotification()</code>.</p>
-<h3 id="misc-recipes-on-using-gmock">Misc Recipes on Using gMock<a class="headerlink" href="#misc-recipes-on-using-gmock" title="Permanent link">&para;</a></h3>
-<h4 id="mocking-methods-that-use-move-only-types">Mocking Methods That Use Move-Only Types<a class="headerlink" href="#mocking-methods-that-use-move-only-types" title="Permanent link">&para;</a></h4>
+<h2 id="misc-recipes-on-using-gmock">Misc Recipes on Using gMock<a class="headerlink" href="#misc-recipes-on-using-gmock" title="Permanent link">&para;</a></h2>
+<h3 id="mocking-methods-that-use-move-only-types">Mocking Methods That Use Move-Only Types<a class="headerlink" href="#mocking-methods-that-use-move-only-types" title="Permanent link">&para;</a></h3>
 <p>C++11 introduced <em>move-only types</em>. A move-only-typed value can be moved from
 one object to another, but cannot be copied. <code>std::unique_ptr&lt;T&gt;</code> is probably
 the most commonly used move-only type.</p>
@@ -3969,7 +3969,7 @@ could in principle support move-only arguments, but the support for this is not
 implemented yet. If this is blocking you, please file a bug.</p>
 <p>A few actions (e.g. <code>DoAll</code>) copy their arguments internally, so they can never
 work with non-copyable objects; you'll have to use functors instead.</p>
-<h5 id="legacy-workarounds-for-move-only-types-legacymoveonly">Legacy workarounds for move-only types {#LegacyMoveOnly}<a class="headerlink" href="#legacy-workarounds-for-move-only-types-legacymoveonly" title="Permanent link">&para;</a></h5>
+<h4 id="legacy-workarounds-for-move-only-types-legacymoveonly">Legacy workarounds for move-only types {#LegacyMoveOnly}<a class="headerlink" href="#legacy-workarounds-for-move-only-types-legacymoveonly" title="Permanent link">&para;</a></h4>
 <p>Support for move-only function arguments was only introduced to gMock in April
 2017. In older code, you may encounter the following workaround for the lack of
 this feature (it is no longer necessary - we're including it just for
@@ -3996,7 +3996,7 @@ method:</p>
   mock_buzzer_.ShareBuzz(MakeUnique&lt;Buzz&gt;(AccessLevel::kInternal), 0);
 </code></pre>
 
-<h4 id="making-the-compilation-faster">Making the Compilation Faster<a class="headerlink" href="#making-the-compilation-faster" title="Permanent link">&para;</a></h4>
+<h3 id="making-the-compilation-faster">Making the Compilation Faster<a class="headerlink" href="#making-the-compilation-faster" title="Permanent link">&para;</a></h3>
 <p>Believe it or not, the <em>vast majority</em> of the time spent on compiling a mock
 class is in generating its constructor and destructor, as they perform
 non-trivial tasks (e.g. verification of the expectations). What's more, mock
@@ -4051,7 +4051,7 @@ MockFoo::MockFoo() {}
 MockFoo::~MockFoo() {}
 </code></pre>
 
-<h4 id="forcing-a-verification">Forcing a Verification<a class="headerlink" href="#forcing-a-verification" title="Permanent link">&para;</a></h4>
+<h3 id="forcing-a-verification">Forcing a Verification<a class="headerlink" href="#forcing-a-verification" title="Permanent link">&para;</a></h3>
 <p>When it's being destroyed, your friendly mock object will automatically verify
 that all expectations on it have been satisfied, and will generate googletest
 failures if not. This is convenient as it leaves you with one less thing to
@@ -4086,7 +4086,7 @@ with <code>Mock::VerifyAndClearExpectations(&amp;mock_object)</code>:</p>
 indicate whether the verification was successful (<code>true</code> for yes), so you can
 wrap that function call inside a <code>ASSERT_TRUE()</code> if there is no point going
 further when the verification has failed.</p>
-<h4 id="using-check-points-usingcheckpoints">Using Check Points {#UsingCheckPoints}<a class="headerlink" href="#using-check-points-usingcheckpoints" title="Permanent link">&para;</a></h4>
+<h3 id="using-check-points-usingcheckpoints">Using Check Points {#UsingCheckPoints}<a class="headerlink" href="#using-check-points-usingcheckpoints" title="Permanent link">&para;</a></h3>
 <p>Sometimes you may want to "reset" a mock object at various check points in your
 test: at each check point, you verify that all existing expectations on the mock
 object have been satisfied, and then you set some new expectations on it as if
@@ -4141,7 +4141,7 @@ TEST(FooTest, InvokesBarCorrectly) {
 point "1", the second <code>Bar("a")</code> must happen after check point "2", and nothing
 should happen between the two check points. The explicit check points make it
 easy to tell which <code>Bar("a")</code> is called by which call to <code>Foo()</code>.</p>
-<h4 id="mocking-destructors">Mocking Destructors<a class="headerlink" href="#mocking-destructors" title="Permanent link">&para;</a></h4>
+<h3 id="mocking-destructors">Mocking Destructors<a class="headerlink" href="#mocking-destructors" title="Permanent link">&para;</a></h3>
 <p>Sometimes you want to make sure a mock object is destructed at the right time,
 e.g. after <code>bar-&gt;A()</code> is called but before <code>bar-&gt;B()</code> is called. We already know
 that you can specify constraints on the <a href="#OrderedCalls">order</a> of mock function
@@ -4180,7 +4180,7 @@ testing when its <code>Die()</code> method is called:</p>
 </code></pre>
 
 <p>And that's that.</p>
-<h4 id="using-gmock-and-threads-usingthreads">Using gMock and Threads {#UsingThreads}<a class="headerlink" href="#using-gmock-and-threads-usingthreads" title="Permanent link">&para;</a></h4>
+<h3 id="using-gmock-and-threads-usingthreads">Using gMock and Threads {#UsingThreads}<a class="headerlink" href="#using-gmock-and-threads-usingthreads" title="Permanent link">&para;</a></h3>
 <p>In a <strong>unit</strong> test, it's best if you could isolate and test a piece of code in a
 single-threaded context. That avoids race conditions and dead locks, and makes
 debugging your test much easier.</p>
@@ -4231,7 +4231,7 @@ interleave. If this is a problem, you should add proper synchronization logic to
 <p>Also, remember that <code>DefaultValue&lt;T&gt;</code> is a global resource that potentially
 affects <em>all</em> living mock objects in your program. Naturally, you won't want to
 mess with it from multiple threads or when there still are mocks in action.</p>
-<h4 id="controlling-how-much-information-gmock-prints">Controlling How Much Information gMock Prints<a class="headerlink" href="#controlling-how-much-information-gmock-prints" title="Permanent link">&para;</a></h4>
+<h3 id="controlling-how-much-information-gmock-prints">Controlling How Much Information gMock Prints<a class="headerlink" href="#controlling-how-much-information-gmock-prints" title="Permanent link">&para;</a></h3>
 <p>When gMock sees something that has the potential of being an error (e.g. a mock
 function with no expectation is called, a.k.a. an uninteresting call, which is
 allowed but perhaps you forgot to explicitly ban the call), it prints some
@@ -4263,7 +4263,7 @@ so:</p>
 warning messages, remember that you can control their amount with the
 <code>--gtest_stack_trace_depth=max_depth</code> flag.</p>
 <p>Now, judiciously use the right flag to enable gMock serve you better!</p>
-<h4 id="gaining-super-vision-into-mock-calls">Gaining Super Vision into Mock Calls<a class="headerlink" href="#gaining-super-vision-into-mock-calls" title="Permanent link">&para;</a></h4>
+<h3 id="gaining-super-vision-into-mock-calls">Gaining Super Vision into Mock Calls<a class="headerlink" href="#gaining-super-vision-into-mock-calls" title="Permanent link">&para;</a></h3>
 <p>You have a test using gMock. It fails: gMock tells you some expectations aren't
 satisfied. However, you aren't sure why: Is there a typo somewhere in the
 matchers? Did you mess up the order of the <code>EXPECT_CALL</code>s? Or is the code under
@@ -4334,7 +4334,7 @@ combine <code>--gmock_verbose=info</code> with <code>--gtest_stack_trace_depth=0
 command line.</p>
 <!-- GOOGLETEST_CM0025 DO NOT DELETE -->
 
-<h4 id="running-tests-in-emacs">Running Tests in Emacs<a class="headerlink" href="#running-tests-in-emacs" title="Permanent link">&para;</a></h4>
+<h3 id="running-tests-in-emacs">Running Tests in Emacs<a class="headerlink" href="#running-tests-in-emacs" title="Permanent link">&para;</a></h3>
 <p>If you build and run your tests in Emacs using the <code>M-x google-compile</code> command
 (as many googletest users do), the source file locations of gMock and googletest
 errors will be highlighted. Just press <code>&lt;Enter&gt;</code> on one of them and you'll be
@@ -4349,8 +4349,8 @@ error.</p>
 <p>Then you can type <code>M-m</code> to start a build (if you want to run the test as well,
 just make sure <code>foo_test.run</code> or <code>runtests</code> is in the build command you supply
 after typing <code>M-m</code>), or <code>M-up</code>/<code>M-down</code> to move back and forth between errors.</p>
-<h3 id="extending-gmock">Extending gMock<a class="headerlink" href="#extending-gmock" title="Permanent link">&para;</a></h3>
-<h4 id="writing-new-matchers-quickly-newmatchers">Writing New Matchers Quickly {#NewMatchers}<a class="headerlink" href="#writing-new-matchers-quickly-newmatchers" title="Permanent link">&para;</a></h4>
+<h2 id="extending-gmock">Extending gMock<a class="headerlink" href="#extending-gmock" title="Permanent link">&para;</a></h2>
+<h3 id="writing-new-matchers-quickly-newmatchers">Writing New Matchers Quickly {#NewMatchers}<a class="headerlink" href="#writing-new-matchers-quickly-newmatchers" title="Permanent link">&para;</a></h3>
 <p>WARNING: gMock does not guarantee when or how many times a matcher will be
 invoked. Therefore, all matchers must be functionally pure. See
 <a href="#PureMatchers">this section</a> for more details.</p>
@@ -4440,7 +4440,7 @@ any type where the value of <code>(arg % 7) == 0</code> can be implicitly conver
 <code>bool</code>. In the <code>Bar(IsDivisibleBy7())</code> example above, if method <code>Bar()</code> takes an
 <code>int</code>, <code>arg_type</code> will be <code>int</code>; if it takes an <code>unsigned long</code>, <code>arg_type</code> will
 be <code>unsigned long</code>; and so on.</p>
-<h4 id="writing-new-parameterized-matchers-quickly">Writing New Parameterized Matchers Quickly<a class="headerlink" href="#writing-new-parameterized-matchers-quickly" title="Permanent link">&para;</a></h4>
+<h3 id="writing-new-parameterized-matchers-quickly">Writing New Parameterized Matchers Quickly<a class="headerlink" href="#writing-new-parameterized-matchers-quickly" title="Permanent link">&para;</a></h3>
 <p>Sometimes you'll want to define a matcher that has parameters. For that you can
 use the macro:</p>
 <pre><code class="cpp">MATCHER_P(name, param_name, description_string) { statements; }
@@ -4544,7 +4544,7 @@ they give you more control on the types of the value being matched and the
 matcher parameters, which in general leads to better compiler error messages
 that pay off in the long run. They also allow overloading matchers based on
 parameter types (as opposed to just based on the number of parameters).</p>
-<h4 id="writing-new-monomorphic-matchers">Writing New Monomorphic Matchers<a class="headerlink" href="#writing-new-monomorphic-matchers" title="Permanent link">&para;</a></h4>
+<h3 id="writing-new-monomorphic-matchers">Writing New Monomorphic Matchers<a class="headerlink" href="#writing-new-monomorphic-matchers" title="Permanent link">&para;</a></h3>
 <p>A matcher of argument type <code>T</code> implements <code>::testing::MatcherInterface&lt;T&gt;</code> and
 does two things: it tests whether a value of type <code>T</code> matches the matcher, and
 can describe what kind of values it matches. The latter ability is used for
@@ -4639,7 +4639,7 @@ Expected: is divisible by 7
   Actual: 23 (the remainder is 2)
 </code></pre>
 
-<h4 id="writing-new-polymorphic-matchers">Writing New Polymorphic Matchers<a class="headerlink" href="#writing-new-polymorphic-matchers" title="Permanent link">&para;</a></h4>
+<h3 id="writing-new-polymorphic-matchers">Writing New Polymorphic Matchers<a class="headerlink" href="#writing-new-polymorphic-matchers" title="Permanent link">&para;</a></h3>
 <p>You've learned how to write your own matchers in the previous recipe. Just one
 problem: a matcher created using <code>MakeMatcher()</code> only works for one particular
 type of arguments. If you want a <em>polymorphic</em> matcher that works with arguments
@@ -4671,10 +4671,10 @@ class NotNullMatcher {
   }
 
   // Describes the property of a value matching this matcher.
-  void DescribeTo(::std::ostream* os) const { *os &lt;&lt; &quot;is not NULL&quot;; }
+  void DescribeTo(std::ostream* os) const { *os &lt;&lt; &quot;is not NULL&quot;; }
 
   // Describes the property of a value NOT matching this matcher.
-  void DescribeNegationTo(::std::ostream* os) const { *os &lt;&lt; &quot;is NULL&quot;; }
+  void DescribeNegationTo(std::ostream* os) const { *os &lt;&lt; &quot;is NULL&quot;; }
 };
 
 // To construct a polymorphic matcher, pass an instance of the class
@@ -4693,7 +4693,7 @@ PolymorphicMatcher&lt;NotNullMatcher&gt; NotNull() {
 virtual.</p>
 <p>Like in a monomorphic matcher, you may explain the match result by streaming
 additional information to the <code>listener</code> argument in <code>MatchAndExplain()</code>.</p>
-<h4 id="writing-new-cardinalities">Writing New Cardinalities<a class="headerlink" href="#writing-new-cardinalities" title="Permanent link">&para;</a></h4>
+<h3 id="writing-new-cardinalities">Writing New Cardinalities<a class="headerlink" href="#writing-new-cardinalities" title="Permanent link">&para;</a></h3>
 <p>A cardinality is used in <code>Times()</code> to tell gMock how many times you expect a
 call to occur. It doesn't have to be exact. For example, you can say
 <code>AtLeast(5)</code> or <code>Between(2, 4)</code>.</p>
@@ -4712,7 +4712,7 @@ interface (in namespace <code>testing</code>):</p>
   virtual bool IsSaturatedByCallCount(int call_count) const = 0;
 
   // Describes self to an ostream.
-  virtual void DescribeTo(::std::ostream* os) const = 0;
+  virtual void DescribeTo(std::ostream* os) const = 0;
 };
 </code></pre>
 
@@ -4732,7 +4732,7 @@ class EvenNumberCardinality : public CardinalityInterface {
     return false;
   }
 
-  void DescribeTo(::std::ostream* os) const {
+  void DescribeTo(std::ostream* os) const {
     *os &lt;&lt; &quot;called even number of times&quot;;
   }
 };
@@ -4746,7 +4746,7 @@ Cardinality EvenNumber() {
       .Times(EvenNumber());
 </code></pre>
 
-<h4 id="writing-new-actions-quickly-quicknewactions">Writing New Actions Quickly {#QuickNewActions}<a class="headerlink" href="#writing-new-actions-quickly-quicknewactions" title="Permanent link">&para;</a></h4>
+<h3 id="writing-new-actions-quickly-quicknewactions">Writing New Actions Quickly {#QuickNewActions}<a class="headerlink" href="#writing-new-actions-quickly-quicknewactions" title="Permanent link">&para;</a></h3>
 <p>If the built-in actions don't work for you, you can easily define your own one.
 Just define a functor class with a (possibly templated) call operator, matching
 the signature of your action.</p>
@@ -4770,7 +4770,7 @@ the signature of your action.</p>
 // EXPECT_CALL(...).WillOnce(MultiplyBy{7});
 </code></pre>
 
-<h5 id="legacy-macro-based-actions">Legacy macro-based Actions<a class="headerlink" href="#legacy-macro-based-actions" title="Permanent link">&para;</a></h5>
+<h4 id="legacy-macro-based-actions">Legacy macro-based Actions<a class="headerlink" href="#legacy-macro-based-actions" title="Permanent link">&para;</a></h4>
 <p>Before C++11, the functor-based actions were not supported; the old way of
 writing actions was through a set of <code>ACTION*</code> macros. We suggest to avoid them
 in new code; they hide a lot of logic behind the macro, potentially leading to
@@ -4883,7 +4883,7 @@ symbols in the body of <code>ACTION</code>:</p>
 </tr>
 </tbody>
 </table>
-<h5 id="legacy-macro-based-parameterized-actions">Legacy macro-based parameterized Actions<a class="headerlink" href="#legacy-macro-based-parameterized-actions" title="Permanent link">&para;</a></h5>
+<h4 id="legacy-macro-based-parameterized-actions">Legacy macro-based parameterized Actions<a class="headerlink" href="#legacy-macro-based-parameterized-actions" title="Permanent link">&para;</a></h4>
 <p>Sometimes you'll want to parameterize an action you define. For that we have
 another macro</p>
 <pre><code class="cpp">ACTION_P(name, param) { statements; }
@@ -4926,7 +4926,7 @@ parameters is 0.</p>
 ACTION_P2(Plus, a, b) { ... }
 </code></pre>
 
-<h4 id="restricting-the-type-of-an-argument-or-parameter-in-an-action">Restricting the Type of an Argument or Parameter in an ACTION<a class="headerlink" href="#restricting-the-type-of-an-argument-or-parameter-in-an-action" title="Permanent link">&para;</a></h4>
+<h3 id="restricting-the-type-of-an-argument-or-parameter-in-an-action">Restricting the Type of an Argument or Parameter in an ACTION<a class="headerlink" href="#restricting-the-type-of-an-argument-or-parameter-in-an-action" title="Permanent link">&para;</a></h3>
 <p>For maximum brevity and reusability, the <code>ACTION*</code> macros don't ask you to
 provide the types of the mock function arguments and the action parameters.
 Instead, we let the compiler infer the types for us.</p>
@@ -4949,7 +4949,7 @@ ACTION_P(Bar, param) {
 
 <p>where <code>StaticAssertTypeEq</code> is a compile-time assertion in googletest that
 verifies two types are the same.</p>
-<h4 id="writing-new-action-templates-quickly">Writing New Action Templates Quickly<a class="headerlink" href="#writing-new-action-templates-quickly" title="Permanent link">&para;</a></h4>
+<h3 id="writing-new-action-templates-quickly">Writing New Action Templates Quickly<a class="headerlink" href="#writing-new-action-templates-quickly" title="Permanent link">&para;</a></h3>
 <p>Sometimes you want to give an action explicit template parameters that cannot be
 inferred from its value parameters. <code>ACTION_TEMPLATE()</code> supports that and can be
 viewed as an extension to <code>ACTION()</code> and <code>ACTION_P*()</code>.</p>
@@ -5002,7 +5002,7 @@ restriction, the meaning of the following is unclear:</p>
 <p>Are we using a single-template-parameter action where <code>bool</code> refers to the type
 of <code>x</code>, or a two-template-parameter action where the compiler is asked to infer
 the type of <code>x</code>?</p>
-<h4 id="using-the-action-objects-type">Using the ACTION Object's Type<a class="headerlink" href="#using-the-action-objects-type" title="Permanent link">&para;</a></h4>
+<h3 id="using-the-action-objects-type">Using the ACTION Object's Type<a class="headerlink" href="#using-the-action-objects-type" title="Permanent link">&para;</a></h3>
 <p>If you are writing a function that returns an <code>ACTION</code> object, you'll need to
 know its type. The type depends on the macro used to define the action and the
 parameter types. The rule is relatively simple:</p>
@@ -5090,7 +5090,7 @@ parameter types. The rule is relatively simple:</p>
 <p>Note that we have to pick different suffixes (<code>Action</code>, <code>ActionP</code>, <code>ActionP2</code>,
 and etc) for actions with different numbers of value parameters, or the action
 definitions cannot be overloaded on the number of them.</p>
-<h4 id="writing-new-monomorphic-actions-newmonoactions">Writing New Monomorphic Actions {#NewMonoActions}<a class="headerlink" href="#writing-new-monomorphic-actions-newmonoactions" title="Permanent link">&para;</a></h4>
+<h3 id="writing-new-monomorphic-actions-newmonoactions">Writing New Monomorphic Actions {#NewMonoActions}<a class="headerlink" href="#writing-new-monomorphic-actions-newmonoactions" title="Permanent link">&para;</a></h3>
 <p>While the <code>ACTION*</code> macros are very convenient, sometimes they are
 inappropriate. For example, despite the tricks shown in the previous recipes,
 they don't let you directly specify the types of the mock function arguments and
@@ -5142,7 +5142,7 @@ Action&lt;IncrementMethod&gt; IncrementArgument() {
   foo.Baz(&amp;n);  // Should return 5 and change n to 6.
 </code></pre>
 
-<h4 id="writing-new-polymorphic-actions-newpolyactions">Writing New Polymorphic Actions {#NewPolyActions}<a class="headerlink" href="#writing-new-polymorphic-actions-newpolyactions" title="Permanent link">&para;</a></h4>
+<h3 id="writing-new-polymorphic-actions-newpolyactions">Writing New Polymorphic Actions {#NewPolyActions}<a class="headerlink" href="#writing-new-polymorphic-actions-newpolyactions" title="Permanent link">&para;</a></h3>
 <p>The previous recipe showed you how to define your own action. This is all good,
 except that you need to know the type of the function in which the action will
 be used. Sometimes that can be a problem. For example, if you want to use the
@@ -5207,7 +5207,7 @@ class MockFoo : public Foo {
   foo.DoThat(1, &quot;Hi&quot;, &quot;Bye&quot;);  // Will return &quot;Hi&quot;.
 </code></pre>
 
-<h4 id="teaching-gmock-how-to-print-your-values">Teaching gMock How to Print Your Values<a class="headerlink" href="#teaching-gmock-how-to-print-your-values" title="Permanent link">&para;</a></h4>
+<h3 id="teaching-gmock-how-to-print-your-values">Teaching gMock How to Print Your Values<a class="headerlink" href="#teaching-gmock-how-to-print-your-values" title="Permanent link">&para;</a></h3>
 <p>When an uninteresting or unexpected call occurs, gMock prints the argument
 values and the stack trace to help you debug. Assertion macros like
 <code>EXPECT_THAT</code> and <code>EXPECT_EQ</code> also print the values in question when the
@@ -5219,12 +5219,12 @@ prints the raw bytes in the value and hopes that you the user can figure it out.
 <a href="../../../googletest/docs/advanced/#teaching-googletest-how-to-print-your-values">googletest's advanced guide</a>
 explains how to extend the printer to do a better job at printing your
 particular type than to dump the bytes.</p>
-<h3 id="useful-mocks-created-using-gmock">Useful Mocks Created Using gMock<a class="headerlink" href="#useful-mocks-created-using-gmock" title="Permanent link">&para;</a></h3>
+<h2 id="useful-mocks-created-using-gmock">Useful Mocks Created Using gMock<a class="headerlink" href="#useful-mocks-created-using-gmock" title="Permanent link">&para;</a></h2>
 <!--#include file="includes/g3_testing_LOGs.md"-->
 
 <!--#include file="includes/g3_mock_callbacks.md"-->
 
-<h4 id="mock-stdfunction-mockfunction">Mock std::function {#MockFunction}<a class="headerlink" href="#mock-stdfunction-mockfunction" title="Permanent link">&para;</a></h4>
+<h3 id="mock-stdfunction-mockfunction">Mock std::function {#MockFunction}<a class="headerlink" href="#mock-stdfunction-mockfunction" title="Permanent link">&para;</a></h3>
 <p><code>std::function</code> is a general function type introduced in C++11. It is a
 preferred way of passing callbacks to new interfaces. Functions are copiable,
 and are not usually passed around by pointer, which makes them tricky to mock.
