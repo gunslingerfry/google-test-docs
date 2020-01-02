@@ -36,7 +36,7 @@
     
     
       
-        <title>Pkgconfig - Google Test Docs Mirror</title>
+        <title>Pump manual - Google Test Docs Mirror</title>
       
     
     
@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#using-googletest-from-various-build-systems" tabindex="1" class="md-skip">
+      <a href="#the-problem" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -120,7 +120,7 @@
                 Google Test Docs Mirror
               </span>
               <span class="md-header-nav__topic">
-                Pkgconfig
+                Pump manual
               </span>
             
           
@@ -268,7 +268,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Documentation/" title="Index" class="md-nav__link">
+    <a href="../../../googletest/docs/Documentation/" title="Index" class="md-nav__link">
       Index
     </a>
   </li>
@@ -280,7 +280,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../primer/" title="Primer" class="md-nav__link">
+    <a href="../../../googletest/docs/primer/" title="Primer" class="md-nav__link">
       Primer
     </a>
   </li>
@@ -292,7 +292,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../faq/" title="FAQ" class="md-nav__link">
+    <a href="../../../googletest/docs/faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
   </li>
@@ -304,7 +304,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../advanced/" title="Advanced" class="md-nav__link">
+    <a href="../../../googletest/docs/advanced/" title="Advanced" class="md-nav__link">
       Advanced
     </a>
   </li>
@@ -316,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../XcodeGuide.md" title="Xcode" class="md-nav__link">
+    <a href="../../../googletest/docs/XcodeGuide.md" title="Xcode" class="md-nav__link">
       Xcode
     </a>
   </li>
@@ -328,7 +328,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../PumpManual.md" title="Pump" class="md-nav__link">
+    <a href="../../../googletest/docs/PumpManual.md" title="Pump" class="md-nav__link">
       Pump
     </a>
   </li>
@@ -340,7 +340,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Pkgconfig.md" title="pkg-config" class="md-nav__link">
+    <a href="../../../googletest/docs/Pkgconfig.md" title="pkg-config" class="md-nav__link">
       pkg-config
     </a>
   </li>
@@ -352,7 +352,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../samples/" title="Samples" class="md-nav__link">
+    <a href="../../../googletest/docs/samples/" title="Samples" class="md-nav__link">
       Samples
     </a>
   </li>
@@ -388,7 +388,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googlemock/docs/" title="Index" class="md-nav__link">
+    <a href="../" title="Index" class="md-nav__link">
       Index
     </a>
   </li>
@@ -400,7 +400,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googlemock/docs/for_dummies/" title="For Dummies" class="md-nav__link">
+    <a href="../for_dummies/" title="For Dummies" class="md-nav__link">
       For Dummies
     </a>
   </li>
@@ -412,7 +412,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googlemock/docs/cheat_sheet/" title="Cheat Sheet" class="md-nav__link">
+    <a href="../cheat_sheet/" title="Cheat Sheet" class="md-nav__link">
       Cheat Sheet
     </a>
   </li>
@@ -424,7 +424,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googlemock/docs/cook_book/" title="Cookbook" class="md-nav__link">
+    <a href="../cook_book/" title="Cookbook" class="md-nav__link">
       Cookbook
     </a>
   </li>
@@ -436,7 +436,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../googlemock/docs/gmock_faq/" title="FAQ" class="md-nav__link">
+    <a href="../gmock_faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
   </li>
@@ -461,70 +461,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#using-googletest-from-various-build-systems" title="Using GoogleTest from various build systems" class="md-nav__link">
-    Using GoogleTest from various build systems
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cmake" title="CMake" class="md-nav__link">
-    CMake
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#autotools" title="Autotools" class="md-nav__link">
-    Autotools
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meson" title="Meson" class="md-nav__link">
-    Meson
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plain-makefiles" title="Plain Makefiles" class="md-nav__link">
-    Plain Makefiles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#help-pkg-config-cant-find-googletest" title="Help! pkg-config can't find GoogleTest!" class="md-nav__link">
-    Help! pkg-config can't find GoogleTest!
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-pkg-config-in-a-cross-compilation-setting" title="Using pkg-config in a cross-compilation setting" class="md-nav__link">
-    Using pkg-config in a cross-compilation setting
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
   
 </nav>
                   </div>
@@ -537,187 +475,168 @@
               
                 
                 
-                  <h1>Pkgconfig</h1>
-                
-                <h2 id="using-googletest-from-various-build-systems">Using GoogleTest from various build systems<a class="headerlink" href="#using-googletest-from-various-build-systems" title="Permanent link">&para;</a></h2>
-<p>GoogleTest comes with pkg-config files that can be used to determine all
-necessary flags for compiling and linking to GoogleTest (and GoogleMock).
-Pkg-config is a standardised plain-text format containing</p>
+                <p><b>P</b>ump is <b>U</b>seful for <b>M</b>eta <b>P</b>rogramming.</p>
+<h1 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h1>
+<p>Template and macro libraries often need to define many classes, functions, or
+macros that vary only (or almost only) in the number of arguments they take.
+It's a lot of repetitive, mechanical, and error-prone work.</p>
+<p>Our experience is that it's tedious to write custom scripts, which tend to
+reflect the structure of the generated code poorly and are often hard to read
+and edit. For example, a small change needed in the generated code may require
+some non-intuitive, non-trivial changes in the script. This is especially
+painful when experimenting with the code.</p>
+<p>This script may be useful for generating meta code, for example a series of
+macros of FOO1, FOO2, etc. Nevertheless, please make it your last resort
+technique by favouring C++ template metaprogramming or variadic macros.</p>
+<h1 id="our-solution">Our Solution<a class="headerlink" href="#our-solution" title="Permanent link">&para;</a></h1>
+<p>Pump (for Pump is Useful for Meta Programming, Pretty Useful for Meta
+Programming, or Practical Utility for Meta Programming, whichever you prefer) is
+a simple meta-programming tool for C++. The idea is that a programmer writes a
+<code>foo.pump</code> file which contains C++ code plus meta code that manipulates the C++
+code. The meta code can handle iterations over a range, nested iterations, local
+meta variable definitions, simple arithmetic, and conditional expressions. You
+can view it as a small Domain-Specific Language. The meta language is designed
+to be non-intrusive (s.t. it won't confuse Emacs' C++ mode, for example) and
+concise, making Pump code intuitive and easy to maintain.</p>
+<h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li>the includedir (-I) path</li>
-<li>necessary macro (-D) definitions</li>
-<li>further required flags (-pthread)</li>
-<li>the library (-L) path</li>
-<li>the library (-l) to link to</li>
+<li>The implementation is in a single Python script and thus ultra portable: no
+    build or installation is needed and it works cross platforms.</li>
+<li>Pump tries to be smart with respect to
+    <a href="https://github.com/google/styleguide">Google's style guide</a>: it breaks long
+    lines (easy to have when they are generated) at acceptable places to fit
+    within 80 columns and indent the continuation lines correctly.</li>
+<li>The format is human-readable and more concise than XML.</li>
+<li>The format works relatively well with Emacs' C++ mode.</li>
 </ul>
-<p>All current build systems support pkg-config in one way or another. For all
-examples here we assume you want to compile the sample
-<code>samples/sample3_unittest.cc</code>.</p>
-<h3 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
-<p>Using <code>pkg-config</code> in CMake is fairly easy:</p>
-<pre><code class="cmake">cmake_minimum_required(VERSION 3.0)
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p>The following Pump code (where meta keywords start with <code>$</code>, <code>[[</code> and <code>]]</code> are
+meta brackets, and <code>$$</code> starts a meta comment that ends with the line):</p>
+<pre><code>$var n = 3     $$ Defines a meta variable n.
+$range i 0..n  $$ Declares the range of meta iterator i (inclusive).
+$for i [[
+               $$ Meta loop.
+// Foo$i does blah for $i-ary predicates.
+$range j 1..i
+template &lt;size_t N $for j [[, typename A$j]]&gt;
+class Foo$i {
+$if i == 0 [[
+  blah a;
+]] $elif i &lt;= 2 [[
+  blah b;
+]] $else [[
+  blah c;
+]]
+};
 
-cmake_policy(SET CMP0048 NEW)
-project(my_gtest_pkgconfig VERSION 0.0.1 LANGUAGES CXX)
-
-find_package(PkgConfig)
-pkg_search_module(GTEST REQUIRED gtest_main)
-
-add_executable(testapp samples/sample3_unittest.cc)
-target_link_libraries(testapp ${GTEST_LDFLAGS})
-target_compile_options(testapp PUBLIC ${GTEST_CFLAGS})
-
-include(CTest)
-add_test(first_and_only_test testapp)
+]]
 </code></pre>
 
-<p>It is generally recommended that you use <code>target_compile_options</code> + <code>_CFLAGS</code>
-over <code>target_include_directories</code> + <code>_INCLUDE_DIRS</code> as the former includes not
-just -I flags (GoogleTest might require a macro indicating to internal headers
-that all libraries have been compiled with threading enabled. In addition,
-GoogleTest might also require <code>-pthread</code> in the compiling step, and as such
-splitting the pkg-config <code>Cflags</code> variable into include dirs and macros for
-<code>target_compile_definitions()</code> might still miss this). The same recommendation
-goes for using <code>_LDFLAGS</code> over the more commonplace <code>_LIBRARIES</code>, which happens
-to discard <code>-L</code> flags and <code>-pthread</code>.</p>
-<h3 id="autotools">Autotools<a class="headerlink" href="#autotools" title="Permanent link">&para;</a></h3>
-<p>Finding GoogleTest in Autoconf and using it from Automake is also fairly easy:</p>
-<p>In your <code>configure.ac</code>:</p>
-<pre><code>AC_PREREQ([2.69])
-AC_INIT([my_gtest_pkgconfig], [0.0.1])
-AC_CONFIG_SRCDIR([samples/sample3_unittest.cc])
-AC_PROG_CXX
+<p>will be translated by the Pump compiler to:</p>
+<pre><code class="cpp">// Foo0 does blah for 0-ary predicates.
+template &lt;size_t N&gt;
+class Foo0 {
+  blah a;
+};
 
-PKG_CHECK_MODULES([GTEST], [gtest_main])
+// Foo1 does blah for 1-ary predicates.
+template &lt;size_t N, typename A1&gt;
+class Foo1 {
+  blah b;
+};
 
-AM_INIT_AUTOMAKE([foreign subdir-objects])
-AC_CONFIG_FILES([Makefile])
-AC_OUTPUT
+// Foo2 does blah for 2-ary predicates.
+template &lt;size_t N, typename A1, typename A2&gt;
+class Foo2 {
+  blah b;
+};
+
+// Foo3 does blah for 3-ary predicates.
+template &lt;size_t N, typename A1, typename A2, typename A3&gt;
+class Foo3 {
+  blah c;
+};
 </code></pre>
 
-<p>and in your <code>Makefile.am</code>:</p>
-<pre><code>check_PROGRAMS = testapp
-TESTS = $(check_PROGRAMS)
-
-testapp_SOURCES = samples/sample3_unittest.cc
-testapp_CXXFLAGS = $(GTEST_CFLAGS)
-testapp_LDADD = $(GTEST_LIBS)
+<p>In another example,</p>
+<pre><code>$range i 1..n
+Func($for i + [[a$i]]);
+$$ The text between i and [[ is the separator between iterations.
 </code></pre>
 
-<h3 id="meson">Meson<a class="headerlink" href="#meson" title="Permanent link">&para;</a></h3>
-<p>Meson natively uses pkgconfig to query dependencies:</p>
-<pre><code>project('my_gtest_pkgconfig', 'cpp', version : '0.0.1')
-
-gtest_dep = dependency('gtest_main')
-
-testapp = executable(
-  'testapp',
-  files(['samples/sample3_unittest.cc']),
-  dependencies : gtest_dep,
-  install : false)
-
-test('first_and_only_test', testapp)
+<p>will generate one of the following lines (without the comments), depending on
+the value of <code>n</code>:</p>
+<pre><code class="cpp">Func();              // If n is 0.
+Func(a1);            // If n is 1.
+Func(a1 + a2);       // If n is 2.
+Func(a1 + a2 + a3);  // If n is 3.
+// And so on...
 </code></pre>
 
-<h3 id="plain-makefiles">Plain Makefiles<a class="headerlink" href="#plain-makefiles" title="Permanent link">&para;</a></h3>
-<p>Since <code>pkg-config</code> is a small Unix command-line utility, it can be used in
-handwritten <code>Makefile</code>s too:</p>
-<pre><code class="makefile">GTEST_CFLAGS = `pkg-config --cflags gtest_main`
-GTEST_LIBS = `pkg-config --libs gtest_main`
-
-.PHONY: tests all
-
-tests: all
-  ./testapp
-
-all: testapp
-
-testapp: testapp.o
-  $(CXX) $(CXXFLAGS) $(LDFLAGS) $&lt; -o $@ $(GTEST_LIBS)
-
-testapp.o: samples/sample3_unittest.cc
-  $(CXX) $(CPPFLAGS) $(CXXFLAGS) $&lt; -c -o $@ $(GTEST_CFLAGS)
+<h2 id="constructs">Constructs<a class="headerlink" href="#constructs" title="Permanent link">&para;</a></h2>
+<p>We support the following meta programming constructs:</p>
+<p>| <code>$var id = exp</code>                  | Defines a named constant value. <code>$id</code> is |
+:                                  : valid util the end of the current meta   :
+:                                  : lexical block.                           :
+| :------------------------------- | :--------------------------------------- |
+| <code>$range id exp..exp</code>             | Sets the range of an iteration variable, |
+:                                  : which can be reused in multiple loops    :
+:                                  : later.                                   :
+| <code>$for id sep [[ code ]]</code>         | Iteration. The range of <code>id</code> must have   |
+:                                  : been defined earlier. <code>$id</code> is valid in  :
+:                                  : <code>code</code>.                                  :
+| <code>$($)</code>                           | Generates a single <code>$</code> character.        |
+| <code>$id</code>                            | Value of the named constant or iteration |
+:                                  : variable.                                :
+| <code>$(exp)</code>                         | Value of the expression.                 |
+| <code>$if exp [[ code ]] else_branch</code> | Conditional.                             |
+| <code>[[ code ]]</code>                     | Meta lexical block.                      |
+| <code>cpp_code</code>                       | Raw C++ code.                            |
+| <code>$$ comment</code>                     | Meta comment.                            |</p>
+<p><strong>Note:</strong> To give the user some freedom in formatting the Pump source code, Pump
+ignores a new-line character if it's right after <code>$for foo</code> or next to <code>[[</code> or
+<code>]]</code>. Without this rule you'll often be forced to write very long lines to get
+the desired output. Therefore sometimes you may need to insert an extra new-line
+in such places for a new-line to show up in your output.</p>
+<h2 id="grammar">Grammar<a class="headerlink" href="#grammar" title="Permanent link">&para;</a></h2>
+<pre><code class="ebnf">code ::= atomic_code*
+atomic_code ::= $var id = exp
+    | $var id = [[ code ]]
+    | $range id exp..exp
+    | $for id sep [[ code ]]
+    | $($)
+    | $id
+    | $(exp)
+    | $if exp [[ code ]] else_branch
+    | [[ code ]]
+    | cpp_code
+sep ::= cpp_code | empty_string
+else_branch ::= $else [[ code ]]
+    | $elif exp [[ code ]] else_branch
+    | empty_string
+exp ::= simple_expression_in_Python_syntax
 </code></pre>
 
-<h3 id="help-pkg-config-cant-find-googletest">Help! pkg-config can't find GoogleTest!<a class="headerlink" href="#help-pkg-config-cant-find-googletest" title="Permanent link">&para;</a></h3>
-<p>Let's say you have a <code>CMakeLists.txt</code> along the lines of the one in this
-tutorial and you try to run <code>cmake</code>. It is very possible that you get a failure
-along the lines of:</p>
-<pre><code>-- Checking for one of the modules 'gtest_main'
-CMake Error at /usr/share/cmake/Modules/FindPkgConfig.cmake:640 (message):
-  None of the required 'gtest_main' found
-</code></pre>
-
-<p>These failures are common if you installed GoogleTest yourself and have not
-sourced it from a distro or other package manager. If so, you need to tell
-pkg-config where it can find the <code>.pc</code> files containing the information. Say you
-installed GoogleTest to <code>/usr/local</code>, then it might be that the <code>.pc</code> files are
-installed under <code>/usr/local/lib64/pkgconfig</code>. If you set</p>
-<pre><code>export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
-</code></pre>
-
-<p>pkg-config will also try to look in <code>PKG_CONFIG_PATH</code> to find <code>gtest_main.pc</code>.</p>
-<h3 id="using-pkg-config-in-a-cross-compilation-setting">Using pkg-config in a cross-compilation setting<a class="headerlink" href="#using-pkg-config-in-a-cross-compilation-setting" title="Permanent link">&para;</a></h3>
-<p>Pkg-config can be used in a cross-compilation setting too. To do this, let's
-assume the final prefix of the cross-compiled installation will be <code>/usr</code>, and
-your sysroot is <code>/home/MYUSER/sysroot</code>. Configure and install GTest using</p>
-<pre><code>mkdir build &amp;&amp; cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-</code></pre>
-
-<p>Install into the sysroot using <code>DESTDIR</code>:</p>
-<pre><code>make -j install DESTDIR=/home/MYUSER/sysroot
-</code></pre>
-
-<p>Before we continue, it is recommended to <strong>always</strong> define the following two
-variables for pkg-config in a cross-compilation setting:</p>
-<pre><code>export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=yes
-export PKG_CONFIG_ALLOW_SYSTEM_LIBS=yes
-</code></pre>
-
-<p>otherwise <code>pkg-config</code> will filter <code>-I</code> and <code>-L</code> flags against standard prefixes
-such as <code>/usr</code> (see https://bugs.freedesktop.org/show_bug.cgi?id=28264#c3 for
-reasons why this stripping needs to occur usually).</p>
-<p>If you look at the generated pkg-config file, it will look something like</p>
-<pre><code>libdir=/usr/lib64
-includedir=/usr/include
-
-Name: gtest
-Description: GoogleTest (without main() function)
-Version: 1.10.0
-URL: https://github.com/google/googletest
-Libs: -L${libdir} -lgtest -lpthread
-Cflags: -I${includedir} -DGTEST_HAS_PTHREAD=1 -lpthread
-</code></pre>
-
-<p>Notice that the sysroot is not included in <code>libdir</code> and <code>includedir</code>! If you try
-to run <code>pkg-config</code> with the correct
-<code>PKG_CONFIG_LIBDIR=/home/MYUSER/sysroot/usr/lib64/pkgconfig</code> against this <code>.pc</code>
-file, you will get</p>
-<pre><code>$ pkg-config --cflags gtest
--DGTEST_HAS_PTHREAD=1 -lpthread -I/usr/include
-$ pkg-config --libs gtest
--L/usr/lib64 -lgtest -lpthread
-</code></pre>
-
-<p>which is obviously wrong and points to the <code>CBUILD</code> and not <code>CHOST</code> root. In
-order to use this in a cross-compilation setting, we need to tell pkg-config to
-inject the actual sysroot into <code>-I</code> and <code>-L</code> variables. Let us now tell
-pkg-config about the actual sysroot</p>
-<pre><code>export PKG_CONFIG_DIR=
-export PKG_CONFIG_SYSROOT_DIR=/home/MYUSER/sysroot
-export PKG_CONFIG_LIBDIR=${PKG_CONFIG_SYSROOT_DIR}/usr/lib64/pkgconfig
-</code></pre>
-
-<p>and running <code>pkg-config</code> again we get</p>
-<pre><code>$ pkg-config --cflags gtest
--DGTEST_HAS_PTHREAD=1 -lpthread -I/home/MYUSER/sysroot/usr/include
-$ pkg-config --libs gtest
--L/home/MYUSER/sysroot/usr/lib64 -lgtest -lpthread
-</code></pre>
-
-<p>which contains the correct sysroot now. For a more comprehensive guide to also
-including <code>${CHOST}</code> in build system calls, see the excellent tutorial by Diego
-Elio Pettenò: https://autotools.io/pkgconfig/cross-compiling.html</p>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<p>You can find the source code of Pump in <a href="../../scripts/pump.py">scripts/pump.py</a>.
+It is still very unpolished and lacks automated tests, although it has been
+successfully used many times. If you find a chance to use it in your project,
+please let us know what you think! We also welcome help on improving Pump.</p>
+<h2 id="real-examples">Real Examples<a class="headerlink" href="#real-examples" title="Permanent link">&para;</a></h2>
+<p>You can find real-world applications of Pump in
+<a href="https://github.com/google/googletest/tree/master/googletest">Google Test</a> and
+<a href="https://github.com/google/googletest/tree/master/googlemock">Google Mock</a>. The
+source file <code>foo.h.pump</code> generates <code>foo.h</code>.</p>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h2>
+<ul>
+<li>If a meta variable is followed by a letter or digit, you can separate them
+    using <code>[[]]</code>, which inserts an empty string. For example <code>Foo$j[[]]Helper</code>
+    generate <code>Foo1Helper</code> when <code>j</code> is 1.</li>
+<li>To avoid extra-long Pump source lines, you can break a line anywhere you
+    want by inserting <code>[[]]</code> followed by a new line. Since any new-line
+    character next to <code>[[</code> or <code>]]</code> is ignored, the generated code won't contain
+    this new line.</li>
+</ul>
                 
                   
                 

@@ -1351,8 +1351,8 @@ example:</p>
     common.</li>
 </ol>
 <h2 id="what-can-the-statement-argument-in-assert_death-be">What can the statement argument in ASSERT_DEATH() be?<a class="headerlink" href="#what-can-the-statement-argument-in-assert_death-be" title="Permanent link">&para;</a></h2>
-<p><code>ASSERT_DEATH(*statement*, *regex*)</code> (or any death assertion macro) can be used
-wherever <code>*statement*</code> is valid. So basically <code>*statement*</code> can be any C++
+<p><code>ASSERT_DEATH(statement, matcher)</code> (or any death assertion macro) can be used
+wherever <em><code>statement</code></em> is valid. So basically <em><code>statement</code></em> can be any C++
 statement that makes sense in the current context. In particular, it can
 reference global and/or local variables, and can be:</p>
 <ul>

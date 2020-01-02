@@ -635,7 +635,7 @@ fairly rigid coding style, as defined by the
 will be expected to conform to the style outlined
 <a href="https://google.github.io/styleguide/cppguide.html">here</a>. Use
 <a href="https://github.com/google/googletest/blob/master/.clang-format">.clang-format</a>
-to check your formatting</p>
+to check your formatting.</p>
 <h2 id="requirements-for-contributors">Requirements for Contributors<a class="headerlink" href="#requirements-for-contributors" title="Permanent link">&para;</a></h2>
 <p>If you plan to contribute a patch, you need to build Google Test, Google Mock,
 and their own tests from a git checkout, which has further requirements:</p>
@@ -676,12 +676,12 @@ explicitly where your Python executable can be found:</p>
 <h3 id="regenerating-source-files">Regenerating Source Files<a class="headerlink" href="#regenerating-source-files" title="Permanent link">&para;</a></h3>
 <p>Some of Google Test's source files are generated from templates (not in the C++
 sense) using a script. For example, the file
-include/gtest/internal/gtest-type-util.h.pump is used to generate
-gtest-type-util.h in the same directory.</p>
+<em>googlemock/include/gmock/gmock-generated-actions.h.pump</em> is used to generate
+<em>gmock-generated-actions.h</em> in the same directory.</p>
 <p>You don't need to worry about regenerating the source files unless you need to
 modify them. You would then modify the corresponding <code>.pump</code> files and run the
-'<a href="../googletest/scripts/pump.py">pump.py</a>' generator script. See the
-<a href="../googletest/docs/pump_manual/">Pump Manual</a>.</p>
+'<a href="../googlemock/scripts/pump.py">pump.py</a>' generator script. See the
+<a href="../googlemock/docs/pump_manual/">Pump Manual</a>.</p>
                 
                   
                 

@@ -759,15 +759,15 @@ deprecated and refactored away.</p>
 <thead>
 <tr>
 <th align="left">Meaning</th>
-<th align="left">googletest Term</th>
-<th align="left"><a href="http://www.istqb.org/">ISTQB</a> Term</th>
+<th>googletest Term</th>
+<th><a href="http://www.istqb.org/">ISTQB</a> Term</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">Exercise a particular program path with specific input values and verify the results</td>
-<td align="left"><a href="#simple-tests">TEST()</a></td>
-<td align="left"><a href="http://glossary.istqb.org/en/search/test%20case">Test Case</a></td>
+<td><a href="#simple-tests">TEST()</a></td>
+<td><a href="http://glossary.istqb.org/en/search/test%20case">Test Case</a></td>
 </tr>
 </tbody>
 </table>
@@ -992,7 +992,7 @@ Advanced googletest Guide.</p>
 
 <p><code>TEST()</code> arguments go from general to specific. The <em>first</em> argument is the name
 of the test suite, and the <em>second</em> argument is the test's name within the test
-case. Both names must be valid C++ identifiers, and they should not contain
+suite. Both names must be valid C++ identifiers, and they should not contain
 any underscores (<code>_</code>). A test's <em>full name</em> consists of its containing test suite and
 its individual name. Tests from different test suites can have the same
 individual name.</p>
@@ -1187,19 +1187,27 @@ once conflicts with some advanced googletest features (e.g., thread-safe
 </blockquote>
 <p><strong>Availability</strong>: Linux, Windows, Mac.</p>
 <h2 id="writing-the-main-function">Writing the main() Function<a class="headerlink" href="#writing-the-main-function" title="Permanent link">&para;</a></h2>
-<p>Write your own main() function, which should return the value of
+<p>Most users should <em>not</em> need to write their own <code>main</code> function and instead link
+with <code>gtest_main</code> (as opposed to with <code>gtest</code>), which defines a suitable entry
+point. See the end of this section for details. The remainder of this section
+should only apply when you need to do something custom before the tests run that
+cannot be expressed within the framework of fixtures and test suites.</p>
+<p>If you write your own <code>main</code> function, it should return the value of
 <code>RUN_ALL_TESTS()</code>.</p>
 <p>You can start from this boilerplate:</p>
 <pre><code class="c++">#include &quot;this/package/foo.h&quot;
+
 #include &quot;gtest/gtest.h&quot;
 
+namespace my {
+namespace project {
 namespace {
 
 // The fixture for testing class Foo.
 class FooTest : public ::testing::Test {
  protected:
-  // You can remove any or all of the following functions if its body
-  // is empty.
+  // You can remove any or all of the following functions if their bodies would
+  // be empty.
 
   FooTest() {
      // You can do set-up work for each test here.
@@ -1222,7 +1230,8 @@ class FooTest : public ::testing::Test {
      // before the destructor).
   }
 
-  // Objects declared here can be used by all tests in the test suite for Foo.
+  // Class members declared here can be used by all tests in the test suite
+  // for Foo.
 };
 
 // Tests that the Foo::Bar() method does Abc.
@@ -1239,6 +1248,8 @@ TEST_F(FooTest, DoesXyz) {
 }
 
 }  // namespace
+}  // namespace project
+}  // namespace my
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&amp;argc, argv);
@@ -1253,10 +1264,10 @@ the <a href="../advanced/">AdvancedGuide</a>. You <strong>must</strong> call thi
 <code>RUN_ALL_TESTS()</code>, or the flags won't be properly initialized.</p>
 <p>On Windows, <code>InitGoogleTest()</code> also works with wide strings, so it can be used
 in programs compiled in <code>UNICODE</code> mode as well.</p>
-<p>But maybe you think that writing all those main() functions is too much work? We
+<p>But maybe you think that writing all those <code>main</code> functions is too much work? We
 agree with you completely, and that's why Google Test provides a basic
 implementation of main(). If it fits your needs, then just link your test with
-gtest_main library and you are good to go.</p>
+the <code>gtest_main</code> library and you are good to go.</p>
 <p>NOTE: <code>ParseGUnitFlags()</code> is deprecated in favor of <code>InitGoogleTest()</code>.</p>
 <h2 id="known-limitations">Known Limitations<a class="headerlink" href="#known-limitations" title="Permanent link">&para;</a></h2>
 <ul>

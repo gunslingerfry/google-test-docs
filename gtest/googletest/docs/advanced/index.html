@@ -1689,7 +1689,7 @@ assertion</em> to get the function arguments printed for free:</p>
 <tr>
 <td><code>ASSERT_PRED2(pred2, val1, val2)</code></td>
 <td><code>EXPECT_PRED2(pred2, val1, val2)</code></td>
-<td><code>pred1(val1, val2)</code> is true</td>
+<td><code>pred2(val1, val2)</code> is true</td>
 </tr>
 <tr>
 <td><code>...</code></td>
@@ -2064,7 +2064,7 @@ ASSERT_HRESULT_SUCCEEDED(shell-&gt;ShellExecute(CComBSTR(url), empty, empty, emp
 <p>to assert that types <code>T1</code> and <code>T2</code> are the same. The function does nothing if
 the assertion is satisfied. If the types are different, the function call will
 fail to compile, the compiler error message will say that
-<code>type1 and type2 are not the same type</code> and most likely (depending on the compiler)
+<code>T1 and T2 are not the same type</code> and most likely (depending on the compiler)
 show you the actual values of <code>T1</code> and <code>T2</code>. This is mainly useful inside
 template code.</p>
 <p><strong>Caveat</strong>: When used inside a member function of a class template or a function
@@ -2230,7 +2230,7 @@ Catching Failures</p>
 </table>
 <p>where <code>statement</code> is a statement that is expected to cause the process to die,
 <code>predicate</code> is a function or function object that evaluates an integer exit
-status, and <code>matcher</code> is either a GMock matcher matching a <code>const std::string&amp;</code>
+status, and <code>matcher</code> is either a gMock matcher matching a <code>const std::string&amp;</code>
 or a (Perl) regular expression - either of which is matched against the stderr
 output of <code>statement</code>. For legacy reasons, a bare string (i.e. with no matcher)
 is interpreted as <code>ContainsRegex(str)</code>, <strong>not</strong> <code>Eq(str)</code>. Note that <code>statement</code>
@@ -2243,7 +2243,7 @@ to be an expression.</p>
 <em>non-zero</em> exit status code. There are two possibilities: either the process
 has called <code>exit()</code> or <code>_exit()</code> with a non-zero value, or it may be killed by
 a signal.</p>
-<p>This means that if <code>*statement*</code> terminates the process with a 0 exit code, it
+<p>This means that if <em><code>statement</code></em> terminates the process with a 0 exit code, it
 is <em>not</em> considered a crash by <code>EXPECT_DEATH</code>. Use <code>EXPECT_EXIT</code> instead if
 this is the case, or if you want to restrict the exit code more precisely.</p>
 </blockquote>
@@ -2267,7 +2267,7 @@ that verifies the process' exit code is non-zero.</p>
 <li>(in the case of <code>ASSERT_EXIT</code> and <code>EXPECT_EXIT</code>) does the exit status
     satisfy <code>predicate</code>? Or (in the case of <code>ASSERT_DEATH</code> and <code>EXPECT_DEATH</code>)
     is the exit status non-zero? And</li>
-<li>does the stderr output match <code>regex</code>?</li>
+<li>does the stderr output match <code>matcher</code>?</li>
 </ol>
 <p>In particular, if <code>statement</code> generates an <code>ASSERT_*</code> or <code>EXPECT_*</code> failure, it
 will <strong>not</strong> cause the death test to fail, as googletest assertions don't abort
@@ -2535,7 +2535,9 @@ from. You can alleviate this problem using extra logging or custom failure
 messages, but that usually clutters up your tests. A better solution is to use
 the <code>SCOPED_TRACE</code> macro or the <code>ScopedTrace</code> utility:</p>
 <pre><code class="c++">SCOPED_TRACE(message);
-ScopedTrace trace(&quot;file_path&quot;, line_number, message);
+</code></pre>
+
+<pre><code class="c++">ScopedTrace trace(&quot;file_path&quot;, line_number, message);
 </code></pre>
 
 <p>where <code>message</code> can be anything streamable to <code>std::ostream</code>. <code>SCOPED_TRACE</code>
@@ -2728,7 +2730,7 @@ test</p>
 <li><code>RecordProperty()</code> is a static member of the <code>Test</code> class. Therefore it
     needs to be prefixed with <code>::testing::Test::</code> if used outside of the
     <code>TEST</code> body and the test fixture class.</li>
-<li><code>*key*</code> must be a valid XML attribute name, and cannot conflict with the
+<li><em><code>key</code></em> must be a valid XML attribute name, and cannot conflict with the
     ones already used by googletest (<code>name</code>, <code>status</code>, <code>time</code>, <code>classname</code>,
     <code>type_param</code>, and <code>value_param</code>).</li>
 <li>Calling <code>RecordProperty()</code> outside of the lifespan of a test is allowed.
@@ -2815,7 +2817,7 @@ level, you can also do it at the test program level. Here's how.</p>
 environment, which knows how to set-up and tear-down:</p>
 <pre><code class="c++">class Environment : public ::testing::Environment {
  public:
-  virtual ~Environment() {}
+  ~Environment() override {}
 
   // Override this to define how to set up the environment.
   void SetUp() override {}
@@ -3315,7 +3317,7 @@ well, use one of the following macros instead:</p>
 </ol>
 <h2 id="registering-tests-programmatically">Registering tests programmatically<a class="headerlink" href="#registering-tests-programmatically" title="Permanent link">&para;</a></h2>
 <p>The <code>TEST</code> macros handle the vast majority of all use cases, but there are few
-were runtime registration logic is required. For those cases, the framework
+where runtime registration logic is required. For those cases, the framework
 provides the <code>::testing::RegisterTest</code> that allows callers to register arbitrary
 tests dynamically.</p>
 <p>This is an advanced API only to be used when the <code>TEST</code> macros are insufficient.
@@ -3402,8 +3404,6 @@ class TestInfo {
   // Do NOT delete the returned object - it's managed by the UnitTest class.
   const ::testing::TestInfo* const test_info =
     ::testing::UnitTest::GetInstance()-&gt;current_test_info();
-
-
 
   printf(&quot;We are in test %s of test suite %s.\n&quot;,
          test_info-&gt;name(),

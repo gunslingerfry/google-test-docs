@@ -468,13 +468,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#announcement" title="Announcement:" class="md-nav__link">
-    Announcement:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#oss-builds-status" title="OSS Builds Status:" class="md-nav__link">
     OSS Builds Status:
   </a>
@@ -482,30 +475,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#future-plans" title="Future Plans" class="md-nav__link">
-    Future Plans
+  <a href="#announcements" title="Announcements:" class="md-nav__link">
+    Announcements:
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#18x-release" title="1.8.x Release:" class="md-nav__link">
-    1.8.x Release:
+  <a href="#release-110x" title="Release 1.10.x" class="md-nav__link">
+    Release 1.10.x
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#post-18x" title="Post 1.8.x:" class="md-nav__link">
-    Post 1.8.x:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-19x" title="Post 1.9.x" class="md-nav__link">
-    Post 1.9.x
+  <a href="#coming-soon" title="Coming Soon" class="md-nav__link">
+    Coming Soon
   </a>
   
 </li>
@@ -608,24 +594,20 @@
                 
                 
                 <h1 id="google-test">Google Test<a class="headerlink" href="#google-test" title="Permanent link">&para;</a></h1>
-<h4 id="announcement">Announcement:<a class="headerlink" href="#announcement" title="Permanent link">&para;</a></h4>
-<p>Please note that Sept 13 - Sept 20 most of the maintainers will be attending
-CppCon 2019. Our response time for Pull Requests and Issues will increase.</p>
 <h4 id="oss-builds-status">OSS Builds Status:<a class="headerlink" href="#oss-builds-status" title="Permanent link">&para;</a></h4>
 <p><a href="https://travis-ci.org/google/googletest"><img alt="Build Status" src="https://api.travis-ci.org/google/googletest.svg?branch=master" /></a>
 <a href="https://ci.appveyor.com/project/GoogleTestAppVeyor/googletest/branch/master"><img alt="Build status" src="https://ci.appveyor.com/api/projects/status/4o38plt0xbo1ubc8/branch/master?svg=true" /></a></p>
-<h3 id="future-plans">Future Plans<a class="headerlink" href="#future-plans" title="Permanent link">&para;</a></h3>
-<h4 id="18x-release">1.8.x Release:<a class="headerlink" href="#18x-release" title="Permanent link">&para;</a></h4>
-<p><a href="https://github.com/google/googletest/releases/tag/release-1.8.1">the 1.8.x</a> is
-the last release that works with pre-C++11 compilers. The 1.8.x will not accept
-any requests for any new features and any bugfix requests will only be accepted
-if proven "critical"</p>
-<h4 id="post-18x">Post 1.8.x:<a class="headerlink" href="#post-18x" title="Permanent link">&para;</a></h4>
-<p>On-going work to improve/cleanup/pay technical debt. When this work is completed
-there will be a 1.9.x tagged release</p>
-<h4 id="post-19x">Post 1.9.x<a class="headerlink" href="#post-19x" title="Permanent link">&para;</a></h4>
-<p>Post 1.9.x googletest will follow
-<a href="https://abseil.io/about/philosophy">Abseil Live at Head philosophy</a></p>
+<h3 id="announcements">Announcements:<a class="headerlink" href="#announcements" title="Permanent link">&para;</a></h3>
+<h4 id="release-110x">Release 1.10.x<a class="headerlink" href="#release-110x" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/google/googletest/releases/tag/release-1.10.0">Release 1.10.x</a>
+is now available.</p>
+<h4 id="coming-soon">Coming Soon<a class="headerlink" href="#coming-soon" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Post 1.10.x googletest will follow
+    <a href="https://abseil.io/about/philosophy">Abseil Live at Head philosophy</a></li>
+<li>We are also planning to take a dependency on
+    <a href="https://github.com/abseil/abseil-cpp">Abseil</a>.</li>
+</ul>
 <h2 id="welcome-to-google-test-googles-c-test-framework">Welcome to <strong>Google Test</strong>, Google's C++ test framework!<a class="headerlink" href="#welcome-to-google-test-googles-c-test-framework" title="Permanent link">&para;</a></h2>
 <p>This repository is a merger of the formerly separate GoogleTest and GoogleMock
 projects. These were so closely related that it makes sense to maintain and
@@ -694,6 +676,11 @@ runs tests from your binary in parallel to provide significant speed-up.</p>
 <p><a href="https://marketplace.visualstudio.com/items?itemName=DavidSchuldenfrei.gtest-adapter">GoogleTest Adapter</a>
 is a VS Code extension allowing to view Google Tests in a tree view, and
 run/debug your tests.</p>
+<p><a href="https://github.com/matepek/vscode-catch2-test-adapter">Catch2 and Google Test Explorer</a>
+is a VS Code extension allowing to view Google Tests in a tree view, and
+run/debug your tests.</p>
+<p><a href="https://pypi.org/project/cornichon/">Cornichon</a> is a small Gherkin DSL parser
+that generates stub code for Google Test.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <p>Google Test is designed to have fairly minimal requirements to build and use
 with your projects, but there are some. If you notice any problems on your

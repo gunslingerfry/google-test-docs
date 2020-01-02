@@ -2418,9 +2418,8 @@ using ::testing::Lt;
 
 <p>says that the first argument of <code>InRange()</code> must not be 0, and must be less than
 the second argument.</p>
-<p>The expression inside <code>With()</code> must be a matcher of type
-<code>Matcher&lt; ::std::tuple&lt;A1, ..., An&gt; &gt;</code>, where <code>A1</code>, ..., <code>An</code> are the types of
-the function arguments.</p>
+<p>The expression inside <code>With()</code> must be a matcher of type <code>Matcher&lt;std::tuple&lt;A1,
+..., An&gt;&gt;</code>, where <code>A1</code>, ..., <code>An</code> are the types of the function arguments.</p>
 <p>You can also write <code>AllArgs(m)</code> instead of <code>m</code> inside <code>.With()</code>. The two forms
 are equivalent, but <code>.With(AllArgs(Lt()))</code> is more readable than <code>.With(Lt())</code>.</p>
 <p>You can use <code>Args&lt;k1, ..., kn&gt;(m)</code> to match the <code>n</code> selected arguments (as a
@@ -2442,8 +2441,8 @@ including the <code>Lt()</code> matcher above. See <a href="#MultiArgMatchers">h
 complete list.</p>
 <p>Note that if you want to pass the arguments to a predicate of your own (e.g.
 <code>.With(Args&lt;0, 1&gt;(Truly(&amp;MyPredicate)))</code>), that predicate MUST be written to
-take a <code>::std::tuple</code> as its argument; gMock will pass the <code>n</code> selected
-arguments as <em>one</em> single tuple to the predicate.</p>
+take a <code>std::tuple</code> as its argument; gMock will pass the <code>n</code> selected arguments
+as <em>one</em> single tuple to the predicate.</p>
 <h3 id="using-matchers-as-predicates">Using Matchers as Predicates<a class="headerlink" href="#using-matchers-as-predicates" title="Permanent link">&para;</a></h3>
 <p>Have you noticed that a matcher is just a fancy predicate that also knows how to
 describe itself? Many existing algorithms take predicates as arguments (e.g.
@@ -2581,22 +2580,22 @@ that satisfies matcher <code>m</code>.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Expression</th>
-<th align="left">Description</th>
+<th>Expression</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>Field(&amp;Foo::number, Ge(3))</code></td>
-<td align="left">Matches <code>x</code> where <code>x.number &gt;= 3</code>.</td>
+<td><code>Field(&amp;Foo::number, Ge(3))</code></td>
+<td>Matches <code>x</code> where <code>x.number &gt;= 3</code>.</td>
 </tr>
 <tr>
-<td align="left"><code>Property(&amp;Foo::name,  StartsWith("John "))</code></td>
-<td align="left">Matches <code>x</code> where <code>x.name()</code> starts with  <code>"John "</code>.</td>
+<td><code>Property(&amp;Foo::name,  StartsWith("John "))</code></td>
+<td>Matches <code>x</code> where <code>x.name()</code> starts with  <code>"John "</code>.</td>
 </tr>
 <tr>
-<td align="left"><!-- mdformat on --></td>
-<td align="left"></td>
+<td><!-- mdformat on --></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -2684,11 +2683,11 @@ class BarPlusBazEqMatcher : public MatcherInterface&lt;const Foo&amp;&gt; {
     return (foo.bar() + foo.baz()) == expected_sum_;
   }
 
-  void DescribeTo(::std::ostream* os) const override {
+  void DescribeTo(std::ostream* os) const override {
     *os &lt;&lt; &quot;bar() + baz() equals &quot; &lt;&lt; expected_sum_;
   }
 
-  void DescribeNegationTo(::std::ostream* os) const override {
+  void DescribeNegationTo(std::ostream* os) const override {
     *os &lt;&lt; &quot;bar() + baz() does not equal &quot; &lt;&lt; expected_sum_;
   }
  private:
@@ -3412,7 +3411,7 @@ class Helper {
       .WillOnce(&amp;CalculateSum)
       .WillRepeatedly(Invoke(NewPermanentCallback(Sum3, 1)));
   EXPECT_CALL(foo, ComplexJob(_))
-      .WillOnce(Invoke(&amp;helper, &amp;Helper::ComplexJob));
+      .WillOnce(Invoke(&amp;helper, &amp;Helper::ComplexJob))
       .WillRepeatedly([](int x) { return x &gt; 0; });
 
   foo.Sum(5, 6);         // Invokes CalculateSum(5, 6).
@@ -4559,7 +4558,7 @@ generating readable error messages when expectations are violated.</p>
   MatchResultListener&amp; operator&lt;&lt;(const T&amp; x);
 
   // Returns the underlying ostream.
-  ::std::ostream* stream();
+  std::ostream* stream();
 };
 
 template &lt;typename T&gt;
@@ -4572,10 +4571,10 @@ class MatcherInterface {
   virtual bool MatchAndExplain(T x, MatchResultListener* listener) const = 0;
 
   // Describes this matcher to an ostream.
-  virtual void DescribeTo(::std::ostream* os) const = 0;
+  virtual void DescribeTo(std::ostream* os) const = 0;
 
   // Describes the negation of this matcher to an ostream.
-  virtual void DescribeNegationTo(::std::ostream* os) const;
+  virtual void DescribeNegationTo(std::ostream* os) const;
 };
 </code></pre>
 
@@ -4600,11 +4599,11 @@ class DivisibleBy7Matcher : public MatcherInterface&lt;int&gt; {
     return (n % 7) == 0;
   }
 
-  void DescribeTo(::std::ostream* os) const override {
+  void DescribeTo(std::ostream* os) const override {
     *os &lt;&lt; &quot;is divisible by 7&quot;;
   }
 
-  void DescribeNegationTo(::std::ostream* os) const override {
+  void DescribeNegationTo(std::ostream* os) const override {
     *os &lt;&lt; &quot;is not divisible by 7&quot;;
   }
 };
@@ -4814,25 +4813,25 @@ symbols in the body of <code>ACTION</code>:</p>
 <thead>
 <tr>
 <th align="left"><code>argK_type</code></th>
-<th align="left">The type of the K-th (0-based) argument of the mock function</th>
+<th>The type of the K-th (0-based) argument of the mock function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left"><code>args</code></td>
-<td align="left">All arguments of the mock function as a tuple</td>
+<td>All arguments of the mock function as a tuple</td>
 </tr>
 <tr>
 <td align="left"><code>args_type</code></td>
-<td align="left">The type of all arguments of the mock function as a tuple</td>
+<td>The type of all arguments of the mock function as a tuple</td>
 </tr>
 <tr>
 <td align="left"><code>return_type</code></td>
-<td align="left">The return type of the mock function</td>
+<td>The return type of the mock function</td>
 </tr>
 <tr>
 <td align="left"><code>function_type</code></td>
-<td align="left">The type of the mock function</td>
+<td>The type of the mock function</td>
 </tr>
 </tbody>
 </table>
@@ -4971,7 +4970,7 @@ ACTION_TEMPLATE(DuplicateArg,
                 // Note the comma between int and k:
                 HAS_2_TEMPLATE_PARAMS(int, k, typename, T),
                 AND_1_VALUE_PARAMS(output)) {
-  *output = T(::std::get&lt;k&gt;(args));
+  *output = T(std::get&lt;k&gt;(args));
 }
 </code></pre>
 
@@ -5110,7 +5109,7 @@ class ActionInterface {
   //
 
   // For example, if F is int(bool, const string&amp;), then Result would
-  // be int, and ArgumentTuple would be ::std::tuple&lt;bool, const string&amp;&gt;.
+  // be int, and ArgumentTuple would be std::tuple&lt;bool, const string&amp;&gt;.
   virtual Result Perform(const ArgumentTuple&amp; args) = 0;
 };
 </code></pre>
@@ -5124,8 +5123,8 @@ typedef int IncrementMethod(int*);
 
 class IncrementArgumentAction : public ActionInterface&lt;IncrementMethod&gt; {
  public:
-  int Perform(const ::std::tuple&lt;int*&gt;&amp; args) override {
-    int* p = ::std::get&lt;0&gt;(args);  // Grabs the first argument.
+  int Perform(const std::tuple&lt;int*&gt;&amp; args) override {
+    int* p = std::get&lt;0&gt;(args);  // Grabs the first argument.
     return *p++;
   }
 };
@@ -5164,8 +5163,8 @@ class:</p>
  public:
   template &lt;typename Result, typename ArgumentTuple&gt;
   Result Perform(const ArgumentTuple&amp; args) const {
-    // To get the i-th (0-based) argument, use ::std::get(args).
-    return ::std::get&lt;1&gt;(args);
+    // To get the i-th (0-based) argument, use std::get(args).
+    return std::get&lt;1&gt;(args);
   }
 };
 </code></pre>
