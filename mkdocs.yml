@@ -2,13 +2,11 @@ site_name: Google Test Docs Mirror
 nav:
     - Home: index.md
     - Google Test:
-        - Index: gtest/googletest/docs/Documentation.md
+        - Index: gtest/googletest/docs/index.md
         - Primer: gtest/googletest/docs/primer.md
         - FAQ: gtest/googletest/docs/faq.md
         - Advanced: gtest/googletest/docs/advanced.md
-        - Xcode: gtest/googletest/docs/XcodeGuide.md
-        - Pump: gtest/googletest/docs/PumpManual.md
-        - pkg-config: gtest/googletest/docs/Pkgconfig.md
+        - pkg-config: gtest/googletest/docs/pkgconfig.md
         - Samples: gtest/googletest/docs/samples.md
     - Google Mock:
         - Index: gtest/googlemock/docs/index.md
@@ -16,6 +14,7 @@ nav:
         - Cheat Sheet: gtest/googlemock/docs/cheat_sheet.md
         - Cookbook: gtest/googlemock/docs/cook_book.md
         - FAQ: gtest/googlemock/docs/gmock_faq.md
+        - Pump Manual: gtest/googlemock/docs/pump_manual.md
 repo_url: https://github.com/google/googletest
 repo_name: Google Test
 # edit_uri: "blob/master/googletest/docs/"
