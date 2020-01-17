@@ -2952,6 +2952,15 @@ each with parameter values <code>"meeny"</code>, <code>"miny"</code>, and <code>
 function scope.</p>
 <p>NOTE: Don't forget this step! If you do your test will silently pass, but none
 of its suites will ever run!</p>
+<p>There is work in progress to make omitting <code>INSTANTIATE_TEST_SUITE_P</code> show up
+under the <code>GoogleTestVerification</code> test suite and to then make that an error.
+If you have a test suite where that omission is not an error, for example it is
+in a library that may be linked in for other reason or where the list of test
+cases is dynamic and may be empty, then this check can be suppressed by tagging
+the test suite:</p>
+<pre><code class="c++">GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(FooTest);
+</code></pre>
+
 <p>To distinguish different instances of the pattern (yes, you can instantiate it
 more than once), the first argument to <code>INSTANTIATE_TEST_SUITE_P</code> is a prefix
 that will be added to the actual test suite name. Remember to pick unique

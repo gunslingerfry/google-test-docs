@@ -444,9 +444,21 @@ class FailureTest : public Test {
 
 }  // namespace
 
+std::set<std::string>* GetIgnoredParameterizedTestSuites() {
+  return UnitTest::GetInstance()->impl()->ignored_parameterized_test_suites();
+}
+
+// Add a given test_suit to the list of them allow to go un-instantiated.
+MarkAsIgnored::MarkAsIgnored(const char* test_suite) {
+  GetIgnoredParameterizedTestSuites()->insert(test_suite);
+}
+
 // If this parameterized test suite has no instantiations (and that
 // has not been marked as okay), emit a test case reporting that.
 void InsertSyntheticTestCase(const std::string &name, CodeLocation location) {
+  const auto& ignored = *GetIgnoredParameterizedTestSuites();
+  if (ignored.find(name) != ignored.end()) return;
+
   std::string message =
       "Paramaterized test suite " + name +
       " is defined via TEST_P, but never instantiated. None of the test cases "
@@ -455,7 +467,12 @@ void InsertSyntheticTestCase(const std::string &name, CodeLocation location) {
       "\n\n"
       "Ideally, TEST_P definitions should only ever be included as part of "
       "binaries that intend to use them. (As opposed to, for example, being "
-      "placed in a library that may be linked in to get other utilities.)";
+      "placed in a library that may be linked in to get other utilities.)"
+      "\n\n"
+      "To suppress this error for this test suite, insert the following line "
+      "(in a non-header) in the namespace it is defined in:"
+      "\n\n"
+      "GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(" + name + ");";
 
   std::string full_name = "UninstantiatedParamaterizedTestSuite<" + name + ">";
   RegisterTest(  //
@@ -498,8 +515,10 @@ void TypeParameterizedTestSuiteRegistry::RegisterInstantiation(
 }
 
 void TypeParameterizedTestSuiteRegistry::CheckForInstantiations() {
+  const auto& ignored = *GetIgnoredParameterizedTestSuites();
   for (const auto& testcase : suites_) {
     if (testcase.second.instantiated) continue;
+    if (ignored.find(testcase.first) != ignored.end()) continue;
 
     std::string message =
         "Type paramaterized test suite " + testcase.first +
@@ -509,7 +528,13 @@ void TypeParameterizedTestSuiteRegistry::CheckForInstantiations() {
         "Ideally, TYPED_TEST_P definitions should only ever be included as "
         "part of binaries that intend to use them. (As opposed to, for "
         "example, being placed in a library that may be linked in to get other "
-        "utilities.)";
+        "utilities.)"
+        "\n\n"
+        "To suppress this error for this test suite, insert the following line "
+        "(in a non-header) in the namespace it is definedin in:"
+        "\n\n"
+        "GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(" +
+        testcase.first + ");";
 
     std::string full_name =
         "UninstantiatedTypeParamaterizedTestSuite<" + testcase.first + ">";
@@ -6289,7 +6314,11 @@ std::string TempDir() {
   else
     return std::string(temp_dir) + "\\";
 #elif GTEST_OS_LINUX_ANDROID
-  return "/sdcard/";
+  const char* temp_dir = internal::posix::GetEnv("TEST_TMPDIR");
+  if (temp_dir == nullptr || temp_dir[0] == '\0')
+    return "/data/local/tmp/";
+  else
+    return temp_dir;
 #else
   return "/tmp/";
 #endif  // GTEST_OS_WINDOWS_MOBILE
