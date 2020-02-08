@@ -2210,6 +2210,11 @@ Catching Failures</p>
 <td>if death tests are supported, verifies that <code>statement</code> crashes with the given error; otherwise verifies nothing</td>
 </tr>
 <tr>
+<td><code>ASSERT_DEBUG_DEATH(statement, matcher);</code></td>
+<td><code>EXPECT_DEBUG_DEATH(statement, matcher);</code></td>
+<td><code>statement</code> crashes with the given error <strong>in debug mode</strong>. When not in debug (i.e. <code>NDEBUG</code> is defined), this just executes <code>statement</code></td>
+</tr>
+<tr>
 <td><code>ASSERT_EXIT(statement, predicate, matcher);</code></td>
 <td><code>EXPECT_EXIT(statement, predicate, matcher);</code></td>
 <td><code>statement</code> exits with the given error, and its exit code matches <code>predicate</code></td>

@@ -1896,7 +1896,7 @@ which must be a permanent callback.</p>
 </tr>
 <tr>
 <td><code>MATCHER_P(IsDivisibleBy, n, "") { *result_listener &lt;&lt; "where the remainder is " &lt;&lt; (arg % n); return (arg % n) == 0; }</code></td>
-<td>Defines a macher <code>IsDivisibleBy(n)</code> to match a number divisible by <code>n</code>.</td>
+<td>Defines a matcher <code>IsDivisibleBy(n)</code> to match a number divisible by <code>n</code>.</td>
 </tr>
 <tr>
 <td><code>MATCHER_P2(IsBetween, a, b, std::string(negation ? "isn't" : "is") + " between " + PrintToString(a) + " and " + PrintToString(b)) { return a &lt;= arg &amp;&amp; arg &lt;= b; }</code></td>
