@@ -1878,7 +1878,7 @@ sadly they are side effects of C++'s limitations):</p>
     <code>NiceMock&lt;StrictMock&lt;MockFoo&gt; &gt;</code>) is <strong>not</strong> supported.</li>
 <li><code>NiceMock&lt;MockFoo&gt;</code> and <code>StrictMock&lt;MockFoo&gt;</code> may not work correctly if the
     destructor of <code>MockFoo</code> is not virtual. We would like to fix this, but it
-    requires cleaning up existing tests. http://b/28934720 tracks the issue.</li>
+    requires cleaning up existing tests.</li>
 <li>During the constructor or destructor of <code>MockFoo</code>, the mock object is <em>not</em>
     nice or strict. This may cause surprises if the constructor or destructor
     calls a mock method on <code>this</code> object. (This behavior, however, is consistent
@@ -3373,7 +3373,7 @@ precedence" rule, but they don't interact. That is, <code>EXPECT_CALL</code>s ha
 own precedence order distinct from the <code>ON_CALL</code> precedence order.</p>
 <h3 id="using-functionsmethodsfunctorslambdas-as-actions-functionsasactions">Using Functions/Methods/Functors/Lambdas as Actions {#FunctionsAsActions}<a class="headerlink" href="#using-functionsmethodsfunctorslambdas-as-actions-functionsasactions" title="Permanent link">&para;</a></h3>
 <p>If the built-in actions don't suit you, you can use an existing callable
-(function, <code>std::function</code>, method, functor, lambda as an action.</p>
+(function, <code>std::function</code>, method, functor, lambda) as an action.</p>
 <!-- GOOGLETEST_CM0024 DO NOT DELETE -->
 
 <pre><code class="cpp">using ::testing::_; using ::testing::Invoke;
@@ -3400,6 +3400,7 @@ class Helper {
       .WillRepeatedly(Invoke(NewPermanentCallback(Sum3, 1)));
   EXPECT_CALL(foo, ComplexJob(_))
       .WillOnce(Invoke(&amp;helper, &amp;Helper::ComplexJob))
+      .WillOnce([] { return true; })
       .WillRepeatedly([](int x) { return x &gt; 0; });
 
   foo.Sum(5, 6);         // Invokes CalculateSum(5, 6).
@@ -3409,11 +3410,11 @@ class Helper {
 </code></pre>
 
 <p>The only requirement is that the type of the function, etc must be <em>compatible</em>
-with the signature of the mock function, meaning that the latter's arguments can
-be implicitly converted to the corresponding arguments of the former, and the
-former's return type can be implicitly converted to that of the latter. So, you
-can invoke something whose type is <em>not</em> exactly the same as the mock function,
-as long as it's safe to do so - nice, huh?</p>
+with the signature of the mock function, meaning that the latter's arguments (if
+it takes any) can be implicitly converted to the corresponding arguments of the
+former, and the former's return type can be implicitly converted to that of the
+latter. So, you can invoke something whose type is <em>not</em> exactly the same as the
+mock function, as long as it's safe to do so - nice, huh?</p>
 <p><strong><code>Note:</code>{.escaped}</strong></p>
 <ul>
 <li>The action takes ownership of the callback and will delete it when the
@@ -3459,17 +3460,18 @@ TEST_F(FooTest, Test) {
 </code></pre>
 
 <h3 id="invoking-a-functionmethodfunctorlambdacallback-without-arguments">Invoking a Function/Method/Functor/Lambda/Callback Without Arguments<a class="headerlink" href="#invoking-a-functionmethodfunctorlambdacallback-without-arguments" title="Permanent link">&para;</a></h3>
-<p><code>Invoke()</code> is very useful for doing actions that are more complex. It passes the
-mock function's arguments to the function, etc being invoked such that the
-callee has the full context of the call to work with. If the invoked function is
-not interested in some or all of the arguments, it can simply ignore them.</p>
+<p><code>Invoke()</code> passes the mock function's arguments to the function, etc being
+invoked such that the callee has the full context of the call to work with. If
+the invoked function is not interested in some or all of the arguments, it can
+simply ignore them.</p>
 <p>Yet, a common pattern is that a test author wants to invoke a function without
-the arguments of the mock function. <code>Invoke()</code> allows her to do that using a
-wrapper function that throws away the arguments before invoking an underlining
-nullary function. Needless to say, this can be tedious and obscures the intent
-of the test.</p>
-<p><code>InvokeWithoutArgs()</code> solves this problem. It's like <code>Invoke()</code> except that it
-doesn't pass the mock function's arguments to the callee. Here's an example:</p>
+the arguments of the mock function. She could do that using a wrapper function
+that throws away the arguments before invoking an underlining nullary function.
+Needless to say, this can be tedious and obscures the intent of the test.</p>
+<p>There are two solutions to this problem. First, you can pass any callable of
+zero args as an action. Alternatively, use <code>InvokeWithoutArgs()</code>, which is like
+<code>Invoke()</code> except that it doesn't pass the mock function's arguments to the
+callee. Here's an example of each:</p>
 <pre><code class="cpp">using ::testing::_;
 using ::testing::InvokeWithoutArgs;
 
@@ -3484,7 +3486,7 @@ bool Job2(int n, char c) { ... }
 ...
   MockFoo foo;
   EXPECT_CALL(foo, ComplexJob(_))
-      .WillOnce(InvokeWithoutArgs(Job1))
+      .WillOnce([] { Job1(); });
       .WillOnce(InvokeWithoutArgs(NewPermanentCallback(Job2, 5, 'a')));
 
   foo.ComplexJob(10);  // Invokes Job1().
