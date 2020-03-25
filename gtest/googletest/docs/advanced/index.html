@@ -747,6 +747,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stop-test-execution-upon-first-failure" title="Stop test execution upon first failure" class="md-nav__link">
+    Stop test execution upon first failure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#temporarily-disabling-tests" title="Temporarily Disabling Tests" class="md-nav__link">
     Temporarily Disabling Tests
   </a>
@@ -1425,6 +1432,13 @@
           <li class="md-nav__item">
   <a href="#running-a-subset-of-the-tests" title="Running a Subset of the Tests" class="md-nav__link">
     Running a Subset of the Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-test-execution-upon-first-failure" title="Stop test execution upon first failure" class="md-nav__link">
+    Stop test execution upon first failure
   </a>
   
 </li>
@@ -3570,6 +3584,13 @@ written as <code>'-NegativePatterns'</code>.</p>
     everything in test suite <code>FooTest</code> except <code>FooTest.Bar</code> and everything in
     test suite <code>BarTest</code> except <code>BarTest.Foo</code>.</li>
 </ul>
+<h4 id="stop-test-execution-upon-first-failure">Stop test execution upon first failure<a class="headerlink" href="#stop-test-execution-upon-first-failure" title="Permanent link">&para;</a></h4>
+<p>By default, a googletest program runs all tests the user has defined. In some
+cases (e.g. iterative test development &amp; execution) it may be desirable stop
+test execution upon first failure (trading improved latency for completeness).
+If <code>GTEST_FAIL_FAST</code> environment variable or <code>--gtest_fail_fast</code> flag is set,
+the test runner will stop execution as soon as the first test failure is
+found.</p>
 <h4 id="temporarily-disabling-tests">Temporarily Disabling Tests<a class="headerlink" href="#temporarily-disabling-tests" title="Permanent link">&para;</a></h4>
 <p>If you have a broken test that you cannot fix right away, you can add the
 <code>DISABLED_</code> prefix to its name. This will exclude it from execution. This is
