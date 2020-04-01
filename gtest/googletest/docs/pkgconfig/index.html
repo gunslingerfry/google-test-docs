@@ -356,27 +356,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#autotools" title="Autotools" class="md-nav__link">
-    Autotools
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meson" title="Meson" class="md-nav__link">
-    Meson
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plain-makefiles" title="Plain Makefiles" class="md-nav__link">
-    Plain Makefiles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#help-pkg-config-cant-find-googletest" title="Help! pkg-config can't find GoogleTest!" class="md-nav__link">
     Help! pkg-config can't find GoogleTest!
   </a>
@@ -553,27 +532,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#autotools" title="Autotools" class="md-nav__link">
-    Autotools
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meson" title="Meson" class="md-nav__link">
-    Meson
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plain-makefiles" title="Plain Makefiles" class="md-nav__link">
-    Plain Makefiles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#help-pkg-config-cant-find-googletest" title="Help! pkg-config can't find GoogleTest!" class="md-nav__link">
     Help! pkg-config can't find GoogleTest!
   </a>
@@ -652,65 +610,6 @@ splitting the pkg-config <code>Cflags</code> variable into include dirs and macr
 <code>target_compile_definitions()</code> might still miss this). The same recommendation
 goes for using <code>_LDFLAGS</code> over the more commonplace <code>_LIBRARIES</code>, which happens
 to discard <code>-L</code> flags and <code>-pthread</code>.</p>
-<h3 id="autotools">Autotools<a class="headerlink" href="#autotools" title="Permanent link">&para;</a></h3>
-<p>Finding GoogleTest in Autoconf and using it from Automake is also fairly easy:</p>
-<p>In your <code>configure.ac</code>:</p>
-<pre><code>AC_PREREQ([2.69])
-AC_INIT([my_gtest_pkgconfig], [0.0.1])
-AC_CONFIG_SRCDIR([samples/sample3_unittest.cc])
-AC_PROG_CXX
-
-PKG_CHECK_MODULES([GTEST], [gtest_main])
-
-AM_INIT_AUTOMAKE([foreign subdir-objects])
-AC_CONFIG_FILES([Makefile])
-AC_OUTPUT
-</code></pre>
-
-<p>and in your <code>Makefile.am</code>:</p>
-<pre><code>check_PROGRAMS = testapp
-TESTS = $(check_PROGRAMS)
-
-testapp_SOURCES = samples/sample3_unittest.cc
-testapp_CXXFLAGS = $(GTEST_CFLAGS)
-testapp_LDADD = $(GTEST_LIBS)
-</code></pre>
-
-<h3 id="meson">Meson<a class="headerlink" href="#meson" title="Permanent link">&para;</a></h3>
-<p>Meson natively uses pkgconfig to query dependencies:</p>
-<pre><code>project('my_gtest_pkgconfig', 'cpp', version : '0.0.1')
-
-gtest_dep = dependency('gtest_main')
-
-testapp = executable(
-  'testapp',
-  files(['samples/sample3_unittest.cc']),
-  dependencies : gtest_dep,
-  install : false)
-
-test('first_and_only_test', testapp)
-</code></pre>
-
-<h3 id="plain-makefiles">Plain Makefiles<a class="headerlink" href="#plain-makefiles" title="Permanent link">&para;</a></h3>
-<p>Since <code>pkg-config</code> is a small Unix command-line utility, it can be used in
-handwritten <code>Makefile</code>s too:</p>
-<pre><code class="makefile">GTEST_CFLAGS = `pkg-config --cflags gtest_main`
-GTEST_LIBS = `pkg-config --libs gtest_main`
-
-.PHONY: tests all
-
-tests: all
-  ./testapp
-
-all: testapp
-
-testapp: testapp.o
-  $(CXX) $(CXXFLAGS) $(LDFLAGS) $&lt; -o $@ $(GTEST_LIBS)
-
-testapp.o: samples/sample3_unittest.cc
-  $(CXX) $(CPPFLAGS) $(CXXFLAGS) $&lt; -c -o $@ $(GTEST_CFLAGS)
-</code></pre>
-
 <h3 id="help-pkg-config-cant-find-googletest">Help! pkg-config can't find GoogleTest!<a class="headerlink" href="#help-pkg-config-cant-find-googletest" title="Permanent link">&para;</a></h3>
 <p>Let's say you have a <code>CMakeLists.txt</code> along the lines of the one in this
 tutorial and you try to run <code>cmake</code>. It is very possible that you get a failure
