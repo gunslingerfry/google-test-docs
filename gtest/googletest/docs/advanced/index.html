@@ -843,6 +843,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#detecting-test-premature-exit" title="Detecting Test Premature Exit" class="md-nav__link">
+    Detecting Test Premature Exit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#turning-assertion-failures-into-break-points" title="Turning Assertion Failures into Break-Points" class="md-nav__link">
     Turning Assertion Failures into Break-Points
   </a>
@@ -1531,6 +1538,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detecting-test-premature-exit" title="Detecting Test Premature Exit" class="md-nav__link">
+    Detecting Test Premature Exit
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#turning-assertion-failures-into-break-points" title="Turning Assertion Failures into Break-Points" class="md-nav__link">
@@ -3983,6 +3997,15 @@ TEST(LogicTest, NonContradiction) { ... }
 
 <p>IMPORTANT: The exact format of the JSON document is subject to change.</p>
 <h3 id="controlling-how-failures-are-reported">Controlling How Failures Are Reported<a class="headerlink" href="#controlling-how-failures-are-reported" title="Permanent link">&para;</a></h3>
+<h4 id="detecting-test-premature-exit">Detecting Test Premature Exit<a class="headerlink" href="#detecting-test-premature-exit" title="Permanent link">&para;</a></h4>
+<p>Google Test implements the <em>premature-exit-file</em> protocol for test runners
+to catch any kind of unexpected exits of test programs. Upon start,
+Google Test creates the file which will be automatically deleted after
+all work has been finished. Then, the test runner can check if this file
+exists. In case the file remains undeleted, the inspected test has exited
+prematurely.</p>
+<p>This feature is enabled only if the <code>TEST_PREMATURE_EXIT_FILE</code> environment
+variable has been set.</p>
 <h4 id="turning-assertion-failures-into-break-points">Turning Assertion Failures into Break-Points<a class="headerlink" href="#turning-assertion-failures-into-break-points" title="Permanent link">&para;</a></h4>
 <p>When running test programs under a debugger, it's very convenient if the
 debugger can catch an assertion failure and automatically drop into interactive
