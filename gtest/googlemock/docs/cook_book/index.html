@@ -2983,8 +2983,8 @@ brittle tests. For example, we may care about <code>A</code> occurring before bo
 <code>C</code>, but aren't interested in the relative order of <code>B</code> and <code>C</code>. In this case,
 the test should reflect our real intent, instead of being overly constraining.</p>
 <p>gMock allows you to impose an arbitrary DAG (directed acyclic graph) on the
-calls. One way to express the DAG is to use the <a href="#AfterClause">After</a> clause of
-<code>EXPECT_CALL</code>.</p>
+calls. One way to express the DAG is to use the
+<a href="../cheat_sheet/#AfterClause">After</a> clause of <code>EXPECT_CALL</code>.</p>
 <p>Another way is via the <code>InSequence()</code> clause (not the same as the <code>InSequence</code>
 class), which we borrowed from jMock 2. It's less flexible than <code>After()</code>, but
 more convenient when you have long chains of sequential calls, as it doesn't
