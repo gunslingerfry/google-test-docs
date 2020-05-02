@@ -2015,7 +2015,7 @@ alone with them. For a list of matchers gMock provides, read
 <a href="../../../googlemock/docs/cook_book/##using-matchers">this</a>. It's easy to write
 your <a href="../../../googlemock/docs/cook_book/#NewMatchers">own matchers</a> too.</p>
 <p>gMock is bundled with googletest, so you don't need to add any build dependency
-in order to take advantage of this. Just include <code>"testing/base/public/gmock.h"</code>
+in order to take advantage of this. Just include <code>"gmock/gmock.h"</code>
 and you're ready to go.</p>
 <h3 id="more-string-assertions">More String Assertions<a class="headerlink" href="#more-string-assertions" title="Permanent link">&para;</a></h3>
 <p>(Please read the <a href="#asserting-using-gmock-matchers">previous</a> section first if
@@ -2509,7 +2509,7 @@ particular style of death tests by setting the flag programmatically:</p>
 or in individual tests. Recall that flags are saved before running each test and
 restored afterwards, so you need not do that yourself. For example:</p>
 <pre><code class="c++">int main(int argc, char** argv) {
-  InitGoogle(argv[0], &amp;argc, &amp;argv, true);
+  ::testing::InitGoogleTest(&amp;argc, argv);
   ::testing::FLAGS_gtest_death_test_style = &quot;fast&quot;;
   return RUN_ALL_TESTS();
 }
@@ -3311,7 +3311,7 @@ your utility. What framework would you use to test it? googletest, of course.</p
 In frameworks that report a failure by throwing an exception, you could catch
 the exception and assert on it. But googletest doesn't use exceptions, so how do
 we test that a piece of code generates an expected failure?</p>
-<p>gunit-spi.h contains some constructs to do this. After #including this header,
+<p><code>"gtest/gtest-spi.h"</code> contains some constructs to do this. After #including this header,
 you can use</p>
 <pre><code class="c++">  EXPECT_FATAL_FAILURE(statement, substring);
 </code></pre>
@@ -3441,8 +3441,8 @@ class TestInfo {
 </code></pre>
 
 <p><code>current_test_info()</code> returns a null pointer if no test is running. In
-particular, you cannot find the test suite name in <code>TestSuiteSetUp()</code>,
-<code>TestSuiteTearDown()</code> (where you know the test suite name implicitly), or
+particular, you cannot find the test suite name in <code>SetUpTestSuite()</code>,
+<code>TearDownTestSuite()</code> (where you know the test suite name implicitly), or
 functions called from them.</p>
 <h2 id="extending-googletest-by-handling-test-events">Extending googletest by Handling Test Events<a class="headerlink" href="#extending-googletest-by-handling-test-events" title="Permanent link">&para;</a></h2>
 <p>googletest provides an <strong>event listener API</strong> to let you receive notifications
