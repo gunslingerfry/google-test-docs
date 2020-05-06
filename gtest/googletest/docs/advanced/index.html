@@ -802,6 +802,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#suppressing-test-passes" title="Suppressing test passes" class="md-nav__link">
+    Suppressing test passes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#suppressing-the-elapsed-time" title="Suppressing the Elapsed Time" class="md-nav__link">
     Suppressing the Elapsed Time
   </a>
@@ -1494,6 +1501,13 @@
           <li class="md-nav__item">
   <a href="#colored-terminal-output" title="Colored Terminal Output" class="md-nav__link">
     Colored Terminal Output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suppressing-test-passes" title="Suppressing test passes" class="md-nav__link">
+    Suppressing test passes
   </a>
   
 </li>
@@ -3718,6 +3732,10 @@ command line flag to <code>yes</code>, <code>no</code>, or <code>auto</code> (th
 disable colors, or let googletest decide. When the value is <code>auto</code>, googletest
 will use colors if and only if the output goes to a terminal and (on non-Windows
 platforms) the <code>TERM</code> environment variable is set to <code>xterm</code> or <code>xterm-color</code>.</p>
+<h4 id="suppressing-test-passes">Suppressing test passes<a class="headerlink" href="#suppressing-test-passes" title="Permanent link">&para;</a></h4>
+<p>By default, googletest prints 1 line of output for each test, indicating if it
+passed or failed. To show only test failures, run the test program with
+<code>--gtest_brief=1</code>, or set the GTEST_BRIEF environment variable to <code>1</code>.</p>
 <h4 id="suppressing-the-elapsed-time">Suppressing the Elapsed Time<a class="headerlink" href="#suppressing-the-elapsed-time" title="Permanent link">&para;</a></h4>
 <p>By default, googletest prints the time it takes to run each test. To disable
 that, run the test program with the <code>--gtest_print_time=0</code> command line flag, or
