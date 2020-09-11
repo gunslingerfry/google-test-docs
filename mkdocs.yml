@@ -15,6 +15,8 @@ nav:
         - Cookbook: gtest/googlemock/docs/cook_book.md
         - FAQ: gtest/googlemock/docs/gmock_faq.md
         - Pump Manual: gtest/googlemock/docs/pump_manual.md
+        - Community Created Documentation: gtest/googlemock/docs/community_created_documentation.md
+            - ElectricRCAircraftGuy \- insights: community_created_documentation/insights.md
 repo_url: https://github.com/google/googletest
 repo_name: Google Test
 # edit_uri: "blob/master/googletest/docs/"
