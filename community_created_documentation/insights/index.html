@@ -15,7 +15,7 @@
     
     
       
-        <title>ElectricRCAircraftGuy - Google Test Docs Mirror</title>
+        <title>gmock insights - Google Test Docs Mirror</title>
       
     
     
@@ -77,7 +77,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              ElectricRCAircraftGuy
+              gmock insights
             
           </span>
         </div>
@@ -418,18 +418,41 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7-2" type="checkbox" id="nav-3-7-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-7-2">
+      ElectricRCAircraftGuy
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="ElectricRCAircraftGuy" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-7-2">
+        <span class="md-nav__icon md-icon"></span>
+        ElectricRCAircraftGuy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        ElectricRCAircraftGuy
+        gmock insights
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="ElectricRCAircraftGuy" class="md-nav__link md-nav__link--active">
-      ElectricRCAircraftGuy
+    <a href="./" title="gmock insights" class="md-nav__link md-nav__link--active">
+      gmock insights
     </a>
     
       
@@ -445,31 +468,31 @@
       
         <li class="md-nav__item">
   <a href="#the-nuances" class="md-nav__link">
-    The nuances:
+    The nuances
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#the-documentation" class="md-nav__link">
-    The documentation:
+    The documentation
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#some-subtle-rules-to-remember-in-general" class="md-nav__link">
-    Some subtle rules to remember in general:
+    Some subtle rules to remember in general
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#the-answers" class="md-nav__link">
-    The answers:
+    The answers
   </a>
   
-    <nav class="md-nav" aria-label="The answers:">
+    <nav class="md-nav" aria-label="The answers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -500,14 +523,14 @@
       
         <li class="md-nav__item">
   <a href="#practice-using-gtestgmock" class="md-nav__link">
-    Practice using gtest/gmock:
+    Practice using gtest/gmock
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#related" class="md-nav__link">
-    Related:
+    Related
   </a>
   
 </li>
@@ -516,6 +539,11 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -552,31 +580,31 @@
       
         <li class="md-nav__item">
   <a href="#the-nuances" class="md-nav__link">
-    The nuances:
+    The nuances
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#the-documentation" class="md-nav__link">
-    The documentation:
+    The documentation
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#some-subtle-rules-to-remember-in-general" class="md-nav__link">
-    Some subtle rules to remember in general:
+    Some subtle rules to remember in general
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#the-answers" class="md-nav__link">
-    The answers:
+    The answers
   </a>
   
-    <nav class="md-nav" aria-label="The answers:">
+    <nav class="md-nav" aria-label="The answers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -607,14 +635,14 @@
       
         <li class="md-nav__item">
   <a href="#practice-using-gtestgmock" class="md-nav__link">
-    Practice using gtest/gmock:
+    Practice using gtest/gmock
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#related" class="md-nav__link">
-    Related:
+    Related
   </a>
   
 </li>
@@ -635,7 +663,7 @@
                   
                 
                 
-                  <h1>ElectricRCAircraftGuy</h1>
+                  <h1>gmock insights</h1>
                 
                 <p>insights.md
 -a detailed look at some aspects of the proper usage of googlemocks/googletest</p>
@@ -648,35 +676,35 @@
 <p><em>All of the below code was tested with Googletest/Googlemock <a href="https://github.com/google/googletest/releases">v1.10.0</a>, which was released 3 Oct. 2019.</em></p>
 <p>If you'd like to run tests for yourself but don't have googletest or googlemock set up on your system, <a href="https://github.com/ElectricRCAircraftGuy/eRCaGuy_gtest_practice">here's a bare-bones project I created</a> to get it up and running quickly on Ubuntu. Go clone it and play with it yourself. It may act as a starting point to help you get it running on Mac or Windows as well.</p>
 <p>This is a really important question, so I feel compelled to have a hack at it.</p>
-<h2 id="the-nuances">The nuances:<a class="headerlink" href="#the-nuances" title="Permanent link">&para;</a></h2>
+<h2 id="the-nuances">The nuances<a class="headerlink" href="#the-nuances" title="Permanent link">&para;</a></h2>
 <p>Let me start by saying that Google Mock (gmock) is <em>nuanced</em>. That means there are lots of subtleties to understand, and this is difficult. Even the documentation is a bit scattered, and you kind of need to carefully read and study <em>it all</em> to really grasp some or even most of these nuances, since they don't do a good job of repeating certain important points in each of the documents. So, here is all of the official documentation: if you're doing this for work, tell your supervisor you are going to set aside several days to carefully go through the gtest and gmock documentation and to practice examples to get a strong grasp on it.</p>
-<h2 id="the-documentation">The documentation:<a class="headerlink" href="#the-documentation" title="Permanent link">&para;</a></h2>
+<h2 id="the-documentation">The documentation<a class="headerlink" href="#the-documentation" title="Permanent link">&para;</a></h2>
 <p><em>As you read and study the below documentation, save each one as (print it to) a PDF, then use <a href="https://www.foxitsoftware.com/pdf-reader/">Foxit Reader</a> for free on Windows, Mac, or Linux, to edit, take notes in, and highlight or underline the PDF as you go. This way you have notes of the most important things you need to remember. See my <code>*_GS_edit.pdf</code> PDFs <a href="https://github.com/ElectricRCAircraftGuy/eRCaGuy_dotfiles/tree/master/googletest/gtest">here</a> and <a href="https://github.com/ElectricRCAircraftGuy/eRCaGuy_dotfiles/tree/master/googletest/gmock">here</a> for examples of taking notes and marking up PDFs that I have done as I've learned Google Test and Google Mock.</em></p>
 <p><strong>Official Google Documentation:</strong></p>
 <ol>
 <li>gtest: it's all in this folder: https://github.com/google/googletest/tree/master/googletest/docs. The key documents to study, in this order probably, are the:<ol>
-<li><strong>primer</strong></li>
-<li><strong>FAQ</strong></li>
-<li><strong>samples</strong> (look at and carefully study the source code for <em>at least</em> the first 3 samples)</li>
-<li>advanced</li>
+<li><a href="../../gtest/googletest/docs/primer/">primer</a></li>
+<li><a href="../../gtest/googletest/docs/faq/">FAQ</a></li>
+<li><a href="../../gtest/googletest/docs/samples/">samples</a> (look at and carefully study the source code for <em>at least</em> the first 3 samples)</li>
+<li><a href="../../gtest/googletest/docs/advanced/">advanced</a></li>
 </ol>
 </li>
 <li>gmock: it's all in this folder: https://github.com/google/googletest/tree/master/googlemock/docs. The key documents to study, in this order probably, are the:<ol>
-<li><strong>for dummies</strong></li>
-<li><strong>cook book</strong></li>
-<li><strong>cheat sheet</strong> - this is the best one-stop-shop or "summary of gmock rules" of all of the docs, but lacks some things that are even spelled out explicitly in (and only in) the "for dummies" manual that you will need in addition to this doc.</li>
-<li><strong>FAQ</strong></li>
-<li><strong>for dummies</strong> &lt;-- yes, AGAIN! AFTER doing and attempting to write a bunch of tests and mocks, then <em>come back</em> and re-read this document again! It will make sooo much more sense the 2nd time around after putting gtest and gmock principles into practice yourself first.</li>
+<li><a href="../../gtest/googlemock/docs/for_dummies/">for dummies</a></li>
+<li><a href="../../gtest/googlemock/docs/cook_book/">cook book</a></li>
+<li><a href="../../gtest/googlemock/docs/cheat_sheet/">cheat sheet</a> - this is the best one-stop-shop or "summary of gmock rules" of all of the docs, but lacks some things that are even spelled out explicitly in (and only in) the "for dummies" manual that you will need in addition to this doc.</li>
+<li><a href="../../gtest/googlemock/docs/gmock_faq/">FAQ</a></li>
+<li><a href="../../gtest/googlemock/docs/for_dummies/">for dummies</a> &lt;-- yes, AGAIN! AFTER doing and attempting to write a bunch of tests and mocks, then <em>come back</em> and re-read this document again! It will make sooo much more sense the 2nd time around after putting gtest and gmock principles into practice yourself first.</li>
 </ol>
 </li>
 </ol>
-<h2 id="some-subtle-rules-to-remember-in-general">Some subtle rules to remember in general:<a class="headerlink" href="#some-subtle-rules-to-remember-in-general" title="Permanent link">&para;</a></h2>
+<h2 id="some-subtle-rules-to-remember-in-general">Some subtle rules to remember in general<a class="headerlink" href="#some-subtle-rules-to-remember-in-general" title="Permanent link">&para;</a></h2>
 <ol>
-<li>"Remember that the test order is undefined, so your code can't depend on a test preceding or following another" (https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#sharing-resources-between-tests-in-the-same-test-suite).</li>
-<li>"<strong>Important note:</strong> gMock requires expectations to be set <strong>before</strong> the mock functions are called, otherwise the behavior is <strong>undefined</strong>. In particular, you mustn't interleave <code>EXPECT_CALL()</code>s and calls to the mock functions" (https://github.com/google/googletest/blob/master/googlemock/docs/for_dummies.md#using-mocks-in-tests)</li>
+<li><a href="../../gtest/googletest/docs/advanced/#sharing-resources-between-tests-in-the-same-test-suite">"Remember that the test order is undefined, so your code can't depend on a test preceding or following another"</a>.</li>
+<li><a href="../../gtest/googlemock/docs/for_dummies/#using-mocks-in-tests">"<strong>Important note:</strong> gMock requires expectations to be set <strong>before</strong> the mock functions are called, otherwise the behavior is <strong>undefined</strong>. In particular, you mustn't interleave <code>EXPECT_CALL()</code>s and calls to the mock functions"</a></li>
 </ol>
 <hr />
-<h2 id="the-answers">The answers:<a class="headerlink" href="#the-answers" title="Permanent link">&para;</a></h2>
+<h2 id="the-answers">The answers<a class="headerlink" href="#the-answers" title="Permanent link">&para;</a></h2>
 <h3 id="question-1-if-i-call-expect_call-twice-on-the-same-mock-object-in-the-same-test_f-what-happens">Question 1: "If I call <code>EXPECT_CALL</code> twice on the same mock object in the same <code>TEST_F</code> . . . what happens?"<a class="headerlink" href="#question-1-if-i-call-expect_call-twice-on-the-same-mock-object-in-the-same-test_f-what-happens" title="Permanent link">&para;</a></h3>
 <p>A: First off, whether your're using the <code>TEST()</code> macro or the <code>TEST_F()</code> macro in this case makes no difference. The <code>TEST()</code> macro simply expands into a class which publicly inherits from the <code>::testing::Test</code> class, and the <code>TEST_F()</code> macro simply expands into a class which inherits from your test fixture class (the first parameter to <code>TEST_F()</code>), which must publicly inherit from the <code>::testing::Test</code> class.</p>
 <p>Many <code>EXPECT_CALL</code>s can be called on the same mock object (mock class), from general to specific, as follows:</p>
@@ -699,7 +727,7 @@ EXPECT_CALL(myMockClass, myMockMethod(5));
 ...
 EXPECT_CALL(myMockClass, myMockMethod(1000));
 </code></pre>
-<p>In particular, the above <code>EXPECT_CALL</code>s each specify that a call to <code>myMockMethod()</code> with that matching signature must occur <em>exactly 1 time</em>. That's because the <a href="https://github.com/google/googletest/blob/master/googlemock/docs/for_dummies.md#cardinalities-how-many-times-will-it-be-called">cardinality rules</a> in this case dictate than an implicit <code>.Times(1)</code> is present on each of those <code>EXPECT_CALL</code>s, even though you don't see it written.</p>
+<p>In particular, the above <code>EXPECT_CALL</code>s each specify that a call to <code>myMockMethod()</code> with that matching signature must occur <em>exactly 1 time</em>. That's because the <a href="../../gtest/googlemock/docs/for_dummies/#cardinalities-how-many-times-will-it-be-called">cardinality rules</a> in this case dictate than an implicit <code>.Times(1)</code> is present on each of those <code>EXPECT_CALL</code>s, even though you don't see it written.</p>
 <p>To specify that you want a given <code>EXPECT_CALL</code> to mach <em>any</em> input value for a given parameter, use the <code>::testing::_</code> matcher, like this:</p>
 <pre><code>using ::testing::_;
 
@@ -707,7 +735,7 @@ EXPECT_CALL(myMockClass, myMockMethod(_));
 </code></pre>
 </li>
 <li>
-<p><strong>Don't have <em>duplicate <code>EXPECT_CALL</code>s with the same matcher signature</em> on the same mock method, but <em>multiple</em> <code>EXPECT_CALL</code>s with <em>overlapping/overriding</em> (but NOT duplicate) matcher signatures on the same mock method are OK:</strong> If you attach more than one <code>EXPECT_CALL</code> to the same <em>matching values</em>, only <em>the last one set</em> will have any effect. See <a href="https://github.com/google/googletest/blob/master/googlemock/docs/for_dummies.md#using-multiple-expectations-multiexpectations">here</a>, <a href="https://github.com/google/googletest/blob/master/googlemock/docs/for_dummies.md#all-expectations-are-sticky-unless-said-otherwise-stickyexpectations">here</a>, and <a href="https://github.com/google/googletest/blob/master/googlemock/docs/cook_book.md#performing-different-actions-based-on-the-arguments">here</a>, for instance. This means if you have two or more <code>EXPECT_CALL</code>s with duplicate matcher signatures (the same parameters passed to the mock method), then ONLY THE LAST ONE WILL EVER GET ANY CALLS.</p>
+<p><strong>Don't have <em>duplicate <code>EXPECT_CALL</code>s with the same matcher signature</em> on the same mock method, but <em>multiple</em> <code>EXPECT_CALL</code>s with <em>overlapping/overriding</em> (but NOT duplicate) matcher signatures on the same mock method are OK:</strong> If you attach more than one <code>EXPECT_CALL</code> to the same <em>matching values</em>, only <em>the last one set</em> will have any effect. See <a href="../../gtest/googlemock/docs/for_dummies/#using-multiple-expectations-multiexpectations">here</a>, <a href="../../gtest/googlemock/docs/for_dummies/#all-expectations-are-sticky-unless-said-otherwise-stickyexpectations">here</a>, and <a href="../../gtest/googlemock/docs/cook_book/#performing-different-actions-based-on-the-arguments">here</a>, for instance. This means if you have two or more <code>EXPECT_CALL</code>s with duplicate matcher signatures (the same parameters passed to the mock method), then ONLY THE LAST ONE WILL EVER GET ANY CALLS.</p>
 <p>Therefore, your test will ALWAYS FAIL except in the unusual case that all <code>EXPECT_CALL</code>s except the last one have a <code>.Times(0)</code> value, specifying that they will <em>never</em> be called, as indeed this is the case: the last <code>EXPECT_CALL</code> will match all of the calls for these matchers and all duplicate <code>EXPECT_CALL</code>s above it will have <em>no</em> matching calls! Here is an example of a test which will <strong>always fail</strong> as a result of this behavior. This is the main behavior that @luantkow focuses on <a href="https://stackoverflow.com/a/44035118/4561887">in his answer here</a>.</p>
 <pre><code>using ::testing::_;
 
@@ -820,7 +848,7 @@ TEST_F(MyTestFixture, MyCustomTest)
 }
 </code></pre>
 <p>So, what's a valid solution here? Well, if you can break this test up into 3 different, independent tests, just do that! But, what if these 3 tests are interconnected in such a way you cannot separate them? Example: you are trying to test a throttling function which throttles print output to only once per second, for instance, even if you try to print more often that that per second. Well, in this case there are some work-arounds.</p>
-<p>First, let's review: per the <a href="https://github.com/google/googletest/blob/master/googlemock/docs/cheat_sheet.md#setting-expectations-expectcall">Google Mock Cheat Sheet</a>, here are the ways to configure an <code>EXPECT_CALL()</code>:</p>
+<p>First, let's review: per the <a href="../../gtest/googlemock/docs/cheat_sheet/#setting-expectations-expectcall">Google Mock Cheat Sheet</a>, here are the ways to configure an <code>EXPECT_CALL()</code>:</p>
 <pre><code>EXPECT_CALL(mock-object, method (matchers)?)
      .With(multi-argument-matcher)  ?
      .Times(cardinality)            ?
@@ -833,7 +861,7 @@ TEST_F(MyTestFixture, MyCustomTest)
 <blockquote>
 <p>For each item above, <code>?</code> means it can be used at most once, while <code>*</code> means it can be used any number of times.</p>
 </blockquote>
-<p>We need to use the <code>.WillRepeatedly(action)</code> option with an <code>action</code> which <a href="https://github.com/google/googletest/blob/master/googlemock/docs/cheat_sheet.md#side-effects">produces side effects</a> or <a href="https://github.com/google/googletest/blob/master/googlemock/docs/cheat_sheet.md#using-a-function-functor-or-lambda-as-an-action">calls a function, functor, or lambda</a> as an action.</p>
+<p>We need to use the <code>.WillRepeatedly(action)</code> option with an <code>action</code> which <a href="../../gtest/googlemock/docs/cheat_sheet/#side-effects">produces side effects</a> or <a href="../../gtest/googlemock/docs/cheat_sheet/#using-a-function-functor-or-lambda-as-an-action">calls a function, functor, or lambda</a> as an action.</p>
 <p>Here are some work-arounds to safely and correctly perform the above test which had undefined behavior. <em>If you want to see the best approach first, just jump straight down to #3 below:</em></p>
 <ol>
 <li>
@@ -842,7 +870,7 @@ TEST_F(MyTestFixture, MyCustomTest)
 <blockquote>
 <p><code>.Times()</code> cannot appear after <code>.InSequence()</code>, <code>.WillOnce()</code>, <code>.WillRepeatedly()</code>, or <code>.RetiresOnSaturation()</code>,</p>
 </blockquote>
-<p>...so it turns out we don't need to (and we are not even <em>allowed to</em>) specify <code>.Times(::testing::AnyNumber())</code> here. Instead, gmock will figure it out automatically, according to <a href="https://github.com/google/googletest/blob/master/googlemock/docs/for_dummies.md#cardinalities-how-many-times-will-it-be-called">these cardinality rules</a>, since we are using <code>.WillRepeatedly()</code>:</p>
+<p>...so it turns out we don't need to (and we are not even <em>allowed to</em>) specify <code>.Times(::testing::AnyNumber())</code> here. Instead, gmock will figure it out automatically, according to <a href="../../gtest/googlemock/docs/for_dummies/#cardinalities-how-many-times-will-it-be-called">these cardinality rules</a>, since we are using <code>.WillRepeatedly()</code>:</p>
 <blockquote>
 <p><strong>If you omit <code>Times()</code>, gMock will infer the cardinality for you.</strong> The rules are easy to remember:</p>
 <ul>
@@ -1022,11 +1050,11 @@ TEST_F(MyTestFixture, MyCustomTest)
 </li>
 </ol>
 <p>If you think this whole answer should be added as a stand-alone file among the Gmock docs (I propose we do this), click the github issue link just below and upvote it.</p>
-<h2 id="practice-using-gtestgmock">Practice using gtest/gmock:<a class="headerlink" href="#practice-using-gtestgmock" title="Permanent link">&para;</a></h2>
+<h2 id="practice-using-gtestgmock">Practice using gtest/gmock<a class="headerlink" href="#practice-using-gtestgmock" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Use this project to practice writing and testing your own google tests and google mocks. This is also a good demo of how to get a new project up and running with Google's <a href="https://bazel.build/">Bazel build system</a>: https://github.com/ElectricRCAircraftGuy/eRCaGuy_gtest_practice.</li>
+<li>Use this project to practice writing and testing your own google tests and google mocks. This is also a good demo of how to get a new project up and running with Google's <a href="https://bazel.build/">Bazel build system</a>: <a href="https://github.com/ElectricRCAircraftGuy/eRCaGuy_gtest_practice">https://github.com/ElectricRCAircraftGuy/eRCaGuy_gtest_practice</a>.</li>
 </ol>
-<h2 id="related">Related:<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ol>
 <li>GitHub issue I opened to request to add this answer as a standalone document in their official documentation. If you agree, please go here and upvote this issue: <a href="https://github.com/google/googletest/issues/2775">https://github.com/google/googletest/issues/2775</a></li>
 <li><a href="https://stackoverflow.com/questions/44249293/google-mock-how-to-say-function-must-be-called-once-with-a-certain-parameter/60896373#60896373">https://stackoverflow.com/questions/44249293/google-mock-how-to-say-function-must-be-called-once-with-a-certain-parameter/60896373#60896373</a></li>
